@@ -70,6 +70,22 @@ export interface MissionaryProject {
   needs: string[];
 }
 
+export interface MinistryPartner {
+  id: string;
+  name: string;
+  country: string;
+  role: string;
+  description: string;
+}
+
+export interface FacultyArea {
+  id: string;
+  area: string;
+  description: string;
+  subjects: string[];
+  contributionType: string;
+}
+
 export interface EnrollmentSubmission {
   fullName: string;
   phone: string;

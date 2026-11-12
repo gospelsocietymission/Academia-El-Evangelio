@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { BookOpen, Menu, X, GraduationCap, ChevronRight, MessageCircle } from 'lucide-react';
+import { BookOpen, Menu, X, GraduationCap, ChevronRight, MessageCircle, Heart, Users } from 'lucide-react';
 import { INSTITUTION_INFO, buildWhatsAppUrl } from '../data/academyData';
 
-export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'proyectos';
+export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'facultad' | 'proyectos';
 
 interface NavbarProps {
   currentPage: NavPage;
   onSelectPage: (page: NavPage) => void;
   onOpenEnrollment: () => void;
+  onOpenDonation: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   currentPage,
   onSelectPage,
   onOpenEnrollment,
+  onOpenDonation,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -21,6 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'Inicio', page: 'inicio' },
     { label: 'Programas', page: 'programas' },
     { label: 'Quiénes Somos', page: 'quienes-somos' },
+    { label: 'Facultad Invitada', page: 'facultad' },
     { label: 'Proyectos Misioneros', page: 'proyectos' },
   ];
 
@@ -78,15 +81,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </button>
 
-        {/* 4 Page Nav Links */}
-        <nav className="hidden lg:flex items-center gap-2 text-sm font-medium">
+        {/* 5 Page Nav Links */}
+        <nav className="hidden xl:flex items-center gap-1.5 text-sm font-medium">
           {navItems.map((item) => {
             const isActive = currentPage === item.page;
             return (
               <button
                 key={item.page}
                 onClick={() => handlePageClick(item.page)}
-                className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   isActive
                     ? 'bg-amber-500 text-slate-950 shadow-md'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800'
@@ -98,13 +101,44 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Zone 3: WhatsApp + Inscríbete + Mobile hamburger */}
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        {/* Medium screens (lg to xl) condensed links */}
+        <nav className="hidden lg:flex xl:hidden items-center gap-1 text-sm font-medium">
+          {navItems.map((item) => {
+            const isActive = currentPage === item.page;
+            return (
+              <button
+                key={item.page}
+                onClick={() => handlePageClick(item.page)}
+                className={`px-2.5 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-amber-500 text-slate-950 shadow-md'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
+        </nav>
+
+        {/* Zone 3: Donar + WhatsApp + Inscríbete + Mobile hamburger */}
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          
+          {/* Prominent Donar Button */}
+          <button
+            onClick={onOpenDonation}
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-rose-500/20 active:scale-95 transition-all cursor-pointer"
+            title="Apoyar con una donación"
+          >
+            <Heart className="w-3.5 h-3.5 fill-white" />
+            <span className="hidden sm:inline">Donar</span>
+          </button>
+
           <a
             href={buildWhatsAppUrl(INSTITUTION_INFO.whatsappText)}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs tracking-wide shadow-md active:scale-95 transition-all whitespace-nowrap"
+            className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs tracking-wide shadow-md active:scale-95 transition-all whitespace-nowrap"
           >
             <MessageCircle className="w-3.5 h-3.5 fill-white" />
             <span>WhatsApp</span>
@@ -112,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={onOpenEnrollment}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs tracking-wider uppercase shadow-md hover:shadow-amber-500/20 active:scale-95 transition-all whitespace-nowrap cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs tracking-wider uppercase shadow-md hover:shadow-amber-500/20 active:scale-95 transition-all whitespace-nowrap cursor-pointer"
           >
             <GraduationCap className="w-4 h-4" />
             <span>Inscríbete</span>
@@ -157,6 +191,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenDonation();
+              }}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer"
+            >
+              <Heart className="w-4 h-4 fill-white" />
+              <span>Hacer una Donación</span>
+            </button>
+
             <a
               href={buildWhatsAppUrl(INSTITUTION_INFO.whatsappText)}
               target="_blank"
@@ -171,7 +216,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenEnrollment();
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-md transition-all"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer"
             >
               <GraduationCap className="w-4 h-4" />
               <span>Solicitar Admisión</span>

@@ -17,6 +17,16 @@ export const INSTITUTION_INFO = {
   biblicalVerse: {
     text: "Lo que has oído de mí ante muchos testigos, esto encarga a hombres fieles que sean idóneos para enseñar también a otros.",
     reference: "2 Timoteo 2:2"
+  },
+  founder: {
+    name: "Pastor Isaías Martínez",
+    role: "Fundador de Academia Bíblica El Evangelio",
+    startYear: 2004,
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/isaias.jpg",
+    quote: "Mientras he viajado por muchos países descubrí la urgente necesidad de llevar educación bíblica de manera profunda, pero con lenguaje local y verdaderamente entendible en sus propios contextos.",
+    bio: "Desde el año 2004, el hermano y Pastor Isaías Martínez ha recorrido incansablemente aldeas, cantones, montañas y ciudades de Centroamérica y el continente americano, sembrando la semilla de la educación teológica contextualizada para obreros y pastores que no tienen acceso a seminarios convencionales.",
+    mapEmbedUrl: "https://www.google.com/maps/d/embed?mid=1ijD8MLhiJUTGl5WNLDrsPcad2Lxh0T4",
+    mapViewerUrl: "https://www.google.com/maps/d/viewer?mid=1ijD8MLhiJUTGl5WNLDrsPcad2Lxh0T4"
   }
 };
 
@@ -555,3 +565,91 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: "Inscripciones"
   }
 ];
+
+export const MINISTRY_PARTNERS = [
+  {
+    id: "partner-1",
+    name: "Iglesias Presbiterianas de El Salvador",
+    country: "El Salvador",
+    role: "Aval Doctrinal y Sede Ahuachapán",
+    description: "Comunión de iglesias reformadas históricas que respaldan y facilitan sedes presenciales y laboratorios de púlpito para pastores rurales."
+  },
+  {
+    id: "partner-2",
+    name: "Red de Institutos Bíblicos Fronterizos",
+    country: "Guatemala y México",
+    role: "11 Institutos Bíblicos Afiliados",
+    description: "Alianza formativa en el altiplano de San Marcos (Tacaná y Chiapas) donde la Academia provee materiales y jornadas intensivas de estudio."
+  },
+  {
+    id: "partner-3",
+    name: "Confraternidad Pastoral de Occidente",
+    country: "Nicaragua",
+    role: "Sedes Chinandega y Tipitapa",
+    description: "Pastores de diversas denominaciones evangélicas unidos para el discipulado y entrega de folletos por correspondencia en comunidades agrícolas."
+  },
+  {
+    id: "partner-4",
+    name: "Misión Evangélica del Valle y Sur",
+    country: "Honduras",
+    role: "Sede y Centro Misionero San Lorenzo",
+    description: "Obreros y directores ministeriales comprometidos con la formación de misioneros rurales de campo y apoyo social a pescadores y campesinos."
+  },
+  {
+    id: "partner-5",
+    name: "Asociación Bíblica de la Meseta Central",
+    country: "Costa Rica",
+    role: "Sede Cartago y Tutorías",
+    description: "Pastores y maestros que coordinan el avance modular de líderes locales en valles y cantones costarricenses."
+  },
+  {
+    id: "partner-6",
+    name: "Gospel Society Mission & Amigos Internacionales",
+    country: "Internacional",
+    role: "Apoyo Misionero y Becas",
+    description: "Red de donantes y ministerios fraternos que hacen posible la gratuidad de la matrícula y la subvención de folletos para estudiantes de escasos recursos."
+  }
+];
+
+export const FACULTY_DATA = {
+  titulo: "¿Quiénes son Nuestros Colaboradores Educativos o Facultad Invitada?",
+  lema: "Servicio Ad-Honorem Movidos por Amor al Evangelio",
+  descripcion: "Nuestros colaboradores educativos son pastores y líderes comprometidos con el llamado de enseñar la Palabra de Dios. A través de un permiso especial y firmado, nos permiten utilizar sus recursos educativos disponibles en la red para integrarlos en nuestro programa de clases. Aunque no forman parte directa de la estructura administrativa de la Academia, estos colaboradores se suman como una facultad independiente, contribuyendo de manera significativa al desarrollo académico y espiritual de nuestros estudiantes.",
+  caracteristicas: [
+    {
+      titulo: "Colaboradores Honoríficos (Ad-Honorem)",
+      detalle: "Participan sin recibir remuneración económica alguna, movidos únicamente por amor al Evangelio y pasión por equipar a otros en el conocimiento de las Escrituras."
+    },
+    {
+      titulo: "Permisos Formales y Recursos Autorizados",
+      detalle: "Cada curso incorpora material estructurado con consentimiento expreso de pastores y teólogos de reconocida solvencia bíblica en Iberoamérica."
+    },
+    {
+      titulo: "Foco en el Contexto Rural Centroamericano",
+      detalle: "Los contenidos son dosificados y contextualizados por nuestros mentores de campo para que los pastores de aldeas y cantones puedan aplicarlos de inmediato."
+    },
+    {
+      titulo: "Evaluación y Mentoría Colegiada",
+      detalle: "En cada encuentro presencial mensual, pastores locales con experiencia ministerial evalúan las exposiciones y laboratorios prácticos de los estudiantes."
+    }
+  ],
+  areas: [
+    {
+      area: "Hermenéutica Bíblica y Teología Exegética",
+      enfoque: "Capacitación en interpretación sana gramático-histórica, alejándose de alegorías y falsas doctrinas."
+    },
+    {
+      area: "Homilética y Predicación Expositiva",
+      enfoque: "Arquitectura del sermón bíblico verso a verso, oratoria pastoral y comunicación cristocéntrica."
+    },
+    {
+      area: "Consejería Bíblica Pastoral",
+      enfoque: "Atención al corazón humano, resolución de conflictos matrimoniales, duelo y restauración bajo la Gracia."
+    },
+    {
+      area: "Misiología Práctica y Plantación Rural",
+      enfoque: "Estrategias de supervivencia de campo, discipulado multiplicador y mayordomía en comunidades de bajos recursos."
+    }
+  ]
+};
+
