@@ -55,6 +55,7 @@ export interface PhysicalBranch {
   fullLocation: string;
   type: string;
   description: string;
+  ruralImage: string;
 }
 
 export interface MissionaryProject {

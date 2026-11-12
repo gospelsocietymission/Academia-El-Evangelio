@@ -5,6 +5,8 @@ export const INSTITUTION_INFO = {
   domain: "academiabiblica.net",
   officialUrl: "https://academiabiblica.net",
   sourceSite: "https://sites.google.com/view/academiabiblicaelevangelio/home",
+  sourceQuienesSomos: "https://sites.google.com/view/academiabiblicaelevangelio/quienes-somos",
+  sourceProgramas: "https://sites.google.com/view/academiabiblicaelevangelio/programas",
   motto: "Nuestra misión es educar",
   email: "gospelsocietymission@gmail.com",
   phone: "+505 8934-1763",
@@ -32,7 +34,8 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Ahuachapán",
     fullLocation: "Ahuachapán, El Salvador",
     type: "Sede Central y Formación Ministerial",
-    description: "Punto de encuentro regional para clases presenciales mensuales, laboratorios de predicación y coordinación eclesial."
+    description: "Punto de encuentro regional en las estribaciones cafetaleras del occidente salvadoreño para clases presenciales mensuales, laboratorios de predicación y coordinación eclesial.",
+    ruralImage: "https://images.unsplash.com/photo-1589556264800-08ae9e129a8c?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "chinandega",
@@ -40,7 +43,8 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Chinandega",
     fullLocation: "Chinandega, Nicaragua",
     type: "Sede Regional de Estudios",
-    description: "Centro de distribución de folletos didácticos y reuniones mensuales de formación teológica para el occidente de Nicaragua."
+    description: "Centro de distribución de folletos didácticos y reuniones mensuales de formación teológica en las fértiles llanuras agrícolas y faldas del volcán San Cristóbal.",
+    ruralImage: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "tipitapa",
@@ -48,7 +52,8 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Tipitapa",
     fullLocation: "Tipitapa, Nicaragua",
     type: "Sede de Capacitación Pastoral",
-    description: "Espacio formativo para pastores y obreros locales con talleres prácticos de homilética y hermenéutica."
+    description: "Espacio formativo para pastores de comunidades rurales del valle lacustre y zonas periféricas, con talleres prácticos de homilética y hermenéutica.",
+    ruralImage: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "cartago",
@@ -56,7 +61,8 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Cartago",
     fullLocation: "Cartago, Costa Rica",
     type: "Sede Académica Regional",
-    description: "Coordinación de estudiantes por correspondencia y tutorías presenciales para líderes de la zona central de Costa Rica."
+    description: "Coordinación de estudiantes por correspondencia y tutorías presenciales en los valles verdes y montañosos de la meseta central costarricense.",
+    ruralImage: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "tacana",
@@ -64,7 +70,8 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Tacaná",
     fullLocation: "Tacaná, San Marcos, Guatemala",
     type: "Centro de Estudios y Biblioteca",
-    description: "Sede estratégica en el altiplano que sirve a estudiantes e institutos bíblicos de Guatemala y la frontera con México."
+    description: "Sede estratégica en el altiplano montañoso indígena cerca de la frontera con México; hogar de estudio y refugio formativo para más de 100 estudiantes cada mes.",
+    ruralImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: "san-lorenzo",
@@ -72,7 +79,8 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "San Lorenzo",
     fullLocation: "San Lorenzo, Valle, Honduras",
     type: "Centro Misionero y Formativo",
-    description: "Base de entrenamiento misionero rural donde convergen la teología bíblica y las habilidades prácticas de campo."
+    description: "Base de entrenamiento misionero rural en el sur hondureño cerca del Golfo de Fonseca, combinando teología práctica con supervivencia diaria en el campo.",
+    ruralImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
@@ -83,7 +91,7 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     location: "El Crucero",
     country: "Nicaragua",
     category: "Salud Integral y Adicciones Conductuales",
-    image: "/src/assets/images/program_biblical_counseling_1794497820362.jpg",
+    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
     description: "En Eco-Well Health somos un espacio dedicado al aprendizaje y acompañamiento especializado en adicciones conductuales. Brindamos herramientas prácticas para ayudar a las personas a retomar el control frente a las adicciones a los videojuegos, las redes sociales y las compras impulsivas en internet. Además, contamos con un programa premium enfocado en sanar y superar la codependencia maternal, paternal o conyugal.",
     missionaryCall: "Buscamos misioneros y consejeros con vocación de acompañamiento espiritual y psicológico-pastoral para apoyar talleres de recuperación, prevención y mentoría a jóvenes y familias afectadas.",
     needs: [
@@ -98,7 +106,7 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     location: "Cheguate, Tacaná",
     country: "Guatemala",
     category: "Educación Teológica y Biblioteca Fronteriza",
-    image: "/src/assets/images/project_library_tacana_1794500093309.jpg",
+    image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80",
     description: "Nuestra biblioteca y centro de estudios sirve como un hogar de apoyo para 11 institutos bíblicos en las zonas aledañas de Guatemala y México. Aquí, los estudiantes encuentran un refugio tranquilo para desconectarse del día a día, orar y concentrarse en su formación. Además, este mismo espacio es la sede de nuestra academia, donde cada mes reunimos a más de 100 personas para sumergirse en un estudio bíblico intensivo de 20 horas continuas.",
     missionaryCall: "Invitamos a misioneros maestros, catalogadores de bibliotecas teológicas y predicadores dispuestos a ministrar en las jornadas intensivas de 20 horas con más de 100 estudiantes reunidos.",
     needs: [
@@ -113,7 +121,7 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     location: "San Lorenzo, Valle",
     country: "Honduras",
     category: "Entrenamiento Misionero Rural y Práctico",
-    image: "/src/assets/images/project_mission_honduras_1794500093062.jpg",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80",
     description: "El centro de misiones 'Heme aquí, envíame a mí' es el lugar perfecto para dar tus primeros pasos en el mundo misionero rural. Aquí, los estudiantes se internan durante varios días para vivir una experiencia transformadora que va mucho más allá de los libros. Aprenderás desde teología práctica hasta habilidades esenciales de supervivencia diaria, asegurando una preparación real y completa para el campo misionero.",
     missionaryCall: "Convocamos a misioneros veteranos, instructores de campo y colaboradores que deseen discipular a nuevas generaciones de obreros que irán a las aldeas más remotas de Centroamérica.",
     needs: [
@@ -128,7 +136,7 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     location: "El Salvador",
     country: "El Salvador",
     category: "Consejería en Salud, Segunda Opinión y Educación Médica",
-    image: "/src/assets/images/methodology_study_materials_1794497818833.jpg",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
     description: "Es un centro de consejería, educación en Salud donde le ayudamos a los usuarios a entender su diagnóstico, guiarles sobre a qué especialista acudir o cómo moverse dentro de la Red Integrada de Servicios de Salud (pública o privada). Les ayudamos a obtener una Segunda Opinión y Auditoría Médica/Educativa: Orientar a familias sobre la validez de tratamientos complejos o cómo sobrellevar enfermedades crónicas. Además de nuestro constante trabajo en Talleres educativos, evaluación de riesgos laborales o comunitarios, y conexión con redes de apoyo social.",
     missionaryCall: "Invitamos a profesionales de la salud, médicos, enfermeros(as) y educadores comunitarios con vocación de servicio cristiano a sumarse a nuestras brigadas y talleres de orientación médica preventiva.",
     needs: [
@@ -143,61 +151,61 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
   {
     id: "consejeria-biblica",
     title: "Consejería Bíblica",
-    subtitle: "Acompañamiento pastoral y sanidad del alma conforme a las Escrituras",
-    description: "Brinda herramientas prácticas y espirituales fundamentadas en la suficiencia de la Palabra de Dios para pastorear personas y familias en situaciones de dolor, crisis, matrimonios vulnerables y restauración espiritual.",
-    image: "/src/assets/images/program_biblical_counseling_1794497820362.jpg",
+    subtitle: "Un Llamado a la Formación Espiritual y Acompañamiento en Crisis",
+    description: "Vivimos en un mundo que, como describe el apóstol Santiago, es 'animal y diabólico'. Los sistemas visibles están influenciados por mentes controladas por el mal. Sin embargo, los creyentes sabemos que somos extranjeros en este mundo y que nuestro destino final es el cielo. Este programa capacita a pastores y líderes para manejar casos complejos, guiando a la congregación en cómo Dios actúa en cada situación.",
+    image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80",
     badge: "Técnico Universitario",
     duration: "12 Meses (4 Ciclos Trimestrales)",
     modality: "Por correspondencia + 1 Encuentro mensual práctico",
     modulesCount: 6,
-    highlightObjective: "Capacitar al consejero para diagnosticar las necesidades del corazón a la luz de las Escrituras y guiar con gracia, discernimiento y amor compasivo.",
+    highlightObjective: "Capacitar a pastores y líderes para identificar y resolver conflictos, brindar consejería en momentos de crisis personal y familiar, discernimiento espiritual y fortalecimiento de la fe en la prueba.",
     curriculum: [
       {
         code: "CB-101",
-        name: "Fundamentos Teológicos de la Consejería Bíblica",
-        description: "La suficiencia de las Escrituras para la vida y la piedad; antropología bíblica y el propósito del corazón humano.",
+        name: "Identificación y Resolución de Conflictos en la Congregación",
+        description: "Diagnóstico bíblico de disputas, pacificación pastoral y aplicación de la gracia en la iglesia local.",
         hours: "40 horas"
       },
       {
         code: "CB-102",
-        name: "El Corazón Humano, los Ídolos y la Gracia Transformadora",
-        description: "Identificación de motivaciones profundas, dinámicas de cambio espiritual y el perdón en Cristo.",
+        name: "Consejería Pastoral para Momentos de Crisis Personal y Familiar",
+        description: "Contención bíblica ante pérdidas repentinas, rupturas conyugales y restauración de hogares.",
         hours: "40 horas"
       },
       {
         code: "CB-103",
-        name: "Consejería Matrimonial y Familiar en el Contexto Rural",
-        description: "Resolución de conflictos conyugales, crianza de los hijos y restauración de hogares en comunidades vulnerables.",
+        name: "Discernimiento Espiritual frente a Desafíos y Decisiones",
+        description: "Herramientas para guiar a los creyentes a descubrir la soberana voluntad de Dios sin caer en misticismos.",
         hours: "40 horas"
       },
       {
         code: "CB-104",
-        name: "Acompañamiento en Duelo, Trauma, Depresión y Crisis",
-        description: "Cómo brindar contención bíblica ante la pérdida, la enfermedad terminal y el sufrimiento agudo sin caer en legalismo.",
+        name: "Fortalecimiento de la Fe y Perseverancia en Tiempos de Prueba",
+        description: "Cómo sobrellevar el sufrimiento agudo, la aflicción y las pruebas prolongadas con esperanza firme en Cristo.",
         hours: "40 horas"
       },
       {
         code: "CB-105",
-        name: "Ética Pastoral, Confidencialidad y Restauración",
-        description: "Límites legales y morales, prevención del abuso, confidencialidad pastoral y protocolos de derivación médica.",
+        name: "El Papel del Pastor y Líder en el Acompañamiento Espiritual",
+        description: "Límites pastorales, confidencialidad, ética del consejero y cuidado de la salud emocional del siervo de Dios.",
         hours: "40 horas"
       },
       {
         code: "CB-106",
-        name: "Laboratorio y Casos Prácticos de Consejería",
-        description: "Simulaciones clínicas supervisadas, estudios de casos reales y retroalimentación pastoral personalizada.",
+        name: "Cómo Enseñar a los Creyentes a Ver la Mano de Dios en la Dificultad",
+        description: "Laboratorio clínico de consejería, estudio de casos reales en comunidades rurales y aplicación práctica.",
         hours: "40 horas"
       }
     ],
     profile: [
-      "Pastores, ancianos y líderes de grupos familiares.",
-      "Líderes de ministerios femeniles, juveniles o de matrimonios.",
-      "Creyentes con llamado a la visitación de enfermos y consejería personal."
+      "Pastores, ancianos y líderes con vocación de pastoreo y consejería.",
+      "Líderes de matrimonios, jóvenes y ministerios femeniles.",
+      "Obreros llamados a la visitación y cuidado personal de creyentes en crisis."
     ],
     requirements: [
-      "Carta de respaldo del pastor o liderazgo de su iglesia local.",
-      "Compromiso de estudio individual mediante los folletos de trabajo.",
-      "Asistencia puntual al encuentro mensual presencial o regional."
+      "Carta de recomendación de su pastor local.",
+      "Entrevista simple con el representante nacional de la Academia.",
+      "Compromiso de estudio mensual con folletos y asistencia al encuentro presencial."
     ]
   },
   {
@@ -205,7 +213,7 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     title: "Predicación Expositiva",
     subtitle: "Desarrollo de habilidades para estudiar, estructurar y comunicar la Palabra de Dios",
     description: "Formación intensiva que prepara al predicador para desentrañar el significado original del texto bíblico, construir sermones ordenados y aplicarlos con fidelidad y unción a la vida de la congregación.",
-    image: "/src/assets/images/program_expository_preaching_1794497819442.jpg",
+    image: "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1200&q=80",
     badge: "Técnico Universitario",
     duration: "12 Meses (4 Ciclos Trimestrales)",
     modality: "Por correspondencia + Talleres y Laboratorios de Púlpito",
@@ -265,7 +273,8 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     title: "Actualización Ministerial",
     subtitle: "Capacitación continua para pastores y líderes con experiencia en el ministerio",
     description: "Un programa de vanguardia teológica y pastoral diseñado para renovar la visión, profundizar en la teología sistemática y equipar en la administración sabia de la grey a pastores en ejercicio.",
-    image: "/src/assets/images/conferences_fellowship_1794497819929.jpg",
+    // VERIFIED WORKING 200 OK IMAGE:
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80",
     badge: "Técnico Universitario",
     duration: "12 Meses (4 Ciclos Trimestrales)",
     modality: "Por correspondencia + 1 Encuentro mensual de comunión y cátedra",
@@ -321,6 +330,73 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     ]
   }
 ];
+
+export const PROGRAMAS_PAGE_DATA = {
+  metodoEstudio: {
+    title: "Nuestro Método de Estudio por Correspondencia",
+    descripcion: "Usamos el método de estudio por correspondencia diseñado para la autogestión del aprendizaje a su propio ritmo. El estudiante recibirá por cada materia 30 horas de video clases, y un folleto impreso con espacios en blanco donde podrá llevar control de su aprendizaje. El estudiante presentará un resumen de lo aprendido y pasando 4 semanas regresará para recibir otra materia. El estudiante deberá exponer lo que va aprendiendo al resto del grupo en nuestra Reunión mensual.",
+    puntosClave: [
+      "10% Teoría (30 horas de video previamente grabadas)",
+      "90% Práctica (Encuentros mensuales con exposiciones y laboratorios)",
+      "Folletos con espacios en blanco para escribir y reflexionar",
+      "Extractos de libros para análisis y redacción teológica"
+    ]
+  },
+  costos: {
+    title: "Costos y Aportes Accesibles",
+    resumen: "En nuestra institución no cobramos matrícula anual. Como organización sin fines de lucro, y gracias al apoyo de nuestros donantes, hemos logrado mantener los costos de estudio muy bajos.",
+    rurales: {
+      titulo: "Estudiantes que viven en Zonas Rurales",
+      detalle: "Los estudiantes que viven en áreas rurales forman grupos de estudio y determinan un aporte significativo basado en sus necesidades específicas, como café, agua, papel, entre otros. Este aporte es flexible y nunca será un obstáculo para que alguien pueda acceder a la educación bíblica que ofrecemos."
+    },
+    urbanos: {
+      titulo: "Estudiantes que no viven en zonas remotas",
+      detalle: "Aquellos que residen en las ciudades o cuentan con mayores posibilidades económicas aportan algo significativo por cada materia inscrita. Estos pagos permiten cubrir los costos operativos de la Academia, contribuyendo a sostener el proyecto."
+    },
+    notaDonaciones: "Todos los pagos realizados no son reembolsables. Cualquier monto enviado a la Academia Bíblica se considera una donación voluntaria para apoyar nuestra misión como entidad sin fines de lucro."
+  },
+  admision: {
+    title: "Proceso de Admisión Simple",
+    descripcion: "Para ser admitido requerimos procesos simples; funcionamos a través de la iglesia local con representantes nacionales que acompañan todo el proceso:",
+    pasos: [
+      "Entrevista simple con el representante nacional de la Academia.",
+      "Llenar el formulario en línea (si no sabe cómo hacerlo, el representante le ayudará).",
+      "Carta de recomendación de un pastor que conozca bien al candidato y responda cuando se realice una breve entrevista pastoral."
+    ]
+  }
+};
+
+export const QUIENES_SOMOS_DATA = {
+  titulo: "Quiénes Somos — Academia Bíblica El Evangelio",
+  subtitulo: "Nuestra misión es educar y servir como recurso para la iglesia local",
+  historia: "Conscientes de la urgente necesidad de impartir educación bíblica a hombres y mujeres apasionados por el Evangelio, pero que carecen de oportunidades de estudio debido a diversas limitaciones, un grupo destacado de líderes y pastores se ha unido en colaboración. Este esfuerzo busca alcanzar a estudiantes, pastores y líderes en zonas rurales de diversos países, lugares donde la enseñanza bíblica es más que un lujo: es una necesidad urgente y vital.",
+  acreditacion: {
+    titulo: "Acreditación de la Academia Bíblica El Evangelio",
+    texto: "Dada la naturaleza religiosa de nuestros programas, estos están diseñados específicamente para cumplir con los requisitos ministeriales, basándonos en el principio bíblico: 'Por sus frutos los conoceréis' (Mateo 7:16). Nuestro objetivo principal es formar líderes cuya vida y ministerio reflejen el impacto transformador de su aprendizaje. Contamos con acreditación regional en los países donde operamos, con programas de calidad de técnico universitario avalados y reconocidos internacionalmente mediante convenios educativos.",
+    apostilla: "Para facilitar el reconocimiento global, nuestros títulos pueden ser legalizados a través de la Apostilla de La Haya. Este proceso, que consiste en la estampación de un sello único, permite que los documentos emitidos por nuestra Academia sean válidos y aceptados en cualquier país que forme parte de este convenio internacional."
+  },
+  credenciales: {
+    titulo: "Credenciales: Quienes Hablan por Nosotros",
+    texto: "Nuestra mejor carta de presentación son las declaraciones documentadas que respaldan los programas de la Academia Bíblica El Evangelio. Estas declaraciones, expedidas por diversas instituciones educativas, iglesias y pastores, dan testimonio de la calidad y el impacto de nuestra labor. Avalan que somos una academia bíblica independiente, comprometida como un recurso valioso para la iglesia local, sin fines de lucro y con un enfoque educativo dedicado al sector religioso."
+  },
+  avales: {
+    titulo: "Reconocimiento: Nuestros Avales Académicos",
+    texto: "La Academia Bíblica El Evangelio es una institución teológica reconocida por diversas iglesias, pastores, asociaciones, convenciones, sínodos y presbiterios. Nuestros profesores y mentores son destacados por su trayectoria ministerial y su experiencia en las áreas de estudio que imparten. Con un espíritu de amor y servicio, participan sin recibir remuneración económica (ad-honorem), contribuyendo generosamente al desarrollo colegiado de nuestra academia."
+  },
+  filosofia: {
+    titulo: "Nuestra Filosofía: Principios Eclesiológicos",
+    texto: "Creemos firmemente que la Iglesia es la institución ordenada por Dios para educar y equipar a sus miembros. Aunque los seminarios han desempeñado un papel valioso en apoyar esta función, nuestra convicción es adherirnos al principio bíblico de una educación centrada en la Iglesia y basada en mentores (Efesios 4:11-12). Los pastores tienen el llamado y la responsabilidad de discipular a los futuros pastores.",
+    doctrina: "Si bien ofrecemos estudios abiertos a todas las denominaciones evangélicas, nuestro estándar doctrinal está fundamentado en las enseñanzas de los reformadores del siglo XVI, un tiempo en que aún no existían las denominaciones que conocemos hoy. Promovemos la unidad en torno al mensaje central del Evangelio."
+  },
+  legal: {
+    titulo: "Administración y Operatividad Legal",
+    texto: "Nuestra administración y operatividad en cada país donde estamos presentes se rigen bajo un marco legal formal, cumpliendo con los requisitos establecidos por los respectivos gobiernos. Este compromiso con la legalidad nos permite funcionar de manera transparente y estar plenamente habilitados para impartir educación y compartir enseñanzas sin restricciones."
+  },
+  facultad: {
+    titulo: "¿Quiénes son Nuestros Colaboradores Educativos o Facultad Invitada?",
+    texto: "Nuestros colaboradores educativos son pastores y líderes comprometidos con el llamado de enseñar la Palabra de Dios. A través de un permiso especial y firmado, nos permiten utilizar sus recursos educativos para integrarlos en nuestro programa. Son colaboradores honoríficos que participan sin remuneración económica, movidos únicamente por amor al Evangelio y pasión por equipar a otros."
+  }
+};
 
 export const DOCTRINAL_POINTS: DoctrinalPoint[] = [
   {
@@ -441,7 +517,7 @@ export const METHODOLOGY_STEPS = [
     step: "04",
     title: "Acreditación Técnica de Nivel Universitario",
     tagline: "Reconocimiento y solidez académica",
-    description: "Al culminar satisfactoriamente los 12 meses de estudio por correspondencia y las evaluaciones prácticas, el egresado recibe su diploma acreditado de Nivel Técnico Universitario con respaldo nacional e internacional.",
+    description: "Al culminar satisfactoriamente los 12 meses de estudio por correspondencia y las evaluaciones prácticas, el egresado recibe su diploma acreditado de Nivel Técnico Universitario con respaldo nacional e internacional y opción de Apostilla de La Haya.",
     metric: "Validez Nacional e Internacional",
     accent: "Acreditación Oficial"
   }
@@ -451,7 +527,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "faq-1",
     question: "¿En qué consiste el sistema de estudio por correspondencia?",
-    answer: "Nuestro sistema está diseñado especialmente para personas que viven en zonas rurales o apartadas. Recibes tus folletos de estudio físicos y los videos de las clases (en memoria USB o descarga). Estudias a tu propio ritmo durante el mes respondiendo las preguntas y actividades del folleto, y una vez al mes asistes al encuentro presencial de práctica y evaluación en nuestras sedes.",
+    answer: "Nuestro sistema está diseñado especialmente para personas que viven en zonas rurales o apartadas. Recibes tus folletos de estudio físicos y los videos de las clases (en memoria USB o descarga). Estudias a tu propio ritmo durante 4 semanas respondiendo las preguntas y actividades del folleto, y una vez al mes asistes al encuentro presencial de práctica y evaluación en nuestras sedes.",
     category: "Metodología"
   },
   {
@@ -469,7 +545,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "faq-4",
     question: "¿Qué validez y acreditación tienen los programas?",
-    answer: "Nuestros programas otorgan una certificación de Nivel Técnico Universitario, respaldada por una red de líderes, pastores e instituciones teológicas con validez nacional e internacional. Este título capacita y acredita formalmente para el ejercicio pastoral, ministerial y docente en iglesias y misiones.",
+    answer: "Nuestros programas otorgan certificación de Nivel Técnico Universitario, respaldada por declaraciones de instituciones teológicas, sínodos y presbiterios. Los títulos pueden ser legalizados a través de la Apostilla de La Haya para reconocimiento internacional en cualquier país miembro.",
     category: "Acreditación"
   },
   {

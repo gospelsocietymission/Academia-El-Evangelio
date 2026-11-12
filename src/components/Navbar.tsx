@@ -1,32 +1,38 @@
 import React, { useState } from 'react';
-import { BookOpen, Menu, X, GraduationCap, PhoneCall, ChevronRight, MessageCircle } from 'lucide-react';
+import { BookOpen, Menu, X, GraduationCap, ChevronRight, MessageCircle } from 'lucide-react';
 import { INSTITUTION_INFO, buildWhatsAppUrl } from '../data/academyData';
 
+export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'proyectos';
+
 interface NavbarProps {
+  currentPage: NavPage;
+  onSelectPage: (page: NavPage) => void;
   onOpenEnrollment: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  currentPage,
+  onSelectPage,
+  onOpenEnrollment,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    { label: 'Inicio', href: '#inicio' },
-    { label: 'Quiénes Somos', href: '#quienes-somos' },
-    { label: 'Metodología', href: '#metodologia' },
-    { label: 'Programas', href: '#programas' },
-    { label: 'Sedes', href: '#sedes' },
-    { label: 'Proyectos', href: '#proyectos' },
-    { label: 'Confesión de Fe', href: '#doctrina-eventos' },
-    { label: 'Contacto', href: '#contacto' },
+  const navItems: { label: string; page: NavPage }[] = [
+    { label: 'Inicio', page: 'inicio' },
+    { label: 'Programas', page: 'programas' },
+    { label: 'Quiénes Somos', page: 'quienes-somos' },
+    { label: 'Proyectos Misioneros', page: 'proyectos' },
   ];
 
-  const handleLinkClick = () => {
+  const handlePageClick = (page: NavPage) => {
+    onSelectPage(page);
     setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <header className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-amber-500/20 text-white shadow-lg transition-all">
-      {/* Top micro ribbon for institutional presence */}
+      {/* Top micro ribbon */}
       <div className="bg-amber-500/10 border-b border-amber-500/20 px-4 py-1.5 text-xs text-amber-200/90 text-center font-medium hidden sm:block">
         <span className="text-amber-400 font-semibold">{INSTITUTION_INFO.motto}</span>
         <span className="mx-2 opacity-40">|</span>
@@ -49,13 +55,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment }) => {
         </a>
       </div>
 
-      {/* Main 3-zone Header */}
+      {/* Main Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         
-        {/* Zone 1: Brand Wordmark & Emblem */}
-        <a 
-          href="#inicio" 
-          className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-lg p-1 shrink-0"
+        {/* Brand */}
+        <button 
+          onClick={() => handlePageClick('inicio')}
+          className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-lg p-1 shrink-0 text-left cursor-pointer"
         >
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 shadow-md flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
             <div className="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center border border-amber-400/40">
@@ -70,28 +76,35 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment }) => {
               EL EVANGELIO
             </span>
           </div>
-        </a>
+        </button>
 
-        {/* Zone 2: Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-5 text-sm font-medium text-slate-300">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="hover:text-amber-400 transition-colors duration-150 py-1 whitespace-nowrap text-[13px] tracking-wide focus:outline-none focus-visible:text-amber-300"
-            >
-              {link.label}
-            </a>
-          ))}
+        {/* 4 Page Nav Links */}
+        <nav className="hidden lg:flex items-center gap-2 text-sm font-medium">
+          {navItems.map((item) => {
+            const isActive = currentPage === item.page;
+            return (
+              <button
+                key={item.page}
+                onClick={() => handlePageClick(item.page)}
+                className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-amber-500 text-slate-950 shadow-md'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800'
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </nav>
 
-        {/* Zone 3: Primary Action + Mobile Trigger */}
+        {/* Zone 3: WhatsApp + Inscríbete + Mobile hamburger */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href={buildWhatsAppUrl(INSTITUTION_INFO.whatsappText)}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs tracking-wide shadow-md active:scale-95 transition-all whitespace-nowrap"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs tracking-wide shadow-md active:scale-95 transition-all whitespace-nowrap"
           >
             <MessageCircle className="w-3.5 h-3.5 fill-white" />
             <span>WhatsApp</span>
@@ -105,13 +118,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment }) => {
             <span>Inscríbete</span>
           </button>
 
-          {/* Mobile Hamburguer Button */}
+          {/* Mobile Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400"
-            aria-label="Abrir menú de navegación"
-            aria-expanded={mobileMenuOpen}
+            className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            aria-label="Abrir menú"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -120,24 +132,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-slate-950 border-b border-amber-500/30 px-5 pt-3 pb-6 space-y-3 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden bg-slate-950 border-b border-amber-500/30 px-5 pt-3 pb-6 space-y-3 shadow-2xl animate-in fade-in duration-200">
           <div className="text-xs uppercase tracking-widest text-amber-400/80 font-semibold pb-1 border-b border-slate-800">
-            Navegación Institucional
+            Páginas del Sitio
           </div>
           <div className="grid grid-cols-1 gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={handleLinkClick}
-                className="flex items-center justify-between px-3 py-2 text-sm font-medium text-slate-200 hover:text-amber-400 hover:bg-slate-900 rounded-md transition-colors"
-              >
-                <span>{link.label}</span>
-                <ChevronRight className="w-4 h-4 text-slate-600" />
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = currentPage === item.page;
+              return (
+                <button
+                  key={item.page}
+                  onClick={() => handlePageClick(item.page)}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-md transition-colors text-left cursor-pointer ${
+                    isActive
+                      ? 'bg-amber-500 text-slate-950 font-bold'
+                      : 'text-slate-200 hover:text-amber-400 hover:bg-slate-900'
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  <ChevronRight className="w-4 h-4 text-slate-500" />
+                </button>
+              );
+            })}
           </div>
-          
+
           <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
             <a
               href={buildWhatsAppUrl(INSTITUTION_INFO.whatsappText)}
@@ -146,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment }) => {
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wide shadow-md transition-colors"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Escribir por WhatsApp ({INSTITUTION_INFO.phone})</span>
+              <span>WhatsApp Directo ({INSTITUTION_INFO.phone})</span>
             </a>
             <button
               onClick={() => {
@@ -156,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment }) => {
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-md transition-all"
             >
               <GraduationCap className="w-4 h-4" />
-              <span>Solicitar Admisión / Inscríbete</span>
+              <span>Solicitar Admisión</span>
             </button>
           </div>
         </div>
