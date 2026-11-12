@@ -1,0 +1,6 @@
+{
+  "name": "Academia Bíblica El Evangelio",
+  "description": "Plataforma web oficial de Academia Bíblica El Evangelio (academiabiblica.net). Educación bíblica y ministerial técnica universitaria para zonas rurales y remotas de Centroamérica con metodología por correspondencia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

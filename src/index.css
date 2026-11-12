@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cinzel", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-navy-950: #070d1d;
+  --color-navy-900: #0b152d;
+  --color-navy-850: #101e3e;
+  --color-navy-800: #17284f;
+  --color-navy-700: #223766;
+  --color-amber-gold: #d4af37;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
