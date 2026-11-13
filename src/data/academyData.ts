@@ -807,11 +807,42 @@ export const FACULTY_MEMBERS: FacultyMember[] = [
 ];
 
 export const FIELD_MENTORS: FieldMentor[] = [
-  { id: "m-1", name: "Pastor Mario Miranda", location: "Cartago, Costa Rica" },
-  { id: "m-2", name: "Pastor Reynaldo Acuna", location: "Chinandega, Nicaragua" },
-  { id: "m-3", name: "Pastor Alexis Núnez", location: "Ahuachapán, El Salvador" },
-  { id: "m-4", name: "Pastor Domingo Flores", location: "Tacaná, Guatemala" },
-  { id: "m-5", name: "Pastor Mario Sorto", location: "Tegucigalpa, Honduras" },
+  {
+    id: "m-1",
+    name: "Pastor Mario Miranda Astorga",
+    role: "Pastor de Iglesia Cristiana Pacto de Vida en Cervantes de Alvarado, Cartago, Costa Rica",
+    location: "Mentor en Academia de Cartago, Costa Rica"
+  },
+  {
+    id: "m-2",
+    name: "Pastor Reynaldo Acuna",
+    role: "Maestro Itinerante de Teologia en todo Nicaragua",
+    location: "Mentor en Academia de Chinandega, Nicaragua"
+  },
+  {
+    id: "m-3",
+    name: "Pastor Alexis Núnez",
+    role: "Pastor en Iglesia Cristo Vive",
+    location: "Mentor en Academia de Ahuachapán, El Salvador"
+  },
+  {
+    id: "m-4",
+    name: "Pastor Domingo Flores",
+    role: "Pastor de Iglesia Mision CentroAmericana en canton las Nubes, Cheguate",
+    location: "Honorifico Donante de terreno para la Biblioteca y Centro de estudios en Cheguate, Tacaná, Guatemala"
+  },
+  {
+    id: "m-5",
+    name: "Pastor Mario Sorto",
+    role: "Pastor y Mentor Regional",
+    location: "Tegucigalpa, Honduras"
+  },
+  {
+    id: "m-8",
+    name: "Pastor Francisco Avila",
+    role: "Pastor de la Iglesia Cristiana Reformada de Aldea Corinto, San Lorenzo, Valle, Honduras",
+    location: "Profesor en Centro Misionero \"Heme aqui, enviame a mi\""
+  },
   {
     id: "m-6",
     name: "Ing. Jhony Cabrera",
@@ -823,6 +854,31 @@ export const FIELD_MENTORS: FieldMentor[] = [
     name: "Dra. Nancy Avila",
     role: "Doctora en Medicina General, Honduras",
     location: "Colaboradora en Salud en Centro Misionero \"Heme aqui, Enviame a mi\""
+  },
+  {
+    id: "m-9",
+    name: "Dra. Damaris Nunez",
+    role: "Doctora en Odontologia",
+    details: "Coordinadora de Brigadas Odontologicas en Mission of Harmony Honduras",
+    location: "Colaboradora en Clinica de Salud Dr. Cisneros"
+  },
+  {
+    id: "m-10",
+    name: "Pastor Denis Fernando Ramirez",
+    role: "Pastor de Iglesia Bautista Independiente de Somoto, Madriz, Nicaragua",
+    location: "Embajador de Academia Biblica en Norte de Nicaragua"
+  },
+  {
+    id: "m-11",
+    name: "Pastor Yesser Gutierrez",
+    role: "Pastor Iglesia Bautista Independiente de Condega, Esteli, Nicaragua",
+    location: "Colaborador de Academia"
+  },
+  {
+    id: "m-12",
+    name: "Pastor Edwin",
+    role: "Presidente de la Fraternidad de Pastores Ministerio Oasis, Chinandega, Nicaragua",
+    location: "Colaborador de Academia"
   }
 ];
 

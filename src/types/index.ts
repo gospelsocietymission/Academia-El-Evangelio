@@ -110,6 +110,7 @@ export interface FieldMentor {
   id: string;
   name: string;
   role?: string;
+  details?: string;
   location: string;
 }
 

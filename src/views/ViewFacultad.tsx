@@ -137,17 +137,36 @@ export const ViewFacultad: React.FC<ViewFacultadProps> = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/85 to-slate-950/95" />
 
           <div className="relative z-10 p-6 sm:p-10 lg:p-12 space-y-8">
-            <div className="text-center max-w-3xl mx-auto space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
-                <HeartHandshake className="w-4 h-4 text-amber-400" />
-                <span>Acompanamiento Presencial</span>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
+              {/* Left Margin Photo Card: caminos.jpeg */}
+              <div className="md:col-span-4 lg:col-span-4">
+                <div className="relative rounded-2xl overflow-hidden border-2 border-amber-400/50 shadow-2xl aspect-[4/3] md:aspect-[4/4] bg-slate-900">
+                  <img
+                    src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/caminos.jpeg"
+                    alt="Caminos rurales hacia las comunidades misioneras"
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 right-3 text-[11px] font-semibold text-amber-200 tracking-wide drop-shadow">
+                    Servicio en las comunidades de Centroamérica
+                  </span>
+                </div>
               </div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white drop-shadow">
-                Mentores de Campo
-              </h2>
-              <p className="text-xs sm:text-base text-amber-100 leading-relaxed italic drop-shadow">
-                Reconocemos el compromiso extraordinario de quienes están en la primera línea de formación. Su labor es la más desafiante y noble, pues requiere presencia real, una escucha compasiva frente a frente y la entrega espiritual de orar juntos por cada vida.
-              </p>
+
+              {/* Right Text Header */}
+              <div className="md:col-span-8 lg:col-span-8 text-center md:text-left space-y-3">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
+                  <HeartHandshake className="w-4 h-4 text-amber-400" />
+                  <span>Acompanamiento Presencial</span>
+                </div>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white drop-shadow">
+                  Mentores de Campo
+                </h2>
+                <p className="text-xs sm:text-base text-amber-100 leading-relaxed italic drop-shadow">
+                  Reconocemos el compromiso extraordinario de quienes están en la primera línea de formación. Su labor es la más desafiante y noble, pues requiere presencia real, una escucha compasiva frente a frente y la entrega espiritual de orar juntos por cada vida.
+                </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
@@ -159,13 +178,18 @@ export const ViewFacultad: React.FC<ViewFacultadProps> = () => {
                   <div className="w-9 h-9 rounded-lg bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <div className="min-w-0 space-y-0.5">
+                  <div className="min-w-0 space-y-1">
                     <h3 className="font-serif font-bold text-white text-sm sm:text-base">
                       {mentor.name}
                     </h3>
                     {mentor.role && (
                       <p className="text-[11px] font-semibold text-amber-300 leading-snug">
                         {mentor.role}
+                      </p>
+                    )}
+                    {mentor.details && (
+                      <p className="text-[11px] text-slate-200 leading-snug">
+                        {mentor.details}
                       </p>
                     )}
                     <p className="text-xs text-slate-300 leading-snug">
