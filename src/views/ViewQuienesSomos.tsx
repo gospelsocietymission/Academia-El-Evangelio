@@ -1,6 +1,21 @@
-import React from 'react';
-import { Shield, Award, Users, BookOpen, Compass, CheckCircle2, MessageCircle, FileText, Globe, ArrowRight } from 'lucide-react';
-import { INSTITUTION_INFO, QUIENES_SOMOS_DATA, buildWhatsAppUrl } from '../data/academyData';
+import React, { useState } from 'react';
+import { 
+  Shield, 
+  Award, 
+  Users, 
+  BookOpen, 
+  Compass, 
+  CheckCircle2, 
+  FileText, 
+  Globe, 
+  Scale, 
+  ChevronRight, 
+  Building2, 
+  ScrollText,
+  BadgeCheck,
+  Briefcase
+} from 'lucide-react';
+import { INSTITUTION_INFO, QUIENES_SOMOS_DATA } from '../data/academyData';
 
 interface ViewQuienesSomosProps {
   onNavigateToProgramas: () => void;
@@ -8,11 +23,15 @@ interface ViewQuienesSomosProps {
   onOpenEnrollment: () => void;
 }
 
+type TabKey = 'credenciales' | 'avales' | 'legal';
+
 export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
   onNavigateToProgramas,
   onNavigateToProyectos,
   onOpenEnrollment,
 }) => {
+  const [activeSection, setActiveSection] = useState<TabKey>('credenciales');
+
   return (
     <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -67,7 +86,222 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
           </div>
         </div>
 
-        {/* 2. Acreditación de la Academia Bíblica El Evangelio y Apostilla de La Haya */}
+        {/* 2. BOTONES DEDICADOS PARA PERSONAS INVOLUCRADAS, AVALES Y LEGALIDAD */}
+        <div className="space-y-6">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
+              Gobernanza, Respaldo y Legalidad
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+              Institucionalidad y Transparencia
+            </h2>
+            <p className="text-xs text-slate-400">
+              Selecciona cada área para conocer a fondo a las personas e instituciones que nos avalan y dan fe de nuestra labor.
+            </p>
+          </div>
+
+          {/* 3 Interactive Buttons */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <button
+              onClick={() => setActiveSection('credenciales')}
+              className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 text-left ${
+                activeSection === 'credenciales'
+                  ? 'bg-amber-500/15 border-amber-400 text-white shadow-lg ring-1 ring-amber-400/40'
+                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+              }`}
+            >
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                activeSection === 'credenciales' ? 'bg-amber-500 text-slate-950 font-bold' : 'bg-slate-950 text-amber-400 border border-slate-800'
+              }`}>
+                <FileText className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider block text-amber-400">
+                  Respaldo Documentado
+                </span>
+                <span className="font-serif font-bold text-sm block">
+                  Credenciales: Quienes Hablan por Nosotros
+                </span>
+              </div>
+            </button>
+
+            <button
+              onClick={() => setActiveSection('avales')}
+              className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 text-left ${
+                activeSection === 'avales'
+                  ? 'bg-blue-500/15 border-blue-400 text-white shadow-lg ring-1 ring-blue-400/40'
+                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+              }`}
+            >
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                activeSection === 'avales' ? 'bg-blue-500 text-slate-950 font-bold' : 'bg-slate-950 text-blue-400 border border-slate-800'
+              }`}>
+                <Award className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider block text-blue-400">
+                  Cuerpo Docente y Mentoría
+                </span>
+                <span className="font-serif font-bold text-sm block">
+                  Reconocimiento: Nuestros Avales Académicos
+                </span>
+              </div>
+            </button>
+
+            <button
+              onClick={() => setActiveSection('legal')}
+              className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 text-left ${
+                activeSection === 'legal'
+                  ? 'bg-emerald-500/15 border-emerald-400 text-white shadow-lg ring-1 ring-emerald-400/40'
+                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+              }`}
+            >
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                activeSection === 'legal' ? 'bg-emerald-500 text-slate-950 font-bold' : 'bg-slate-950 text-emerald-400 border border-slate-800'
+              }`}>
+                <Scale className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider block text-emerald-400">
+                  Marco Legal Gubernamental
+                </span>
+                <span className="font-serif font-bold text-sm block">
+                  Administración y Operatividad Legal
+                </span>
+              </div>
+            </button>
+          </div>
+
+          {/* Dedicated Content Box for Active Button */}
+          <div className="bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl">
+            {activeSection === 'credenciales' && (
+              <div className="space-y-6 animate-in fade-in duration-200">
+                <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                    <ScrollText className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
+                      Sección Especial
+                    </span>
+                    <h3 className="font-serif text-2xl font-bold text-white">
+                      Credenciales: Quienes Hablan por Nosotros
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  {QUIENES_SOMOS_DATA.credenciales.texto}
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <BadgeCheck className="w-5 h-5 text-amber-400" />
+                    <span className="font-bold text-white text-xs block">Instituciones Educativas</span>
+                    <p className="text-[11px] text-slate-400">Declaraciones y convenios de apoyo de seminarios teológicos y ministerios educativos.</p>
+                  </div>
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <BadgeCheck className="w-5 h-5 text-amber-400" />
+                    <span className="font-bold text-white text-xs block">Pastores de Campo</span>
+                    <p className="text-[11px] text-slate-400">Testimonio directo de ministros que han experimentado la transformación de sus púlpitos.</p>
+                  </div>
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <BadgeCheck className="w-5 h-5 text-amber-400" />
+                    <span className="font-bold text-white text-xs block">Sin Fines de Lucro</span>
+                    <p className="text-[11px] text-slate-400">Compromiso como recurso genuino para el fortalecimiento exclusivo de la iglesia local.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeSection === 'avales' && (
+              <div className="space-y-6 animate-in fade-in duration-200">
+                <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest block">
+                      Sección Especial
+                    </span>
+                    <h3 className="font-serif text-2xl font-bold text-white">
+                      Reconocimiento: Nuestros Avales Académicos
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  {QUIENES_SOMOS_DATA.avales.texto}
+                </p>
+
+                <div className="p-5 rounded-xl bg-slate-950 border border-blue-500/20 space-y-3">
+                  <span className="text-xs font-bold text-blue-300 uppercase tracking-wider block">
+                    Alcance de los Avales Eclesiales:
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-300">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>Sínodos y presbiterios presbiterianos reformados.</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>Confraternidades pastorales interdenominacionales.</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>Red de 11 institutos bíblicos fronterizos (Guatemala/México).</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span>Profesores y teólogos participantes con vocación ad-honorem.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeSection === 'legal' && (
+              <div className="space-y-6 animate-in fade-in duration-200">
+                <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                    <Scale className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-emerald-400 uppercase tracking-widest block">
+                      Sección Especial
+                    </span>
+                    <h3 className="font-serif text-2xl font-bold text-white">
+                      Administración y Operatividad Legal
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  {QUIENES_SOMOS_DATA.legal.texto}
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <Building2 className="w-5 h-5 text-emerald-400" />
+                    <span className="font-bold text-white text-xs block">Cumplimiento en Cada País</span>
+                    <p className="text-[11px] text-slate-400">
+                      Operamos bajo personería jurídica eclesiástica y fundacional en El Salvador, Nicaragua, Guatemala, Honduras y Costa Rica.
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <Briefcase className="w-5 h-5 text-emerald-400" />
+                    <span className="font-bold text-white text-xs block">Libre Ejercicio de la Enseñanza</span>
+                    <p className="text-[11px] text-slate-400">
+                      Habilitación plena para capacitar, distribuir materiales didácticos impresos y certificar a obreros del sector religioso.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* 3. Acreditación de la Academia Bíblica El Evangelio y Apostilla de La Haya */}
         <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
@@ -101,35 +335,6 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
           </div>
         </div>
 
-        {/* 3. Credenciales y Avales Académicos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Credenciales */}
-          <div className="p-8 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl space-y-4">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <FileText className="w-5 h-5" />
-            </div>
-            <h3 className="font-serif text-xl font-bold text-white">
-              {QUIENES_SOMOS_DATA.credenciales.titulo}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              {QUIENES_SOMOS_DATA.credenciales.texto}
-            </p>
-          </div>
-
-          {/* Avales */}
-          <div className="p-8 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl space-y-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
-              <Users className="w-5 h-5" />
-            </div>
-            <h3 className="font-serif text-xl font-bold text-white">
-              {QUIENES_SOMOS_DATA.avales.titulo}
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              {QUIENES_SOMOS_DATA.avales.texto}
-            </p>
-          </div>
-        </div>
-
         {/* 4. Nuestra Filosofía: Principios Eclesiológicos */}
         <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
@@ -155,54 +360,6 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
               <p className="font-semibold text-amber-300 mb-1">Amor y Respeto a Todas las Denominaciones:</p>
               <p>{QUIENES_SOMOS_DATA.filosofia.doctrina}</p>
             </div>
-          </div>
-        </div>
-
-        {/* 5. Administración Legal y Facultad Invitada */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-8 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl space-y-3">
-            <h3 className="font-serif text-lg font-bold text-white">
-              {QUIENES_SOMOS_DATA.legal.titulo}
-            </h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
-              {QUIENES_SOMOS_DATA.legal.texto}
-            </p>
-          </div>
-
-          <div className="p-8 rounded-2xl bg-slate-900 border border-slate-800 shadow-xl space-y-3">
-            <h3 className="font-serif text-lg font-bold text-white">
-              {QUIENES_SOMOS_DATA.facultad.titulo}
-            </h3>
-            <p className="text-xs text-slate-300 leading-relaxed">
-              {QUIENES_SOMOS_DATA.facultad.texto}
-            </p>
-          </div>
-        </div>
-
-        {/* Action strip to explore programs or WhatsApp */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 border border-amber-500/30 text-center space-y-4">
-          <h3 className="font-serif text-2xl font-bold text-white">
-            ¿Deseas Formar Parte de Nuestra Familia Estudiantil?
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
-            Descubre nuestros 3 programas técnicos o comunícate directamente con la coordinación pastoral en WhatsApp.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <button
-              onClick={onNavigateToProgramas}
-              className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow cursor-pointer transition-all"
-            >
-              Ver Página de Programas
-            </button>
-            <a
-              href={buildWhatsAppUrl("Hola, leí la sección Quiénes Somos de la Academia Bíblica El Evangelio y deseo recibir más información sobre el ingreso.")}
-              target="_blank"
-              rel="noreferrer"
-              className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow transition-all flex items-center gap-2"
-            >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Consultar por WhatsApp (+505 8934-1763)</span>
-            </a>
           </div>
         </div>
 

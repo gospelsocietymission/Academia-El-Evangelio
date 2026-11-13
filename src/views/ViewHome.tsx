@@ -18,7 +18,11 @@ import {
   Heart, 
   Users, 
   Map as MapIcon, 
-  Quote 
+  Quote,
+  Church,
+  PlusCircle,
+  MessageSquareQuote,
+  Star
 } from 'lucide-react';
 import { 
   INSTITUTION_INFO, 
@@ -26,7 +30,8 @@ import {
   ACADEMIC_PROGRAMS, 
   DOCTRINAL_POINTS, 
   CONFERENCES_DATA, 
-  MINISTRY_PARTNERS, 
+  MINISTRY_ALLIES_REGIONS,
+  STUDENT_TESTIMONIALS,
   buildWhatsAppUrl 
 } from '../data/academyData';
 import { EnrollmentSubmission, ConferenceEvent } from '../types';
@@ -38,6 +43,7 @@ interface ViewHomeProps {
   onNavigateToProyectos: () => void;
   onOpenDonation: () => void;
   onOpenEnrollment: () => void;
+  onOpenAlliedChurchesModal: () => void;
   onRegisterConference: (conf: ConferenceEvent) => void;
   onFormSubmit: (data: EnrollmentSubmission) => void;
 }
@@ -49,6 +55,7 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
   onNavigateToProyectos,
   onOpenDonation,
   onOpenEnrollment,
+  onOpenAlliedChurchesModal,
   onRegisterConference,
   onFormSubmit,
 }) => {
@@ -92,11 +99,11 @@ _Enviado desde academiabiblica.net_`;
     <div className="bg-slate-950 text-slate-100 min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-24 border-b border-slate-800">
+      <section className="relative overflow-hidden pt-10 pb-16 lg:pt-14 lg:pb-20 border-b border-slate-800">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-amber-500/5 blur-3xl pointer-events-none rounded-full" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
@@ -114,7 +121,7 @@ _Enviado desde academiabiblica.net_`;
                 Llevando enseñanza bíblica de nivel técnico universitario a las zonas más remotas de Centroamérica.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs text-slate-300">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 text-xs text-slate-300">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
                   <span>10% Teoría en video · 90% Práctica mensual</span>
@@ -134,30 +141,36 @@ _Enviado desde academiabiblica.net_`;
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-3 flex flex-wrap items-center gap-3">
+              <div className="pt-3 flex flex-wrap items-center gap-2.5">
                 <button
                   onClick={onNavigateToProgramas}
-                  className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-all cursor-pointer flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-all cursor-pointer flex items-center gap-2"
                 >
                   <span>Ver Programas</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button
                   onClick={onNavigateToQuienesSomos}
-                  className="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
+                  className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   <span>Quiénes Somos</span>
                 </button>
                 <button
                   onClick={onNavigateToFacultad}
-                  className="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 border border-amber-500/40 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 border border-amber-500/40 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1.5"
                 >
                   <Users className="w-3.5 h-3.5" />
                   <span>Facultad Invitada</span>
                 </button>
                 <button
+                  onClick={onNavigateToProyectos}
+                  className="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider shadow transition-colors cursor-pointer"
+                >
+                  <span>Proyectos</span>
+                </button>
+                <button
                   onClick={onOpenDonation}
-                  className="px-5 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow transition-all cursor-pointer flex items-center gap-1.5"
+                  className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white font-bold text-xs uppercase tracking-wider shadow transition-all cursor-pointer flex items-center gap-1.5"
                 >
                   <Heart className="w-3.5 h-3.5 fill-white" />
                   <span>Donar</span>
@@ -166,7 +179,7 @@ _Enviado desde academiabiblica.net_`;
 
               {/* Scripture Anchor */}
               <div className="pt-3 border-t border-slate-800 flex items-start gap-3">
-                <BookMarked className="w-5 h-5 text-amber-400/80 shrink-0 mt-0.5" />
+                <BookMarked className="w-4 h-4 text-amber-400/80 shrink-0 mt-0.5" />
                 <div className="text-xs text-slate-400 italic">
                   <span>"{INSTITUTION_INFO.biblicalVerse.text}"</span>
                   <span className="block not-italic font-semibold text-amber-400 mt-0.5">
@@ -176,30 +189,60 @@ _Enviado desde academiabiblica.net_`;
               </div>
             </div>
 
-            {/* Right Photo */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden border border-amber-500/30 bg-slate-900 shadow-2xl p-2 group">
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+            {/* Right: Imagen de Centroamérica en tamaño pequeño con mapa y sedes */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full max-w-md rounded-2xl overflow-hidden border border-amber-500/30 bg-slate-900 shadow-2xl p-3 space-y-3">
+                <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-950 border border-slate-800">
                   <img
-                    src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1200&q=80"
-                    alt="Estudio bíblico con Biblia abierta"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
+                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
+                    alt="Centroamérica y sus paisajes montañosos"
+                    className="w-full h-full object-cover"
                     loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                  <div className="absolute bottom-0 inset-x-0 p-5">
-                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider block mb-1">
-                      Nivel Técnico Universitario
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
+                  
+                  {/* Overlay Badge */}
+                  <div className="absolute top-3 left-3 bg-slate-950/90 backdrop-blur-md border border-amber-500/40 px-2.5 py-1 rounded text-[11px] font-bold text-amber-300 flex items-center gap-1.5 shadow">
+                    <MapPin className="w-3 h-3 text-amber-400" />
+                    <span>Presencia en Centroamérica</span>
+                  </div>
+
+                  <div className="absolute bottom-3 inset-x-3 text-xs text-slate-200">
+                    <span className="font-serif font-bold text-white block text-sm">
+                      5 Países · 6 Sedes Físicas Oficiales
                     </span>
-                    <p className="text-white text-sm font-serif font-medium leading-snug">
-                      Educación bíblica rigurosa, pastoral y al alcance del obrero rural.
-                    </p>
+                    <span className="text-[11px] text-amber-300">
+                      El Salvador · Nicaragua · Guatemala · Honduras · Costa Rica
+                    </span>
                   </div>
                 </div>
-                <div className="absolute top-5 right-5 bg-slate-950/90 backdrop-blur-md border border-amber-500/40 px-3 py-1.5 rounded-md flex items-center gap-1.5 shadow-lg text-[11px] font-medium text-amber-300">
-                  <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Validez Nacional e Internacional</span>
+
+                {/* Badges de Sedes Físicas */}
+                <div className="grid grid-cols-3 gap-1.5 text-center text-[10px]">
+                  <div className="p-1.5 rounded-lg bg-slate-950 border border-slate-800">
+                    <span className="font-bold text-white block">Ahuachapán</span>
+                    <span className="text-slate-400 text-[9px]">El Salvador</span>
+                  </div>
+                  <div className="p-1.5 rounded-lg bg-slate-950 border border-slate-800">
+                    <span className="font-bold text-white block">Chinandega</span>
+                    <span className="text-slate-400 text-[9px]">Nicaragua</span>
+                  </div>
+                  <div className="p-1.5 rounded-lg bg-slate-950 border border-slate-800">
+                    <span className="font-bold text-white block">Tipitapa</span>
+                    <span className="text-slate-400 text-[9px]">Nicaragua</span>
+                  </div>
+                  <div className="p-1.5 rounded-lg bg-slate-950 border border-slate-800">
+                    <span className="font-bold text-white block">Tacaná</span>
+                    <span className="text-slate-400 text-[9px]">Guatemala</span>
+                  </div>
+                  <div className="p-1.5 rounded-lg bg-slate-950 border border-slate-800">
+                    <span className="font-bold text-white block">San Lorenzo</span>
+                    <span className="text-slate-400 text-[9px]">Honduras</span>
+                  </div>
+                  <div className="p-1.5 rounded-lg bg-slate-950 border border-slate-800">
+                    <span className="font-bold text-white block">Cartago</span>
+                    <span className="text-slate-400 text-[9px]">Costa Rica</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,7 +251,73 @@ _Enviado desde academiabiblica.net_`;
         </div>
       </section>
 
-      {/* 2. MENSAJE DE NUESTRO FUNDADOR PASTOR ISAÍAS MARTÍNEZ */}
+      {/* 2. ZONA DE TESTIMONIALES (NUEVA SECCIÓN SOLICITADA) */}
+      <section className="py-14 lg:py-20 border-b border-slate-800 bg-slate-900/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-2">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
+              <MessageSquareQuote className="w-4 h-4 text-amber-400" />
+              <span>Testimonios y Frutos Ministeriales</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
+              Lo que Dicen Nuestros Pastores y Estudiantes
+            </h2>
+            <p className="text-sm text-slate-300">
+              Hombres y mujeres de zonas rurales que hoy predican y aconsejan con solidez bíblica gracias al método por correspondencia.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {STUDENT_TESTIMONIALS.map((test) => (
+              <div
+                key={test.id}
+                className="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-400/50 shadow-xl flex flex-col justify-between space-y-4 transition-all duration-300"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center gap-1 text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
+                    ))}
+                  </div>
+
+                  <p className="font-serif text-xs sm:text-sm text-slate-200 italic leading-relaxed">
+                    "{test.quote}"
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-slate-800/80 space-y-1">
+                  <span className="font-serif font-bold text-white text-sm block">
+                    {test.author}
+                  </span>
+                  <p className="text-[11px] text-amber-400/90 font-medium">
+                    {test.role}
+                  </p>
+                  <div className="flex items-center gap-1 text-[11px] text-slate-400">
+                    <MapPin className="w-3 h-3 text-slate-500 shrink-0" />
+                    <span>{test.location}, {test.country}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center pt-2">
+            <a
+              href={buildWhatsAppUrl("Hola, soy estudiante/egresado de la Academia Bíblica El Evangelio y deseo compartir mi testimonio ministerial.")}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/30 text-xs font-semibold uppercase tracking-wider transition-colors"
+            >
+              <MessageCircle className="w-4 h-4 text-emerald-400" />
+              <span>Enviar mi Testimonio por WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. MENSAJE DE NUESTRO FUNDADOR PASTOR ISAÍAS MARTÍNEZ */}
       <section className="py-16 lg:py-24 border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900/60 to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -303,7 +412,7 @@ _Enviado desde academiabiblica.net_`;
         </div>
       </section>
 
-      {/* 3. MAPA DE VIAJES MISIONEROS DESDE 2004 */}
+      {/* 4. MAPA DE VIAJES MISIONEROS DESDE 2004 */}
       <section className="py-16 lg:py-20 border-b border-slate-800 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
@@ -375,86 +484,98 @@ _Enviado desde academiabiblica.net_`;
         </div>
       </section>
 
-      {/* 4. NUESTROS ALIADOS - AMIGOS DEL MINISTERIO */}
+      {/* 5. NUESTROS ALIADOS - AMIGOS DEL MINISTERIO (CON PEQUEÑOS ICONITOS AGRUPADOS POR REGIÓN) */}
       <section className="py-16 lg:py-24 border-b border-slate-800 bg-slate-900/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
-              <Users className="w-4 h-4 text-amber-400" />
-              <span>Comunión y Respaldo Eclesial</span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
+                <Church className="w-4 h-4 text-amber-400" />
+                <span>Comunión y Respaldo Eclesial</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
+                Nuestros Aliados - Amigos del Ministerio
+              </h2>
+              <p className="text-sm text-slate-300">
+                Iglesias, redes pastorales, sínodos e institutos bíblicos que caminan fraternalmente junto a la Academia Bíblica El Evangelio.
+              </p>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
-              Nuestros Aliados - Amigos del Ministerio
-            </h2>
-            <p className="text-sm text-slate-300">
-              Instituciones, sínodos, institutos bíblicos fronterizos y redes pastorales que colaboran fraternalmente con la Academia Bíblica El Evangelio en la formación y el apoyo a pastores.
-            </p>
+
+            {/* BOTÓN PARA PONER UN LISTADO DE IGLESIAS Y PODER ACTUALIZAR */}
+            <button
+              onClick={onOpenAlliedChurchesModal}
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-all shrink-0 cursor-pointer"
+            >
+              <Church className="w-4 h-4" />
+              <span>Ver Directorio / Unir mi Iglesia</span>
+            </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {MINISTRY_PARTNERS.map((partner) => (
+          {/* Iconitos agrupados por región */}
+          <div className="space-y-6">
+            {MINISTRY_ALLIES_REGIONS.map((regionGroup, idx) => (
               <div
-                key={partner.id}
-                className="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-400/50 shadow-lg transition-all duration-300 flex flex-col justify-between space-y-4 group"
+                key={idx}
+                className="p-6 rounded-2xl bg-slate-900 border border-slate-800/80 shadow-md space-y-4"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-300 border border-amber-500/30">
-                      {partner.country}
-                    </span>
-                    <span className="text-[10px] text-slate-400 uppercase font-semibold">
-                      Aliado Fraterno
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-base font-bold text-white font-serif">
+                      {regionGroup.countryBadge}
                     </span>
                   </div>
-
-                  <h3 className="font-serif text-xl font-bold text-white group-hover:text-amber-300 transition-colors">
-                    {partner.name}
-                  </h3>
-
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    {partner.description}
-                  </p>
+                  <span className="text-[11px] text-amber-400 font-semibold uppercase tracking-wider">
+                    {regionGroup.allies.length} Iglesias / Ministerios
+                  </span>
                 </div>
 
-                <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                  <span className="text-amber-400/90 font-medium text-[11px]">
-                    {partner.role}
-                  </span>
-                  <a
-                    href={buildWhatsAppUrl(`Hola, deseo consultar sobre la alianza entre la Academia Bíblica El Evangelio y ${partner.name}.`)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-slate-400 hover:text-emerald-400 transition-colors p-1"
-                    title="Consultar por WhatsApp"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                  </a>
+                {/* Pequeños Iconitos */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {regionGroup.allies.map((ally, aIdx) => (
+                    <div
+                      key={aIdx}
+                      className="p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-400/40 transition-colors flex items-center gap-3 group"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0 group-hover:scale-105 transition-transform">
+                        <Church className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="font-serif font-bold text-xs text-white group-hover:text-amber-300 transition-colors truncate">
+                          {ally.name}
+                        </h4>
+                        {ally.location && (
+                          <span className="text-[10px] text-slate-400 block truncate">
+                            {ally.location}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
 
+          {/* Banner para sumar más iglesias */}
           <div className="p-6 rounded-2xl bg-slate-900 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-slate-300">
-              <span className="font-bold text-white block text-sm">¿Desea tu iglesia, presbiterio o ministerio sumarse como Aliado?</span>
-              Buscamos seguir tejiendo lazos fraternales para extender la formación bíblica en toda América Latina.
+              <span className="font-bold text-white block text-sm">¿Desea tu congregación sumarse a la red de iglesias aliadas?</span>
+              Facilitamos folletos de estudio y formación para pastores y obreros de tu comunidad.
             </div>
-            <a
-              href={buildWhatsAppUrl("Hola Pastor Isaías y equipo de la Academia Bíblica El Evangelio, deseamos consultar los pasos para que nuestra iglesia o ministerio se vincule como Amigo / Aliado del Ministerio.")}
-              target="_blank"
-              rel="noreferrer"
-              className="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider whitespace-nowrap shadow transition-colors flex items-center gap-2"
+            <button
+              onClick={onOpenAlliedChurchesModal}
+              className="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider whitespace-nowrap shadow transition-colors flex items-center gap-2 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Contactar Alianzas por WhatsApp</span>
-            </a>
+              <PlusCircle className="w-4 h-4" />
+              <span>Registrar Iglesia en el Directorio</span>
+            </button>
           </div>
 
         </div>
       </section>
 
-      {/* 5. NUESTRAS SEDES FÍSICAS (CON FOTO RURAL DE FONDO EN CADA CUADRO) */}
+      {/* 6. NUESTRAS SEDES FÍSICAS (CON FOTO RURAL DE FONDO EN CADA CUADRO) */}
       <section className="py-16 lg:py-24 border-b border-slate-800 bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -551,102 +672,6 @@ _Enviado desde academiabiblica.net_`;
             </a>
           </div>
 
-        </div>
-      </section>
-
-      {/* 6. EXPLORA NUESTRO PORTAL (PÁGINAS Y SECCIONES) */}
-      <section className="py-16 lg:py-20 border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block mb-1">
-              Explora Nuestro Portal
-            </span>
-            <h2 className="font-serif text-3xl font-bold text-white">
-              Toda la Información a tu Alcance
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1: Programas */}
-            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 flex flex-col justify-between space-y-4">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-3">
-                  <Award className="w-5 h-5" />
-                </div>
-                <h3 className="font-serif text-lg font-bold text-white">Programas</h3>
-                <p className="text-xs text-slate-300 leading-relaxed mt-2">
-                  Consejería Bíblica, Predicación Expositiva y Actualización Ministerial. Sistema 10% teoría y 90% práctica.
-                </p>
-              </div>
-              <button
-                onClick={onNavigateToProgramas}
-                className="w-full py-2 px-3 rounded-xl bg-slate-950 hover:bg-amber-500 text-slate-300 hover:text-slate-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 border border-slate-700 cursor-pointer"
-              >
-                <span>Ver Programas</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-            {/* Card 2: Quiénes Somos */}
-            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 flex flex-col justify-between space-y-4">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-3">
-                  <Compass className="w-5 h-5" />
-                </div>
-                <h3 className="font-serif text-lg font-bold text-white">Quiénes Somos</h3>
-                <p className="text-xs text-slate-300 leading-relaxed mt-2">
-                  Historia, visión pastoral, acreditación con Apostilla de La Haya y principios de educación rural.
-                </p>
-              </div>
-              <button
-                onClick={onNavigateToQuienesSomos}
-                className="w-full py-2 px-3 rounded-xl bg-slate-950 hover:bg-amber-500 text-slate-300 hover:text-slate-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 border border-slate-700 cursor-pointer"
-              >
-                <span>Conocer Quiénes Somos</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-            {/* Card 3: Facultad Invitada */}
-            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 flex flex-col justify-between space-y-4">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-3">
-                  <Users className="w-5 h-5" />
-                </div>
-                <h3 className="font-serif text-lg font-bold text-white">Facultad Invitada</h3>
-                <p className="text-xs text-slate-300 leading-relaxed mt-2">
-                  Docentes y pastores ad-honorem que licencian y comparten sus recursos para el ministerio rural.
-                </p>
-              </div>
-              <button
-                onClick={onNavigateToFacultad}
-                className="w-full py-2 px-3 rounded-xl bg-slate-950 hover:bg-amber-500 text-slate-300 hover:text-slate-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 border border-slate-700 cursor-pointer"
-              >
-                <span>Ver Colaboradores</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-            {/* Card 4: Proyectos */}
-            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 flex flex-col justify-between space-y-4">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-3">
-                  <Globe className="w-5 h-5" />
-                </div>
-                <h3 className="font-serif text-lg font-bold text-white">Proyectos Misioneros</h3>
-                <p className="text-xs text-slate-300 leading-relaxed mt-2">
-                  Eco-Well Health El Crucero, Biblioteca de Tacaná, Centro Misionero Valle de Honduras y Clínica Dr. Cisneros.
-                </p>
-              </div>
-              <button
-                onClick={onNavigateToProyectos}
-                className="w-full py-2 px-3 rounded-xl bg-slate-950 hover:bg-amber-500 text-slate-300 hover:text-slate-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 border border-slate-700 cursor-pointer"
-              >
-                <span>Ver Proyectos</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -875,11 +900,12 @@ _Enviado desde academiabiblica.net_`;
               © {new Date().getFullYear()} Academia Bíblica El Evangelio. Derechos reservados de la institución.
             </p>
             <div className="flex items-center gap-4 text-[11px]">
-              <button onClick={onNavigateToProgramas} className="hover:text-slate-300">Programas</button>
-              <button onClick={onNavigateToQuienesSomos} className="hover:text-slate-300">Quiénes Somos</button>
-              <button onClick={onNavigateToFacultad} className="hover:text-slate-300">Facultad Invitada</button>
-              <button onClick={onNavigateToProyectos} className="hover:text-slate-300">Proyectos</button>
-              <button onClick={onOpenDonation} className="text-amber-400 hover:text-amber-300">Donar</button>
+              <button onClick={onNavigateToProgramas} className="hover:text-slate-300 cursor-pointer">Programas</button>
+              <button onClick={onNavigateToQuienesSomos} className="hover:text-slate-300 cursor-pointer">Quiénes Somos</button>
+              <button onClick={onNavigateToFacultad} className="hover:text-slate-300 cursor-pointer">Facultad Invitada</button>
+              <button onClick={onNavigateToProyectos} className="hover:text-slate-300 cursor-pointer">Proyectos</button>
+              <button onClick={onOpenAlliedChurchesModal} className="text-amber-400 hover:text-amber-300 cursor-pointer">Directorio Iglesias</button>
+              <button onClick={onOpenDonation} className="text-rose-400 hover:text-rose-300 cursor-pointer">Donar</button>
             </div>
           </div>
 

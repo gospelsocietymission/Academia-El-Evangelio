@@ -78,6 +78,35 @@ export interface MinistryPartner {
   description: string;
 }
 
+export interface MinistryAlliesRegion {
+  region: string;
+  countryBadge: string;
+  allies: {
+    name: string;
+    location?: string;
+  }[];
+}
+
+export interface FacultyMember {
+  id: string;
+  name: string;
+  title: string;
+  initials: string;
+  focus: string;
+  photo?: string;
+}
+
+export interface Testimonial {
+  id: string;
+  author: string;
+  role: string;
+  church: string;
+  location: string;
+  country: string;
+  quote: string;
+  program: string;
+}
+
 export interface FacultyArea {
   id: string;
   area: string;

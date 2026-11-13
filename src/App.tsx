@@ -8,6 +8,7 @@ import { ViewProyectos } from './views/ViewProyectos';
 import { EnrollmentModal } from './components/EnrollmentModal';
 import { ConferenceRegisterModal } from './components/ConferenceRegisterModal';
 import { DonationModal } from './components/DonationModal';
+import { AlliedChurchesModal } from './components/AlliedChurchesModal';
 import { Toast } from './components/Toast';
 import { ConferenceEvent, EnrollmentSubmission } from './types';
 import { MessageCircle, Heart } from 'lucide-react';
@@ -17,6 +18,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<NavPage>('inicio');
   const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+  const [isAlliedChurchesOpen, setIsAlliedChurchesOpen] = useState(false);
   const [selectedConference, setSelectedConference] = useState<ConferenceEvent | null>(null);
   const [isConferenceModalOpen, setIsConferenceModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -65,6 +67,7 @@ export default function App() {
             onNavigateToProyectos={() => handleSelectPage('proyectos')}
             onOpenDonation={() => setIsDonationModalOpen(true)}
             onOpenEnrollment={() => setIsEnrollmentOpen(true)}
+            onOpenAlliedChurchesModal={() => setIsAlliedChurchesOpen(true)}
             onRegisterConference={handleRegisterConference}
             onFormSubmit={handleEnrollmentSubmitted}
           />
@@ -107,6 +110,11 @@ export default function App() {
       <DonationModal
         isOpen={isDonationModalOpen}
         onClose={() => setIsDonationModalOpen(false)}
+      />
+
+      <AlliedChurchesModal
+        isOpen={isAlliedChurchesOpen}
+        onClose={() => setIsAlliedChurchesOpen(false)}
       />
 
       <ConferenceRegisterModal

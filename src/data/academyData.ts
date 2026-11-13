@@ -1,4 +1,4 @@
-import { AcademicProgram, DoctrinalPoint, ConferenceEvent, FaqItem, PhysicalBranch, MissionaryProject } from '../types';
+import { AcademicProgram, DoctrinalPoint, ConferenceEvent, FaqItem, PhysicalBranch, MissionaryProject, MinistryPartner, FacultyMember, Testimonial } from '../types';
 
 export const INSTITUTION_INFO = {
   name: "Academia Bíblica El Evangelio",
@@ -45,7 +45,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     fullLocation: "Ahuachapán, El Salvador",
     type: "Sede Central y Formación Ministerial",
     description: "Punto de encuentro regional en las estribaciones cafetaleras del occidente salvadoreño para clases presenciales mensuales, laboratorios de predicación y coordinación eclesial.",
-    ruralImage: "https://images.unsplash.com/photo-1589556264800-08ae9e129a8c?auto=format&fit=crop&w=1200&q=80"
+    ruralImage: "https://cdn.getyourguide.com/img/tour/ccbc355802600e9bb2d86c6e9d843032cc3c81c0808e42627a2c56981846d37f.jpeg/68.jpg"
   },
   {
     id: "chinandega",
@@ -54,7 +54,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     fullLocation: "Chinandega, Nicaragua",
     type: "Sede Regional de Estudios",
     description: "Centro de distribución de folletos didácticos y reuniones mensuales de formación teológica en las fértiles llanuras agrícolas y faldas del volcán San Cristóbal.",
-    ruralImage: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80"
+    ruralImage: "https://www.mapanicaragua.com/wp-content/uploads/2020/05/volcan-san-cristobal-1.jpg"
   },
   {
     id: "tipitapa",
@@ -63,7 +63,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     fullLocation: "Tipitapa, Nicaragua",
     type: "Sede de Capacitación Pastoral",
     description: "Espacio formativo para pastores de comunidades rurales del valle lacustre y zonas periféricas, con talleres prácticos de homilética y hermenéutica.",
-    ruralImage: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80"
+    ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/tipitapa.jpeg"
   },
   {
     id: "cartago",
@@ -72,7 +72,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     fullLocation: "Cartago, Costa Rica",
     type: "Sede Académica Regional",
     description: "Coordinación de estudiantes por correspondencia y tutorías presenciales en los valles verdes y montañosos de la meseta central costarricense.",
-    ruralImage: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80"
+    ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/Cartago.png"
   },
   {
     id: "tacana",
@@ -81,7 +81,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     fullLocation: "Tacaná, San Marcos, Guatemala",
     type: "Centro de Estudios y Biblioteca",
     description: "Sede estratégica en el altiplano montañoso indígena cerca de la frontera con México; hogar de estudio y refugio formativo para más de 100 estudiantes cada mes.",
-    ruralImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+    ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/tacana.jpeg"
   },
   {
     id: "san-lorenzo",
@@ -90,7 +90,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     fullLocation: "San Lorenzo, Valle, Honduras",
     type: "Centro Misionero y Formativo",
     description: "Base de entrenamiento misionero rural en el sur hondureño cerca del Golfo de Fonseca, combinando teología práctica con supervivencia diaria en el campo.",
-    ruralImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+    ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/san%20lorenzo.jpeg"
   }
 ];
 
@@ -101,7 +101,7 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     location: "El Crucero",
     country: "Nicaragua",
     category: "Salud Integral y Adicciones Conductuales",
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.trvl-media.com/place/553248635974587720/625f08fd-7bb9-47d9-87fa-1c2d6deca7b9.jpg",
     description: "En Eco-Well Health somos un espacio dedicado al aprendizaje y acompañamiento especializado en adicciones conductuales. Brindamos herramientas prácticas para ayudar a las personas a retomar el control frente a las adicciones a los videojuegos, las redes sociales y las compras impulsivas en internet. Además, contamos con un programa premium enfocado en sanar y superar la codependencia maternal, paternal o conyugal.",
     missionaryCall: "Buscamos misioneros y consejeros con vocación de acompañamiento espiritual y psicológico-pastoral para apoyar talleres de recuperación, prevención y mentoría a jóvenes y familias afectadas.",
     needs: [
@@ -116,7 +116,7 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     location: "Cheguate, Tacaná",
     country: "Guatemala",
     category: "Educación Teológica y Biblioteca Fronteriza",
-    image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80",
+    image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/tacana.jpeg",
     description: "Nuestra biblioteca y centro de estudios sirve como un hogar de apoyo para 11 institutos bíblicos en las zonas aledañas de Guatemala y México. Aquí, los estudiantes encuentran un refugio tranquilo para desconectarse del día a día, orar y concentrarse en su formación. Además, este mismo espacio es la sede de nuestra academia, donde cada mes reunimos a más de 100 personas para sumergirse en un estudio bíblico intensivo de 20 horas continuas.",
     missionaryCall: "Invitamos a misioneros maestros, catalogadores de bibliotecas teológicas y predicadores dispuestos a ministrar en las jornadas intensivas de 20 horas con más de 100 estudiantes reunidos.",
     needs: [
@@ -131,7 +131,7 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     location: "San Lorenzo, Valle",
     country: "Honduras",
     category: "Entrenamiento Misionero Rural y Práctico",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80",
+    image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/centromisionero.png",
     description: "El centro de misiones 'Heme aquí, envíame a mí' es el lugar perfecto para dar tus primeros pasos en el mundo misionero rural. Aquí, los estudiantes se internan durante varios días para vivir una experiencia transformadora que va mucho más allá de los libros. Aprenderás desde teología práctica hasta habilidades esenciales de supervivencia diaria, asegurando una preparación real y completa para el campo misionero.",
     missionaryCall: "Convocamos a misioneros veteranos, instructores de campo y colaboradores que deseen discipular a nuevas generaciones de obreros que irán a las aldeas más remotas de Centroamérica.",
     needs: [
@@ -566,7 +566,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   }
 ];
 
-export const MINISTRY_PARTNERS = [
+export const MINISTRY_PARTNERS: MinistryPartner[] = [
   {
     id: "partner-1",
     name: "Iglesias Presbiterianas de El Salvador",
@@ -601,13 +601,167 @@ export const MINISTRY_PARTNERS = [
     country: "Costa Rica",
     role: "Sede Cartago y Tutorías",
     description: "Pastores y maestros que coordinan el avance modular de líderes locales en valles y cantones costarricenses."
+  }
+];
+
+export const MINISTRY_ALLIES_REGIONS = [
+  {
+    region: "El Salvador",
+    countryBadge: "🇸🇻 El Salvador",
+    allies: [
+      { name: "Iglesias Presbiterianas de El Salvador", location: "Ahuachapán y San Salvador" },
+      { name: "Red de Iglesias Cristo Vive", location: "El Salvador" },
+      { name: "Asociación de Pastores de la Zona Oriente", location: "San Miguel y Oriente" }
+    ]
   },
   {
-    id: "partner-6",
-    name: "Gospel Society Mission & Amigos Internacionales",
-    country: "Internacional",
-    role: "Apoyo Misionero y Becas",
-    description: "Red de donantes y ministerios fraternos que hacen posible la gratuidad de la matrícula y la subvención de folletos para estudiantes de escasos recursos."
+    region: "Guatemala y México",
+    countryBadge: "🇬🇹 🇲🇽 Guatemala y México",
+    allies: [
+      { name: "Red de Institutos Bíblicos Fronterizos", location: "Tacaná y Altiplano San Marcos" },
+      { name: "Iglesias Misión Centroamericana", location: "Guatemala" },
+      { name: "Iglesias Presbiterianas de Chiapas", location: "Chiapas, México" }
+    ]
+  },
+  {
+    region: "Nicaragua",
+    countryBadge: "🇳🇮 Nicaragua",
+    allies: [
+      { name: "Confraternidad Pastoral de Occidente", location: "Chinandega y León" },
+      { name: "Iglesias Presbiterianas Reformadas de Nicaragua", location: "Managua y Tipitapa" }
+    ]
+  },
+  {
+    region: "Honduras",
+    countryBadge: "🇭🇳 Honduras",
+    allies: [
+      { name: "Misión Evangélica del Valle y Sur", location: "San Lorenzo y Choluteca" },
+      { name: "Iglesia Cristiana Reformada de Corinto", location: "San Lorenzo, Valle" }
+    ]
+  },
+  {
+    region: "Internacional",
+    countryBadge: "🌐 Internacional",
+    allies: [
+      { name: "Gospel Society Mission", location: "El Salvador" },
+      { name: "Iglesia \"Por la Gracia de Dios, San Miguel\"", location: "El Salvador" },
+      { name: "Trinitarian Bible Society", location: "Londres, Inglaterra" },
+      { name: "Centro de Estudios Kuyper", location: "Argentina" },
+      { name: "Teaching Missions International - Teaching Biblical Reformed", location: "USA" },
+      { name: "Third Millennium Ministries", location: "USA" },
+      { name: "Chapel Library", location: "USA" },
+      { name: "Iglesia Bíblica Maranatha Lynn", location: "Massachusetts, USA" }
+    ]
+  }
+];
+
+export const FACULTY_MEMBERS = [
+  {
+    id: "javier-dominguez",
+    name: "Javier Domínguez",
+    title: "Maestro y Exégeta Bíblico",
+    initials: "JD",
+    focus: "Teología Bíblica e Interpretación Gramático-Histórica",
+    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    id: "juan-manuel-vaz",
+    name: "Juan Manuel Vaz",
+    title: "Pastor y Predicador Expositivo",
+    initials: "JV",
+    focus: "Homilética Práctica y Defensa de la Sana Doctrina",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    id: "josias-kim",
+    name: "Josías Kim",
+    title: "Pastor y Misionero",
+    initials: "JK",
+    focus: "Plantación de Iglesias Rurales y Discipulado Bíblico",
+    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    id: "dr-noe-acosta",
+    name: "Dr. Noé Acosta",
+    title: "Teólogo y Docente Seminario",
+    initials: "NA",
+    focus: "Hermenéutica Exegética e Historia Eclesiástica",
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    id: "dr-julio-benitez",
+    name: "Dr. Julio Benítez",
+    title: "Pastor y Doctor en Teología",
+    initials: "JB",
+    focus: "Teología Sistemática y Cuidado del Rebaño",
+    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    id: "dr-paul-kim",
+    name: "Dr. Paul Kim",
+    title: "Doctor en Ministerio y Misionero",
+    initials: "PK",
+    focus: "Misiología Global y Liderazgo Transformacional",
+    photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    id: "dr-joe-fitzpatrick",
+    name: "Dr. Joe Fitzpatrick",
+    title: "Profesor y Autor Bíblico",
+    initials: "JF",
+    focus: "Consejería Bíblica Pastoral y Gracia Cristocéntrica",
+    photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    id: "dr-richard-smith",
+    name: "Dr. Richard Smith",
+    title: "Erudito Bíblico y Maestro de Campo",
+    initials: "RS",
+    focus: "Exégesis del Antiguo y Nuevo Testamento",
+    photo: "https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?auto=format&fit=crop&w=400&q=80"
+  }
+];
+
+export const STUDENT_TESTIMONIALS = [
+  {
+    id: "test-1",
+    author: "Pr. Marcos Sandoval",
+    role: "Pastor Rural y Egresado de Predicación Expositiva",
+    church: "Iglesia Evangélica El Buen Pastor",
+    location: "Ahuachapán",
+    country: "El Salvador",
+    quote: "Por años prediqué con muchas limitaciones en mi comunidad cafetalera. El método de correspondencia y los encuentros mensuales me enseñaron a desglosar versículo por versículo la Escritura sin tener que abandonar a mi congregación.",
+    program: "Predicación Expositiva"
+  },
+  {
+    id: "test-2",
+    author: "Hno. Carlos Espinoza",
+    role: "Líder Comunitario y Consejero",
+    church: "Misión Evangélica Fronteriza",
+    location: "Cheguate, Tacaná",
+    country: "Guatemala",
+    quote: "Los folletos didácticos son un tesoro en nuestra montaña. Las 20 horas intensivas de estudio cada mes en la biblioteca han transformado la manera en que aconsejamos matrimonios y formamos a los jóvenes.",
+    program: "Consejería Bíblica"
+  },
+  {
+    id: "test-3",
+    author: "Pastora Elena Martínez",
+    role: "Líder de Educación y Discipulado",
+    church: "Comunidad Cristiana de Corinto",
+    location: "San Lorenzo, Valle",
+    country: "Honduras",
+    quote: "La preparación técnica universitaria nos dio herramientas formales que antes creíamos inalcanzables para los obreros del campo. La Academia es una verdadera bendición para el sur de Honduras.",
+    program: "Actualización Ministerial"
+  },
+  {
+    id: "test-4",
+    author: "Pr. David Rivas",
+    role: "Pastor y Misionero Rural",
+    church: "Confraternidad de Occidente",
+    location: "Chinandega",
+    country: "Nicaragua",
+    quote: "Estudiar con materiales de teólogos y pastores de tan alto nivel, pero explicados en nuestro propio lenguaje y realidad de campo, nos dio un renuevo espiritual a todo el ministerio.",
+    program: "Predicación Expositiva"
   }
 ];
 

@@ -1,6 +1,16 @@
 import React from 'react';
-import { Users, BookOpen, Award, CheckCircle2, MessageCircle, FileText, Heart, Compass, ShieldCheck } from 'lucide-react';
-import { FACULTY_DATA, INSTITUTION_INFO, buildWhatsAppUrl } from '../data/academyData';
+import { 
+  Users, 
+  BookOpen, 
+  Award, 
+  CheckCircle2, 
+  MessageCircle, 
+  Heart, 
+  UserCheck, 
+  Sparkles, 
+  GraduationCap 
+} from 'lucide-react';
+import { FACULTY_DATA, FACULTY_MEMBERS, buildWhatsAppUrl } from '../data/academyData';
 
 interface ViewFacultadProps {
   onNavigateToProgramas: () => void;
@@ -37,7 +47,7 @@ export const ViewFacultad: React.FC<ViewFacultadProps> = ({
           </p>
         </div>
 
-        {/* Narrative Box */}
+        {/* Narrative Box: Acuerdo y Misión Compartida / Una Facultad Independiente y Solidaria */}
         <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
@@ -58,7 +68,7 @@ export const ViewFacultad: React.FC<ViewFacultadProps> = ({
           </p>
 
           {/* 4 Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
             {FACULTY_DATA.caracteristicas.map((caract, i) => (
               <div key={i} className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                 <div className="flex items-center gap-2 text-amber-400 font-serif font-bold text-base">
@@ -68,6 +78,65 @@ export const ViewFacultad: React.FC<ViewFacultadProps> = ({
                 <p className="text-xs text-slate-300 leading-relaxed">
                   {caract.detalle}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* NUEVA SECCIÓN DE FOTOGRAFÍAS Y MAESTROS SOLICITADOS */}
+        <div className="space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
+              <GraduationCap className="w-4 h-4 text-amber-400" />
+              <span>Colaboradores Educativos Destacados</span>
+            </div>
+            <h2 className="font-serif text-3xl font-bold text-white">
+              Nuestros Maestros y Teólogos Invitados
+            </h2>
+            <p className="text-xs text-slate-400">
+              Pastores, doctores y maestros bíblicos que autorizan y licencian sus recursos pedagógicos para equipar a nuestros estudiantes en Centroamérica.
+            </p>
+          </div>
+
+          {/* Grid de 8 Educadores con espacio de fotografía */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {FACULTY_MEMBERS.map((member) => (
+              <div
+                key={member.id}
+                className="bg-slate-900 rounded-2xl border border-slate-800 hover:border-amber-400/50 p-5 shadow-lg flex flex-col items-center text-center space-y-3 transition-all duration-300 group hover:-translate-y-1"
+              >
+                {/* Espacio para Fotografía */}
+                <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-amber-400/40 p-0.5 bg-slate-950 group-hover:border-amber-400 transition-colors shadow-inner">
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full object-cover rounded-full filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center text-amber-400 font-serif font-bold text-xl">
+                      {member.initials}
+                    </div>
+                  )}
+                  <span className="absolute bottom-0 right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-slate-900" title="Docente Activo" />
+                </div>
+
+                <div className="space-y-1 w-full">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400/90 block">
+                    Facultad Invitada
+                  </span>
+                  <h3 className="font-serif font-bold text-white text-base group-hover:text-amber-300 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs text-slate-300 font-medium">
+                    {member.title}
+                  </p>
+                </div>
+
+                <div className="w-full pt-2 border-t border-slate-800 text-[11px] text-slate-400 leading-snug">
+                  {member.focus}
+                </div>
               </div>
             ))}
           </div>
