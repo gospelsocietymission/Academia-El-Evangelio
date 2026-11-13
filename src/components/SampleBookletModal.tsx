@@ -64,7 +64,7 @@ export const SampleBookletModal: React.FC<SampleBookletModalProps> = ({
             </h4>
 
             <p className="text-sm text-stone-700 leading-relaxed">
-              <strong>Pasaje central:</strong> <em>"Toda la Escritura es inspirada por Dios, y útil para ensenar, para redargüir, para corregir, para instruir en justicia" (2 Timoteo 3:16).</em>
+              <strong>Pasaje central:</strong> <em>"Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia" (2 Timoteo 3:16).</em>
             </p>
 
             <div className="bg-amber-50 border-l-2 border-amber-600 p-4 rounded text-xs text-amber-950 space-y-1">
@@ -72,7 +72,7 @@ export const SampleBookletModal: React.FC<SampleBookletModalProps> = ({
               <p>
                 1. Mira el video 01 de tu memoria USB o enlace digital (30 min).<br />
                 2. Lee con atención el pasaje bíblico en tu propia Biblia.<br />
-                3. Completa los espacios guiados abajo con tu puno y letra (o responde aquí en la muestra digital).
+                3. Completa los espacios guiados abajo con tu puño y letra (o responde aquí en la muestra digital).
               </p>
             </div>
           </div>

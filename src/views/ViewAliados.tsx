@@ -59,7 +59,7 @@ export const ViewAliados: React.FC<ViewAliadosProps> = ({
                 </span>
               </div>
 
-              {/* Pequenos Iconitos */}
+              {/* Pequeños Iconitos */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {regionGroup.allies.map((ally, aIdx) => (
                   <div

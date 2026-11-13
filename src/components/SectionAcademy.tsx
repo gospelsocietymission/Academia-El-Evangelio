@@ -41,7 +41,7 @@ export const SectionAcademy: React.FC<SectionAcademyProps> = ({
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight text-balance">
-            Academia y Metodología de Ensenanza
+            Academia y Metodología de Enseñanza
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">

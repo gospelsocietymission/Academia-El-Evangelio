@@ -28,7 +28,7 @@ export const Methodology: React.FC<MethodologyProps> = ({ onOpenEnrollment }) =>
       label: "Práctica Pastoral",
       sublabel: "Encuentros Mensuales",
       icon: Users,
-      description: "Encuentros mensuales intensivos disenados para resolver dudas cara a cara, realizar exposiciones guiadas, debates teológicos y laboratorios reales de predicación y consejería.",
+      description: "Encuentros mensuales intensivos diseñados para resolver dudas cara a cara, realizar exposiciones guiadas, debates teológicos y laboratorios reales de predicación y consejería.",
       color: "from-amber-500/20 to-amber-600/10",
       accent: "text-amber-400",
       border: "border-amber-500/30"
@@ -65,7 +65,7 @@ export const Methodology: React.FC<MethodologyProps> = ({ onOpenEnrollment }) =>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="flex items-center justify-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase mb-3">
             <span className="w-6 h-[1px] bg-amber-400"></span>
-            <span>Metodología de Ensenanza</span>
+            <span>Metodología de Enseñanza</span>
             <span className="w-6 h-[1px] bg-amber-400"></span>
           </div>
           
@@ -74,7 +74,7 @@ export const Methodology: React.FC<MethodologyProps> = ({ onOpenEnrollment }) =>
           </h2>
           
           <p className="mt-4 text-base text-slate-300 leading-relaxed">
-            Disenado para que cada estudiante aprenda a su propio ritmo sin abandonar su congregación, su familia ni sus labores diarias, complementando el estudio en casa con encuentros mensuales de práctica intensiva.
+            Diseñado para que cada estudiante aprenda a su propio ritmo sin abandonar su congregación, su familia ni sus labores diarias, complementando el estudio en casa con encuentros mensuales de práctica intensiva.
           </p>
         </div>
 
@@ -138,7 +138,7 @@ export const Methodology: React.FC<MethodologyProps> = ({ onOpenEnrollment }) =>
             <div className="lg:col-span-6 space-y-5">
               <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-amber-400 uppercase">
                 <BookOpen className="w-4 h-4" />
-                <span>Didáctica Disenada para la Realidad Rural</span>
+                <span>Didáctica Diseñada para la Realidad Rural</span>
               </div>
 
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -146,7 +146,7 @@ export const Methodology: React.FC<MethodologyProps> = ({ onOpenEnrollment }) =>
               </h3>
 
               <p className="text-sm text-slate-300 leading-relaxed">
-                Nuestros folletos no son simples resúmenes; son cuadernos de trabajo interactivos. Cada lección contiene preguntas de comprensión, cuadros sinópticos y espacios disenados para que el estudiante redacte sus propios bosquejos y reflexiones teológicas.
+                Nuestros folletos no son simples resúmenes; son cuadernos de trabajo interactivos. Cada lección contiene preguntas de comprensión, cuadros sinópticos y espacios diseñados para que el estudiante redacte sus propios bosquejos y reflexiones teológicas.
               </p>
 
               <div className="space-y-2.5 text-xs text-slate-300">

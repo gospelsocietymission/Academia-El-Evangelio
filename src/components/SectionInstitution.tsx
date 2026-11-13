@@ -85,7 +85,7 @@ export const SectionInstitution: React.FC<SectionInstitutionProps> = ({
               </h1>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-                Llevando ensenanza bíblica de nivel técnico universitario a las zonas más remotas de Centroamérica.
+                Llevando enseñanza bíblica de nivel técnico universitario a las zonas más remotas de Centroamérica.
               </p>
 
               {/* Highlights */}
@@ -263,7 +263,7 @@ export const SectionInstitution: React.FC<SectionInstitutionProps> = ({
               <span className="font-serif font-bold text-2xl text-amber-400 block">01.</span>
               <h4 className="font-serif font-bold text-base text-white">Fidelidad Bíblica</h4>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Ensenanza apegada a la inerrancia y suficiencia de las Sagradas Escrituras, sin modas pasajeras.
+                Enseñanza apegada a la inerrancia y suficiencia de las Sagradas Escrituras, sin modas pasajeras.
               </p>
             </div>
 

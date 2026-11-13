@@ -85,7 +85,7 @@ export const MissionaryReportsModal: React.FC<MissionaryReportsModalProps> = ({ 
                         className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow transition-colors"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
-                        <span>Abrir PDF en Pestana</span>
+                        <span>Abrir PDF en Pestaña</span>
                       </a>
                       <a
                         href={pdfUrls[selectedReport.id]}
@@ -187,7 +187,7 @@ export const MissionaryReportsModal: React.FC<MissionaryReportsModalProps> = ({ 
                             target="_blank"
                             rel="noreferrer"
                             className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-slate-700 font-semibold text-xs transition-colors flex items-center justify-center gap-1.5"
-                            title="Abrir PDF en nueva pestana"
+                            title="Abrir PDF en nueva pestaña"
                           >
                             <ExternalLink className="w-3.5 h-3.5" />
                             <span>Abrir</span>
@@ -215,7 +215,7 @@ export const MissionaryReportsModal: React.FC<MissionaryReportsModalProps> = ({ 
 
         {/* Footer */}
         <div className="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 px-6">
-          <span>Reportes Misioneros · Academia Biblica El Evangelio</span>
+          <span>Reportes Misioneros · Academia Bíblica El Evangelio</span>
           <button
             onClick={onClose}
             className="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold cursor-pointer transition-colors"

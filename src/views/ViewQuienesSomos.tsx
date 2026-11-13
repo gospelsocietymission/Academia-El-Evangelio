@@ -72,10 +72,10 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
               Conscientes de la urgente necesidad de impartir educación bíblica a hombres y mujeres apasionados por el Evangelio, pero que carecen de oportunidades de estudio debido a diversas limitaciones geográficas y económicas, un grupo destacado de líderes y pastores se ha unido en colaboración.
             </p>
             <p>
-              Este esfuerzo busca alcanzar a estudiantes, pastores y líderes en zonas rurales de diversos países de Latinoamérica, lugares donde la ensenanza bíblica es más que un lujo: <strong>es una necesidad urgente y vital</strong>. Nuestra misión es ir hasta lo último de la tierra, llevando una formación espiritual sólida que transforme vidas y comunidades.
+              Este esfuerzo busca alcanzar a estudiantes, pastores y líderes en zonas rurales de diversos países de Latinoamérica, lugares donde la enseñanza bíblica es más que un lujo: <strong>es una necesidad urgente y vital</strong>. Nuestra misión es ir hasta lo último de la tierra, llevando una formación espiritual sólida que transforme vidas y comunidades.
             </p>
             <p>
-              En los rincones más remotos, los pastores y líderes anhelan una ensenanza bíblica sólida y accesible, para que los creyentes no solo vivan su fe, sino que también sean un faro de esperanza en sus comunidades. Este proyecto no es solo un programa educativo, es un movimiento de amor y compromiso por el Reino de Dios, cargado de oración y dedicación pastoral.
+              En los rincones más remotos, los pastores y líderes anhelan una enseñanza bíblica sólida y accesible, para que los creyentes no solo vivan su fe, sino que también sean un faro de esperanza en sus comunidades. Este proyecto no es solo un programa educativo, es un movimiento de amor y compromiso por el Reino de Dios, cargado de oración y dedicación pastoral.
             </p>
           </div>
         </div>
@@ -283,7 +283,7 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
                   </div>
                   <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
                     <Briefcase className="w-5 h-5 text-emerald-400" />
-                    <span className="font-bold text-white text-xs block">Libre Ejercicio de la Ensenanza</span>
+                    <span className="font-bold text-white text-xs block">Libre Ejercicio de la Enseñanza</span>
                     <p className="text-[11px] text-slate-400">
                       Habilitación plena para capacitar, distribuir materiales didácticos impresos y certificar a obreros del sector religioso.
                     </p>

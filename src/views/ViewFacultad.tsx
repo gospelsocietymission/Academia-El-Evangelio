@@ -158,7 +158,7 @@ export const ViewFacultad: React.FC<ViewFacultadProps> = () => {
               <div className="md:col-span-8 lg:col-span-8 text-center md:text-left space-y-3">
                 <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
                   <HeartHandshake className="w-4 h-4 text-amber-400" />
-                  <span>Acompanamiento Presencial</span>
+                  <span>Acompañamiento Presencial</span>
                 </div>
                 <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white drop-shadow">
                   Mentores de Campo
