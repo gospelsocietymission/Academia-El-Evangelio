@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplorePrograms, onExploreMethodol
 
             {/* Subtitle explicitly requested */}
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
-              Llevando enseñanza bíblica de nivel técnico universitario a las zonas más remotas de Centroamérica.
+              Llevando ensenanza bíblica de nivel técnico universitario a las zonas más remotas de Centroamérica.
             </p>
 
             {/* Key pedagogical highlights */}
@@ -52,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplorePrograms, onExploreMethodol
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Diseñado para comunidades sin internet continuo</span>
+                <span>Disenado para comunidades sin internet continuo</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplorePrograms, onExploreMethodol
               <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] rounded-xl overflow-hidden">
                 <img
                   src="/src/assets/images/hero_biblical_study_1794497818581.jpg"
-                  alt="Estudio bíblico teológico con vista a las montañas de Centroamérica"
+                  alt="Estudio bíblico teológico con vista a las montanas de Centroamérica"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                   loading="eager"

@@ -124,40 +124,57 @@ export const ViewFacultad: React.FC<ViewFacultadProps> = () => {
           </div>
         </div>
 
-        {/* MENTORES DE CAMPO (SIN FOTOGRAFÍA) */}
-        <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
-              <HeartHandshake className="w-4 h-4 text-amber-400" />
-              <span>Acompañamiento Presencial</span>
-            </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-              Mentores de Campo
-            </h2>
-            <p className="text-xs sm:text-sm text-amber-200/90 leading-relaxed italic">
-              Honramos el trabajo del mentor; es el más fuerte porque tiene que tener un trato cara a cara con los alumnos, escucharlos, orar juntos.
-            </p>
-          </div>
+        {/* MENTORES DE CAMPO (CON IMAGEN DE FONDO zapatosdesgastado.jpg) */}
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-amber-500/40 shadow-2xl">
+          {/* Background Image */}
+          <img
+            src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/zapatosdesgastado.jpg"
+            alt="Zapatos desgastados en servicio misionero rural"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            loading="lazy"
+          />
+          {/* Rich dark overlay for high readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/85 to-slate-950/95" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
-            {FIELD_MENTORS.map((mentor) => (
-              <div
-                key={mentor.id}
-                className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-400/40 transition-colors flex items-center gap-3"
-              >
-                <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-serif font-bold text-white text-sm">
-                    {mentor.name}
-                  </h3>
-                  <p className="text-xs text-slate-400">
-                    {mentor.location}
-                  </p>
-                </div>
+          <div className="relative z-10 p-6 sm:p-10 lg:p-12 space-y-8">
+            <div className="text-center max-w-3xl mx-auto space-y-3">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
+                <HeartHandshake className="w-4 h-4 text-amber-400" />
+                <span>Acompanamiento Presencial</span>
               </div>
-            ))}
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white drop-shadow">
+                Mentores de Campo
+              </h2>
+              <p className="text-xs sm:text-base text-amber-100 leading-relaxed italic drop-shadow">
+                Reconocemos el compromiso extraordinario de quienes están en la primera línea de formación. Su labor es la más desafiante y noble, pues requiere presencia real, una escucha compasiva frente a frente y la entrega espiritual de orar juntos por cada vida.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+              {FIELD_MENTORS.map((mentor) => (
+                <div
+                  key={mentor.id}
+                  className="p-4 sm:p-5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/15 hover:border-amber-400/50 transition-colors flex items-start gap-3 shadow-lg"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-amber-500/20 border border-amber-400/30 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0 space-y-0.5">
+                    <h3 className="font-serif font-bold text-white text-sm sm:text-base">
+                      {mentor.name}
+                    </h3>
+                    {mentor.role && (
+                      <p className="text-[11px] font-semibold text-amber-300 leading-snug">
+                        {mentor.role}
+                      </p>
+                    )}
+                    <p className="text-xs text-slate-300 leading-snug">
+                      {mentor.location}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

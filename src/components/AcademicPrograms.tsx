@@ -38,7 +38,7 @@ export const AcademicPrograms: React.FC<AcademicProgramsProps> = ({ onEnrollment
           </h2>
           
           <p className="mt-4 text-base text-slate-300 leading-relaxed">
-            Formación integral con rigor exegético y pastoral, acreditada con validez nacional e internacional, diseñada en ciclos trimestrales de estudio por correspondencia y laboratorios mensuales.
+            Formación integral con rigor exegético y pastoral, acreditada con validez nacional e internacional, disenada en ciclos trimestrales de estudio por correspondencia y laboratorios mensuales.
           </p>
         </div>
 

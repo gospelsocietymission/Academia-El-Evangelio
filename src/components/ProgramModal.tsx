@@ -194,7 +194,7 @@ _Enviado desde academiabiblica.net_`;
                   Perfil del Aspirante
                 </h4>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  Este programa está diseñado pensando tanto en la realidad del pastor de congregación rural como del líder laico:
+                  Este programa está disenado pensando tanto en la realidad del pastor de congregación rural como del líder laico:
                 </p>
                 <ul className="space-y-2.5">
                   {program.profile.map((item, i) => (

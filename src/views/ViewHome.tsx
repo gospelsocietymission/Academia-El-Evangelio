@@ -113,7 +113,7 @@ _Enviado desde academiabiblica.net_`;
               </h1>
 
               <p className="text-sm sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-                Llevando enseñanza bíblica sólida y contextualizada a las zonas más remotas de Centroamérica.
+                Llevando ensenanza bíblica sólida y contextualizada a las zonas más remotas de Centroamérica.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 text-xs text-slate-300">
@@ -197,7 +197,7 @@ _Enviado desde academiabiblica.net_`;
                 <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-950 border border-slate-800">
                   <img
                     src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80"
-                    alt="Centroamérica y sus paisajes montañosos"
+                    alt="Centroamérica y sus paisajes montanosos"
                     className="w-full h-full object-cover"
                     loading="eager"
                   />
@@ -435,7 +435,7 @@ _Enviado desde academiabiblica.net_`;
                 Próximas Conferencias
               </h2>
               <p className="text-xs sm:text-sm text-slate-300">
-                Calendario oficial de conferencias, enseñanzas y clases especiales de Enero y Febrero 2027 en El Salvador, Nicaragua, Honduras y Costa Rica.
+                Calendario oficial de conferencias, ensenanzas y clases especiales de Enero y Febrero 2027 en El Salvador, Nicaragua, Honduras y Costa Rica.
               </p>
             </div>
 

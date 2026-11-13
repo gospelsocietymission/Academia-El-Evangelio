@@ -26,7 +26,7 @@ export const INSTITUTION_INFO = {
   region: "Centroamérica (El Salvador, Nicaragua, Guatemala, Honduras, Costa Rica)",
   accreditation: "Programas Pastorales con Validez Nacional e Internacional",
   biblicalVerse: {
-    text: "Lo que has oído de mí ante muchos testigos, esto encarga a hombres fieles que sean idóneos para enseñar también a otros.",
+    text: "Lo que has oído de mí ante muchos testigos, esto encarga a hombres fieles que sean idóneos para ensenar también a otros.",
     reference: "2 Timoteo 2:2"
   },
   founder: {
@@ -35,8 +35,8 @@ export const INSTITUTION_INFO = {
     startYear: 1998,
     photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/isaias.jpg",
     quote: "Mientras he viajado por muchos países descubrí la urgente necesidad de llevar educación bíblica de manera profunda, pero con lenguaje local y verdaderamente entendible en sus propios contextos.",
-    bio1: "Desde el año 1998, el hermano Isaías ha recorrido incansablemente aldeas, cantones, montañas y ciudades de Centroamérica, sembrando la semilla de la educación teológica, entregando biblias Reina Valera, como una oportunidad de evangelizar a otros.",
-    bio2: "Por más de dos décadas, hemos visto pastores de zonas montañosas y comunidades rurales servir fielmente sin haber tenido jamás la oportunidad de asistir a un seminario formal. La Academia Bíblica El Evangelio nació para responder a ese clamor: llevar la mejor teología con sencillez, profundidad y calidez al corazón de cada comunidad."
+    bio1: "Desde el ano 1998, el hermano Isaías ha recorrido incansablemente aldeas, cantones, montanas y ciudades de Centroamérica, sembrando la semilla de la educación teológica, entregando biblias Reina Valera, como una oportunidad de evangelizar a otros.",
+    bio2: "Por más de dos décadas, hemos visto pastores de zonas montanosas y comunidades rurales servir fielmente sin haber tenido jamás la oportunidad de asistir a un seminario formal. La Academia Bíblica El Evangelio nació para responder a ese clamor: llevar la mejor teología con sencillez, profundidad y calidez al corazón de cada comunidad."
   }
 };
 
@@ -54,7 +54,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Ahuachapán",
     fullLocation: "Ahuachapán, El Salvador",
     type: "Sede Central y Formación Ministerial",
-    description: "Punto de encuentro regional en las estribaciones cafetaleras del occidente salvadoreño para clases presenciales mensuales, laboratorios de predicación y coordinación eclesial.",
+    description: "Punto de encuentro regional en las estribaciones cafetaleras del occidente salvadoreno para clases presenciales mensuales, laboratorios de predicación y coordinación eclesial.",
     ruralImage: "https://cdn.getyourguide.com/img/tour/ccbc355802600e9bb2d86c6e9d843032cc3c81c0808e42627a2c56981846d37f.jpeg/68.jpg"
   },
   {
@@ -81,7 +81,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Cartago",
     fullLocation: "Cartago, Costa Rica",
     type: "Sede Académica Regional",
-    description: "Coordinación de estudiantes por correspondencia y tutorías presenciales en los valles verdes y montañosos de la meseta central costarricense.",
+    description: "Coordinación de estudiantes por correspondencia y tutorías presenciales en los valles verdes y montanosos de la meseta central costarricense.",
     ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/Cartago.png"
   },
   {
@@ -90,7 +90,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Tacaná",
     fullLocation: "Tacaná, San Marcos, Guatemala",
     type: "Centro de Estudios y Biblioteca",
-    description: "Sede estratégica en el altiplano montañoso indígena cerca de la frontera con México; hogar de estudio y refugio formativo para más de 100 estudiantes.",
+    description: "Sede estratégica en el altiplano montanoso indígena cerca de la frontera con México; hogar de estudio y refugio formativo para más de 100 estudiantes.",
     ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/tacana.jpeg"
   },
   {
@@ -99,7 +99,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "San Lorenzo",
     fullLocation: "San Lorenzo, Valle, Honduras",
     type: "Centro Misionero y Formativo",
-    description: "Base de entrenamiento misionero rural en el sur hondureño cerca del Golfo de Fonseca, combinando teología práctica con supervivencia diaria en el campo.",
+    description: "Base de entrenamiento misionero rural en el sur hondureno cerca del Golfo de Fonseca, combinando teología práctica con supervivencia diaria en el campo.",
     ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/san%20lorenzo.jpeg"
   }
 ];
@@ -112,10 +112,10 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     country: "Nicaragua",
     category: "Salud Integral y Adicciones Conductuales",
     image: "https://images.trvl-media.com/place/553248635974587720/625f08fd-7bb9-47d9-87fa-1c2d6deca7b9.jpg",
-    description: "En Eco-Well Health somos un espacio dedicado al aprendizaje y acompañamiento especializado en adicciones conductuales. Brindamos herramientas prácticas para ayudar a las personas a retomar el control frente a las adicciones a los videojuegos, las redes sociales y las compras impulsivas en internet. Además, contamos con un programa premium enfocado en sanar y superar la codependencia maternal, paternal o conyugal.",
-    missionaryCall: "Buscamos misioneros y consejeros con vocación de acompañamiento espiritual y psicológico-pastoral para apoyar talleres de recuperación, prevención y mentoría a jóvenes y familias afectadas.",
+    description: "En Eco-Well Health somos un espacio dedicado al aprendizaje y acompanamiento especializado en adicciones conductuales. Brindamos herramientas prácticas para ayudar a las personas a retomar el control frente a las adicciones a los videojuegos, las redes sociales y las compras impulsivas en internet. Además, contamos con un programa premium enfocado en sanar y superar la codependencia maternal, paternal o conyugal.",
+    missionaryCall: "Buscamos misioneros y consejeros con vocación de acompanamiento espiritual y psicológico-pastoral para apoyar talleres de recuperación, prevención y mentoría a jóvenes y familias afectadas.",
     needs: [
-      "Consejeros bíblicos y acompañantes espirituales.",
+      "Consejeros bíblicos y acompanantes espirituales.",
       "Líderes de talleres para jóvenes y adolescentes.",
       "Facilitadores en sanidad de relaciones y codependencia."
     ]
@@ -127,7 +127,7 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     country: "Guatemala",
     category: "Educación Teológica y Biblioteca Fronteriza",
     image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/tacana.jpeg",
-    description: "Nuestra biblioteca y centro de estudios sirve como un hogar de apoyo para 11 institutos bíblicos en las zonas aledañas de Guatemala y México. Aquí, los estudiantes encuentran un refugio tranquilo para desconectarse del día a día, orar y concentrarse en su formación. Además, este mismo espacio es la sede de nuestra academia, donde cada cuatro meses reunimos a más de 100 personas para sumergirse en un estudio bíblico intensivo.",
+    description: "Nuestra biblioteca y centro de estudios sirve como un hogar de apoyo para 11 institutos bíblicos en las zonas aledanas de Guatemala y México. Aquí, los estudiantes encuentran un refugio tranquilo para desconectarse del día a día, orar y concentrarse en su formación. Además, este mismo espacio es la sede de nuestra academia, donde cada cuatro meses reunimos a más de 100 personas para sumergirse en un estudio bíblico intensivo.",
     missionaryCall: "Invitamos a misioneros maestros, catalogadores de bibliotecas teológicas y predicadores dispuestos a ministrar en las jornadas intensivas con más de 100 estudiantes reunidos.",
     needs: [
       "Maestros bíblicos itinerantes para módulos intensivos.",
@@ -171,7 +171,7 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
   {
     id: "consejeria-biblica",
     title: "Consejería Bíblica",
-    subtitle: "Un Llamado a la Formación Espiritual y Acompañamiento en Crisis",
+    subtitle: "Un Llamado a la Formación Espiritual y Acompanamiento en Crisis",
     description: "Vivimos en un mundo que, como describe el apóstol Santiago, es 'animal y diabólico'. Los sistemas visibles están influenciados por mentes controladas por el mal. Sin embargo, los creyentes sabemos que somos extranjeros en este mundo y que nuestro destino final es el cielo. Este programa capacita a pastores y líderes para manejar casos complejos, guiando a la congregación en cómo Dios actúa en cada situación.",
     image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/consejeria.png",
     badge: "Programa Pastoral",
@@ -206,13 +206,13 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
       },
       {
         code: "CB-105",
-        name: "El Papel del Pastor y Líder en el Acompañamiento Espiritual",
+        name: "El Papel del Pastor y Líder en el Acompanamiento Espiritual",
         description: "Límites pastorales, confidencialidad, ética del consejero y cuidado de la salud emocional del siervo de Dios.",
         hours: "40 horas"
       },
       {
         code: "CB-106",
-        name: "Cómo Enseñar a los Creyentes a Ver la Mano de Dios en la Dificultad",
+        name: "Cómo Ensenar a los Creyentes a Ver la Mano de Dios en la Dificultad",
         description: "Laboratorio clínico de consejería, estudio de casos reales en comunidades rurales y aplicación práctica.",
         hours: "40 horas"
       }
@@ -231,7 +231,7 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     id: "predicacion-expositiva",
     title: "Predicación Expositiva",
     subtitle: "Desarrollo de habilidades para estudiar, estructurar y comunicar la Palabra de Dios",
-    description: "Formación intensiva que prepara al predicador para desentrañar el significado original del texto bíblico, construir sermones ordenados y aplicarlos con fidelidad y unción a la vida de la congregación.",
+    description: "Formación intensiva que prepara al predicador para desentranar el significado original del texto bíblico, construir sermones ordenados y aplicarlos con fidelidad y unción a la vida de la congregación.",
     image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/expository.png",
     badge: "Programa Pastoral",
     duration: "12 Meses (4 Ciclos Trimestrales)",
@@ -272,7 +272,7 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
       {
         code: "PE-206",
         name: "Laboratorio de Predicación en Vivo",
-        description: "Entrega de sermones ante el panel de profesores y compañeros de estudio, con evaluación constructiva en 360°.",
+        description: "Entrega de sermones ante el panel de profesores y companeros de estudio, con evaluación constructiva en 360°.",
         hours: "40 horas"
       }
     ],
@@ -297,7 +297,7 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     duration: "Indefinido · 1 encuentro mensual.",
     modality: "Por correspondencia + 1 Encuentro mensual de comunión y cátedra",
     modulesCount: 4,
-    highlightObjective: "Profundizar en la teología práctica y doctrinas básicas del ABC del evangelio, contrarrestando falsas enseñanzas en comunidad pastoral.",
+    highlightObjective: "Profundizar en la teología práctica y doctrinas básicas del ABC del evangelio, contrarrestando falsas ensenanzas en comunidad pastoral.",
     curriculum: [
       {
         code: "AM-01",
@@ -314,13 +314,13 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
       {
         code: "AM-03",
         name: "Historia de la Biblia Reina Valera",
-        description: "Recorrido histórico por la preservación, traducción y legado de las Sagradas Escrituras en nuestro idioma español.",
+        description: "Recorrido histórico por la preservación, traducción y legado de las Sagradas Escrituras en nuestro idioma espanol.",
         hours: "Encuentro Mensual"
       },
       {
         code: "AM-04",
         name: "Estudio completo del Evangelio de Juan",
-        description: "Análisis expositivo verso a verso del Evangelio de Juan con la intención de contrarrestar las falsas enseñanzas.",
+        description: "Análisis expositivo verso a verso del Evangelio de Juan con la intención de contrarrestar las falsas ensenanzas.",
         hours: "Encuentro Mensual"
       }
     ],
@@ -338,7 +338,7 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
 export const PROGRAMAS_PAGE_DATA = {
   metodoEstudio: {
     title: "Nuestro Método de Estudio por Correspondencia",
-    descripcion: "Usamos el método de estudio por correspondencia diseñado para la autogestión del aprendizaje a su propio ritmo. El estudiante recibirá por cada materia 30 horas de video clases, y un folleto impreso con espacios en blanco donde podrá llevar control de su aprendizaje. El estudiante presentará un resumen de lo aprendido y pasando 4 semanas regresará para recibir otra materia. El estudiante deberá exponer lo que va aprendiendo al resto del grupo en nuestra Reunión mensual.",
+    descripcion: "Usamos el método de estudio por correspondencia disenado para la autogestión del aprendizaje a su propio ritmo. El estudiante recibirá por cada materia 30 horas de video clases, y un folleto impreso con espacios en blanco donde podrá llevar control de su aprendizaje. El estudiante presentará un resumen de lo aprendido y pasando 4 semanas regresará para recibir otra materia. El estudiante deberá exponer lo que va aprendiendo al resto del grupo en nuestra Reunión mensual.",
     puntosClave: [
       "10% Teoría (30 horas de video previamente grabadas)",
       "90% Práctica (Encuentros mensuales con exposiciones y laboratorios)",
@@ -361,7 +361,7 @@ export const PROGRAMAS_PAGE_DATA = {
   },
   admision: {
     title: "Proceso de Admisión Simple",
-    descripcion: "Para ser admitido requerimos procesos simples; funcionamos a través de la iglesia local con representantes nacionales que acompañan todo el proceso:",
+    descripcion: "Para ser admitido requerimos procesos simples; funcionamos a través de la iglesia local con representantes nacionales que acompanan todo el proceso:",
     pasos: [
       "Entrevista simple con el representante nacional de la Academia.",
       "Llenar el formulario en línea (si no sabe cómo hacerlo, el representante le ayudará).",
@@ -373,10 +373,10 @@ export const PROGRAMAS_PAGE_DATA = {
 export const QUIENES_SOMOS_DATA = {
   titulo: "Quiénes Somos — Academia Bíblica El Evangelio",
   subtitulo: "Nuestra misión es educar y servir como recurso para la iglesia local",
-  historia: "Conscientes de la urgente necesidad de impartir educación bíblica a hombres y mujeres apasionados por el Evangelio, pero que carecen de oportunidades de estudio debido a diversas limitaciones, un grupo destacado de líderes y pastores se ha unido en colaboración. Este esfuerzo busca alcanzar a estudiantes, pastores y líderes en zonas rurales de diversos países, lugares donde la enseñanza bíblica es más que un lujo: es una necesidad urgente y vital.",
+  historia: "Conscientes de la urgente necesidad de impartir educación bíblica a hombres y mujeres apasionados por el Evangelio, pero que carecen de oportunidades de estudio debido a diversas limitaciones, un grupo destacado de líderes y pastores se ha unido en colaboración. Este esfuerzo busca alcanzar a estudiantes, pastores y líderes en zonas rurales de diversos países, lugares donde la ensenanza bíblica es más que un lujo: es una necesidad urgente y vital.",
   acreditacion: {
     titulo: "Acreditación de la Academia Bíblica El Evangelio",
-    texto: "Dada la naturaleza religiosa de nuestros programas, estos están diseñados específicamente para cumplir con los requisitos ministeriales, basándonos en el principio bíblico: 'Por sus frutos los conoceréis' (Mateo 7:16). Nuestro objetivo principal es formar líderes cuya vida y ministerio reflejen el impacto transformador de su aprendizaje. Contamos con acreditación regional en los países donde operamos, con programas pastorales avalados y reconocidos internacionalmente mediante convenios educativos.",
+    texto: "Dada la naturaleza religiosa de nuestros programas, estos están disenados específicamente para cumplir con los requisitos ministeriales, basándonos en el principio bíblico: 'Por sus frutos los conoceréis' (Mateo 7:16). Nuestro objetivo principal es formar líderes cuya vida y ministerio reflejen el impacto transformador de su aprendizaje. Contamos con acreditación regional en los países donde operamos, con programas pastorales avalados y reconocidos internacionalmente mediante convenios educativos.",
     apostilla: "Para facilitar el reconocimiento global, nuestros títulos pueden ser legalizados a través de la Apostilla de La Haya. Este proceso, que consiste en la estampación de un sello único, permite que los documentos emitidos por nuestra Academia sean válidos y aceptados en cualquier país que forme parte de este convenio internacional."
   },
   credenciales: {
@@ -389,16 +389,16 @@ export const QUIENES_SOMOS_DATA = {
   },
   filosofia: {
     titulo: "Nuestra Filosofía: Principios Eclesiológicos",
-    texto: "Creemos firmemente que la Iglesia es la institución ordenada por Dios para educar y equipar a sus miembros. Aunque los seminarios han desempeñado un papel valioso en apoyar esta función, nuestra convicción es adherirnos al principio bíblico de una educación centrada en la Iglesia y basada en mentores (Efesios 4:11-12). Los pastores tienen el llamado y la responsabilidad de discipular a los futuros pastores.",
-    doctrina: "Si bien ofrecemos estudios abiertos a todas las denominaciones evangélicas, nuestro estándar doctrinal está fundamentado en las enseñanzas de los reformadores del siglo XVI, un tiempo en que aún no existían las denominaciones que conocemos hoy. Promovemos la unidad en torno al mensaje central del Evangelio."
+    texto: "Creemos firmemente que la Iglesia es la institución ordenada por Dios para educar y equipar a sus miembros. Aunque los seminarios han desempenado un papel valioso en apoyar esta función, nuestra convicción es adherirnos al principio bíblico de una educación centrada en la Iglesia y basada en mentores (Efesios 4:11-12). Los pastores tienen el llamado y la responsabilidad de discipular a los futuros pastores.",
+    doctrina: "Si bien ofrecemos estudios abiertos a todas las denominaciones evangélicas, nuestro estándar doctrinal está fundamentado en las ensenanzas de los reformadores del siglo XVI, un tiempo en que aún no existían las denominaciones que conocemos hoy. Promovemos la unidad en torno al mensaje central del Evangelio."
   },
   legal: {
     titulo: "Administración y Operatividad Legal",
-    texto: "Nuestra administración y operatividad en cada país donde estamos presentes se rigen bajo un marco legal formal, cumpliendo con los requisitos establecidos por los respectivos gobiernos. Este compromiso con la legalidad nos permite funcionar de manera transparente y estar plenamente habilitados para impartir educación y compartir enseñanzas sin restricciones."
+    texto: "Nuestra administración y operatividad en cada país donde estamos presentes se rigen bajo un marco legal formal, cumpliendo con los requisitos establecidos por los respectivos gobiernos. Este compromiso con la legalidad nos permite funcionar de manera transparente y estar plenamente habilitados para impartir educación y compartir ensenanzas sin restricciones."
   },
   facultad: {
     titulo: "¿Quiénes son Nuestros Colaboradores Educativos o Facultad Invitada?",
-    texto: "Nuestros colaboradores educativos son pastores y líderes comprometidos con el llamado de enseñar la Palabra de Dios. A través de un permiso especial y firmado, nos permiten utilizar sus recursos educativos para integrarlos en nuestro programa. Son colaboradores honoríficos que participan sin remuneración económica, movidos únicamente por amor al Evangelio y pasión por equipar a otros."
+    texto: "Nuestros colaboradores educativos son pastores y líderes comprometidos con el llamado de ensenar la Palabra de Dios. A través de un permiso especial y firmado, nos permiten utilizar sus recursos educativos para integrarlos en nuestro programa. Son colaboradores honoríficos que participan sin remuneración económica, movidos únicamente por amor al Evangelio y pasión por equipar a otros."
   }
 };
 
@@ -423,7 +423,7 @@ export const DOCTRINAL_POINTS: DoctrinalPoint[] = [
     id: "jesucristo",
     number: "03",
     title: "La Persona y Obra de Jesucristo",
-    summary: "El Señor Jesucristo, unigénito Hijo de Dios, concebido por el Espíritu Santo y nacido de la virgen María; verdaderamente Dios y verdaderamente hombre.",
+    summary: "El Senor Jesucristo, unigénito Hijo de Dios, concebido por el Espíritu Santo y nacido de la virgen María; verdaderamente Dios y verdaderamente hombre.",
     scriptureRef: "Juan 1:1,14; Filipenses 2:5-8; Hebreos 4:15",
     fullExplanation: "Afirmamos su vida sin pecado, sus milagros, su muerte expiatoria y sustitutiva en la cruz por nuestros pecados, su resurrección corporal de entre los muertos, su ascensión a la diestra del Padre como nuestro Sumo Sacerdote y su segunda venida visible en poder y gran gloria."
   },
@@ -433,7 +433,7 @@ export const DOCTRINAL_POINTS: DoctrinalPoint[] = [
     title: "La Salvación Solo por Gracia (Sola Gratia)",
     summary: "El hombre, caído en el pecado de Adán, está espiritualmente muerto e incapaz de justificarse a sí mismo. La salvación es un don inmerecido de la soberana gracia divina.",
     scriptureRef: "Efesios 2:8-9; Romanos 3:24; Tito 3:5",
-    fullExplanation: "La justificación del pecador es únicamente por la fe en la persona y obra perfecta de Jesucristo, sin añadidura de méritos humanos, buenas obras o ritos sacramentales. Las buenas obras son el fruto gozoso e ineludible de la regeneración y de la fe viva."
+    fullExplanation: "La justificación del pecador es únicamente por la fe en la persona y obra perfecta de Jesucristo, sin anadidura de méritos humanos, buenas obras o ritos sacramentales. Las buenas obras son el fruto gozoso e ineludible de la regeneración y de la fe viva."
   },
   {
     id: "espiritu-santo",
@@ -477,7 +477,7 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     country: "Nicaragua",
     modality: "Presencial",
     speakers: "Pastor Isaías Martínez",
-    description: "Enseñanza expositiva sobre el Catecismo Menor de Westminster: 02 de Enero en Chinandega y 03 de Enero en Tipitapa.",
+    description: "Ensenanza expositiva sobre el Catecismo Menor de Westminster: 02 de Enero en Chinandega y 03 de Enero en Tipitapa.",
     availableSpots: "Pastores y congregaciones locales"
   },
   {
@@ -489,7 +489,7 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     location: "Puerto Corinto (01 Ene), Tonalá (02 Ene) y León (03 Ene), Nicaragua",
     country: "Nicaragua",
     modality: "Presencial",
-    speakers: "Pastor Reynaldo Acuña",
+    speakers: "Pastor Reynaldo Acuna",
     description: "Serie intensiva por el occidente nicaragüense: 01 de Enero en Puerto Corinto, 02 de Enero en Tonalá y 03 de Enero en León.",
     availableSpots: "Iglesias y obreros de occidente"
   },
@@ -547,15 +547,15 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
   },
   {
     id: "conf-cartago-escrituras-feb-2027",
-    title: "¿Cómo nos Llegaron las Sagradas Escrituras en Español?",
-    theme: "¿Cómo nos llegaron las Sagradas Escrituras en Español?",
+    title: "¿Cómo nos Llegaron las Sagradas Escrituras en Espanol?",
+    theme: "¿Cómo nos llegaron las Sagradas Escrituras en Espanol?",
     date: "5, 16 y 17 de Febrero, 2027",
-    time: "Sesiones de Enseñanza",
+    time: "Sesiones de Ensenanza",
     location: "Cartago, Costa Rica",
     country: "Costa Rica",
     modality: "Presencial",
     speakers: "Pastor Isaías Martínez",
-    description: "Enseñanza histórica sobre el origen, transmisión y traducción de la Biblia al español y la fidelidad textual.",
+    description: "Ensenanza histórica sobre el origen, transmisión y traducción de la Biblia al espanol y la fidelidad textual.",
     availableSpots: "Estudiantes y pastores de Costa Rica"
   }
 ];
@@ -591,7 +591,7 @@ export const PAST_CONFERENCES_DATA: PastConferenceEvent[] = [
     title: "Conferencia de Predicación Expositiva y Reforma",
     location: "Chinandega y Tipitapa, Nicaragua",
     theme: "Las Cinco Solas y el Púlpito Fiel",
-    speaker: "Pastor Isaías Martínez & Pastor Reynaldo Acuña"
+    speaker: "Pastor Isaías Martínez & Pastor Reynaldo Acuna"
   },
   {
     id: "past-2019",
@@ -606,7 +606,7 @@ export const PAST_CONFERENCES_DATA: PastConferenceEvent[] = [
     year: "2023",
     title: "Jornada Internacional de Consejería y Cuidado Pastoral",
     location: "Cartago, Costa Rica",
-    theme: "Acompañamiento Bíblico en Medio de la Crisis Familiar",
+    theme: "Acompanamiento Bíblico en Medio de la Crisis Familiar",
     speaker: "Dr. Joe Fitzpatrick & Facultad Invitada"
   },
   {
@@ -624,7 +624,7 @@ export const METHODOLOGY_STEPS = [
     step: "01",
     title: "Recepción de Folletos y Material Escrito",
     tagline: "Didáctica estructurada y autoaprendizaje",
-    description: "Cada estudiante recibe folletos impresos especialmente diseñados con espacios guiados para rellenar, preguntas de reflexión profunda, análisis de pasajes y aplicación a su iglesia local. No depende de conexión a internet para estudiar.",
+    description: "Cada estudiante recibe folletos impresos especialmente disenados con espacios guiados para rellenar, preguntas de reflexión profunda, análisis de pasajes y aplicación a su iglesia local. No depende de conexión a internet para estudiar.",
     metric: "Guías con espacios para notas",
     accent: "Material Didáctico"
   },
@@ -658,7 +658,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "faq-1",
     question: "¿En qué consiste el sistema de estudio por correspondencia?",
-    answer: "Nuestro sistema está diseñado especialmente para personas que viven en zonas rurales o apartadas. Recibes tus folletos de estudio físicos y los videos de las clases (en memoria USB o descarga). Estudias a tu propio ritmo durante 4 semanas respondiendo las preguntas y actividades del folleto, y una vez al mes asistes al encuentro presencial de práctica y evaluación en nuestras sedes.",
+    answer: "Nuestro sistema está disenado especialmente para personas que viven en zonas rurales o apartadas. Recibes tus folletos de estudio físicos y los videos de las clases (en memoria USB o descarga). Estudias a tu propio ritmo durante 4 semanas respondiendo las preguntas y actividades del folleto, y una vez al mes asistes al encuentro presencial de práctica y evaluación en nuestras sedes.",
     category: "Metodología"
   },
   {
@@ -752,7 +752,7 @@ export const FACULTY_MEMBERS: FacultyMember[] = [
     id: "pastor-juan-manuel-vaz",
     name: "Pastor Juan Manuel Vaz",
     title: "Pastor",
-    institution: "Iglesia Caminando Por Fe en Barcelona, España",
+    institution: "Iglesia Caminando Por Fe en Barcelona, Espana",
     initials: "JV",
     photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/juanmanuel.jpeg"
   },
@@ -808,16 +808,87 @@ export const FACULTY_MEMBERS: FacultyMember[] = [
 
 export const FIELD_MENTORS: FieldMentor[] = [
   { id: "m-1", name: "Pastor Mario Miranda", location: "Cartago, Costa Rica" },
-  { id: "m-2", name: "Pastor Reynaldo Acuña", location: "Chinandega, Nicaragua" },
-  { id: "m-3", name: "Pastor Alexis Núñez", location: "Ahuachapán, El Salvador" },
+  { id: "m-2", name: "Pastor Reynaldo Acuna", location: "Chinandega, Nicaragua" },
+  { id: "m-3", name: "Pastor Alexis Núnez", location: "Ahuachapán, El Salvador" },
   { id: "m-4", name: "Pastor Domingo Flores", location: "Tacaná, Guatemala" },
-  { id: "m-5", name: "Pastor Mario Sorto", location: "Tegucigalpa, Honduras" }
+  { id: "m-5", name: "Pastor Mario Sorto", location: "Tegucigalpa, Honduras" },
+  {
+    id: "m-6",
+    name: "Ing. Jhony Cabrera",
+    role: "Musico Iglesia Biblica Faro de Gracia, Honduras",
+    location: "Colaborador en Centro Misionero \"Heme aqui, Enviame a mi\""
+  },
+  {
+    id: "m-7",
+    name: "Dra. Nancy Avila",
+    role: "Doctora en Medicina General, Honduras",
+    location: "Colaboradora en Salud en Centro Misionero \"Heme aqui, Enviame a mi\""
+  }
+];
+
+export const MISSIONARY_REPORTS: import('../types').MissionaryReport[] = [
+  {
+    id: "reporte-san-lorenzo-2026",
+    title: "Reporte Misionero de Campo: Centro Misionero \"Heme aqui, Enviame a mi\"",
+    date: "Octubre 2026",
+    location: "San Lorenzo, Valle, Honduras",
+    author: "Pastor Isaias Martinez y Equipo Misionero",
+    summary: "Resumen de las jornadas de entrenamiento practico rural, alabanza comunitaria y atencion medica primaria desarrolladas junto a colaboradores locales en el sur de Honduras.",
+    highlights: [
+      "Capacitacion practica de 25 aspirantes misioneros en teologia de campo y vida rural.",
+      "Jornadas de salud preventiva y orientacion medica comunitaria en comunidades vecinas.",
+      "Apoyo musical y discipulado semanal con la Iglesia Biblica Faro de Gracia."
+    ],
+    prayerNeeds: "Oramos por provision de literas, insumos medicos basicos y becas de alimentacion para los nuevos estudiantes internos de enero 2027."
+  },
+  {
+    id: "reporte-tacana-guatemala-2026",
+    title: "Reporte Trimestral: Centro de Estudios y Biblioteca \"El Evangelio\"",
+    date: "Septiembre 2026",
+    location: "Cheguate, Tacana, Guatemala",
+    author: "Pastor Domingo Flores y Coordinacion Regional",
+    summary: "Informe de las actividades de los 11 institutos biblicos beneficiarios en la frontera de Guatemala y Mexico y del retiro intensivo de estudio biblico.",
+    highlights: [
+      "Mas de 100 estudiantes reunidos en el encuentro intensivo cuatrimestral de estudio biblico.",
+      "Entrega de folletos impresos y catalogacion de nuevos volumenes teologicos en la biblioteca.",
+      "Consolidacion de la red de pastores en comunidades montanosas de San Marcos y Chiapas."
+    ],
+    prayerNeeds: "Oramos por sabiduria para los maestros itinerantes y por las rutas de transporte en zonas montanosas durante la temporada de lluvias."
+  },
+  {
+    id: "reporte-el-crucero-nicaragua-2026",
+    title: "Reporte de Consejeria: Eco-Well Health El Crucero",
+    date: "Agosto 2026",
+    location: "El Crucero, Nicaragua",
+    author: "Equipo de Consejeria Biblica Pastoral",
+    summary: "Balance de los talleres de orientacion familiar, prevencion de adicciones conductuales y restauracion espiritual para jovenes y matrimonios.",
+    highlights: [
+      "Talleres practicos sobre dominio propio frente a adicciones a videojuegos, redes sociales y compras compulsivas.",
+      "Sesiones de acompanamiento pastoral para sanidad de codependencia familiar y conyugal.",
+      "Distribucion de guias de estudio biblico practico para padres y lideres juveniles."
+    ],
+    prayerNeeds: "Oramos por nuevos consejeros voluntarios dispuestos a dedicar fines de semana al cuidado espiritual de jovenes y familias."
+  },
+  {
+    id: "reporte-clinica-cisneros-2026",
+    title: "Reporte de Salud Comunitaria: Clinica de Salud Dr. Cisneros",
+    date: "Julio 2026",
+    location: "El Salvador",
+    author: "Equipo Medico y Educativo Cristiano",
+    summary: "Sintesis de las orientaciones medicas gratuitas, segundas opiniones educativas y talleres preventivos brindados a familias de escasos recursos.",
+    highlights: [
+      "Orientacion a pacientes para navegar de forma efectiva la Red Integrada de Servicios de Salud.",
+      "Auditoria educativa y segunda opinion sobre tratamientos cronicos para familias rurales.",
+      "Talleres de prevencion de riesgos laborales y cuidado integral de la salud."
+    ],
+    prayerNeeds: "Oramos por medicos, enfermeras y educadores cristianos que deseen donar horas de servicio en futuras brigadas comunitarias."
+  }
 ];
 
 export const FACULTY_DATA = {
   titulo: "¿Quiénes son Nuestros Colaboradores Educativos o Facultad Invitada?",
   lema: "Servicio Ad-Honorem Movidos por Amor al Evangelio",
-  descripcion: "Nuestros colaboradores educativos son pastores y líderes comprometidos con el llamado de enseñar la Palabra de Dios. A través de un permiso especial y firmado, nos permiten utilizar sus recursos educativos disponibles en la red para integrarlos en nuestro programa de clases. Aunque no forman parte directa de la estructura administrativa de la Academia, estos colaboradores se suman como una facultad independiente, contribuyendo de manera significativa al desarrollo académico y espiritual de nuestros estudiantes.",
+  descripcion: "Nuestros colaboradores educativos son pastores y líderes comprometidos con el llamado de ensenar la Palabra de Dios. A través de un permiso especial y firmado, nos permiten utilizar sus recursos educativos disponibles en la red para integrarlos en nuestro programa de clases. Aunque no forman parte directa de la estructura administrativa de la Academia, estos colaboradores se suman como una facultad independiente, contribuyendo de manera significativa al desarrollo académico y espiritual de nuestros estudiantes.",
   caracteristicas: [
     {
       titulo: "Colaboradores Honoríficos (Ad-Honorem)",

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { HeartHandshake, MapPin, Sparkles, CheckCircle2, MessageCircle, Compass } from 'lucide-react';
-import { MISSIONARY_PROJECTS, buildWhatsAppUrl, INSTITUTION_INFO } from '../data/academyData';
+import { HeartHandshake, MapPin, Sparkles, CheckCircle2, MessageCircle, Compass, FileText } from 'lucide-react';
+import { MISSIONARY_PROJECTS, buildWhatsAppUrl } from '../data/academyData';
+import { MissionaryReportsModal } from '../components/MissionaryReportsModal';
 
 export const ViewProyectos: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>('all');
+  const [isReportsModalOpen, setIsReportsModalOpen] = useState(false);
 
   const filteredProjects = selectedCountry === 'all'
     ? MISSIONARY_PROJECTS
@@ -11,7 +13,7 @@ export const ViewProyectos: React.FC = () => {
 
   return (
     <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16 w-full max-w-full overflow-x-hidden">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -26,7 +28,7 @@ export const ViewProyectos: React.FC = () => {
             Proyectos y Oportunidades
           </h1>
           
-          <div className="inline-block px-5 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-serif font-bold text-base sm:text-lg">
+          <div className="inline-block px-5 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-serif font-bold text-sm sm:text-lg">
             "Invitamos a Misioneros a sumarse a estos proyectos"
           </div>
 
@@ -34,8 +36,19 @@ export const ViewProyectos: React.FC = () => {
             La fe cristiana se manifiesta en amor práctico y servicio abnegado. Te invitamos a conocer los cuatro proyectos donde requerimos el apoyo de misioneros, líderes de ministerio y profesionales con vocación de servicio en Centroamérica.
           </p>
 
+          {/* Prominent Reportes Misioneros Button */}
+          <div className="pt-2 flex justify-center">
+            <button
+              onClick={() => setIsReportsModalOpen(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-all cursor-pointer"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Reportes misioneros (PDF)</span>
+            </button>
+          </div>
+
           {/* Filter Buttons */}
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
+          <div className="pt-3 flex flex-wrap items-center justify-center gap-2">
             <button
               onClick={() => setSelectedCountry('all')}
               className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
@@ -121,8 +134,8 @@ export const ViewProyectos: React.FC = () => {
                   </div>
                 )}
 
-                <div className="p-6 sm:p-8 space-y-4">
-                  <h3 className="font-serif text-2xl font-bold text-white group-hover:text-amber-300 transition-colors">
+                <div className="p-5 sm:p-8 space-y-4">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-amber-300 transition-colors">
                     {project.title}
                   </h3>
 
@@ -156,7 +169,7 @@ export const ViewProyectos: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-6 sm:p-8 pt-0">
+              <div className="p-5 sm:p-8 pt-0">
                 <a
                   href={buildWhatsAppUrl(`Hola, soy misionero/voluntario y deseo sumarme al proyecto "${project.title}" en ${project.location}, ${project.country}. ¿Cómo puedo coordinar mi participación?`)}
                   target="_blank"
@@ -172,19 +185,26 @@ export const ViewProyectos: React.FC = () => {
         </div>
 
         {/* Bottom Banner */}
-        <div className="p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 border border-amber-500/30 text-center space-y-4">
-          <h3 className="font-serif text-2xl font-bold text-white">
+        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 border border-amber-500/30 text-center space-y-4">
+          <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
             ¿Deseas Servir como Misionero o Voluntario?
           </h3>
           <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
             Recibimos a maestros bíblicos, médicos, consejeros y siervos dispuestos a servir en comunidades rurales. Escríbenos directamente y buscaremos juntos el proyecto adecuado.
           </p>
-          <div className="pt-2">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+            <button
+              onClick={() => setIsReportsModalOpen(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/40 font-bold text-xs uppercase tracking-wider shadow cursor-pointer transition-colors"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Ver Reportes Misioneros</span>
+            </button>
             <a
               href={buildWhatsAppUrl("Hola, siento el llamado de Dios para sumarme como misionero en Centroamérica con la Academia Bíblica El Evangelio. Quisiera conversar sobre las oportunidades de servicio.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow"
             >
               <Compass className="w-4 h-4" />
               <span>Contactar a Coordinación Misionera (+505 8934-1763)</span>
@@ -193,6 +213,12 @@ export const ViewProyectos: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Missionary Reports Modal */}
+      <MissionaryReportsModal
+        isOpen={isReportsModalOpen}
+        onClose={() => setIsReportsModalOpen(false)}
+      />
     </div>
   );
 };

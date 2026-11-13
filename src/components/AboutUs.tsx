@@ -38,7 +38,7 @@ export const AboutUs: React.FC = () => {
             </p>
             
             <p>
-              Por eso diseñamos un sistema educativo semipresencial por correspondencia que rompe barreras de aislamiento, llevando materiales estructurados de nivel técnico universitario directo a las manos de quienes tienen sed de aprender y predicar la verdad de Cristo.
+              Por eso disenamos un sistema educativo semipresencial por correspondencia que rompe barreras de aislamiento, llevando materiales estructurados de nivel técnico universitario directo a las manos de quienes tienen sed de aprender y predicar la verdad de Cristo.
             </p>
 
             <div className="pt-2 flex items-center gap-4 text-xs text-amber-300/80 font-medium">
@@ -97,7 +97,7 @@ export const AboutUs: React.FC = () => {
           <div className="p-5 rounded-lg bg-slate-950/40 border border-slate-800/80">
             <span className="text-amber-400 font-serif font-bold text-lg block mb-1">01. Fidelidad Bíblica</span>
             <p className="text-xs text-slate-300 leading-relaxed">
-              Enseñanza apegada a la inerrancia y suficiencia de las Sagradas Escrituras, sin modas pasajeras.
+              Ensenanza apegada a la inerrancia y suficiencia de las Sagradas Escrituras, sin modas pasajeras.
             </p>
           </div>
 

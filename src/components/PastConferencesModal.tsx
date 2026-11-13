@@ -47,7 +47,7 @@ export const PastConferencesModal: React.FC<PastConferencesModalProps> = ({ isOp
         {/* Body */}
         <div className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-4">
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Desde el año 2004 hasta la fecha, hemos celebrado múltiples conferencias, congresos rurales y seminarios de capacitación pastoral a lo largo de Centroamérica.
+            Desde el ano 2004 hasta la fecha, hemos celebrado múltiples conferencias, congresos rurales y seminarios de capacitación pastoral a lo largo de Centroamérica.
           </p>
 
           <div className="space-y-3">
@@ -58,7 +58,7 @@ export const PastConferencesModal: React.FC<PastConferencesModalProps> = ({ isOp
               >
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold text-xs">
-                    Año {conf.year}
+                    Ano {conf.year}
                   </span>
                   <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
                     <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />

@@ -109,7 +109,19 @@ export interface FacultyMember {
 export interface FieldMentor {
   id: string;
   name: string;
+  role?: string;
   location: string;
+}
+
+export interface MissionaryReport {
+  id: string;
+  title: string;
+  date: string;
+  location: string;
+  author: string;
+  summary: string;
+  highlights: string[];
+  prayerNeeds: string;
 }
 
 export interface EnrollmentSubmission {
