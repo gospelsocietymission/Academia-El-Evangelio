@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Globe, 
   Building2, 
@@ -16,7 +16,9 @@ import {
   User,
   Clock,
   Church,
-  BookOpen
+  BookOpen,
+  Share2,
+  Check
 } from 'lucide-react';
 import { 
   INSTITUTION_INFO, 
@@ -27,6 +29,7 @@ import {
 } from '../data/academyData';
 import { EnrollmentSubmission, ConferenceEvent } from '../types';
 import { TierraBibliaCourseModal } from '../components/TierraBibliaCourseModal';
+import { ConferenceCourseDetailModal, SpecialConferenceModalId } from '../components/ConferenceCourseDetailModal';
 
 interface ViewHomeProps {
   onNavigateToProgramas: () => void;
@@ -65,7 +68,51 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
 
   const [isSuccess, setIsSuccess] = useState(false);
   const [confFilter, setConfFilter] = useState<'all' | 'Enero 2027' | 'Febrero 2027'>('all');
-  const [isTierraBibliaOpen, setIsTierraBibliaOpen] = useState(false);
+  const [isTierraBibliaOpen, setIsTierraBibliaOpen] = useState(() => window.location.hash === '#tierra-de-la-biblia');
+  const [specialModalId, setSpecialModalId] = useState<SpecialConferenceModalId>(null);
+  const [sharedCopied, setSharedCopied] = useState(false);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      if (window.location.hash === '#tierra-de-la-biblia') {
+        setIsTierraBibliaOpen(true);
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  const handleShareTierraBiblia = async () => {
+    const shareUrl = 'https://academiabiblica.net/#tierra-de-la-biblia';
+    const shareText = `📖 Curso: La Tierra de la Biblia — Dr. Joe Fitzpatrick (Academia Bíblica El Evangelio)\nDividido en Curso I y Curso II (6 lecciones c/u). Presencial en Ahuachapán o Virtual por ZOOM.\nVer contenido completo aquí: ${shareUrl}`;
+
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      try {
+        await navigator.share({
+          title: 'La Tierra de la Biblia — Academia Bíblica El Evangelio',
+          text: shareText,
+          url: shareUrl,
+        });
+        return;
+      } catch {
+        // Fallback to copy
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(shareText);
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = shareText;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    setSharedCopied(true);
+    setTimeout(() => setSharedCopied(false), 2500);
+  };
 
   const filteredConferences = CONFERENCES_DATA.filter((conf) => {
     if (confFilter === 'all') return true;
@@ -544,21 +591,62 @@ _Enviado desde academiabiblica.net_`;
                         </div>
 
                         {conf.id === 'conf-ahuachapan-enero-2027' ? (
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => setIsTierraBibliaOpen(true)}
+                              className="flex-1 py-2.5 px-3 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
+                            >
+                              <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                              <span>Ver Contenido del Curso</span>
+                            </button>
+                            <button
+                              onClick={handleShareTierraBiblia}
+                              className="py-2.5 px-3 bg-slate-950 hover:bg-slate-800 text-amber-300 border border-amber-500/40 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
+                              title="Compartir contenido del curso"
+                            >
+                              {sharedCopied ? (
+                                <>
+                                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                                  <span className="text-emerald-300">Copiado</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Share2 className="w-3.5 h-3.5" />
+                                  <span>Compartir</span>
+                                </>
+                              )}
+                            </button>
+                          </div>
+                        ) : conf.id === 'conf-cartago-israel-feb-2027' || conf.id === 'conf-cartago-escrituras-feb-2027' ? (
                           <button
-                            onClick={() => setIsTierraBibliaOpen(true)}
+                            onClick={() => setSpecialModalId(conf.id as SpecialConferenceModalId)}
                             className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
                           >
-                            <BookOpen className="w-3.5 h-3.5" />
+                            <BookOpen className="w-3.5 h-3.5 shrink-0" />
                             <span>Ver Contenido del Curso</span>
                           </button>
-                        ) : (
+                        ) : conf.id === 'conf-managua-feb-2027' ? (
                           <button
-                            onClick={() => onRegisterConference(conf)}
-                            className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                            onClick={() => setSpecialModalId('conf-managua-feb-2027')}
+                            className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
                           >
-                            <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                            <span>Inscribirme por WhatsApp</span>
+                            <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                            <span>Ver Contenido de la Conferencia</span>
                           </button>
+                        ) : (
+                          conf.id !== 'conf-nicaragua-reynaldo-enero-2027' &&
+                          conf.id !== 'conf-nicaragua-isaias-enero-2027' &&
+                          conf.id !== 'conf-tipitapa-inicio-enero-2027' &&
+                          conf.id !== 'conf-tipitapa-feb-2027' &&
+                          conf.id !== 'conf-tacana-guatemala-feb-2027' && (
+                            <button
+                              onClick={() => onRegisterConference(conf)}
+                              className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                            >
+                              <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                              <span>Inscribirme por WhatsApp</span>
+                            </button>
+                          )
                         )}
                       </div>
                     ))}
@@ -749,6 +837,11 @@ _Enviado desde academiabiblica.net_`;
       <TierraBibliaCourseModal
         isOpen={isTierraBibliaOpen}
         onClose={() => setIsTierraBibliaOpen(false)}
+      />
+
+      <ConferenceCourseDetailModal
+        modalId={specialModalId}
+        onClose={() => setSpecialModalId(null)}
       />
 
     </div>

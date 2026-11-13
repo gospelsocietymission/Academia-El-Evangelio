@@ -9,6 +9,9 @@ import {
   MessageCircle,
   GraduationCap,
   AlertCircle,
+  Share2,
+  Copy,
+  Check,
 } from 'lucide-react';
 import { buildWhatsAppUrl } from '../data/academyData';
 
@@ -35,16 +38,71 @@ const COURSE_II_LESSONS = [
   '6. Conectando los puntos y la historia: las regiones entre sí y el repaso por mapas (Salomón, exilio, Persia, Alejandro, Macabeos)',
 ];
 
+const SHARE_COURSE_URL = 'https://academiabiblica.net/#tierra-de-la-biblia';
+
+const SHARE_COURSE_TEXT = `📖 *Curso: La Tierra de la Biblia* — Dr. Joe Fitzpatrick
+Academia Bíblica El Evangelio
+
+Bienvenidos al estudio de la Tierra de la Biblia: cómo la geografía, el clima, las rutas, las aguas, los cultivos y las fiestas de Israel dieron forma a las Escrituras y revelan el pacto de Dios en Cristo.
+
+✅ *Dividido en 2 Cursos (6 lecciones c/u):*
+• Curso I: La Tierra de la Biblia I (fundamentos, mapa y geografía)
+• Curso II: La Tierra de la Biblia II (Dios, pacto, tierra y pueblo)
+
+💵 Costo por curso: $18.75 (donación voluntaria no reembolsable)
+📍 Lugar de Estudio: Presencial en Ahuachapán, El Salvador · o Virtual (ZOOM Sincrónico / Videos Asincrónico)
+
+Ver contenido completo e inscribirse aquí:
+${SHARE_COURSE_URL}`;
+
 export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = ({
   isOpen,
   onClose,
 }) => {
   const [selectedCourse, setSelectedCourse] = useState<'Curso I ($18.75)' | 'Curso II ($18.75)' | 'Ambos Cursos (I y II)'>('Curso I ($18.75)');
   const [selectedModality, setSelectedModality] = useState<'Sede Presencial Ahuachapán, El Salvador' | 'Virtual en ZOOM Sincrónico' | 'Videos grabados Asincrónico'>('Sede Presencial Ahuachapán, El Salvador');
+  const [copied, setCopied] = useState(false);
 
   if (!isOpen) return null;
 
   const waEnrollmentMessage = `Hola, deseo inscribirme en el curso "La Tierra de la Biblia" con el Dr. Joe Fitzpatrick.\n\n📚 Curso seleccionado: ${selectedCourse}\n📍 Modalidad / Lugar de estudio: ${selectedModality}\n💵 Costo por curso: $18.75 (donación voluntaria no reembolsable)\n\nQuedo atento a las indicaciones para completar mi inscripción.`;
+
+  const whatsappShareHref = `https://wa.me/?text=${encodeURIComponent(SHARE_COURSE_TEXT)}`;
+
+  const handleCopyShare = async () => {
+    try {
+      await navigator.clipboard.writeText(SHARE_COURSE_TEXT);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      const textarea = document.createElement('textarea');
+      textarea.value = SHARE_COURSE_TEXT;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
+
+  const handleNativeShare = async () => {
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      try {
+        await navigator.share({
+          title: 'La Tierra de la Biblia — Academia Bíblica El Evangelio',
+          text: SHARE_COURSE_TEXT,
+          url: SHARE_COURSE_URL,
+        });
+        return;
+      } catch {
+        // User cancelled or share not permitted inside iframe -> fall back to copy
+      }
+    }
+    await handleCopyShare();
+  };
 
   return (
     <div
@@ -77,13 +135,24 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
             </div>
           </div>
 
-          <button
-            onClick={onClose}
-            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition-colors cursor-pointer shrink-0"
-            aria-label="Cerrar"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={handleNativeShare}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 text-xs font-bold transition-colors cursor-pointer"
+              title="Compartir contenido del curso"
+            >
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
+              <span className="hidden sm:inline">{copied ? 'Copiado' : 'Compartir'}</span>
+            </button>
+
+            <button
+              onClick={onClose}
+              className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition-colors cursor-pointer shrink-0"
+              aria-label="Cerrar"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Scrollable Body */}
@@ -270,6 +339,49 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>Inscribirse Ahora</span>
             </a>
+          </div>
+
+          {/* Share Course Panel */}
+          <div className="p-5 rounded-2xl bg-slate-950/80 border border-amber-500/30 space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div className="space-y-0.5">
+                <h5 className="font-serif font-bold text-amber-300 text-sm sm:text-base flex items-center gap-2">
+                  <Share2 className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Compartir este curso con otros</span>
+                </h5>
+                <p className="text-xs text-slate-400">
+                  Invita a pastores, líderes o miembros de tu iglesia compartiendo el contenido del curso.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2.5">
+              <a
+                href={whatsappShareHref}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 min-w-[160px] py-2.5 px-4 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>Compartir en WhatsApp</span>
+              </a>
+
+              <button
+                onClick={handleCopyShare}
+                className="flex-1 min-w-[160px] py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-amber-300 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                <span>{copied ? '¡Invitación Copiada!' : 'Copiar Invitación y Enlace'}</span>
+              </button>
+
+              <button
+                onClick={handleNativeShare}
+                className="py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <Share2 className="w-4 h-4" />
+                <span>Compartir</span>
+              </button>
+            </div>
           </div>
         </div>
 
