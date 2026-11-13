@@ -12,7 +12,34 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0 auto;
+  }
+
+  img, video {
+    max-width: 100%;
+  }
+}
+
+.mobile-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 16px;
 }

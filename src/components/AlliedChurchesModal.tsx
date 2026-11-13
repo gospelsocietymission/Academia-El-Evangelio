@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { X, Search, PlusCircle, Church, MapPin, CheckCircle2, MessageCircle, Globe, ShieldCheck } from 'lucide-react';
-import { MINISTRY_ALLIES_REGIONS, buildWhatsAppUrl, INSTITUTION_INFO } from '../data/academyData';
+import { X, Search, PlusCircle, Church, MapPin, CheckCircle2, MessageCircle, ShieldCheck } from 'lucide-react';
+import { buildWhatsAppUrl } from '../data/academyData';
 
 interface AlliedChurchesModalProps {
   isOpen: boolean;
@@ -18,38 +18,39 @@ interface ChurchEntry {
 
 const INITIAL_CHURCHES: ChurchEntry[] = [
   // El Salvador
-  { id: 'sv-1', name: 'Iglesias Presbiterianas de El Salvador', location: 'Ahuachapán y San Salvador', country: 'El Salvador' },
+  { id: 'sv-1', name: 'Iglesias Presbiterianas de El Salvador', location: 'El Salvador', country: 'El Salvador' },
   { id: 'sv-2', name: 'Red de Iglesias Cristo Vive', location: 'El Salvador', country: 'El Salvador' },
-  { id: 'sv-3', name: 'Asociación de Pastores de la Zona Oriente', location: 'San Miguel y Oriente', country: 'El Salvador' },
+  { id: 'sv-3', name: 'Asociación de Pastores de la Zona Oriente', location: 'Zona Oriente', country: 'El Salvador' },
   { id: 'sv-4', name: 'Iglesia "Por la Gracia de Dios, San Miguel"', location: 'San Miguel', country: 'El Salvador', isRecent: true },
-  
+
   // Guatemala y México
-  { id: 'gt-1', name: 'Red de Institutos Bíblicos Fronterizos (11 Institutos)', location: 'Tacaná y San Marcos', country: 'Guatemala' },
+  { id: 'gt-1', name: 'Red de Institutos Bíblicos Fronterizos', location: 'Guatemala y México', country: 'Guatemala' },
   { id: 'gt-2', name: 'Iglesias Misión Centroamericana', location: 'Guatemala', country: 'Guatemala' },
   { id: 'mx-1', name: 'Iglesias Presbiterianas de Chiapas', location: 'Chiapas', country: 'México' },
 
   // Nicaragua
-  { id: 'ni-1', name: 'Confraternidad Pastoral de Occidente', location: 'Chinandega y León', country: 'Nicaragua' },
-  { id: 'ni-2', name: 'Iglesias Presbiterianas Reformadas de Nicaragua', location: 'Managua y Tipitapa', country: 'Nicaragua' },
+  { id: 'ni-1', name: 'Iglesias Presbiterianas Reformadas de Nicaragua', location: 'Nicaragua', country: 'Nicaragua' },
+  { id: 'ni-2', name: 'Confraternidad Pastoral Ministerio Oasis', location: 'Chinandega, Nicaragua', country: 'Nicaragua' },
 
   // Honduras
-  { id: 'hn-1', name: 'Misión Evangélica del Valle y Sur', location: 'San Lorenzo y Choluteca', country: 'Honduras' },
+  { id: 'hn-1', name: 'Iglesia Bíblica Gracia sin Fin', location: 'Tegucigalpa, Honduras', country: 'Honduras' },
   { id: 'hn-2', name: 'Iglesia Cristiana Reformada de Corinto', location: 'San Lorenzo, Valle', country: 'Honduras' },
 
   // Internacional
   { id: 'int-1', name: 'Gospel Society Mission', location: 'El Salvador / Internacional', country: 'Internacional' },
-  { id: 'int-2', name: 'Trinitarian Bible Society', location: 'Londres', country: 'Internacional' },
+  { id: 'int-2', name: 'Trinitarian Bible Society', location: 'Londres, Inglaterra', country: 'Internacional' },
   { id: 'int-3', name: 'Centro de Estudios Kuyper', location: 'Argentina', country: 'Internacional' },
-  { id: 'int-4', name: 'Teaching Missions International', location: 'USA', country: 'Internacional' },
+  { id: 'int-4', name: 'Teaching Missions International - Teaching Biblical Reformed', location: 'USA', country: 'Internacional' },
   { id: 'int-5', name: 'Third Millennium Ministries', location: 'USA', country: 'Internacional' },
   { id: 'int-6', name: 'Chapel Library', location: 'USA', country: 'Internacional' },
-  { id: 'int-7', name: 'Iglesia Bíblica Maranatha Lynn', location: 'Lynn, Massachusetts', country: 'Internacional' }
+  { id: 'int-7', name: 'Iglesia Bíblica Maranatha Lynn', location: 'Mass, USA', country: 'Internacional' },
+  { id: 'int-8', name: 'Equipping the Church International (ECI) by Pastor José Amézquita', location: 'USA', country: 'Internacional' }
 ];
 
 export const AlliedChurchesModal: React.FC<AlliedChurchesModalProps> = ({ isOpen, onClose }) => {
   const [churches, setChurches] = useState<ChurchEntry[]>(() => {
     try {
-      const saved = localStorage.getItem('abe_allied_churches');
+      const saved = localStorage.getItem('abe_allied_churches_v2');
       if (saved) return JSON.parse(saved);
     } catch {}
     return INITIAL_CHURCHES;
@@ -59,7 +60,6 @@ export const AlliedChurchesModal: React.FC<AlliedChurchesModalProps> = ({ isOpen
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('Todos');
 
-  // Form states for adding new church
   const [newChurch, setNewChurch] = useState({
     name: '',
     pastor: '',
@@ -71,7 +71,7 @@ export const AlliedChurchesModal: React.FC<AlliedChurchesModalProps> = ({ isOpen
 
   useEffect(() => {
     try {
-      localStorage.setItem('abe_allied_churches', JSON.stringify(churches));
+      localStorage.setItem('abe_allied_churches_v2', JSON.stringify(churches));
     } catch {}
   }, [churches]);
 
@@ -118,22 +118,25 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={onClose}
+    >
       <div 
-        className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900 border border-amber-500/30 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900 border border-amber-500/30 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="p-6 border-b border-slate-800 bg-slate-950/90 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="p-4 sm:p-6 border-b border-slate-800 bg-slate-950/90 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
               <Church className="w-5 h-5" />
             </div>
-            <div>
-              <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block">
+            <div className="min-w-0">
+              <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block truncate">
                 Comunión Eclesial y Red Fraterna
               </span>
-              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
+              <h2 className="font-serif text-lg sm:text-2xl font-bold text-white truncate">
                 Directorio de Iglesias y Aliados
               </h2>
             </div>
@@ -141,7 +144,7 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
 
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
+            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition-colors cursor-pointer shrink-0"
             aria-label="Cerrar modal"
           >
             <X className="w-5 h-5" />
@@ -149,11 +152,11 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
         </div>
 
         {/* Tab Switcher */}
-        <div className="px-6 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
+        <div className="px-4 sm:px-6 py-3 bg-slate-950 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={() => setActiveTab('list')}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
                 activeTab === 'list' 
                   ? 'bg-amber-500 text-slate-950' 
                   : 'text-slate-400 hover:text-white hover:bg-slate-800'
@@ -163,7 +166,7 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
             </button>
             <button
               onClick={() => setActiveTab('add')}
-              className={`px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'add' 
                   ? 'bg-emerald-600 text-white' 
                   : 'text-emerald-400 hover:text-white hover:bg-slate-800'
@@ -173,17 +176,12 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
               <span>Unir o Actualizar mi Iglesia</span>
             </button>
           </div>
-
-          <span className="text-[11px] text-slate-400 hidden sm:inline">
-            Directorio vivo actualizado
-          </span>
         </div>
 
         {/* Modal Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
           {activeTab === 'list' ? (
             <>
-              {/* Search and Filters */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="relative flex-1">
                   <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -211,14 +209,13 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
                 </select>
               </div>
 
-              {/* Churches Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {filteredChurches.map((church) => (
                   <div
                     key={church.id}
                     className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-amber-500/40 transition-colors space-y-1.5 relative group"
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between gap-2">
                       <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
                         {church.country}
                       </span>
@@ -255,7 +252,6 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
               )}
             </>
           ) : (
-            /* Tab Add / Join Church */
             <div className="max-w-xl mx-auto space-y-5">
               <div className="text-center space-y-1">
                 <h3 className="font-serif text-lg font-bold text-white">
@@ -275,7 +271,7 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleAddChurch} className="space-y-3 text-xs bg-slate-950 p-6 rounded-2xl border border-slate-800">
+                <form onSubmit={handleAddChurch} className="space-y-3 text-xs bg-slate-950 p-5 rounded-2xl border border-slate-800">
                   <div>
                     <label className="block text-slate-300 font-semibold mb-1">Nombre de la Iglesia o Confraternidad *</label>
                     <input

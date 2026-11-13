@@ -10,8 +10,8 @@ export const ViewProyectos: React.FC = () => {
     : MISSIONARY_PROJECTS.filter((p) => p.country.toLowerCase().includes(selectedCountry.toLowerCase()));
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16 w-full max-w-full overflow-x-hidden">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">

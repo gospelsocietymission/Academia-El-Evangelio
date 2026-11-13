@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Award, Clock, Layers, BookOpen, CheckCircle2, MessageCircle, FileText, ChevronRight, Eye, HeartHandshake, UserCheck } from 'lucide-react';
-import { ACADEMIC_PROGRAMS, PROGRAMAS_PAGE_DATA, buildWhatsAppUrl, INSTITUTION_INFO } from '../data/academyData';
+import { Clock, Layers, BookOpen, CheckCircle2, MessageCircle, ChevronRight, Eye, HeartHandshake, UserCheck } from 'lucide-react';
+import { ACADEMIC_PROGRAMS, PROGRAMAS_PAGE_DATA, buildWhatsAppUrl } from '../data/academyData';
 import { AcademicProgram, EnrollmentSubmission } from '../types';
 import { ProgramModal } from '../components/ProgramModal';
 import { SampleBookletModal } from '../components/SampleBookletModal';
@@ -24,8 +24,8 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
   };
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16 w-full max-w-full overflow-x-hidden">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -40,21 +40,21 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
           </h1>
           
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Los programas en teología que ofrece la Academia Bíblica El Evangelio tienen un nivel <strong>Técnico Universitario</strong>. Los estudiantes son entrenados a un <strong>10% teoría y 90% práctica</strong>, distintivo que nos hace fuertes y diferentes a los seminarios e institutos convencionales.
+            Los programas en teología que ofrece la Academia Bíblica El Evangelio entrenan a los estudiantes con un <strong>10% teoría y 90% práctica</strong>, distintivo que nos hace fuertes y diferentes a los seminarios e institutos convencionales.
           </p>
         </div>
 
         {/* 1. Nuestro Método de Estudio por Correspondencia */}
-        <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl space-y-6">
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
               <BookOpen className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
                 Metodología
               </span>
-              <h2 className="font-serif text-2xl font-bold text-white">
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 {PROGRAMAS_PAGE_DATA.metodoEstudio.title}
               </h2>
             </div>
@@ -86,14 +86,14 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
           </div>
         </div>
 
-        {/* 2. Los 3 Programas Oficiales */}
+        {/* 2. Planes de Estudio: Nuestros 3 Programas Pastorales */}
         <div className="space-y-8">
           <div className="text-center">
             <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
               Planes de Estudio
             </span>
-            <h2 className="font-serif text-3xl font-bold text-white mt-1">
-              Nuestros 3 Programas Técnicos
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
+              Nuestros 3 Programas Pastorales
             </h2>
           </div>
 
@@ -134,11 +134,11 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
 
                     <div className="pt-3 border-t border-slate-800 space-y-1.5 text-xs text-slate-400">
                       <div className="flex items-center gap-2">
-                        <Clock className="w-3.5 h-3.5 text-amber-400" />
+                        <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                         <span>Duración: {prog.duration}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Layers className="w-3.5 h-3.5 text-amber-400" />
+                        <Layers className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                         <span>{prog.modulesCount} Módulos Teórico-Prácticos</span>
                       </div>
                     </div>
@@ -170,16 +170,16 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
         </div>
 
         {/* 3. Costos y Aportes Accesibles */}
-        <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl space-y-6">
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
               <HeartHandshake className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xs font-semibold text-emerald-400 uppercase tracking-widest block">
                 Accesibilidad Total
               </span>
-              <h2 className="font-serif text-2xl font-bold text-white">
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 {PROGRAMAS_PAGE_DATA.costos.title}
               </h2>
             </div>
@@ -217,16 +217,16 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
         </div>
 
         {/* 4. Proceso de Admisión */}
-        <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl space-y-6">
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+            <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
               <UserCheck className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest block">
                 Requisitos y Pasos
               </span>
-              <h2 className="font-serif text-2xl font-bold text-white">
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 {PROGRAMAS_PAGE_DATA.admision.title}
               </h2>
             </div>
@@ -252,12 +252,12 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
 
             <div className="pt-4 text-center">
               <a
-                href={buildWhatsAppUrl("Hola, deseo iniciar mi proceso de admisión para los programas técnicos de la Academia Bíblica El Evangelio.")}
+                href={buildWhatsAppUrl("Hola, deseo iniciar mi proceso de admisión para los programas pastorales de la Academia Bíblica El Evangelio.")}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-all"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-all"
               >
-                <MessageCircle className="w-4 h-4 fill-white" />
+                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
                 <span>Iniciar Proceso de Admisión por WhatsApp (+505 8934-1763)</span>
               </a>
             </div>

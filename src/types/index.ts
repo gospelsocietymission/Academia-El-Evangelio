@@ -35,10 +35,20 @@ export interface ConferenceEvent {
   date: string;
   time: string;
   location: string;
-  modality: 'Presencial y Virtual' | 'Presencial' | 'Seminario Regional';
+  country: string;
+  modality: 'Presencial' | 'Presencial y Virtual' | 'Seminario Regional';
   speakers: string;
   description: string;
   availableSpots: string;
+}
+
+export interface PastConferenceEvent {
+  id: string;
+  year: string;
+  title: string;
+  location: string;
+  theme: string;
+  speaker: string;
 }
 
 export interface FaqItem {
@@ -91,28 +101,15 @@ export interface FacultyMember {
   id: string;
   name: string;
   title: string;
+  institution: string;
   initials: string;
-  focus: string;
-  photo?: string;
+  photo: string;
 }
 
-export interface Testimonial {
+export interface FieldMentor {
   id: string;
-  author: string;
-  role: string;
-  church: string;
+  name: string;
   location: string;
-  country: string;
-  quote: string;
-  program: string;
-}
-
-export interface FacultyArea {
-  id: string;
-  area: string;
-  description: string;
-  subjects: string[];
-  contributionType: string;
 }
 
 export interface EnrollmentSubmission {

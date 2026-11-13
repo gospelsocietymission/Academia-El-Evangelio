@@ -4,9 +4,11 @@ import { ViewHome } from './views/ViewHome';
 import { ViewProgramas } from './views/ViewProgramas';
 import { ViewQuienesSomos } from './views/ViewQuienesSomos';
 import { ViewFacultad } from './views/ViewFacultad';
+import { ViewAliados } from './views/ViewAliados';
 import { ViewProyectos } from './views/ViewProyectos';
 import { EnrollmentModal } from './components/EnrollmentModal';
 import { ConferenceRegisterModal } from './components/ConferenceRegisterModal';
+import { PastConferencesModal } from './components/PastConferencesModal';
 import { DonationModal } from './components/DonationModal';
 import { AlliedChurchesModal } from './components/AlliedChurchesModal';
 import { Toast } from './components/Toast';
@@ -19,6 +21,7 @@ export default function App() {
   const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
   const [isAlliedChurchesOpen, setIsAlliedChurchesOpen] = useState(false);
+  const [isPastConferencesOpen, setIsPastConferencesOpen] = useState(false);
   const [selectedConference, setSelectedConference] = useState<ConferenceEvent | null>(null);
   const [isConferenceModalOpen, setIsConferenceModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -26,7 +29,13 @@ export default function App() {
   // Sync with URL hash if present
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
-    if (hash === 'programas' || hash === 'quienes-somos' || hash === 'facultad' || hash === 'proyectos') {
+    if (
+      hash === 'programas' ||
+      hash === 'quienes-somos' ||
+      hash === 'facultad' ||
+      hash === 'aliados' ||
+      hash === 'proyectos'
+    ) {
       setCurrentPage(hash as NavPage);
     }
   }, []);
@@ -47,9 +56,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500/30 selection:text-amber-200">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-amber-500/30 selection:text-amber-200">
       
-      {/* Barra de Navegación Superior (5 Páginas + Donar) */}
+      {/* Barra de Navegación Superior */}
       <Navbar
         currentPage={currentPage}
         onSelectPage={handleSelectPage}
@@ -58,16 +67,17 @@ export default function App() {
       />
 
       {/* Main View Router */}
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {currentPage === 'inicio' && (
           <ViewHome
             onNavigateToProgramas={() => handleSelectPage('programas')}
             onNavigateToQuienesSomos={() => handleSelectPage('quienes-somos')}
             onNavigateToFacultad={() => handleSelectPage('facultad')}
+            onNavigateToAliados={() => handleSelectPage('aliados')}
             onNavigateToProyectos={() => handleSelectPage('proyectos')}
             onOpenDonation={() => setIsDonationModalOpen(true)}
             onOpenEnrollment={() => setIsEnrollmentOpen(true)}
-            onOpenAlliedChurchesModal={() => setIsAlliedChurchesOpen(true)}
+            onOpenPastConferences={() => setIsPastConferencesOpen(true)}
             onRegisterConference={handleRegisterConference}
             onFormSubmit={handleEnrollmentSubmitted}
           />
@@ -95,6 +105,12 @@ export default function App() {
           />
         )}
 
+        {currentPage === 'aliados' && (
+          <ViewAliados
+            onOpenAlliedChurchesModal={() => setIsAlliedChurchesOpen(true)}
+          />
+        )}
+
         {currentPage === 'proyectos' && (
           <ViewProyectos />
         )}
@@ -115,6 +131,11 @@ export default function App() {
       <AlliedChurchesModal
         isOpen={isAlliedChurchesOpen}
         onClose={() => setIsAlliedChurchesOpen(false)}
+      />
+
+      <PastConferencesModal
+        isOpen={isPastConferencesOpen}
+        onClose={() => setIsPastConferencesOpen(false)}
       />
 
       <ConferenceRegisterModal

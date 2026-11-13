@@ -1,4 +1,15 @@
-import { AcademicProgram, DoctrinalPoint, ConferenceEvent, FaqItem, PhysicalBranch, MissionaryProject, MinistryPartner, FacultyMember, Testimonial } from '../types';
+import {
+  AcademicProgram,
+  DoctrinalPoint,
+  ConferenceEvent,
+  PastConferenceEvent,
+  FaqItem,
+  PhysicalBranch,
+  MissionaryProject,
+  MinistryAlliesRegion,
+  FacultyMember,
+  FieldMentor,
+} from '../types';
 
 export const INSTITUTION_INFO = {
   name: "Academia Bíblica El Evangelio",
@@ -13,20 +24,19 @@ export const INSTITUTION_INFO = {
   whatsappRaw: "50589341763",
   whatsappText: "Hola, deseo recibir información sobre las inscripciones y programas de la Academia Bíblica El Evangelio.",
   region: "Centroamérica (El Salvador, Nicaragua, Guatemala, Honduras, Costa Rica)",
-  accreditation: "Nivel Técnico Universitario con Validez Nacional e Internacional",
+  accreditation: "Programas Pastorales con Validez Nacional e Internacional",
   biblicalVerse: {
     text: "Lo que has oído de mí ante muchos testigos, esto encarga a hombres fieles que sean idóneos para enseñar también a otros.",
     reference: "2 Timoteo 2:2"
   },
   founder: {
     name: "Pastor Isaías Martínez",
-    role: "Fundador de Academia Bíblica El Evangelio",
-    startYear: 2004,
+    role: "Fundador & Misionero Itinerante",
+    startYear: 1998,
     photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/isaias.jpg",
     quote: "Mientras he viajado por muchos países descubrí la urgente necesidad de llevar educación bíblica de manera profunda, pero con lenguaje local y verdaderamente entendible en sus propios contextos.",
-    bio: "Desde el año 2004, el hermano y Pastor Isaías Martínez ha recorrido incansablemente aldeas, cantones, montañas y ciudades de Centroamérica y el continente americano, sembrando la semilla de la educación teológica contextualizada para obreros y pastores que no tienen acceso a seminarios convencionales.",
-    mapEmbedUrl: "https://www.google.com/maps/d/embed?mid=1ijD8MLhiJUTGl5WNLDrsPcad2Lxh0T4",
-    mapViewerUrl: "https://www.google.com/maps/d/viewer?mid=1ijD8MLhiJUTGl5WNLDrsPcad2Lxh0T4"
+    bio1: "Desde el año 1998, el hermano Isaías ha recorrido incansablemente aldeas, cantones, montañas y ciudades de Centroamérica, sembrando la semilla de la educación teológica, entregando biblias Reina Valera, como una oportunidad de evangelizar a otros.",
+    bio2: "Por más de dos décadas, hemos visto pastores de zonas montañosas y comunidades rurales servir fielmente sin haber tenido jamás la oportunidad de asistir a un seminario formal. La Academia Bíblica El Evangelio nació para responder a ese clamor: llevar la mejor teología con sencillez, profundidad y calidez al corazón de cada comunidad."
   }
 };
 
@@ -80,7 +90,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     city: "Tacaná",
     fullLocation: "Tacaná, San Marcos, Guatemala",
     type: "Centro de Estudios y Biblioteca",
-    description: "Sede estratégica en el altiplano montañoso indígena cerca de la frontera con México; hogar de estudio y refugio formativo para más de 100 estudiantes cada mes.",
+    description: "Sede estratégica en el altiplano montañoso indígena cerca de la frontera con México; hogar de estudio y refugio formativo para más de 100 estudiantes.",
     ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/tacana.jpeg"
   },
   {
@@ -117,10 +127,10 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
     country: "Guatemala",
     category: "Educación Teológica y Biblioteca Fronteriza",
     image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/tacana.jpeg",
-    description: "Nuestra biblioteca y centro de estudios sirve como un hogar de apoyo para 11 institutos bíblicos en las zonas aledañas de Guatemala y México. Aquí, los estudiantes encuentran un refugio tranquilo para desconectarse del día a día, orar y concentrarse en su formación. Además, este mismo espacio es la sede de nuestra academia, donde cada mes reunimos a más de 100 personas para sumergirse en un estudio bíblico intensivo de 20 horas continuas.",
-    missionaryCall: "Invitamos a misioneros maestros, catalogadores de bibliotecas teológicas y predicadores dispuestos a ministrar en las jornadas intensivas de 20 horas con más de 100 estudiantes reunidos.",
+    description: "Nuestra biblioteca y centro de estudios sirve como un hogar de apoyo para 11 institutos bíblicos en las zonas aledañas de Guatemala y México. Aquí, los estudiantes encuentran un refugio tranquilo para desconectarse del día a día, orar y concentrarse en su formación. Además, este mismo espacio es la sede de nuestra academia, donde cada cuatro meses reunimos a más de 100 personas para sumergirse en un estudio bíblico intensivo.",
+    missionaryCall: "Invitamos a misioneros maestros, catalogadores de bibliotecas teológicas y predicadores dispuestos a ministrar en las jornadas intensivas con más de 100 estudiantes reunidos.",
     needs: [
-      "Maestros bíblicos itinerantes para módulos intensivos de 20 horas.",
+      "Maestros bíblicos itinerantes para módulos intensivos.",
       "Voluntarios para organización y cuidado de la biblioteca teológica.",
       "Apoyo logístico y pastoral para los 11 institutos bíblicos beneficiarios."
     ]
@@ -163,8 +173,8 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     title: "Consejería Bíblica",
     subtitle: "Un Llamado a la Formación Espiritual y Acompañamiento en Crisis",
     description: "Vivimos en un mundo que, como describe el apóstol Santiago, es 'animal y diabólico'. Los sistemas visibles están influenciados por mentes controladas por el mal. Sin embargo, los creyentes sabemos que somos extranjeros en este mundo y que nuestro destino final es el cielo. Este programa capacita a pastores y líderes para manejar casos complejos, guiando a la congregación en cómo Dios actúa en cada situación.",
-    image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=1200&q=80",
-    badge: "Técnico Universitario",
+    image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/consejeria.png",
+    badge: "Programa Pastoral",
     duration: "12 Meses (4 Ciclos Trimestrales)",
     modality: "Por correspondencia + 1 Encuentro mensual práctico",
     modulesCount: 6,
@@ -213,7 +223,6 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
       "Obreros llamados a la visitación y cuidado personal de creyentes en crisis."
     ],
     requirements: [
-      "Carta de recomendación de su pastor local.",
       "Entrevista simple con el representante nacional de la Academia.",
       "Compromiso de estudio mensual con folletos y asistencia al encuentro presencial."
     ]
@@ -223,8 +232,8 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     title: "Predicación Expositiva",
     subtitle: "Desarrollo de habilidades para estudiar, estructurar y comunicar la Palabra de Dios",
     description: "Formación intensiva que prepara al predicador para desentrañar el significado original del texto bíblico, construir sermones ordenados y aplicarlos con fidelidad y unción a la vida de la congregación.",
-    image: "https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1200&q=80",
-    badge: "Técnico Universitario",
+    image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/expository.png",
+    badge: "Programa Pastoral",
     duration: "12 Meses (4 Ciclos Trimestrales)",
     modality: "Por correspondencia + Talleres y Laboratorios de Púlpito",
     modulesCount: 6,
@@ -281,62 +290,47 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
   {
     id: "actualizacion-ministerial",
     title: "Actualización Ministerial",
-    subtitle: "Capacitación continua para pastores y líderes con experiencia en el ministerio",
-    description: "Un programa de vanguardia teológica y pastoral diseñado para renovar la visión, profundizar en la teología sistemática y equipar en la administración sabia de la grey a pastores en ejercicio.",
-    // VERIFIED WORKING 200 OK IMAGE:
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80",
-    badge: "Técnico Universitario",
-    duration: "12 Meses (4 Ciclos Trimestrales)",
+    subtitle: "Capacitación continua para pastores y líderes en las zonas rurales de Centroamérica",
+    description: "Este programa busca profundizar en la teología práctica y en doctrinas básicas. Estudiamos el ABC del evangelio.",
+    image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/estudiandotonala.jpg",
+    badge: "Programa Pastoral",
+    duration: "Indefinido · 1 encuentro mensual.",
     modality: "Por correspondencia + 1 Encuentro mensual de comunión y cátedra",
-    modulesCount: 6,
-    highlightObjective: "Renovar espiritualmente al siervo de Dios, brindándole sólidas defensas teológicas ante corrientes contemporáneas y herramientas de gestión eclesial.",
+    modulesCount: 4,
+    highlightObjective: "Profundizar en la teología práctica y doctrinas básicas del ABC del evangelio, contrarrestando falsas enseñanzas en comunidad pastoral.",
     curriculum: [
       {
-        code: "AM-301",
-        name: "Teología Sistemática y Doctrinas de la Gracia",
-        description: "Repaso profundo de la soberanía de Dios, la soteriología bíblica y las grandes doctrinas históricas de la Reforma.",
-        hours: "40 horas"
+        code: "AM-01",
+        name: "Estudio de los Catecismos y Confesiones Históricas",
+        description: "Repaso claro y sistemático del fundamento doctrinal de la fe reformada histórica.",
+        hours: "Encuentro Mensual"
       },
       {
-        code: "AM-302",
-        name: "Cuidado Personal del Pastor y Prevención del Agotamiento",
-        description: "Salud emocional, tiempo devocional personal, descanso sabático bíblico y protección de la familia pastoral.",
-        hours: "40 horas"
+        code: "AM-02",
+        name: "Temas libres a petición de los pastores",
+        description: "Exposición y diálogo abierto sobre atributos y verdades esenciales como la fidelidad de Dios y el Amor de Dios.",
+        hours: "Encuentro Mensual"
       },
       {
-        code: "AM-303",
-        name: "Administración Eclesiástica y Mayordomía",
-        description: "Gobierno de la iglesia, mayordomía financiera transparente, resolución de conflictos y orden institucional.",
-        hours: "40 horas"
+        code: "AM-03",
+        name: "Historia de la Biblia Reina Valera",
+        description: "Recorrido histórico por la preservación, traducción y legado de las Sagradas Escrituras en nuestro idioma español.",
+        hours: "Encuentro Mensual"
       },
       {
-        code: "AM-304",
-        name: "Apologética Contemporánea y Defensa de la Fe",
-        description: "Cómo responder a herejías locales, falsas teologías de la prosperidad y el relativismo moral en la juventud.",
-        hours: "40 horas"
-      },
-      {
-        code: "AM-305",
-        name: "Misiología y Plantación de Iglesias Rurales",
-        description: "Estrategias de evangelismo personal, desarrollo de misiones y sostenimiento propio en comunidades con bajos recursos.",
-        hours: "40 horas"
-      },
-      {
-        code: "AM-306",
-        name: "Discipulado Multiplicador y Mentoría de Sucesores",
-        description: "Desarrollo de ancianos y diáconos idóneos según el modelo apostólico de 2 Timoteo 2:2.",
-        hours: "40 horas"
+        code: "AM-04",
+        name: "Estudio completo del Evangelio de Juan",
+        description: "Análisis expositivo verso a verso del Evangelio de Juan con la intención de contrarrestar las falsas enseñanzas.",
+        hours: "Encuentro Mensual"
       }
     ],
     profile: [
-      "Pastores y obreros con 2 o más años de ministerio activo.",
-      "Misioneros y plantadores de iglesias en el interior del país.",
+      "Pastores y obreros",
       "Cuerpo de líderes y ancianos de congregaciones locales."
     ],
     requirements: [
-      "Acreditar ejercicio pastoral o liderazgo activo en una iglesia local.",
       "Deseo de actualización teológica y disposición para el aprendizaje continuo.",
-      "Participación activa en las mesas redondas mensuales."
+      "Participación activa en las mesas redondas."
     ]
   }
 ];
@@ -382,7 +376,7 @@ export const QUIENES_SOMOS_DATA = {
   historia: "Conscientes de la urgente necesidad de impartir educación bíblica a hombres y mujeres apasionados por el Evangelio, pero que carecen de oportunidades de estudio debido a diversas limitaciones, un grupo destacado de líderes y pastores se ha unido en colaboración. Este esfuerzo busca alcanzar a estudiantes, pastores y líderes en zonas rurales de diversos países, lugares donde la enseñanza bíblica es más que un lujo: es una necesidad urgente y vital.",
   acreditacion: {
     titulo: "Acreditación de la Academia Bíblica El Evangelio",
-    texto: "Dada la naturaleza religiosa de nuestros programas, estos están diseñados específicamente para cumplir con los requisitos ministeriales, basándonos en el principio bíblico: 'Por sus frutos los conoceréis' (Mateo 7:16). Nuestro objetivo principal es formar líderes cuya vida y ministerio reflejen el impacto transformador de su aprendizaje. Contamos con acreditación regional en los países donde operamos, con programas de calidad de técnico universitario avalados y reconocidos internacionalmente mediante convenios educativos.",
+    texto: "Dada la naturaleza religiosa de nuestros programas, estos están diseñados específicamente para cumplir con los requisitos ministeriales, basándonos en el principio bíblico: 'Por sus frutos los conoceréis' (Mateo 7:16). Nuestro objetivo principal es formar líderes cuya vida y ministerio reflejen el impacto transformador de su aprendizaje. Contamos con acreditación regional en los países donde operamos, con programas pastorales avalados y reconocidos internacionalmente mediante convenios educativos.",
     apostilla: "Para facilitar el reconocimiento global, nuestros títulos pueden ser legalizados a través de la Apostilla de La Haya. Este proceso, que consiste en la estampación de un sello único, permite que los documentos emitidos por nuestra Academia sean válidos y aceptados en cualquier país que forme parte de este convenio internacional."
   },
   credenciales: {
@@ -461,40 +455,167 @@ export const DOCTRINAL_POINTS: DoctrinalPoint[] = [
 
 export const CONFERENCES_DATA: ConferenceEvent[] = [
   {
-    id: "conf-anual-2026",
-    title: "Conferencia Anual de Pastores y Líderes 2026",
-    theme: "Fieles a la Palabra en Tiempos de Desafío",
-    date: "14 al 16 de Agosto, 2026",
-    time: "8:30 AM - 5:00 PM",
-    location: "Sede Regional Ahuachapán, El Salvador (y transmisión satelital)",
-    modality: "Presencial y Virtual",
-    speakers: "Pastores invitados de Centroamérica y Profesores de la Academia",
-    description: "Tres días de profunda exposición bíblica, renovación pastoral, tiempos de oración compartida y talleres prácticos sobre el ministerio en zonas rurales.",
-    availableSpots: "Cupos presenciales limitados · Registro gratuito para estudiantes activos"
-  },
-  {
-    id: "taller-hermeneutica-rural",
-    title: "Taller Intensivo de Hermenéutica y Bosquejo Bíblico",
-    theme: "Del Texto Sagrado al Púlpito Rural",
-    date: "26 de Septiembre, 2026",
-    time: "9:00 AM - 3:30 PM",
-    location: "Centro de Capacitación Bíblica, San Salvador / Sonsonate",
+    id: "conf-ahuachapan-enero-2027",
+    title: "La Tierra de Israel — Conferencia Especial",
+    theme: "La Tierra de Israel",
+    date: "2 al 20 de Enero, 2027",
+    time: "Jornadas de Estudio",
+    location: "Ahuachapán, El Salvador",
+    country: "El Salvador",
     modality: "Presencial",
-    speakers: "Facultad de Predicación Expositiva",
-    description: "Taller 100% práctico con Biblia en mano y hojas de trabajo guiadas. Aprenderás a extraer la idea exegética principal y armar sermones claros para tu congregación.",
-    availableSpots: "45 pastores y obreros"
+    speakers: "Dr. Joe Fitzpatrick",
+    description: "Estudio histórico, geográfico y bíblico sobre La Tierra de Israel impartido por el Dr. Joe Fitzpatrick.",
+    availableSpots: "Abierto a pastores, estudiantes y líderes"
   },
   {
-    id: "simposio-consejeria-2026",
-    title: "Simposio Centroamericano de Consejería Bíblica",
-    theme: "Esperanza y Gracia en Medio del Sufrimiento y la Familia",
-    date: "17 de Octubre, 2026",
-    time: "8:00 AM - 4:00 PM",
-    location: "Modalidad Híbrida (Sede Ahuachapán + Enlaces regionales)",
-    modality: "Presencial y Virtual",
-    speakers: "Pastores consejeros y docentes del Área de Cuidado Pastoral",
-    description: "Herramientas teológicas y casos prácticos para atender matrimonios en crisis, prevención del abuso, duelo y acompañamiento a jóvenes en riesgo.",
-    availableSpots: "Abierto a líderes, directores de grupos y maestros"
+    id: "conf-nicaragua-isaias-enero-2027",
+    title: "Catecismo Menor de Westminster — Nicaragua",
+    theme: "Catecismo Menor de Westminster",
+    date: "2 y 3 de Enero, 2027",
+    time: "02 Enero Chinandega · 03 Enero Tipitapa",
+    location: "Chinandega (02 Ene) y Tipitapa (03 Ene), Nicaragua",
+    country: "Nicaragua",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Enseñanza expositiva sobre el Catecismo Menor de Westminster: 02 de Enero en Chinandega y 03 de Enero en Tipitapa.",
+    availableSpots: "Pastores y congregaciones locales"
+  },
+  {
+    id: "conf-nicaragua-reynaldo-enero-2027",
+    title: "Gira Catecismo Menor de Westminster — Occidente",
+    theme: "Catecismo Menor de Westminster",
+    date: "1, 2 y 3 de Enero, 2027",
+    time: "01 Ene Corinto · 02 Ene Tonalá · 03 Ene León",
+    location: "Puerto Corinto (01 Ene), Tonalá (02 Ene) y León (03 Ene), Nicaragua",
+    country: "Nicaragua",
+    modality: "Presencial",
+    speakers: "Pastor Reynaldo Acuña",
+    description: "Serie intensiva por el occidente nicaragüense: 01 de Enero en Puerto Corinto, 02 de Enero en Tonalá y 03 de Enero en León.",
+    availableSpots: "Iglesias y obreros de occidente"
+  },
+  {
+    id: "conf-honduras-enero-2027",
+    title: "Primera Clase Misionera: Entendiendo el Llamado",
+    theme: "Entendiendo el llamado",
+    date: "9 de Enero, 2027",
+    time: "9:00 AM",
+    location: "Centro Misionero \"Heme aquí, envíame a mí\", San Lorenzo, Valle",
+    country: "Honduras",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Apertura oficial y primera clase de los estudiantes misioneros con el tema 'Entendiendo el llamado'.",
+    availableSpots: "Estudiantes misioneros y aspirantes"
+  },
+  {
+    id: "conf-cartago-israel-feb-2027",
+    title: "La Tierra de Israel — Costa Rica",
+    theme: "La Tierra de Israel",
+    date: "1 al 6 de Febrero, 2027",
+    time: "Jornadas Diarias",
+    location: "Cartago, Costa Rica",
+    country: "Costa Rica",
+    modality: "Presencial",
+    speakers: "Dr. Joe Fitzpatrick",
+    description: "Seminario intensivo sobre la geografía bíblica e historia redentora en La Tierra de Israel.",
+    availableSpots: "Pastores, líderes y estudiantes"
+  },
+  {
+    id: "conf-managua-feb-2027",
+    title: "Amando a tu Prójimo como a ti Mismo",
+    theme: "Amando a tu prójimo como a ti mismo",
+    date: "4 al 7 de Febrero, 2027",
+    time: "Jornadas Regionales",
+    location: "Managua, Nicaragua",
+    country: "Nicaragua",
+    modality: "Presencial",
+    speakers: "Pastor José Luis Amézquita (Cornerstone Church, Simi Valley CA, USA)",
+    description: "Conferencia especial con el Pastor Amézquita, pastor en Cornerstone Church en Simi Valley, California, USA.",
+    availableSpots: "Abierto a pastores e iglesias"
+  },
+  {
+    id: "conf-tipitapa-feb-2027",
+    title: "Predicación Especial en Tipitapa",
+    theme: "Predicación de la Palabra",
+    date: "7 de Febrero, 2027",
+    time: "9:30 AM",
+    location: "Tipitapa, Nicaragua",
+    country: "Nicaragua",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Jornada de predicación bíblica y edificación congregacional en la sede de Tipitapa.",
+    availableSpots: "Entrada libre"
+  },
+  {
+    id: "conf-cartago-escrituras-feb-2027",
+    title: "¿Cómo nos Llegaron las Sagradas Escrituras en Español?",
+    theme: "¿Cómo nos llegaron las Sagradas Escrituras en Español?",
+    date: "5, 16 y 17 de Febrero, 2027",
+    time: "Sesiones de Enseñanza",
+    location: "Cartago, Costa Rica",
+    country: "Costa Rica",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Enseñanza histórica sobre el origen, transmisión y traducción de la Biblia al español y la fidelidad textual.",
+    availableSpots: "Estudiantes y pastores de Costa Rica"
+  }
+];
+
+export const PAST_CONFERENCES_DATA: PastConferenceEvent[] = [
+  {
+    id: "past-2004",
+    year: "2004",
+    title: "Inicio de Jornadas de Capacitación Bíblica Rural",
+    location: "El Salvador y Occidente de Nicaragua",
+    theme: "Fundamentos de la Fe Cristiana y Entrega de Biblias Reina Valera",
+    speaker: "Pastor Isaías Martínez"
+  },
+  {
+    id: "past-2008",
+    year: "2008",
+    title: "Congreso Centroamericano de Obreros en el Campo",
+    location: "Ahuachapán, El Salvador",
+    theme: "El Ministerio Pastoral en Zonas de Escasos Recursos",
+    speaker: "Pastor Isaías Martínez y Pastores Regionales"
+  },
+  {
+    id: "past-2012",
+    year: "2012",
+    title: "Simposio Fronterizo de Institutos Bíblicos",
+    location: "Cheguate, Tacaná, San Marcos, Guatemala",
+    theme: "Hermenéutica Sana para Maestros e Institutos Rurales",
+    speaker: "Facultad Regional de Guatemala y México"
+  },
+  {
+    id: "past-2016",
+    year: "2016",
+    title: "Conferencia de Predicación Expositiva y Reforma",
+    location: "Chinandega y Tipitapa, Nicaragua",
+    theme: "Las Cinco Solas y el Púlpito Fiel",
+    speaker: "Pastor Isaías Martínez & Pastor Reynaldo Acuña"
+  },
+  {
+    id: "past-2019",
+    year: "2019",
+    title: "Encuentro de Plantadores de Iglesias del Sur",
+    location: "San Lorenzo, Valle, Honduras",
+    theme: "Misiología Práctica y Supervivencia de Campo",
+    speaker: "Equipo Misionero de Honduras y Centroamérica"
+  },
+  {
+    id: "past-2023",
+    year: "2023",
+    title: "Jornada Internacional de Consejería y Cuidado Pastoral",
+    location: "Cartago, Costa Rica",
+    theme: "Acompañamiento Bíblico en Medio de la Crisis Familiar",
+    speaker: "Dr. Joe Fitzpatrick & Facultad Invitada"
+  },
+  {
+    id: "past-2025",
+    year: "2025",
+    title: "Cumbre de Mentores de Campo y Facultad Invitada",
+    location: "Sedes Regionales de Centroamérica",
+    theme: "Consolidación del Método 10% Teoría y 90% Práctica",
+    speaker: "Facultad Internacional y Mentores Nacionales"
   }
 ];
 
@@ -525,9 +646,9 @@ export const METHODOLOGY_STEPS = [
   },
   {
     step: "04",
-    title: "Acreditación Técnica de Nivel Universitario",
+    title: "Acreditación Pastoral con Validez Internacional",
     tagline: "Reconocimiento y solidez académica",
-    description: "Al culminar satisfactoriamente los 12 meses de estudio por correspondencia y las evaluaciones prácticas, el egresado recibe su diploma acreditado de Nivel Técnico Universitario con respaldo nacional e internacional y opción de Apostilla de La Haya.",
+    description: "Al culminar satisfactoriamente los 12 meses de estudio por correspondencia y las evaluaciones prácticas, el egresado recibe su diploma acreditado con respaldo nacional e internacional y opción de Apostilla de La Haya.",
     metric: "Validez Nacional e Internacional",
     accent: "Acreditación Oficial"
   }
@@ -555,7 +676,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "faq-4",
     question: "¿Qué validez y acreditación tienen los programas?",
-    answer: "Nuestros programas otorgan certificación de Nivel Técnico Universitario, respaldada por declaraciones de instituciones teológicas, sínodos y presbiterios. Los títulos pueden ser legalizados a través de la Apostilla de La Haya para reconocimiento internacional en cualquier país miembro.",
+    answer: "Nuestros programas cuentan con certificación pastoral respaldada por declaraciones de instituciones teológicas, sínodos y presbiterios. Los títulos pueden ser legalizados a través de la Apostilla de La Haya para reconocimiento internacional en cualquier país miembro.",
     category: "Acreditación"
   },
   {
@@ -566,59 +687,21 @@ export const FAQ_ITEMS: FaqItem[] = [
   }
 ];
 
-export const MINISTRY_PARTNERS: MinistryPartner[] = [
-  {
-    id: "partner-1",
-    name: "Iglesias Presbiterianas de El Salvador",
-    country: "El Salvador",
-    role: "Aval Doctrinal y Sede Ahuachapán",
-    description: "Comunión de iglesias reformadas históricas que respaldan y facilitan sedes presenciales y laboratorios de púlpito para pastores rurales."
-  },
-  {
-    id: "partner-2",
-    name: "Red de Institutos Bíblicos Fronterizos",
-    country: "Guatemala y México",
-    role: "11 Institutos Bíblicos Afiliados",
-    description: "Alianza formativa en el altiplano de San Marcos (Tacaná y Chiapas) donde la Academia provee materiales y jornadas intensivas de estudio."
-  },
-  {
-    id: "partner-3",
-    name: "Confraternidad Pastoral de Occidente",
-    country: "Nicaragua",
-    role: "Sedes Chinandega y Tipitapa",
-    description: "Pastores de diversas denominaciones evangélicas unidos para el discipulado y entrega de folletos por correspondencia en comunidades agrícolas."
-  },
-  {
-    id: "partner-4",
-    name: "Misión Evangélica del Valle y Sur",
-    country: "Honduras",
-    role: "Sede y Centro Misionero San Lorenzo",
-    description: "Obreros y directores ministeriales comprometidos con la formación de misioneros rurales de campo y apoyo social a pescadores y campesinos."
-  },
-  {
-    id: "partner-5",
-    name: "Asociación Bíblica de la Meseta Central",
-    country: "Costa Rica",
-    role: "Sede Cartago y Tutorías",
-    description: "Pastores y maestros que coordinan el avance modular de líderes locales en valles y cantones costarricenses."
-  }
-];
-
-export const MINISTRY_ALLIES_REGIONS = [
+export const MINISTRY_ALLIES_REGIONS: MinistryAlliesRegion[] = [
   {
     region: "El Salvador",
     countryBadge: "🇸🇻 El Salvador",
     allies: [
-      { name: "Iglesias Presbiterianas de El Salvador", location: "Ahuachapán y San Salvador" },
+      { name: "Iglesias Presbiterianas de El Salvador", location: "El Salvador" },
       { name: "Red de Iglesias Cristo Vive", location: "El Salvador" },
-      { name: "Asociación de Pastores de la Zona Oriente", location: "San Miguel y Oriente" }
+      { name: "Asociación de Pastores de la Zona Oriente", location: "Zona Oriente, El Salvador" }
     ]
   },
   {
     region: "Guatemala y México",
     countryBadge: "🇬🇹 🇲🇽 Guatemala y México",
     allies: [
-      { name: "Red de Institutos Bíblicos Fronterizos", location: "Tacaná y Altiplano San Marcos" },
+      { name: "Red de Institutos Bíblicos Fronterizos", location: "Guatemala y México" },
       { name: "Iglesias Misión Centroamericana", location: "Guatemala" },
       { name: "Iglesias Presbiterianas de Chiapas", location: "Chiapas, México" }
     ]
@@ -627,21 +710,21 @@ export const MINISTRY_ALLIES_REGIONS = [
     region: "Nicaragua",
     countryBadge: "🇳🇮 Nicaragua",
     allies: [
-      { name: "Confraternidad Pastoral de Occidente", location: "Chinandega y León" },
-      { name: "Iglesias Presbiterianas Reformadas de Nicaragua", location: "Managua y Tipitapa" }
+      { name: "Iglesias Presbiterianas Reformadas de Nicaragua", location: "Nicaragua" },
+      { name: "Confraternidad Pastoral Ministerio Oasis", location: "Chinandega, Nicaragua" }
     ]
   },
   {
     region: "Honduras",
     countryBadge: "🇭🇳 Honduras",
     allies: [
-      { name: "Misión Evangélica del Valle y Sur", location: "San Lorenzo y Choluteca" },
-      { name: "Iglesia Cristiana Reformada de Corinto", location: "San Lorenzo, Valle" }
+      { name: "Iglesia Bíblica Gracia sin Fin", location: "Tegucigalpa, Honduras" },
+      { name: "Iglesia Cristiana Reformada de Corinto", location: "San Lorenzo, Valle, Honduras" }
     ]
   },
   {
-    region: "Internacional",
-    countryBadge: "🌐 Internacional",
+    region: "Nuestros amigos Internacionales",
+    countryBadge: "🌐 Nuestros amigos Internacionales",
     allies: [
       { name: "Gospel Society Mission", location: "El Salvador" },
       { name: "Iglesia \"Por la Gracia de Dios, San Miguel\"", location: "El Salvador" },
@@ -650,119 +733,85 @@ export const MINISTRY_ALLIES_REGIONS = [
       { name: "Teaching Missions International - Teaching Biblical Reformed", location: "USA" },
       { name: "Third Millennium Ministries", location: "USA" },
       { name: "Chapel Library", location: "USA" },
-      { name: "Iglesia Bíblica Maranatha Lynn", location: "Massachusetts, USA" }
+      { name: "Iglesia Bíblica Maranatha Lynn", location: "Mass, USA" },
+      { name: "Equipping the Church International (ECI) by Pastor José Amézquita", location: "USA" }
     ]
   }
 ];
 
-export const FACULTY_MEMBERS = [
+export const FACULTY_MEMBERS: FacultyMember[] = [
   {
-    id: "javier-dominguez",
-    name: "Javier Domínguez",
-    title: "Maestro y Exégeta Bíblico",
+    id: "dr-javier-dominguez",
+    name: "Dr. Javier Domínguez",
+    title: "Dr. en Teología",
+    institution: "Iglesia Gracia sobre Gracia, El Salvador",
     initials: "JD",
-    focus: "Teología Bíblica e Interpretación Gramático-Histórica",
-    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/pastorjavier.jpeg"
   },
   {
-    id: "juan-manuel-vaz",
-    name: "Juan Manuel Vaz",
-    title: "Pastor y Predicador Expositivo",
+    id: "pastor-juan-manuel-vaz",
+    name: "Pastor Juan Manuel Vaz",
+    title: "Pastor",
+    institution: "Iglesia Caminando Por Fe en Barcelona, España",
     initials: "JV",
-    focus: "Homilética Práctica y Defensa de la Sana Doctrina",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/juanmanuel.jpeg"
   },
   {
-    id: "josias-kim",
-    name: "Josías Kim",
-    title: "Pastor y Misionero",
+    id: "dr-josias-kim",
+    name: "Dr. Josías Kim",
+    title: "Dr. en Teología",
+    institution: "Iglesia Presbiteriana Nicaragua · Originario de Corea",
     initials: "JK",
-    focus: "Plantación de Iglesias Rurales y Discipulado Bíblico",
-    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/josias.png"
   },
   {
     id: "dr-noe-acosta",
     name: "Dr. Noé Acosta",
-    title: "Teólogo y Docente Seminario",
+    title: "Dr. en Teología",
+    institution: "Fundador de SRL, USA",
     initials: "NA",
-    focus: "Hermenéutica Exegética e Historia Eclesiástica",
-    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80"
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/drnoeacostasrl.png"
   },
   {
     id: "dr-julio-benitez",
     name: "Dr. Julio Benítez",
-    title: "Pastor y Doctor en Teología",
+    title: "Dr. en Teología",
+    institution: "Iglesia de la Gracia, Colombia",
     initials: "JB",
-    focus: "Teología Sistemática y Cuidado del Rebaño",
-    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80"
-  },
-  {
-    id: "dr-paul-kim",
-    name: "Dr. Paul Kim",
-    title: "Doctor en Ministerio y Misionero",
-    initials: "PK",
-    focus: "Misiología Global y Liderazgo Transformacional",
-    photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80"
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/juliobenitez.png"
   },
   {
     id: "dr-joe-fitzpatrick",
     name: "Dr. Joe Fitzpatrick",
-    title: "Profesor y Autor Bíblico",
+    title: "Dr. en Teología",
+    institution: "Misionero de MTW, USA",
     initials: "JF",
-    focus: "Consejería Bíblica Pastoral y Gracia Cristocéntrica",
-    photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80"
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/FITZPATRICK.png"
   },
   {
     id: "dr-richard-smith",
     name: "Dr. Richard Smith",
-    title: "Erudito Bíblico y Maestro de Campo",
+    title: "Dr. en Teología",
+    institution: "Centro Kuyper, Argentina · Originario de USA",
     initials: "RS",
-    focus: "Exégesis del Antiguo y Nuevo Testamento",
-    photo: "https://images.unsplash.com/photo-1513956589380-bad6acb9b9d4?auto=format&fit=crop&w=400&q=80"
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/richardsmith.jpg"
+  },
+  {
+    id: "pastor-jose-luis-amezquita",
+    name: "Pastor José Luis Amézquita",
+    title: "Pastor en Cornerstone Church Simi Valley",
+    institution: "Equipping the Church International (ECI)",
+    initials: "JA",
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/joseluis.png"
   }
 ];
 
-export const STUDENT_TESTIMONIALS = [
-  {
-    id: "test-1",
-    author: "Pr. Marcos Sandoval",
-    role: "Pastor Rural y Egresado de Predicación Expositiva",
-    church: "Iglesia Evangélica El Buen Pastor",
-    location: "Ahuachapán",
-    country: "El Salvador",
-    quote: "Por años prediqué con muchas limitaciones en mi comunidad cafetalera. El método de correspondencia y los encuentros mensuales me enseñaron a desglosar versículo por versículo la Escritura sin tener que abandonar a mi congregación.",
-    program: "Predicación Expositiva"
-  },
-  {
-    id: "test-2",
-    author: "Hno. Carlos Espinoza",
-    role: "Líder Comunitario y Consejero",
-    church: "Misión Evangélica Fronteriza",
-    location: "Cheguate, Tacaná",
-    country: "Guatemala",
-    quote: "Los folletos didácticos son un tesoro en nuestra montaña. Las 20 horas intensivas de estudio cada mes en la biblioteca han transformado la manera en que aconsejamos matrimonios y formamos a los jóvenes.",
-    program: "Consejería Bíblica"
-  },
-  {
-    id: "test-3",
-    author: "Pastora Elena Martínez",
-    role: "Líder de Educación y Discipulado",
-    church: "Comunidad Cristiana de Corinto",
-    location: "San Lorenzo, Valle",
-    country: "Honduras",
-    quote: "La preparación técnica universitaria nos dio herramientas formales que antes creíamos inalcanzables para los obreros del campo. La Academia es una verdadera bendición para el sur de Honduras.",
-    program: "Actualización Ministerial"
-  },
-  {
-    id: "test-4",
-    author: "Pr. David Rivas",
-    role: "Pastor y Misionero Rural",
-    church: "Confraternidad de Occidente",
-    location: "Chinandega",
-    country: "Nicaragua",
-    quote: "Estudiar con materiales de teólogos y pastores de tan alto nivel, pero explicados en nuestro propio lenguaje y realidad de campo, nos dio un renuevo espiritual a todo el ministerio.",
-    program: "Predicación Expositiva"
-  }
+export const FIELD_MENTORS: FieldMentor[] = [
+  { id: "m-1", name: "Pastor Mario Miranda", location: "Cartago, Costa Rica" },
+  { id: "m-2", name: "Pastor Reynaldo Acuña", location: "Chinandega, Nicaragua" },
+  { id: "m-3", name: "Pastor Alexis Núñez", location: "Ahuachapán, El Salvador" },
+  { id: "m-4", name: "Pastor Domingo Flores", location: "Tacaná, Guatemala" },
+  { id: "m-5", name: "Pastor Mario Sorto", location: "Tegucigalpa, Honduras" }
 ];
 
 export const FACULTY_DATA = {
@@ -786,24 +835,5 @@ export const FACULTY_DATA = {
       titulo: "Evaluación y Mentoría Colegiada",
       detalle: "En cada encuentro presencial mensual, pastores locales con experiencia ministerial evalúan las exposiciones y laboratorios prácticos de los estudiantes."
     }
-  ],
-  areas: [
-    {
-      area: "Hermenéutica Bíblica y Teología Exegética",
-      enfoque: "Capacitación en interpretación sana gramático-histórica, alejándose de alegorías y falsas doctrinas."
-    },
-    {
-      area: "Homilética y Predicación Expositiva",
-      enfoque: "Arquitectura del sermón bíblico verso a verso, oratoria pastoral y comunicación cristocéntrica."
-    },
-    {
-      area: "Consejería Bíblica Pastoral",
-      enfoque: "Atención al corazón humano, resolución de conflictos matrimoniales, duelo y restauración bajo la Gracia."
-    },
-    {
-      area: "Misiología Práctica y Plantación Rural",
-      enfoque: "Estrategias de supervivencia de campo, discipulado multiplicador y mayordomía en comunidades de bajos recursos."
-    }
   ]
 };
-

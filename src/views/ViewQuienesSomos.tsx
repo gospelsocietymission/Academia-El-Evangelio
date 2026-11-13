@@ -2,20 +2,18 @@ import React, { useState } from 'react';
 import { 
   Shield, 
   Award, 
-  Users, 
   BookOpen, 
   Compass, 
   CheckCircle2, 
   FileText, 
   Globe, 
   Scale, 
-  ChevronRight, 
   Building2, 
   ScrollText,
   BadgeCheck,
   Briefcase
 } from 'lucide-react';
-import { INSTITUTION_INFO, QUIENES_SOMOS_DATA } from '../data/academyData';
+import { INSTITUTION_INFO, QUIENES_SOMOS_DATA, DOCTRINAL_POINTS } from '../data/academyData';
 
 interface ViewQuienesSomosProps {
   onNavigateToProgramas: () => void;
@@ -25,16 +23,12 @@ interface ViewQuienesSomosProps {
 
 type TabKey = 'credenciales' | 'avales' | 'legal';
 
-export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
-  onNavigateToProgramas,
-  onNavigateToProyectos,
-  onOpenEnrollment,
-}) => {
+export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
   const [activeSection, setActiveSection] = useState<TabKey>('credenciales');
 
   return (
-    <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16 w-full max-w-full overflow-x-hidden">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         
         {/* Page Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -48,7 +42,7 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
             Quiénes Somos
           </h1>
           
-          <div className="inline-block px-5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-serif font-bold text-base sm:text-lg">
+          <div className="inline-block px-5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 font-serif font-bold text-sm sm:text-lg">
             "{INSTITUTION_INFO.motto}"
           </div>
 
@@ -58,16 +52,16 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
         </div>
 
         {/* 1. Historia y Llamado Pastoral */}
-        <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl space-y-6">
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
               <Compass className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
                 Nuestra Historia
               </span>
-              <h2 className="font-serif text-2xl font-bold text-white">
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 Una Alianza Nacida del Amor por el Evangelio
               </h2>
             </div>
@@ -100,14 +94,13 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
             </p>
           </div>
 
-          {/* 3 Interactive Buttons */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <button
               onClick={() => setActiveSection('credenciales')}
               className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 text-left ${
                 activeSection === 'credenciales'
                   ? 'bg-amber-500/15 border-amber-400 text-white shadow-lg ring-1 ring-amber-400/40'
-                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700'
               }`}
             >
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
@@ -130,7 +123,7 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
               className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 text-left ${
                 activeSection === 'avales'
                   ? 'bg-blue-500/15 border-blue-400 text-white shadow-lg ring-1 ring-blue-400/40'
-                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700'
               }`}
             >
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
@@ -153,7 +146,7 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
               className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 text-left ${
                 activeSection === 'legal'
                   ? 'bg-emerald-500/15 border-emerald-400 text-white shadow-lg ring-1 ring-emerald-400/40'
-                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-850'
+                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700'
               }`}
             >
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
@@ -173,18 +166,18 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
           </div>
 
           {/* Dedicated Content Box for Active Button */}
-          <div className="bg-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl">
+          <div className="bg-slate-900 rounded-3xl p-5 sm:p-10 border border-slate-800 shadow-2xl">
             {activeSection === 'credenciales' && (
               <div className="space-y-6 animate-in fade-in duration-200">
                 <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
                     <ScrollText className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
                       Sección Especial
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-white">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
                       Credenciales: Quienes Hablan por Nosotros
                     </h3>
                   </div>
@@ -217,14 +210,14 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
             {activeSection === 'avales' && (
               <div className="space-y-6 animate-in fade-in duration-200">
                 <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
                     <Award className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-blue-400 uppercase tracking-widest block">
                       Sección Especial
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-white">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
                       Reconocimiento: Nuestros Avales Académicos
                     </h3>
                   </div>
@@ -263,14 +256,14 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
             {activeSection === 'legal' && (
               <div className="space-y-6 animate-in fade-in duration-200">
                 <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                     <Scale className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-emerald-400 uppercase tracking-widest block">
                       Sección Especial
                     </span>
-                    <h3 className="font-serif text-2xl font-bold text-white">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
                       Administración y Operatividad Legal
                     </h3>
                   </div>
@@ -301,17 +294,62 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
           </div>
         </div>
 
-        {/* 3. Acreditación de la Academia Bíblica El Evangelio y Apostilla de La Haya */}
-        <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
+        {/* 3. NUESTRA BASE DOCTRINAL (Movida dentro de Quiénes Somos) */}
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+              <Shield className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
+                Confesión y Principios Bíblicos
+              </span>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                Nuestra Base Doctrinal
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sostenemos la inerrancia bíblica y la herencia reformada del siglo XVI, promoviendo la comunión pastoral y el amor al Evangelio.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {DOCTRINAL_POINTS.map((p) => (
+              <div
+                key={p.id}
+                className="p-5 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-amber-500/30 transition-colors space-y-2"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="font-serif font-bold text-white text-sm sm:text-base">
+                    {p.number}. {p.title}
+                  </h3>
+                  <span className="text-[11px] text-amber-300 font-mono bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                    {p.scriptureRef}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                  {p.summary}
+                </p>
+                <p className="text-[11px] text-slate-400 leading-relaxed pt-1 border-t border-slate-800/60">
+                  {p.fullExplanation}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 4. Acreditación de la Academia Bíblica El Evangelio y Apostilla de La Haya */}
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
               <Award className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
                 Reconocimiento Oficial
               </span>
-              <h2 className="font-serif text-2xl font-bold text-white">
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 {QUIENES_SOMOS_DATA.acreditacion.titulo}
               </h2>
             </div>
@@ -325,7 +363,7 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
             {/* Apostilla de La Haya Highlight Box */}
             <div className="p-5 rounded-xl bg-slate-950 border border-amber-500/20 space-y-2">
               <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
-                <Globe className="w-4 h-4" />
+                <Globe className="w-4 h-4 shrink-0" />
                 <span>Legalización Internacional: Apostilla de La Haya</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
@@ -335,17 +373,17 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = ({
           </div>
         </div>
 
-        {/* 4. Nuestra Filosofía: Principios Eclesiológicos */}
-        <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-xl space-y-6">
+        {/* 5. Nuestra Filosofía: Principios Eclesiológicos */}
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
               <BookOpen className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
                 Nuestros Principios
               </span>
-              <h2 className="font-serif text-2xl font-bold text-white">
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 {QUIENES_SOMOS_DATA.filosofia.titulo}
               </h2>
             </div>

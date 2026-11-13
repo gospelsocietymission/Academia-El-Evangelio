@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { BookOpen, Menu, X, GraduationCap, ChevronRight, MessageCircle, Heart, Users } from 'lucide-react';
+import { BookOpen, Menu, X, GraduationCap, ChevronRight, MessageCircle, Heart } from 'lucide-react';
 import { INSTITUTION_INFO, buildWhatsAppUrl } from '../data/academyData';
 
-export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'facultad' | 'proyectos';
+export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'facultad' | 'aliados' | 'proyectos';
 
 interface NavbarProps {
   currentPage: NavPage;
@@ -24,7 +24,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'Programas', page: 'programas' },
     { label: 'Quiénes Somos', page: 'quienes-somos' },
     { label: 'Facultad Invitada', page: 'facultad' },
-    { label: 'Proyectos Misioneros', page: 'proyectos' },
+    { label: 'Aliados', page: 'aliados' },
+    { label: 'Proyectos', page: 'proyectos' },
   ];
 
   const handlePageClick = (page: NavPage) => {
@@ -34,9 +35,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-amber-500/20 text-white shadow-lg transition-all">
+    <header className="sticky top-0 z-40 w-full max-w-full bg-slate-900/95 backdrop-blur-md border-b border-amber-500/20 text-white shadow-lg transition-all">
       {/* Top micro ribbon */}
-      <div className="bg-amber-500/10 border-b border-amber-500/20 px-4 py-1.5 text-xs text-amber-200/90 text-center font-medium hidden sm:block">
+      <div className="bg-amber-500/10 border-b border-amber-500/20 px-4 py-1.5 text-xs text-amber-200/90 text-center font-medium hidden md:block">
         <span className="text-amber-400 font-semibold">{INSTITUTION_INFO.motto}</span>
         <span className="mx-2 opacity-40">|</span>
         <span>WhatsApp Pastoral Directo:</span>
@@ -59,37 +60,37 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Main Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
         
         {/* Brand */}
         <button 
           onClick={() => handlePageClick('inicio')}
-          className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-lg p-1 shrink-0 text-left cursor-pointer"
+          className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-lg p-1 min-w-0 text-left cursor-pointer"
         >
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 shadow-md flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+          <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 shadow-md flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
             <div className="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center border border-amber-400/40">
-              <BookOpen className="w-5 h-5 text-amber-400" />
+              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
             </div>
           </div>
-          <div className="flex flex-col">
-            <span className="font-serif font-bold text-sm sm:text-base tracking-wider text-white group-hover:text-amber-300 transition-colors whitespace-nowrap leading-tight">
+          <div className="flex flex-col min-w-0">
+            <span className="font-serif font-bold text-xs sm:text-base tracking-wider text-white group-hover:text-amber-300 transition-colors truncate leading-tight">
               ACADEMIA BÍBLICA
             </span>
-            <span className="text-[10px] font-semibold tracking-widest text-amber-400/90 uppercase font-sans">
+            <span className="text-[9px] sm:text-[10px] font-semibold tracking-widest text-amber-400/90 uppercase font-sans truncate">
               EL EVANGELIO
             </span>
           </div>
         </button>
 
-        {/* 5 Page Nav Links */}
-        <nav className="hidden xl:flex items-center gap-1.5 text-sm font-medium">
+        {/* Desktop Nav Links */}
+        <nav className="hidden xl:flex items-center gap-1 text-sm font-medium">
           {navItems.map((item) => {
             const isActive = currentPage === item.page;
             return (
               <button
                 key={item.page}
                 onClick={() => handlePageClick(item.page)}
-                className={`px-3.5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                className={`px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                   isActive
                     ? 'bg-amber-500 text-slate-950 shadow-md'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800'
@@ -101,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Medium screens (lg to xl) condensed links */}
+        {/* Medium Desktop Nav Links */}
         <nav className="hidden lg:flex xl:hidden items-center gap-1 text-sm font-medium">
           {navItems.map((item) => {
             const isActive = currentPage === item.page;
@@ -109,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 key={item.page}
                 onClick={() => handlePageClick(item.page)}
-                className={`px-2.5 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                className={`px-2 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                   isActive
                     ? 'bg-amber-500 text-slate-950 shadow-md'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800'
@@ -122,12 +123,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Zone 3: Donar + WhatsApp + Inscríbete + Mobile hamburger */}
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           
           {/* Prominent Donar Button */}
           <button
             onClick={onOpenDonation}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-rose-500/20 active:scale-95 transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-lg bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider shadow-md hover:shadow-rose-500/20 active:scale-95 transition-all cursor-pointer"
             title="Apoyar con una donación"
           >
             <Heart className="w-3.5 h-3.5 fill-white" />
@@ -146,9 +147,9 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={onOpenEnrollment}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs tracking-wider uppercase shadow-md hover:shadow-amber-500/20 active:scale-95 transition-all whitespace-nowrap cursor-pointer"
+            className="inline-flex items-center gap-1 px-2.5 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-[11px] sm:text-xs tracking-wider uppercase shadow-md hover:shadow-amber-500/20 active:scale-95 transition-all whitespace-nowrap cursor-pointer"
           >
-            <GraduationCap className="w-4 h-4" />
+            <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span>Inscríbete</span>
           </button>
 
@@ -156,19 +157,19 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer"
             aria-label="Abrir menú"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-slate-950 border-b border-amber-500/30 px-5 pt-3 pb-6 space-y-3 shadow-2xl animate-in fade-in duration-200">
+        <div className="lg:hidden w-full bg-slate-950 border-b border-amber-500/30 px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-in fade-in duration-200">
           <div className="text-xs uppercase tracking-widest text-amber-400/80 font-semibold pb-1 border-b border-slate-800">
-            Páginas del Sitio
+            Menú Principal
           </div>
           <div className="grid grid-cols-1 gap-1">
             {navItems.map((item) => {
