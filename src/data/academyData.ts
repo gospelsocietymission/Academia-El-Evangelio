@@ -524,15 +524,15 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
   // EL SALVADOR (Ordenado por fechas)
   {
     id: "conf-ahuachapan-enero-2027",
-    title: "La Tierra de Israel — Conferencia Especial",
-    theme: "La Tierra de Israel",
+    title: "La Tierra de la Biblia",
+    theme: "La Tierra de la Biblia (Curso I y Curso II)",
     date: "2 al 20 de Enero, 2027",
-    time: "Jornadas de Estudio",
-    location: "Ahuachapán, El Salvador",
+    time: "Presencial / Virtual ZOOM Sincrónico / Asincrónico",
+    location: "Ahuachapán, El Salvador y Virtual",
     country: "El Salvador",
-    modality: "Presencial",
+    modality: "Presencial y Virtual",
     speakers: "Dr. Joe Fitzpatrick",
-    description: "Estudio histórico, geográfico y bíblico sobre La Tierra de Israel impartido por el Dr. Joe Fitzpatrick.",
+    description: "Estudio de la Tierra de la Biblia dividido en dos cursos (6 lecciones c/u): fundamentos, geografía bíblica, pacto y pueblo.",
     availableSpots: "Abierto a pastores, estudiantes y líderes"
   },
 

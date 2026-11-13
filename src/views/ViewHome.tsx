@@ -15,7 +15,8 @@ import {
   History,
   User,
   Clock,
-  Church
+  Church,
+  BookOpen
 } from 'lucide-react';
 import { 
   INSTITUTION_INFO, 
@@ -25,6 +26,7 @@ import {
   buildWhatsAppUrl 
 } from '../data/academyData';
 import { EnrollmentSubmission, ConferenceEvent } from '../types';
+import { TierraBibliaCourseModal } from '../components/TierraBibliaCourseModal';
 
 interface ViewHomeProps {
   onNavigateToProgramas: () => void;
@@ -63,6 +65,7 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
 
   const [isSuccess, setIsSuccess] = useState(false);
   const [confFilter, setConfFilter] = useState<'all' | 'Enero 2027' | 'Febrero 2027'>('all');
+  const [isTierraBibliaOpen, setIsTierraBibliaOpen] = useState(false);
 
   const filteredConferences = CONFERENCES_DATA.filter((conf) => {
     if (confFilter === 'all') return true;
@@ -540,13 +543,23 @@ _Enviado desde academiabiblica.net_`;
                           </div>
                         </div>
 
-                        <button
-                          onClick={() => onRegisterConference(conf)}
-                          className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
-                        >
-                          <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                          <span>Inscribirme por WhatsApp</span>
-                        </button>
+                        {conf.id === 'conf-ahuachapan-enero-2027' ? (
+                          <button
+                            onClick={() => setIsTierraBibliaOpen(true)}
+                            className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
+                          >
+                            <BookOpen className="w-3.5 h-3.5" />
+                            <span>Ver Contenido del Curso</span>
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => onRegisterConference(conf)}
+                            className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                          >
+                            <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                            <span>Inscribirme por WhatsApp</span>
+                          </button>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -732,6 +745,11 @@ _Enviado desde academiabiblica.net_`;
 
         </div>
       </footer>
+
+      <TierraBibliaCourseModal
+        isOpen={isTierraBibliaOpen}
+        onClose={() => setIsTierraBibliaOpen(false)}
+      />
 
     </div>
   );
