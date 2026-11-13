@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { 
-  Shield, 
-  Award, 
-  BookOpen, 
-  Compass, 
-  CheckCircle2, 
-  FileText, 
-  Globe, 
-  Scale, 
-  Building2, 
+import {
+  Shield,
+  Award,
+  BookOpen,
+  Compass,
+  CheckCircle2,
+  FileText,
+  Globe,
+  Scale,
+  Building2,
   ScrollText,
   BadgeCheck,
-  Briefcase
+  Briefcase,
+  History
 } from 'lucide-react';
 import { INSTITUTION_INFO, QUIENES_SOMOS_DATA, DOCTRINAL_POINTS } from '../data/academyData';
 
@@ -21,10 +22,18 @@ interface ViewQuienesSomosProps {
   onOpenEnrollment: () => void;
 }
 
-type TabKey = 'credenciales' | 'avales' | 'legal';
+type TabKey = 'historia' | 'credenciales' | 'avales' | 'legal';
 
 export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
-  const [activeSection, setActiveSection] = useState<TabKey>('credenciales');
+  const [activeSection, setActiveSection] = useState<TabKey>('historia');
+
+  const handleOpenNuestraHistoria = () => {
+    setActiveSection('historia');
+    const el = document.getElementById('seccion-institucional-detalle');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16 w-full max-w-full overflow-x-hidden">
@@ -49,6 +58,16 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Conoce la historia, visión doctrinal, acreditación internacional y avales que respaldan la labor de la <strong>Academia Bíblica El Evangelio</strong> en Centroamérica.
           </p>
+
+          <div className="pt-2 flex justify-center">
+            <button
+              onClick={handleOpenNuestraHistoria}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-all cursor-pointer"
+            >
+              <History className="w-4 h-4" />
+              <span>Nuestra historia</span>
+            </button>
+          </div>
         </div>
 
         {/* 1. Historia y Llamado Pastoral */}
@@ -59,7 +78,7 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
             </div>
             <div>
               <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
-                Nuestra Historia
+                Nuestra Misión Ministerial
               </span>
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 Una Alianza Nacida del Amor por el Evangelio
@@ -80,21 +99,44 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
           </div>
         </div>
 
-        {/* 2. BOTONES DEDICADOS PARA PERSONAS INVOLUCRADAS, AVALES Y LEGALIDAD */}
-        <div className="space-y-6">
+        {/* 2. BOTONES DEDICADOS: NUESTRA HISTORIA, PERSONAS INVOLUCRADAS, AVALES Y LEGALIDAD */}
+        <div id="seccion-institucional-detalle" className="space-y-6 scroll-mt-24">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
-              Gobernanza, Respaldo y Legalidad
+              Historia, Gobernanza, Respaldo y Legalidad
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
               Institucionalidad y Transparencia
             </h2>
             <p className="text-xs text-slate-400">
-              Selecciona cada área para conocer a fondo a las personas e instituciones que nos avalan y dan fe de nuestra labor.
+              Selecciona cada área para conocer nuestra historia y a las personas e instituciones que nos avalan y dan fe de nuestra labor.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <button
+              onClick={() => setActiveSection('historia')}
+              className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 text-left ${
+                activeSection === 'historia'
+                  ? 'bg-amber-500/15 border-amber-400 text-white shadow-lg ring-1 ring-amber-400/40'
+                  : 'bg-slate-900 border-slate-800 text-slate-300 hover:border-slate-700'
+              }`}
+            >
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                activeSection === 'historia' ? 'bg-amber-500 text-slate-950 font-bold' : 'bg-slate-950 text-amber-400 border border-slate-800'
+              }`}>
+                <History className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider block text-amber-400">
+                  Desde 1998
+                </span>
+                <span className="font-serif font-bold text-sm block">
+                  Nuestra historia
+                </span>
+              </div>
+            </button>
+
             <button
               onClick={() => setActiveSection('credenciales')}
               className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 text-left ${
@@ -167,6 +209,68 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
 
           {/* Dedicated Content Box for Active Button */}
           <div className="bg-slate-900 rounded-3xl p-5 sm:p-10 border border-slate-800 shadow-2xl">
+            {activeSection === 'historia' && (
+              <div className="space-y-6 animate-in fade-in duration-200">
+                <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                    <History className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
+                      Testimonio de Servicio · 29 de Octubre de 1998
+                    </span>
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                      Nuestra historia: El Inicio del Ministerio del Pastor Isaías
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                  {/* Narrative in third person */}
+                  <div className="lg:col-span-7 space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+                    <p>
+                      El <strong className="text-white">Pastor Isaías</strong> inició su ministerio un <strong className="text-amber-300">sábado 29 de octubre de 1998</strong>.
+                    </p>
+                    <p>
+                      Había llovido un poco y las calles lodosas estaban bien lisas. Recuerda que caminó por primera vez con unos cuantos tratados evangelísticos y unas Biblias en su mochila a la espalda, dispuesto a entregarlas a quienes quisieran escuchar el mensaje.
+                    </p>
+                    <p>
+                      Ese día pudo predicarle a <strong className="text-white">5 personas</strong>.
+                    </p>
+                    <p>
+                      Han pasado los años, ha viajado a muchos países y, por la gracia de Dios, ha tenido el privilegio de entregar <strong className="text-amber-300">más de 50,000 Biblias</strong> a lo largo de este tiempo, evangelizando a tantas personas en contextos muy diversos.
+                    </p>
+
+                    <div className="p-5 rounded-2xl bg-slate-950 border-l-4 border-amber-400 space-y-2">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-amber-400 block">
+                        Al mirar atrás, el Pastor Isaías nos dice:
+                      </span>
+                      <blockquote className="font-serif italic text-slate-100 text-sm sm:text-base leading-relaxed">
+                        "Aún hoy, al mirar hacia atrás, no puedo decir que comprendo a la perfección todos los caminos ni los planes de Dios... pero de algo sí estoy seguro: sigo solo obedeciendo Su llamado, aun en medio de las circunstancias difíciles. Solo obedeceré."
+                      </blockquote>
+                    </div>
+                  </div>
+
+                  {/* Photo beside story: antesydespues.png */}
+                  <div className="lg:col-span-5">
+                    <div className="rounded-2xl overflow-hidden border border-amber-500/30 bg-slate-950 shadow-2xl">
+                      <img
+                        src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/antesydespues.png"
+                        alt="Antes y después del ministerio del Pastor Isaías desde 1998"
+                        className="w-full h-auto block object-contain"
+                        loading="lazy"
+                      />
+                      <div className="px-4 py-3 border-t border-slate-800 text-center">
+                        <span className="text-xs font-serif text-amber-300 font-semibold block">
+                          Fidelidad de Dios desde 1998 hasta hoy
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {activeSection === 'credenciales' && (
               <div className="space-y-6 animate-in fade-in duration-200">
                 <div className="flex items-center gap-3 border-b border-slate-800 pb-4">

@@ -454,18 +454,19 @@ export const DOCTRINAL_POINTS: DoctrinalPoint[] = [
 ];
 
 export const CONFERENCES_DATA: ConferenceEvent[] = [
+  // NICARAGUA (Ordenado por fechas)
   {
-    id: "conf-ahuachapan-enero-2027",
-    title: "La Tierra de Israel — Conferencia Especial",
-    theme: "La Tierra de Israel",
-    date: "2 al 20 de Enero, 2027",
-    time: "Jornadas de Estudio",
-    location: "Ahuachapán, El Salvador",
-    country: "El Salvador",
+    id: "conf-nicaragua-reynaldo-enero-2027",
+    title: "Gira Catecismo Menor de Westminster — Occidente",
+    theme: "Catecismo Menor de Westminster",
+    date: "1, 2 y 3 de Enero, 2027",
+    time: "01 Ene Corinto · 02 Ene Tonalá · 03 Ene León",
+    location: "Puerto Corinto (01 Ene), Tonalá (02 Ene) y León (03 Ene), Nicaragua",
+    country: "Nicaragua",
     modality: "Presencial",
-    speakers: "Dr. Joe Fitzpatrick",
-    description: "Estudio histórico, geográfico y bíblico sobre La Tierra de Israel impartido por el Dr. Joe Fitzpatrick.",
-    availableSpots: "Abierto a pastores, estudiantes y líderes"
+    speakers: "Pastor Reynaldo Acuña",
+    description: "Serie intensiva por el occidente nicaragüense: 01 de Enero en Puerto Corinto, 02 de Enero en Tonalá y 03 de Enero en León.",
+    availableSpots: "Iglesias y obreros de occidente"
   },
   {
     id: "conf-nicaragua-isaias-enero-2027",
@@ -481,43 +482,17 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     availableSpots: "Pastores y congregaciones locales"
   },
   {
-    id: "conf-nicaragua-reynaldo-enero-2027",
-    title: "Gira Catecismo Menor de Westminster — Occidente",
-    theme: "Catecismo Menor de Westminster",
-    date: "1, 2 y 3 de Enero, 2027",
-    time: "01 Ene Corinto · 02 Ene Tonalá · 03 Ene León",
-    location: "Puerto Corinto (01 Ene), Tonalá (02 Ene) y León (03 Ene), Nicaragua",
+    id: "conf-tipitapa-inicio-enero-2027",
+    title: "Predicación Especial Inicio de Año",
+    theme: "Predicación Especial Inicio de Año",
+    date: "Domingo 3 de Enero, 2027",
+    time: "Culto Especial de Inicio de Año",
+    location: "Tipitapa, Nicaragua",
     country: "Nicaragua",
     modality: "Presencial",
-    speakers: "Pastor Reynaldo Acuña",
-    description: "Serie intensiva por el occidente nicaragüense: 01 de Enero en Puerto Corinto, 02 de Enero en Tonalá y 03 de Enero en León.",
-    availableSpots: "Iglesias y obreros de occidente"
-  },
-  {
-    id: "conf-honduras-enero-2027",
-    title: "Primera Clase Misionera: Entendiendo el Llamado",
-    theme: "Entendiendo el llamado",
-    date: "9 de Enero, 2027",
-    time: "9:00 AM",
-    location: "Centro Misionero \"Heme aquí, envíame a mí\", San Lorenzo, Valle",
-    country: "Honduras",
-    modality: "Presencial",
     speakers: "Pastor Isaías Martínez",
-    description: "Apertura oficial y primera clase de los estudiantes misioneros con el tema 'Entendiendo el llamado'.",
-    availableSpots: "Estudiantes misioneros y aspirantes"
-  },
-  {
-    id: "conf-cartago-israel-feb-2027",
-    title: "La Tierra de Israel — Costa Rica",
-    theme: "La Tierra de Israel",
-    date: "1 al 6 de Febrero, 2027",
-    time: "Jornadas Diarias",
-    location: "Cartago, Costa Rica",
-    country: "Costa Rica",
-    modality: "Presencial",
-    speakers: "Dr. Joe Fitzpatrick",
-    description: "Seminario intensivo sobre la geografía bíblica e historia redentora en La Tierra de Israel.",
-    availableSpots: "Pastores, líderes y estudiantes"
+    description: "Predicación especial de inicio de año en la iglesia y sede de Tipitapa, Nicaragua.",
+    availableSpots: "Abierto a toda la congregación"
   },
   {
     id: "conf-managua-feb-2027",
@@ -545,6 +520,51 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     description: "Jornada de predicación bíblica y edificación congregacional en la sede de Tipitapa.",
     availableSpots: "Entrada libre"
   },
+
+  // EL SALVADOR (Ordenado por fechas)
+  {
+    id: "conf-ahuachapan-enero-2027",
+    title: "La Tierra de Israel — Conferencia Especial",
+    theme: "La Tierra de Israel",
+    date: "2 al 20 de Enero, 2027",
+    time: "Jornadas de Estudio",
+    location: "Ahuachapán, El Salvador",
+    country: "El Salvador",
+    modality: "Presencial",
+    speakers: "Dr. Joe Fitzpatrick",
+    description: "Estudio histórico, geográfico y bíblico sobre La Tierra de Israel impartido por el Dr. Joe Fitzpatrick.",
+    availableSpots: "Abierto a pastores, estudiantes y líderes"
+  },
+
+  // HONDURAS (Ordenado por fechas)
+  {
+    id: "conf-honduras-enero-2027",
+    title: "Primera Clase Misionera: Entendiendo el Llamado",
+    theme: "Entendiendo el llamado",
+    date: "9 de Enero, 2027",
+    time: "9:00 AM",
+    location: "Centro Misionero \"Heme aquí, envíame a mí\", San Lorenzo, Valle",
+    country: "Honduras",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Apertura oficial y primera clase de los estudiantes misioneros con el tema 'Entendiendo el llamado'.",
+    availableSpots: "Estudiantes misioneros y aspirantes"
+  },
+
+  // COSTA RICA (Ordenado por fechas)
+  {
+    id: "conf-cartago-israel-feb-2027",
+    title: "La Tierra de Israel — Costa Rica",
+    theme: "La Tierra de Israel",
+    date: "1 al 6 de Febrero, 2027",
+    time: "Jornadas Diarias",
+    location: "Cartago, Costa Rica",
+    country: "Costa Rica",
+    modality: "Presencial",
+    speakers: "Dr. Joe Fitzpatrick",
+    description: "Seminario intensivo sobre la geografía bíblica e historia redentora en La Tierra de Israel.",
+    availableSpots: "Pastores, líderes y estudiantes"
+  },
   {
     id: "conf-cartago-escrituras-feb-2027",
     title: "¿Cómo nos Llegaron las Sagradas Escrituras en Español?",
@@ -557,6 +577,21 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     speakers: "Pastor Isaías Martínez",
     description: "Enseñanza histórica sobre el origen, transmisión y traducción de la Biblia al español y la fidelidad textual.",
     availableSpots: "Estudiantes y pastores de Costa Rica"
+  },
+
+  // GUATEMALA (Ordenado por fechas)
+  {
+    id: "conf-tacana-guatemala-feb-2027",
+    title: "Amando a mi Hermano",
+    theme: "Amando a mi hermano",
+    date: "12 y 13 de Febrero, 2027",
+    time: "Jornadas Especiales",
+    location: "Cheguate, Tacaná, Guatemala",
+    country: "Guatemala",
+    modality: "Presencial",
+    speakers: "Hno. Jesús Merino",
+    description: "Conferencia especial con el tema 'Amando a mi hermano' en la sede de Cheguate, Tacaná, Guatemala.",
+    availableSpots: "Abierto a pastores, estudiantes y congregaciones"
   }
 ];
 
@@ -749,12 +784,12 @@ export const FACULTY_MEMBERS: FacultyMember[] = [
     photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/pastorjavier.jpeg"
   },
   {
-    id: "pastor-juan-manuel-vaz",
-    name: "Pastor Juan Manuel Vaz",
+    id: "pastor-jorge-arturo-aranivas",
+    name: "Pastor Jorge Arturo Aranivas",
     title: "Pastor",
-    institution: "Iglesia Caminando Por Fe en Barcelona, España",
-    initials: "JV",
-    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/juanmanuel.jpeg"
+    institution: "Third Baptist Church de Murfreesboro",
+    initials: "JA",
+    photo: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/pastorarturo.png"
   },
   {
     id: "dr-josias-kim",
@@ -939,6 +974,13 @@ export const FIELD_MENTORS: FieldMentor[] = [
     name: "Pastor Félix Pavón",
     role: "Pastor de la iglesia en Niquinomo, Nicaragua",
     location: "Organizador de Conferencias / Colaborador de Academia"
+  },
+  {
+    id: "m-23",
+    name: "Jesús Merino",
+    role: "Creador y administrador de Podcast La Palabra Hablada",
+    details: "Querétaro, México",
+    location: "Colaborador de Academia"
   }
 ];
 

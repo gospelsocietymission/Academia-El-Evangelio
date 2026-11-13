@@ -9,6 +9,37 @@ interface ViewAliadosProps {
 export const ViewAliados: React.FC<ViewAliadosProps> = ({
   onOpenAlliedChurchesModal,
 }) => {
+  const joinAlliesBanner = (
+    <div className="p-6 sm:p-8 rounded-2xl bg-slate-900 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="text-xs sm:text-sm text-slate-300 space-y-1 text-center sm:text-left">
+        <span className="font-bold text-white block text-base font-serif">
+          ¿Desea tu congregación sumarse a la red de iglesias aliadas?
+        </span>
+        <span>
+          Facilitamos folletos de estudio y formación para pastores y obreros de tu comunidad.
+        </span>
+      </div>
+      <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+        <button
+          onClick={onOpenAlliedChurchesModal}
+          className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow transition-colors flex items-center gap-2 cursor-pointer"
+        >
+          <PlusCircle className="w-4 h-4" />
+          <span>Registrar Iglesia</span>
+        </button>
+        <a
+          href={buildWhatsAppUrl("Hola, deseamos consultar sobre cómo nuestra iglesia puede caminar como aliada junto a la Academia Bíblica El Evangelio.")}
+          target="_blank"
+          rel="noreferrer"
+          className="px-5 py-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 text-amber-400 border border-slate-700 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2"
+        >
+          <MessageCircle className="w-4 h-4 text-emerald-400" />
+          <span>WhatsApp Alianzas</span>
+        </a>
+      </div>
+    </div>
+  );
+
   return (
     <div className="bg-slate-950 text-slate-100 min-h-screen py-10 lg:py-16 w-full max-w-full overflow-x-hidden">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -40,6 +71,9 @@ export const ViewAliados: React.FC<ViewAliadosProps> = ({
             </button>
           </div>
         </div>
+
+        {/* Banner al inicio para sumar más iglesias */}
+        {joinAlliesBanner}
 
         {/* Grouped Iconitos por Región */}
         <div className="space-y-6">
@@ -86,35 +120,8 @@ export const ViewAliados: React.FC<ViewAliadosProps> = ({
           ))}
         </div>
 
-        {/* Banner para sumar más iglesias */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-900 border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-xs sm:text-sm text-slate-300 space-y-1 text-center sm:text-left">
-            <span className="font-bold text-white block text-base font-serif">
-              ¿Desea tu congregación sumarse a la red de iglesias aliadas?
-            </span>
-            <span>
-              Facilitamos folletos de estudio y formación para pastores y obreros de tu comunidad.
-            </span>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-            <button
-              onClick={onOpenAlliedChurchesModal}
-              className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow transition-colors flex items-center gap-2 cursor-pointer"
-            >
-              <PlusCircle className="w-4 h-4" />
-              <span>Registrar Iglesia</span>
-            </button>
-            <a
-              href={buildWhatsAppUrl("Hola, deseamos consultar sobre cómo nuestra iglesia puede caminar como aliada junto a la Academia Bíblica El Evangelio.")}
-              target="_blank"
-              rel="noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-slate-950 hover:bg-slate-800 text-amber-400 border border-slate-700 font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2"
-            >
-              <MessageCircle className="w-4 h-4 text-emerald-400" />
-              <span>WhatsApp Alianzas</span>
-            </a>
-          </div>
-        </div>
+        {/* Banner al final para sumar más iglesias */}
+        {joinAlliesBanner}
 
       </div>
     </div>

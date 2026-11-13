@@ -435,7 +435,7 @@ _Enviado desde academiabiblica.net_`;
                 Próximas Conferencias
               </h2>
               <p className="text-xs sm:text-sm text-slate-300">
-                Calendario oficial de conferencias, enseñanzas y clases especiales de Enero y Febrero 2027 en El Salvador, Nicaragua, Honduras y Costa Rica.
+                Calendario oficial ordenado por país y fechas de conferencias, enseñanzas y clases especiales 2027 en Nicaragua, El Salvador, Honduras, Costa Rica y Guatemala.
               </p>
             </div>
 
@@ -482,56 +482,77 @@ _Enviado desde academiabiblica.net_`;
             </button>
           </div>
 
-          {/* Conferences Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredConferences.map((conf) => (
-              <div
-                key={conf.id}
-                className="p-5 sm:p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 shadow-xl flex flex-col justify-between space-y-4 transition-all"
-              >
-                <div className="space-y-2.5">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold text-[11px]">
-                      {conf.date}
-                    </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
-                      {conf.country}
+          {/* Conferences Grouped by Country (ordered by date inside each country) */}
+          <div className="space-y-8">
+            {Array.from(new Set(filteredConferences.map((c) => c.country))).map((countryName) => {
+              const countryConfs = filteredConferences.filter((c) => c.country === countryName);
+              return (
+                <div key={countryName} className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-amber-400" />
+                      <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
+                        {countryName}
+                      </h3>
+                    </div>
+                    <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
+                      {countryConfs.length} {countryConfs.length === 1 ? 'Conferencia' : 'Conferencias'}
                     </span>
                   </div>
 
-                  <h3 className="font-serif font-bold text-white text-base sm:text-lg leading-snug">
-                    {conf.title}
-                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {countryConfs.map((conf) => (
+                      <div
+                        key={conf.id}
+                        className="p-5 sm:p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 shadow-xl flex flex-col justify-between space-y-4 transition-all"
+                      >
+                        <div className="space-y-2.5">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold text-[11px]">
+                              {conf.date}
+                            </span>
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
+                              {conf.country}
+                            </span>
+                          </div>
 
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    {conf.description}
-                  </p>
+                          <h4 className="font-serif font-bold text-white text-base sm:text-lg leading-snug">
+                            {conf.title}
+                          </h4>
 
-                  <div className="pt-2 space-y-1 text-[11px] text-slate-400">
-                    <div className="flex items-start gap-2">
-                      <User className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                      <span className="text-slate-200 font-medium">{conf.speakers}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                      <span>{conf.location}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                      <span>{conf.time}</span>
-                    </div>
+                          <p className="text-xs text-slate-300 leading-relaxed">
+                            {conf.description}
+                          </p>
+
+                          <div className="pt-2 space-y-1 text-[11px] text-slate-400">
+                            <div className="flex items-start gap-2">
+                              <User className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                              <span className="text-slate-200 font-medium">{conf.speakers}</span>
+                            </div>
+                            <div className="flex items-start gap-2">
+                              <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                              <span>{conf.location}</span>
+                            </div>
+                            <div className="flex items-start gap-2">
+                              <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                              <span>{conf.time}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => onRegisterConference(conf)}
+                          className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                        >
+                          <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                          <span>Inscribirme por WhatsApp</span>
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 </div>
-
-                <button
-                  onClick={() => onRegisterConference(conf)}
-                  className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                  <span>Inscribirme por WhatsApp</span>
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
