@@ -962,6 +962,13 @@ export const FIELD_MENTORS: FieldMentor[] = [
     role: "Creador y administrador de Podcast La Palabra Hablada",
     details: "Querétaro, México",
     location: "Colaborador de Academia"
+  },
+  {
+    id: "m-24",
+    name: "Pastor Elías Carbajal",
+    role: "Pastor Iglesia Reformada Príncipe de Paz",
+    details: "Masaya, Nicaragua",
+    location: "Colaborador de Academia"
   }
 ];
 

@@ -29,6 +29,7 @@ import {
 import { EnrollmentSubmission, ConferenceEvent } from '../types';
 import { TierraBibliaCourseModal } from '../components/TierraBibliaCourseModal';
 import { ConferenceCourseDetailModal, SpecialConferenceModalId } from '../components/ConferenceCourseDetailModal';
+import { HistoriaBibliaRequestModal } from '../components/HistoriaBibliaRequestModal';
 
 interface ViewHomeProps {
   onNavigateToProgramas: () => void;
@@ -69,6 +70,7 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
   const [confFilter, setConfFilter] = useState<'all' | 'Enero 2027' | 'Febrero 2027'>('all');
   const [isTierraBibliaOpen, setIsTierraBibliaOpen] = useState(() => window.location.hash === '#tierra-de-la-biblia');
   const [specialModalId, setSpecialModalId] = useState<SpecialConferenceModalId>(null);
+  const [isHistoriaBibliaOpen, setIsHistoriaBibliaOpen] = useState(false);
   const [sharedCopied, setSharedCopied] = useState(false);
 
   useEffect(() => {
@@ -414,7 +416,7 @@ _Enviado desde academiabiblica.net_`;
               </div>
 
               {/* Texto La urgencia de nuestra misión */}
-              <div className="lg:col-span-6 space-y-4">
+              <div className="lg:col-span-6 space-y-5">
                 <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
                   <Heart className="w-4 h-4 text-amber-400 shrink-0" />
                   <span>Llamado al Campo</span>
@@ -425,6 +427,25 @@ _Enviado desde academiabiblica.net_`;
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
                   Por más de dos décadas, hemos visto pastores de zonas montañosas y comunidades rurales servir fielmente sin haber tenido jamás la oportunidad de asistir a un seminario formal. La Academia Bíblica El Evangelio nació para responder a ese clamor: llevar la mejor teología con sencillez, profundidad y calidez al corazón de cada comunidad.
                 </p>
+
+                <div className="pt-1">
+                  <button
+                    type="button"
+                    onClick={() => setIsHistoriaBibliaOpen(true)}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-5 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold shadow-lg transition-all cursor-pointer group text-left"
+                  >
+                    <BookOpen className="w-5 h-5 shrink-0" />
+                    <span className="flex flex-col leading-tight">
+                      <span className="text-[11px] uppercase tracking-wider font-extrabold text-slate-900">
+                        Solicita Gratis la Conferencia
+                      </span>
+                      <span className="text-sm sm:text-base font-serif font-bold text-slate-950">
+                        La historia de la Biblia en Español
+                      </span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -836,6 +857,11 @@ _Enviado desde academiabiblica.net_`;
       <ConferenceCourseDetailModal
         modalId={specialModalId}
         onClose={() => setSpecialModalId(null)}
+      />
+
+      <HistoriaBibliaRequestModal
+        isOpen={isHistoriaBibliaOpen}
+        onClose={() => setIsHistoriaBibliaOpen(false)}
       />
 
     </div>
