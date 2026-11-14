@@ -240,15 +240,6 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
                     <p>
                       Han pasado los años, ha viajado a muchos países y, por la gracia de Dios, ha tenido el privilegio de entregar <strong className="text-amber-300">más de 50,000 Biblias</strong> a lo largo de este tiempo, evangelizando a tantas personas en contextos muy diversos.
                     </p>
-
-                    <div className="p-5 rounded-2xl bg-slate-950 border-l-4 border-amber-400 space-y-2">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-amber-400 block">
-                        Al mirar atrás, el Pastor Isaías nos dice:
-                      </span>
-                      <blockquote className="font-serif italic text-slate-100 text-sm sm:text-base leading-relaxed">
-                        "Aún hoy, al mirar hacia atrás, no puedo decir que comprendo a la perfección todos los caminos ni los planes de Dios... pero de algo sí estoy seguro: sigo solo obedeciendo Su llamado, aun en medio de las circunstancias difíciles. Solo obedeceré."
-                      </blockquote>
-                    </div>
                   </div>
 
                   {/* Photo beside story: antesydespues.png */}
@@ -265,6 +256,39 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
                           Fidelidad de Dios desde 1998 hasta hoy
                         </span>
                       </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pastor Isaías Portrait & Quote Block */}
+                <div className="p-5 sm:p-8 rounded-2xl bg-slate-950 border border-amber-500/30 shadow-inner">
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div className="md:col-span-4 flex flex-col items-center text-center">
+                      <div className="w-40 sm:w-44 aspect-[4/4.5] rounded-2xl overflow-hidden border-2 border-amber-400/50 shadow-xl bg-slate-900">
+                        <img
+                          src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/isaias.jpg"
+                          alt="Pastor Isaías Martínez - Fundador & Misionero Itinerante"
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="mt-3 space-y-0.5">
+                        <h4 className="font-serif text-lg font-bold text-white">
+                          Pastor Isaías Martínez
+                        </h4>
+                        <p className="text-xs font-semibold text-amber-400">
+                          Fundador & Misionero Itinerante
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="md:col-span-8 p-5 sm:p-6 rounded-2xl bg-slate-900/90 border-l-4 border-amber-400 space-y-2.5">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-amber-400 block">
+                        Al mirar atrás, el Pastor Isaías nos dice:
+                      </span>
+                      <blockquote className="font-serif italic text-slate-100 text-sm sm:text-base leading-relaxed">
+                        "Aún hoy, al mirar hacia atrás, no puedo decir que comprendo a la perfección todos los caminos ni los planes de Dios... pero de algo sí estoy seguro: sigo solo obedeciendo Su llamado, aun en medio de las circunstancias difíciles. Solo obedeceré."
+                      </blockquote>
                     </div>
                   </div>
                 </div>

@@ -454,7 +454,7 @@ export const DOCTRINAL_POINTS: DoctrinalPoint[] = [
 ];
 
 export const CONFERENCES_DATA: ConferenceEvent[] = [
-  // NICARAGUA (Ordenado por fechas)
+  // ENERO 2027 (Ordenado cronológicamente)
   {
     id: "conf-nicaragua-reynaldo-enero-2027",
     title: "Gira Catecismo Menor de Westminster — Occidente",
@@ -482,18 +482,46 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     availableSpots: "Pastores y congregaciones locales"
   },
   {
-    id: "conf-tipitapa-inicio-enero-2027",
-    title: "Predicación Especial Inicio de Año",
-    theme: "Predicación Especial Inicio de Año",
-    date: "Domingo 3 de Enero, 2027",
-    time: "Culto Especial de Inicio de Año",
-    location: "Tipitapa, Nicaragua",
-    country: "Nicaragua",
+    id: "conf-ahuachapan-enero-2027",
+    title: "La Tierra de la Biblia",
+    theme: "La Tierra de la Biblia (Curso I y Curso II)",
+    date: "2 al 20 de Enero, 2027",
+    time: "Presencial / Virtual ZOOM Sincrónico / Asincrónico",
+    location: "Ahuachapán, El Salvador y Virtual",
+    country: "El Salvador",
+    modality: "Presencial y Virtual",
+    speakers: "Dr. Joe Fitzpatrick",
+    description: "Estudio de la Tierra de la Biblia dividido en dos cursos (6 lecciones c/u): fundamentos, geografía bíblica, pacto y pueblo.",
+    availableSpots: "Abierto a pastores, estudiantes y líderes"
+  },
+  {
+    id: "conf-honduras-enero-2027",
+    title: "Primera Clase Misionera: Entendiendo el Llamado",
+    theme: "Entendiendo el llamado",
+    date: "9 de Enero, 2027",
+    time: "9:00 AM",
+    location: "Centro Misionero \"Heme aquí, envíame a mí\", San Lorenzo, Valle",
+    country: "Honduras",
     modality: "Presencial",
     speakers: "Pastor Isaías Martínez",
-    description: "Predicación especial de inicio de año en la iglesia y sede de Tipitapa, Nicaragua.",
-    availableSpots: "Abierto a toda la congregación"
+    description: "Apertura oficial y primera clase de los estudiantes misioneros con el tema 'Entendiendo el llamado'.",
+    availableSpots: "Estudiantes misioneros y aspirantes"
   },
+  {
+    id: "conf-cartago-israel-feb-2027",
+    title: "La Tierra de Israel — Costa Rica",
+    theme: "La Tierra de la Biblia (Curso I Presencial y Curso II Virtual)",
+    date: "23 de Enero al 2 de Febrero, 2027",
+    time: "Presencial Cartago / Videos Asincrónico",
+    location: "Cartago, Costa Rica y Virtual",
+    country: "Costa Rica",
+    modality: "Presencial y Virtual",
+    speakers: "Dr. Joe Fitzpatrick",
+    description: "Estudio de la Tierra de la Biblia: Curso I presencial en Cartago y Curso II disponible en videos grabados asincrónicos.",
+    availableSpots: "Pastores, líderes y estudiantes"
+  },
+
+  // FEBRERO 2027 (Ordenado cronológicamente)
   {
     id: "conf-managua-feb-2027",
     title: "Amando a tu Prójimo como a ti Mismo",
@@ -520,50 +548,18 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     description: "Jornada de predicación bíblica y edificación congregacional en la sede de Tipitapa.",
     availableSpots: "Entrada libre"
   },
-
-  // EL SALVADOR (Ordenado por fechas)
   {
-    id: "conf-ahuachapan-enero-2027",
-    title: "La Tierra de la Biblia",
-    theme: "La Tierra de la Biblia (Curso I y Curso II)",
-    date: "2 al 20 de Enero, 2027",
-    time: "Presencial / Virtual ZOOM Sincrónico / Asincrónico",
-    location: "Ahuachapán, El Salvador y Virtual",
-    country: "El Salvador",
-    modality: "Presencial y Virtual",
-    speakers: "Dr. Joe Fitzpatrick",
-    description: "Estudio de la Tierra de la Biblia dividido en dos cursos (6 lecciones c/u): fundamentos, geografía bíblica, pacto y pueblo.",
-    availableSpots: "Abierto a pastores, estudiantes y líderes"
-  },
-
-  // HONDURAS (Ordenado por fechas)
-  {
-    id: "conf-honduras-enero-2027",
-    title: "Primera Clase Misionera: Entendiendo el Llamado",
-    theme: "Entendiendo el llamado",
-    date: "9 de Enero, 2027",
-    time: "9:00 AM",
-    location: "Centro Misionero \"Heme aquí, envíame a mí\", San Lorenzo, Valle",
-    country: "Honduras",
+    id: "conf-tacana-guatemala-feb-2027",
+    title: "Amando a mi Hermano",
+    theme: "Amando a mi hermano",
+    date: "12 y 13 de Febrero, 2027",
+    time: "Jornadas Especiales",
+    location: "Cheguate, Tacaná, Guatemala",
+    country: "Guatemala",
     modality: "Presencial",
-    speakers: "Pastor Isaías Martínez",
-    description: "Apertura oficial y primera clase de los estudiantes misioneros con el tema 'Entendiendo el llamado'.",
-    availableSpots: "Estudiantes misioneros y aspirantes"
-  },
-
-  // COSTA RICA (Ordenado por fechas)
-  {
-    id: "conf-cartago-israel-feb-2027",
-    title: "La Tierra de Israel — Costa Rica",
-    theme: "La Tierra de la Biblia (Curso I Presencial y Curso II Virtual)",
-    date: "23 de Enero al 2 de Febrero, 2027",
-    time: "Presencial Cartago / Videos Asincrónico",
-    location: "Cartago, Costa Rica y Virtual",
-    country: "Costa Rica",
-    modality: "Presencial y Virtual",
-    speakers: "Dr. Joe Fitzpatrick",
-    description: "Estudio de la Tierra de la Biblia: Curso I presencial en Cartago y Curso II disponible en videos grabados asincrónicos.",
-    availableSpots: "Pastores, líderes y estudiantes"
+    speakers: "Hno. Jesús Merino",
+    description: "Conferencia especial con el tema 'Amando a mi hermano' en la sede de Cheguate, Tacaná, Guatemala.",
+    availableSpots: "Abierto a pastores, estudiantes y congregaciones"
   },
   {
     id: "conf-cartago-escrituras-feb-2027",
@@ -577,21 +573,6 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     speakers: "Pastor Isaías Martínez",
     description: "Enseñanza histórica sobre el origen, transmisión y traducción de la Biblia al español y la fidelidad textual.",
     availableSpots: "Estudiantes y pastores de Costa Rica"
-  },
-
-  // GUATEMALA (Ordenado por fechas)
-  {
-    id: "conf-tacana-guatemala-feb-2027",
-    title: "Amando a mi Hermano",
-    theme: "Amando a mi hermano",
-    date: "12 y 13 de Febrero, 2027",
-    time: "Jornadas Especiales",
-    location: "Cheguate, Tacaná, Guatemala",
-    country: "Guatemala",
-    modality: "Presencial",
-    speakers: "Hno. Jesús Merino",
-    description: "Conferencia especial con el tema 'Amando a mi hermano' en la sede de Cheguate, Tacaná, Guatemala.",
-    availableSpots: "Abierto a pastores, estudiantes y congregaciones"
   }
 ];
 

@@ -11,7 +11,6 @@ import {
   Mail, 
   Heart, 
   Users, 
-  Quote,
   History,
   User,
   Clock,
@@ -302,80 +301,6 @@ _Enviado desde academiabiblica.net_`;
         </div>
       </section>
 
-      {/* 2. MENSAJE DE NUESTRO FUNDADOR PASTOR ISAÍAS MARTÍNEZ (Letra normal/minúscula) */}
-      <section className="py-14 lg:py-20 border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900/60 to-slate-950 w-full">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="bg-slate-900/90 rounded-2xl sm:rounded-3xl border border-amber-500/30 p-5 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
-              {/* Founder Photo */}
-              <div className="lg:col-span-5 flex flex-col items-center text-center">
-                <div className="relative group w-full max-w-[260px] sm:max-w-[288px]">
-                  <div className="relative w-full aspect-[4/4.5] rounded-2xl overflow-hidden border-2 border-amber-400/50 shadow-2xl bg-slate-950">
-                    <img
-                      src={INSTITUTION_INFO.founder.photo}
-                      alt={INSTITUTION_INFO.founder.name}
-                      className="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-
-                <div className="mt-4 space-y-1">
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                    {INSTITUTION_INFO.founder.name}
-                  </h3>
-                  <p className="text-xs font-semibold text-amber-400">
-                    {INSTITUTION_INFO.founder.role}
-                  </p>
-                </div>
-              </div>
-
-              {/* Founder Narrative & Quote */}
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-amber-400">
-                  <Quote className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>Mensaje de nuestro fundador</span>
-                </div>
-
-                {/* Quote in normal lowercase text */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-slate-950/80 border-l-4 border-amber-400 border-y border-r border-slate-800 shadow-inner">
-                  <p className="text-base sm:text-lg lg:text-xl text-amber-200 italic leading-relaxed">
-                    "{INSTITUTION_INFO.founder.quote}"
-                  </p>
-                  <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-amber-400 font-semibold">
-                    <span>— {INSTITUTION_INFO.founder.name}</span>
-                    <span className="text-slate-500">|</span>
-                    <span className="text-slate-400 font-normal">{INSTITUTION_INFO.founder.role}</span>
-                  </div>
-                </div>
-
-                {/* Biography in lowercase normal text */}
-                <div className="space-y-3 text-sm text-slate-300 leading-relaxed">
-                  <p>{INSTITUTION_INFO.founder.bio1}</p>
-                  <p className="text-xs sm:text-sm text-slate-400">{INSTITUTION_INFO.founder.bio2}</p>
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <a
-                    href={buildWhatsAppUrl("Hola Pastor Isaías Martínez, me alegra conocer de su visión y ministerio a través de academiabiblica.net. Deseo ponerme en contacto con usted.")}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow transition-colors"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-white" />
-                    <span>Escribir al Pastor Isaías</span>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
       {/* 3. NUESTRAS SEDES FÍSICAS (CON FOTO RURAL DE FONDO EN CADA CUADRO) */}
       <section className="py-14 lg:py-20 border-b border-slate-800 bg-slate-900/50 w-full">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -485,7 +410,7 @@ _Enviado desde academiabiblica.net_`;
                 Próximas Conferencias
               </h2>
               <p className="text-xs sm:text-sm text-slate-300">
-                Calendario oficial ordenado por país y fechas de conferencias, enseñanzas y clases especiales 2027 en Nicaragua, El Salvador, Honduras, Costa Rica y Guatemala.
+                Calendario oficial ordenado cronológicamente por mes en Nicaragua, El Salvador, Honduras, Costa Rica y Guatemala.
               </p>
             </div>
 
@@ -532,128 +457,162 @@ _Enviado desde academiabiblica.net_`;
             </button>
           </div>
 
-          {/* Conferences Grouped by Country (ordered by date inside each country) */}
+          {/* Conferences Grouped by Month (zero empty spaces across breakpoints) */}
           <div className="space-y-8">
-            {Array.from(new Set(filteredConferences.map((c) => c.country))).map((countryName) => {
-              const countryConfs = filteredConferences.filter((c) => c.country === countryName);
-              return (
-                <div key={countryName} className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-amber-400" />
-                      <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
-                        {countryName}
-                      </h3>
+            {(() => {
+              const monthSections: { label: string; items: ConferenceEvent[] }[] = [];
+              if (confFilter === 'all') {
+                const eneroItems = filteredConferences.filter((c) => c.date.toLowerCase().includes('enero'));
+                const febreroItems = filteredConferences.filter((c) => !c.date.toLowerCase().includes('enero'));
+                if (eneroItems.length) monthSections.push({ label: 'Enero 2027', items: eneroItems });
+                if (febreroItems.length) monthSections.push({ label: 'Febrero 2027', items: febreroItems });
+              } else {
+                monthSections.push({ label: confFilter, items: filteredConferences });
+              }
+
+              return monthSections.map((section) => {
+                const total = section.items.length;
+                const gridClasses =
+                  total === 4
+                    ? 'grid grid-cols-1 md:grid-cols-2 gap-5'
+                    : total === 5
+                      ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5'
+                      : total === 2
+                        ? 'grid grid-cols-1 md:grid-cols-2 gap-5'
+                        : total === 1
+                          ? 'grid grid-cols-1 gap-5'
+                          : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5';
+
+                const getCardSpan = (idx: number) => {
+                  if (total === 5) {
+                    if (idx < 3) return 'lg:col-span-2';
+                    if (idx === 3) return 'lg:col-span-3';
+                    return 'md:col-span-2 lg:col-span-3';
+                  }
+                  if (total === 9 && idx === 8) {
+                    return 'md:col-span-2 lg:col-span-1';
+                  }
+                  return '';
+                };
+
+                return (
+                  <div key={section.label} className="space-y-4">
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-amber-400" />
+                        <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
+                          {section.label}
+                        </h3>
+                      </div>
+                      <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
+                        {section.items.length} {section.items.length === 1 ? 'Evento' : 'Eventos'}
+                      </span>
                     </div>
-                    <span className="text-[11px] font-semibold text-amber-400 uppercase tracking-wider">
-                      {countryConfs.length} {countryConfs.length === 1 ? 'Conferencia' : 'Conferencias'}
-                    </span>
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    {countryConfs.map((conf) => (
-                      <div
-                        key={conf.id}
-                        className="p-5 sm:p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 shadow-xl flex flex-col justify-between space-y-4 transition-all"
-                      >
-                        <div className="space-y-2.5">
-                          <div className="flex flex-wrap items-center justify-between gap-2">
-                            <span className="px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold text-[11px]">
-                              {conf.date}
-                            </span>
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
-                              {conf.country}
-                            </span>
-                          </div>
-
-                          <h4 className="font-serif font-bold text-white text-base sm:text-lg leading-snug">
-                            {conf.title}
-                          </h4>
-
-                          <p className="text-xs text-slate-300 leading-relaxed">
-                            {conf.description}
-                          </p>
-
-                          <div className="pt-2 space-y-1 text-[11px] text-slate-400">
-                            <div className="flex items-start gap-2">
-                              <User className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                              <span className="text-slate-200 font-medium">{conf.speakers}</span>
+                    <div className={gridClasses}>
+                      {section.items.map((conf, idx) => (
+                        <div
+                          key={conf.id}
+                          className={`p-5 sm:p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 shadow-xl flex flex-col justify-between space-y-4 transition-all ${getCardSpan(idx)}`}
+                        >
+                          <div className="space-y-2.5">
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                              <span className="px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold text-[11px]">
+                                {conf.date}
+                              </span>
+                              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-300 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
+                                {conf.country}
+                              </span>
                             </div>
-                            <div className="flex items-start gap-2">
-                              <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                              <span>{conf.location}</span>
-                            </div>
-                            <div className="flex items-start gap-2">
-                              <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                              <span>{conf.time}</span>
+
+                            <h4 className="font-serif font-bold text-white text-base sm:text-lg leading-snug">
+                              {conf.title}
+                            </h4>
+
+                            <p className="text-xs text-slate-300 leading-relaxed">
+                              {conf.description}
+                            </p>
+
+                            <div className="pt-2 space-y-1 text-[11px] text-slate-400">
+                              <div className="flex items-start gap-2">
+                                <User className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                                <span className="text-slate-200 font-medium">{conf.speakers}</span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                                <span>{conf.location}</span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                                <span>{conf.time}</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        {conf.id === 'conf-ahuachapan-enero-2027' ? (
-                          <div className="flex items-center gap-2">
+                          {conf.id === 'conf-ahuachapan-enero-2027' ? (
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => setIsTierraBibliaOpen(true)}
+                                className="flex-1 py-2.5 px-3 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
+                              >
+                                <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                                <span>Ver Contenido del Curso</span>
+                              </button>
+                              <button
+                                onClick={handleShareTierraBiblia}
+                                className="py-2.5 px-3 bg-slate-950 hover:bg-slate-800 text-amber-300 border border-amber-500/40 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
+                                title="Compartir contenido del curso"
+                              >
+                                {sharedCopied ? (
+                                  <>
+                                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                                    <span className="text-emerald-300">Copiado</span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Share2 className="w-3.5 h-3.5" />
+                                    <span>Compartir</span>
+                                  </>
+                                )}
+                              </button>
+                            </div>
+                          ) : conf.id === 'conf-cartago-israel-feb-2027' || conf.id === 'conf-cartago-escrituras-feb-2027' ? (
                             <button
-                              onClick={() => setIsTierraBibliaOpen(true)}
-                              className="flex-1 py-2.5 px-3 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
+                              onClick={() => setSpecialModalId(conf.id as SpecialConferenceModalId)}
+                              className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
                             >
                               <BookOpen className="w-3.5 h-3.5 shrink-0" />
                               <span>Ver Contenido del Curso</span>
                             </button>
+                          ) : conf.id === 'conf-managua-feb-2027' ? (
                             <button
-                              onClick={handleShareTierraBiblia}
-                              className="py-2.5 px-3 bg-slate-950 hover:bg-slate-800 text-amber-300 border border-amber-500/40 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
-                              title="Compartir contenido del curso"
+                              onClick={() => setSpecialModalId('conf-managua-feb-2027')}
+                              className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
                             >
-                              {sharedCopied ? (
-                                <>
-                                  <Check className="w-3.5 h-3.5 text-emerald-400" />
-                                  <span className="text-emerald-300">Copiado</span>
-                                </>
-                              ) : (
-                                <>
-                                  <Share2 className="w-3.5 h-3.5" />
-                                  <span>Compartir</span>
-                                </>
-                              )}
+                              <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                              <span>Ver Contenido de la Conferencia</span>
                             </button>
-                          </div>
-                        ) : conf.id === 'conf-cartago-israel-feb-2027' || conf.id === 'conf-cartago-escrituras-feb-2027' ? (
-                          <button
-                            onClick={() => setSpecialModalId(conf.id as SpecialConferenceModalId)}
-                            className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
-                          >
-                            <BookOpen className="w-3.5 h-3.5 shrink-0" />
-                            <span>Ver Contenido del Curso</span>
-                          </button>
-                        ) : conf.id === 'conf-managua-feb-2027' ? (
-                          <button
-                            onClick={() => setSpecialModalId('conf-managua-feb-2027')}
-                            className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
-                          >
-                            <BookOpen className="w-3.5 h-3.5 shrink-0" />
-                            <span>Ver Contenido de la Conferencia</span>
-                          </button>
-                        ) : (
-                          conf.id !== 'conf-nicaragua-reynaldo-enero-2027' &&
-                          conf.id !== 'conf-nicaragua-isaias-enero-2027' &&
-                          conf.id !== 'conf-tipitapa-inicio-enero-2027' &&
-                          conf.id !== 'conf-tipitapa-feb-2027' &&
-                          conf.id !== 'conf-tacana-guatemala-feb-2027' && (
-                            <button
-                              onClick={() => onRegisterConference(conf)}
-                              className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
-                            >
-                              <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                              <span>Inscribirme por WhatsApp</span>
-                            </button>
-                          )
-                        )}
-                      </div>
-                    ))}
+                          ) : (
+                            conf.id !== 'conf-nicaragua-reynaldo-enero-2027' &&
+                            conf.id !== 'conf-nicaragua-isaias-enero-2027' &&
+                            conf.id !== 'conf-tipitapa-feb-2027' &&
+                            conf.id !== 'conf-tacana-guatemala-feb-2027' && (
+                              <button
+                                onClick={() => onRegisterConference(conf)}
+                                className="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                              >
+                                <MessageCircle className="w-3.5 h-3.5 fill-white" />
+                                <span>Inscribirme por WhatsApp</span>
+                              </button>
+                            )
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              });
+            })()}
           </div>
 
         </div>
