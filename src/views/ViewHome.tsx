@@ -396,6 +396,41 @@ _Enviado desde academiabiblica.net_`;
         </div>
       </section>
 
+      {/* LA URGENCIA DE NUESTRA MISIÓN */}
+      <section className="py-14 lg:py-20 border-b border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900/60 to-slate-950 w-full">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-900/90 rounded-2xl sm:rounded-3xl border border-amber-500/30 p-5 sm:p-8 lg:p-12 shadow-2xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Foto Pastores Montaña */}
+              <div className="lg:col-span-6">
+                <div className="rounded-2xl overflow-hidden border-2 border-amber-400/40 shadow-2xl bg-slate-950">
+                  <img
+                    src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/pastoresmontana.jpeg"
+                    alt="Pastores de zonas montañosas y comunidades rurales"
+                    className="w-full h-auto max-h-[420px] object-cover block"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Texto La urgencia de nuestra misión */}
+              <div className="lg:col-span-6 space-y-4">
+                <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
+                  <Heart className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Llamado al Campo</span>
+                </div>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                  La urgencia de nuestra misión
+                </h2>
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  Por más de dos décadas, hemos visto pastores de zonas montañosas y comunidades rurales servir fielmente sin haber tenido jamás la oportunidad de asistir a un seminario formal. La Academia Bíblica El Evangelio nació para responder a ese clamor: llevar la mejor teología con sencillez, profundidad y calidez al corazón de cada comunidad.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. PRÓXIMAS CONFERENCIAS (ENERO Y FEBRERO 2027) + BOTÓN CONFERENCIAS PASADAS (2004 - PRESENTE) */}
       <section className="py-14 lg:py-20 border-b border-slate-800 bg-slate-900/40 w-full">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
