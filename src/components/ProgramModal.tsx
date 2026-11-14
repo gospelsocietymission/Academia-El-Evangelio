@@ -140,7 +140,7 @@ _Enviado desde academiabiblica.net_`;
               <div className="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl flex items-start gap-3">
                 <BookOpen className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <div className="text-xs text-stone-700 leading-relaxed">
-                  <p className="font-semibold text-slate-900 mb-0.5">Estructura Académica de 6 Módulos:</p>
+                  <p className="font-semibold text-slate-900 mb-0.5">Estructura Académica de {program.curriculum.length} Módulos:</p>
                   <p>{program.highlightObjective}</p>
                 </div>
               </div>

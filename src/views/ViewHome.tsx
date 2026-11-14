@@ -17,7 +17,9 @@ import {
   Church,
   BookOpen,
   Share2,
-  Check
+  Check,
+  Sparkles,
+  Award
 } from 'lucide-react';
 import { 
   INSTITUTION_INFO, 
@@ -30,6 +32,7 @@ import { EnrollmentSubmission, ConferenceEvent } from '../types';
 import { TierraBibliaCourseModal } from '../components/TierraBibliaCourseModal';
 import { ConferenceCourseDetailModal, SpecialConferenceModalId } from '../components/ConferenceCourseDetailModal';
 import { HistoriaBibliaRequestModal } from '../components/HistoriaBibliaRequestModal';
+import iaFeCristianaBg from '../assets/images/ia_fe_cristiana_1794698078051.jpg';
 
 interface ViewHomeProps {
   onNavigateToProgramas: () => void;
@@ -69,15 +72,20 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
   const [isSuccess, setIsSuccess] = useState(false);
   const [confFilter, setConfFilter] = useState<'all' | 'Noviembre 2026' | 'Diciembre 2026' | 'Enero 2027' | 'Febrero 2027'>('all');
   const [isTierraBibliaOpen, setIsTierraBibliaOpen] = useState(() => window.location.hash === '#tierra-de-la-biblia');
-  const [specialModalId, setSpecialModalId] = useState<SpecialConferenceModalId>(null);
+  const [specialModalId, setSpecialModalId] = useState<SpecialConferenceModalId>(() =>
+    window.location.hash === '#ia-sabiduria-eterna' ? 'conf-ia-sabiduria-eterna' : null
+  );
   const [isHistoriaBibliaOpen, setIsHistoriaBibliaOpen] = useState(false);
   const [sharedCopied, setSharedCopied] = useState(false);
   const [sharedWestminsterCopied, setSharedWestminsterCopied] = useState(false);
+  const [sharedIaCopied, setSharedIaCopied] = useState(false);
 
   useEffect(() => {
     const onHashChange = () => {
       if (window.location.hash === '#tierra-de-la-biblia') {
         setIsTierraBibliaOpen(true);
+      } else if (window.location.hash === '#ia-sabiduria-eterna') {
+        setSpecialModalId('conf-ia-sabiduria-eterna');
       }
     };
     window.addEventListener('hashchange', onHashChange);
@@ -146,6 +154,61 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
     }
     setSharedWestminsterCopied(true);
     setTimeout(() => setSharedWestminsterCopied(false), 2500);
+  };
+
+  const handleShareIaConference = async () => {
+    const shareUrl = 'https://academiabiblica.net/#ia-sabiduria-eterna';
+    const shareText = `📖 *GRAN CONFERENCIA:*
+*Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?*
+
+👨‍🏫 *Maestro:* Pastor Isaías Martínez
+👥 *Cupo:* Máx. 30 personas para una experiencia académica garantizada (Abierto a todo público)
+🏨 *Lugar:* Hotel Holiday Inn Nicaragua y Holiday Inn El Salvador
+⏰ *Tiempo de conferencia:* De 8:00 a 10:00 (2 horas)
+🗓️ *Fecha:* Pendiente
+🎓 *Incluye:* Entrega de Certificado de participación
+💵 *Costo de la conferencia Especial:* $35
+
+✨ *Detalles de la conferencia:*
+Vivimos en un tiempo de asombro y, para muchos, de temor ante máquinas que escriben, traducen y analizan en segundos.
+• *El Problema:* Muchos creyentes caen en dos extremos: idolatrar la tecnología como si resolviera los problemas del alma, o rechazarla con miedo como si fuera enemiga de la fe.
+• *Nuestra respuesta Bíblica:* La Escritura nos llama a no temer las herramientas de nuestro tiempo, sino a gobernarlas con sabiduría eterna para honrar a Dios.
+
+📖 *1 Corintios 10:31* "Si, pues, coméis o bebéis, o hacéis otra cosa, hacedlo todo para la gloria de Dios"
+
+📚 *Aprenderemos:*
+1. Reconociendo el origen: La IA como fruto de la gracia común.
+2. Redimiendo el tiempo: La IA como herramienta de mayordomía.
+3. Sirviendo al prójimo y al Reino: La IA al servicio de la misión.
+
+Ver detalles completos aquí: ${shareUrl}`;
+
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Inteligencia artificial, sabiduría eterna — Academia Bíblica El Evangelio',
+          text: shareText,
+          url: shareUrl,
+        });
+        return;
+      } catch {
+        // Fallback to copy
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(shareText);
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = shareText;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    setSharedIaCopied(true);
+    setTimeout(() => setSharedIaCopied(false), 2500);
   };
 
   const filteredConferences = CONFERENCES_DATA.filter((conf) => {
@@ -619,6 +682,143 @@ _Enviado desde academiabiblica.net_`;
                     )}
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Gran Conferencia: Inteligencia artificial, sabiduría eterna */}
+          <div id="ia-sabiduria-eterna" className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-amber-500/40 shadow-2xl">
+            <img
+              src={iaFeCristianaBg}
+              alt="Inteligencia artificial, sabiduría eterna y fe cristiana"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/90 to-slate-950/75" />
+
+            <div className="relative z-10 p-5 sm:p-8 lg:p-10 space-y-5">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-amber-500/20 border border-amber-400/40 text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Máx. 30 personas para una experiencia académica garantizada</span>
+                </span>
+                <span className="px-2.5 py-1 rounded bg-blue-500/20 border border-blue-400/40 text-blue-200 text-[11px] font-bold uppercase tracking-wider">
+                  Fechas pendientes
+                </span>
+                <span className="px-2.5 py-1 rounded bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 text-[11px] font-bold uppercase tracking-wider">
+                  Abierto a todo público
+                </span>
+              </div>
+
+              {/* Photo alongside Title */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div className="lg:col-span-4 flex flex-col items-center">
+                  <div className="w-full max-w-[260px] sm:max-w-[290px] aspect-[4/3.6] rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-slate-950">
+                    <img
+                      src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/iacristiano.jpeg"
+                      alt="Inteligencia artificial, sabiduría eterna y fe cristiana"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                <div className="lg:col-span-8 space-y-3">
+                  <h3 className="font-serif">
+                    <span className="block text-2xl sm:text-4xl lg:text-[42px] font-extrabold tracking-wide text-amber-300 leading-none uppercase">
+                      GRAN CONFERENCIA:
+                    </span>
+                    <span className="block text-base sm:text-xl lg:text-[22px] font-medium text-white leading-snug mt-2 normal-case">
+                      Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?
+                    </span>
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
+                    Aprenderemos que toda capacidad humana proviene de la gracia común de Dios, el cristiano puede abrazar la inteligencia artificial con gratitud, sabiduría y propósito evangelístico para la gloria de Cristo.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                <div className="p-3.5 rounded-xl bg-slate-950/85 border border-slate-800 flex items-center gap-2.5">
+                  <User className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div>
+                    <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Maestro</span>
+                    <span className="text-white font-bold">Pastor Isaías Martínez</span>
+                  </div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-slate-950/85 border border-slate-800 flex items-center gap-2.5">
+                  <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div>
+                    <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Lugar</span>
+                    <span className="text-white font-bold">Hotel Holiday Inn Nicaragua y Holiday Inn El Salvador</span>
+                  </div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-slate-950/85 border border-slate-800 flex items-center gap-2.5">
+                  <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div>
+                    <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Tiempo de Conferencia</span>
+                    <span className="text-white font-bold">De 8:00 a 10:00 (2 horas)</span>
+                  </div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-slate-950/85 border border-slate-800 flex items-center gap-2.5">
+                  <Calendar className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div>
+                    <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Fecha</span>
+                    <span className="text-amber-300 font-bold">Pendiente</span>
+                  </div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-slate-950/85 border border-emerald-500/30 flex items-center gap-2.5">
+                  <Award className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <div>
+                    <span className="text-emerald-300 block text-[10px] uppercase tracking-wider font-semibold">Beneficios</span>
+                    <span className="text-white font-bold">Entrega de Certificado de participación · Abierto a todo público</span>
+                  </div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-slate-950/85 border border-amber-500/40 flex items-center justify-between gap-2">
+                  <div>
+                    <span className="text-amber-300 block text-[10px] uppercase tracking-wider font-semibold">Conferencia Especial</span>
+                    <span className="text-white font-bold text-sm">Costo: $35</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-1 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setSpecialModalId('conf-ia-sabiduria-eterna')}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-colors cursor-pointer"
+                >
+                  <BookOpen className="w-4 h-4" />
+                  <span>Detalles de la Conferencia</span>
+                </button>
+
+                <a
+                  href={buildWhatsAppUrl("Hola, deseo inscribirme en la GRAN CONFERENCIA 'Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?' ($35) en Nicaragua / El Salvador con el Pastor Isaías Martínez.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <span>Inscribirme</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={handleShareIaConference}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-950/90 hover:bg-slate-800 text-amber-300 border border-amber-500/40 font-bold text-xs uppercase tracking-wider shadow-lg transition-colors cursor-pointer"
+                >
+                  {sharedIaCopied ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span>Contenido Copiado</span>
+                    </>
+                  ) : (
+                    <>
+                      <Share2 className="w-4 h-4" />
+                      <span>Compartir</span>
+                    </>
+                  )}
+                </button>
               </div>
             </div>
           </div>

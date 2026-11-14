@@ -17,6 +17,7 @@ import {
 import { buildWhatsAppUrl } from '../data/academyData';
 
 export type SpecialConferenceModalId =
+  | 'conf-ia-sabiduria-eterna'
   | 'conf-gotera-escrituras-nov-2026'
   | 'conf-tacana-liderazgo-nov-2026'
   | 'conf-tipitapa-economia-dic-2026'
@@ -47,6 +48,7 @@ export const ConferenceCourseDetailModal: React.FC<ConferenceCourseDetailModalPr
   const [crModality, setCrModality] = useState<'Opción Sede Presencial Cartago, Costa Rica' | 'Opción Virtual Videos grabados Asincrónico'>('Opción Sede Presencial Cartago, Costa Rica');
   const [escriturasMaterial, setEscriturasMaterial] = useState<'Solicitar PDF Online Gratuito' | 'Documento Impreso ($3)'>('Solicitar PDF Online Gratuito');
   const [goteraMaterial, setGoteraMaterial] = useState<'Solicitar PDF Online Gratuito' | 'Documento Impreso ($2)'>('Solicitar PDF Online Gratuito');
+  const [iaCountry, setIaCountry] = useState<'Nicaragua' | 'El Salvador'>('Nicaragua');
   const [copied, setCopied] = useState(false);
 
   if (!modalId) return null;
@@ -972,6 +974,185 @@ export const ConferenceCourseDetailModal: React.FC<ConferenceCourseDetailModalPr
     );
   };
 
+  const renderIaSabiduriaEterna = () => {
+    const waText = `Hola, deseo inscribirme en la GRAN CONFERENCIA: "Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?" ($35) con el Pastor Isaías Martínez.\n\n🏨 Sede de preferencia: Hotel Holiday Inn ${iaCountry}\n⏰ Tiempo: De 8:00 a 10:00 (2 horas)\n🗓️ Fecha: Pendiente (Máx. 30 personas).\n\nQuedo atento a la confirmación de fechas.`;
+    const shareText = `📖 *GRAN CONFERENCIA:*
+*Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?*
+
+👨‍🏫 *Maestro:* Pastor Isaías Martínez
+👥 *Cupo:* Máx. 30 personas para una experiencia académica garantizada (Abierto a todo público)
+🏨 *Lugar:* Hotel Holiday Inn Nicaragua y Holiday Inn El Salvador
+⏰ *Tiempo de conferencia:* De 8:00 a 10:00 (2 horas)
+🗓️ *Fecha:* Pendiente
+🎓 *Incluye:* Entrega de Certificado de participación
+💵 *Costo de la conferencia Especial:* $35
+
+✨ *Detalles de la conferencia:*
+Vivimos en un tiempo de asombro y, para muchos, de temor ante máquinas que escriben, traducen y analizan en segundos.
+• *El Problema:* Muchos creyentes caen en dos extremos: idolatrar la tecnología como si resolviera los problemas del alma, o rechazarla con miedo como si fuera enemiga de la fe.
+• *Nuestra respuesta Bíblica:* La Escritura nos llama a no temer las herramientas de nuestro tiempo, sino a gobernarlas con sabiduría eterna para honrar a Dios.
+
+📖 *1 Corintios 10:31* "Si, pues, coméis o bebéis, o hacéis otra cosa, hacedlo todo para la gloria de Dios"
+
+📚 *Aprenderemos:*
+1. Reconociendo el origen: La IA como fruto de la gracia común.
+2. Redimiendo el tiempo: La IA como herramienta de mayordomía.
+3. Sirviendo al prójimo y al Reino: La IA al servicio de la misión.
+
+Ver detalles completos aquí: https://academiabiblica.net/#ia-sabiduria-eterna`;
+
+    return (
+      <>
+        <div className="p-4 sm:p-6 border-b border-slate-800 bg-slate-950 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div className="min-w-0">
+              <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block truncate">
+                Máx. 30 personas · Abierto a todo público · Fechas Pendientes
+              </span>
+              <h2 className="font-serif truncate">
+                <span className="text-amber-300 font-extrabold text-base sm:text-lg mr-2">GRAN CONFERENCIA:</span>
+                <span className="text-white font-medium text-sm sm:text-base">Inteligencia artificial, sabiduría eterna</span>
+              </h2>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => handleCopyText(shareText)}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 text-xs font-bold transition-colors cursor-pointer"
+            >
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
+              <span className="hidden sm:inline">{copied ? 'Copiado' : 'Compartir'}</span>
+            </button>
+            <button
+              onClick={onClose}
+              className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
+              aria-label="Cerrar"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        <div className="flex-1 overflow-y-auto p-4 sm:p-8 space-y-6">
+          {/* Conference Visual & Key Info */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-950 border border-amber-500/30 flex flex-col sm:flex-row items-center sm:items-start gap-5">
+            <div className="w-32 h-28 sm:w-36 sm:h-32 rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-xl shrink-0 bg-slate-900">
+              <img
+                src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/iacristiano.jpeg"
+                alt="Inteligencia artificial, sabiduría eterna y fe cristiana"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="space-y-2 text-center sm:text-left">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                <Calendar className="w-3.5 h-3.5" />
+                <span>Hotel Holiday Inn Nicaragua y Holiday Inn El Salvador · Fecha: Pendiente</span>
+              </div>
+              <h3 className="font-serif text-xl font-bold text-white">
+                Maestro: Pastor Isaías Martínez
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Aprenderemos que toda capacidad humana proviene de la gracia común de Dios; el cristiano puede abrazar la inteligencia artificial con gratitud, sabiduría y propósito evangelístico para la gloria de Cristo.
+              </p>
+              <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-3 text-xs font-bold">
+                <span className="text-amber-300">Costo: <span className="text-white">$35</span></span>
+                <span className="text-slate-600">·</span>
+                <span className="text-slate-200">Tiempo: De 8:00 a 10:00 (2 horas)</span>
+                <span className="text-slate-600">·</span>
+                <span className="text-emerald-300">Entrega de Certificado de participación</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Detalles de la conferencia */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-4">
+            <h4 className="font-serif text-base sm:text-lg font-bold text-amber-400">
+              Detalles de la Conferencia
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+              Vivimos en un tiempo de asombro y, para muchos, de temor ante máquinas que escriben, traducen y analizan en segundos.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl bg-rose-950/25 border border-rose-500/30 space-y-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-rose-300 block">
+                  El Problema
+                </span>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                  Muchos creyentes caen en dos extremos: idolatrar la tecnología como si resolviera los problemas del alma, o rechazarla con miedo como si fuera enemiga de la fe.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-emerald-950/25 border border-emerald-500/30 space-y-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-300 block">
+                  Nuestra Respuesta Bíblica
+                </span>
+                <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                  La Escritura nos llama a no temer las herramientas de nuestro tiempo, sino a gobernarlas con sabiduría eterna para honrar a Dios.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-amber-500/10 border-l-4 border-amber-400 text-amber-100 text-xs sm:text-sm italic leading-relaxed">
+              <strong className="not-italic text-amber-300">1 Corintios 10:31:</strong> "Si, pues, coméis o bebéis, o hacéis otra cosa, hacedlo todo para la gloria de Dios"
+            </div>
+          </div>
+
+          {/* Aprenderemos */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <h4 className="font-serif text-base sm:text-lg font-bold text-white">
+              Aprenderemos:
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-200">
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <span><strong className="text-white">1. Reconociendo el origen:</strong> La IA como fruto de la gracia común.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <span><strong className="text-white">2. Redimiendo el tiempo:</strong> La IA como herramienta de mayordomía.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <span><strong className="text-white">3. Sirviendo al prójimo y al Reino:</strong> La IA al servicio de la misión.</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Inscription CTA */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-950 border border-emerald-500/30 space-y-4">
+            <div>
+              <label className="block text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+                Selecciona tu país de asistencia
+              </label>
+              <select
+                value={iaCountry}
+                onChange={(e) => setIaCountry(e.target.value as 'Nicaragua' | 'El Salvador')}
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"
+              >
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="El Salvador">El Salvador</option>
+              </select>
+            </div>
+
+            <a
+              href={buildWhatsAppUrl(waText)}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl transition-all"
+            >
+              <MessageCircle className="w-4 h-4 fill-white" />
+              <span>Inscribirme a esta Conferencia ($35)</span>
+            </a>
+          </div>
+        </div>
+      </>
+    );
+  };
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
@@ -983,6 +1164,7 @@ export const ConferenceCourseDetailModal: React.FC<ConferenceCourseDetailModalPr
         role="dialog"
         aria-modal="true"
       >
+        {modalId === 'conf-ia-sabiduria-eterna' && renderIaSabiduriaEterna()}
         {modalId === 'conf-gotera-escrituras-nov-2026' && renderEscriturasGotera()}
         {modalId === 'conf-tacana-liderazgo-nov-2026' && renderTacanaLiderazgo()}
         {modalId === 'conf-tipitapa-economia-dic-2026' && renderTipitapaEconomia()}

@@ -296,8 +296,8 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
     badge: "Programa Pastoral",
     duration: "Indefinido · 1 encuentro mensual.",
     modality: "Por correspondencia + 1 Encuentro mensual de comunión y cátedra",
-    modulesCount: 4,
-    highlightObjective: "Profundizar en la teología práctica y doctrinas básicas del ABC del evangelio, contrarrestando falsas enseñanzas en comunidad pastoral.",
+    modulesCount: 8,
+    highlightObjective: "Profundizar en la teología práctica y doctrinas básicas del ABC del evangelio, contrarrestando falsas enseñanzas en comunidad pastoral. Tenemos estos cursos base pero enseñamos cualquier tema que la comunidad pastoral nos pida.",
     curriculum: [
       {
         code: "AM-01",
@@ -321,6 +321,30 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
         code: "AM-04",
         name: "Estudio completo del Evangelio de Juan",
         description: "Análisis expositivo verso a verso del Evangelio de Juan con la intención de contrarrestar las falsas enseñanzas.",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-05",
+        name: "Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?",
+        description: "La IA como fruto de la gracia común, herramienta de mayordomía redimiendo el tiempo y recurso al servicio de la misión evangelística (1 Corintios 10:31).",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-06",
+        name: "La economía y \"el presente siglo malo\"",
+        description: "Análisis bíblico y teológico (Dr. Richard L. Smith, Centro Kyper) que contrasta la administración divina original (oikonomia) con el consumismo contemporáneo.",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-07",
+        name: "Liderazgo de Jesús: modelo de servicio, relación y propósito.",
+        description: "El líder como siervo (Juan 13:1-17), relaciones profundas sobre las tareas (Juan 15:12-15) y el ejemplo vivo (Juan 13:15; Juan 6:1-15).",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-08",
+        name: "Tal corazón como este.",
+        description: "Estudio basado en Such a Mind as This (Dr. Richard L. Smith): amar a Dios implica necesariamente usar la mente, estudiar y cultivar el pensamiento crítico.",
         hours: "Encuentro Mensual"
       }
     ],
