@@ -454,6 +454,62 @@ export const DOCTRINAL_POINTS: DoctrinalPoint[] = [
 ];
 
 export const CONFERENCES_DATA: ConferenceEvent[] = [
+  // NOVIEMBRE 2026
+  {
+    id: "conf-gotera-escrituras-nov-2026",
+    title: "¿Cómo nos Llegaron las Sagradas Escrituras en Español?",
+    theme: "¿Cómo nos Llegaron las Sagradas Escrituras en Español?",
+    date: "20 de Noviembre, 2026",
+    time: "9:00 AM",
+    location: "San Francisco Gotera, Morazán, El Salvador",
+    country: "El Salvador",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Enseñanza histórica sobre el origen, transmisión y traducción de la Biblia al español y la fidelidad textual.",
+    availableSpots: "Invitación de la Asociación de Pastores de San Francisco Gotera"
+  },
+  {
+    id: "conf-tacana-liderazgo-nov-2026",
+    title: "Liderazgo de Jesús: modelo de servicio, relación y propósito",
+    theme: "Modelo de servicio, relación y propósito que Jesús modela con sus discípulos",
+    date: "26, 27 y 28 de Noviembre, 2026",
+    time: "Jornadas Especiales",
+    location: "Cheguate, Tacaná, Guatemala",
+    country: "Guatemala",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Conferencia especial sobre el liderazgo de Jesús: modelo de servicio, relación y propósito con sus discípulos en la sede de Cheguate, Tacaná, Guatemala.",
+    availableSpots: "Pastores, líderes y congregaciones"
+  },
+
+  // DICIEMBRE 2026
+  {
+    id: "conf-tipitapa-economia-dic-2026",
+    title: "La economía y \"el presente siglo malo\"",
+    theme: "Artículo del Dr. Richard L. Smith (Centro Kyper, Argentina)",
+    date: "5 de Diciembre, 2026",
+    time: "Jornada de Enseñanza",
+    location: "Tipitapa, Nicaragua",
+    country: "Nicaragua",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Enseñanza en Tipitapa, Nicaragua sobre el artículo del Dr. Richard Smith del Centro Kyper, Argentina.",
+    availableSpots: "Entrada libre · Materiales PDF gratuitos"
+  },
+  {
+    id: "conf-honduras-corazon-dic-2026",
+    title: "Tal corazón como este",
+    theme: "Such a Mind as This — Dr. Richard L. Smith (Centro Kyper, Argentina)",
+    date: "6 de Diciembre, 2026",
+    time: "Jornada de Enseñanza",
+    location: "Centro Misionero \"Heme aquí, envíame a mí\", San Lorenzo, Valle, Honduras",
+    country: "Honduras",
+    modality: "Presencial",
+    speakers: "Pastor Isaías Martínez",
+    description: "Enseñanza en Centro Misionero \"Heme aquí, envíame a mí\" sobre la obra del Dr. Richard Smith del Centro Kyper, Argentina.",
+    availableSpots: "Entrada libre · Materiales PDF gratuitos"
+  },
+
   // ENERO 2027 (Ordenado cronológicamente)
   {
     id: "conf-nicaragua-reynaldo-enero-2027",

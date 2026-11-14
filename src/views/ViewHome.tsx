@@ -67,11 +67,12 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
   });
 
   const [isSuccess, setIsSuccess] = useState(false);
-  const [confFilter, setConfFilter] = useState<'all' | 'Enero 2027' | 'Febrero 2027'>('all');
+  const [confFilter, setConfFilter] = useState<'all' | 'Noviembre 2026' | 'Diciembre 2026' | 'Enero 2027' | 'Febrero 2027'>('all');
   const [isTierraBibliaOpen, setIsTierraBibliaOpen] = useState(() => window.location.hash === '#tierra-de-la-biblia');
   const [specialModalId, setSpecialModalId] = useState<SpecialConferenceModalId>(null);
   const [isHistoriaBibliaOpen, setIsHistoriaBibliaOpen] = useState(false);
   const [sharedCopied, setSharedCopied] = useState(false);
+  const [sharedWestminsterCopied, setSharedWestminsterCopied] = useState(false);
 
   useEffect(() => {
     const onHashChange = () => {
@@ -113,6 +114,38 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
     }
     setSharedCopied(true);
     setTimeout(() => setSharedCopied(false), 2500);
+  };
+
+  const handleShareWestminster = async () => {
+    const shareUrl = 'https://academiabiblica.net/#catecismo-westminster';
+    const shareText = `📖 *Catecismo Menor de Westminster* — Academia Bíblica El Evangelio\n👨‍🏫 Profesor: Pastor Isaías Martínez\n💻 Lugar: Virtual videos grabados Asincrónico\n🗓️ Fecha: Disponible Siempre\n\nEstudiar el Catecismo Menor de Westminster de 1647 de la Asamblea de Westminster, te ofrece un resumen claro, sistemático y bíblico de la doctrina cristiana. A través de sus 107 preguntas y respuestas, lo aprenderemos de forma dinámica y práctica.\n\n💵 Costo del curso: $18.75\n📚 Costo de Material:\n• Libro impreso: $12\n• Libro PDF Gratis: $0 (resúmenes de lo aprendido)\n\nMás información en: ${shareUrl}`;
+
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Catecismo Menor de Westminster — Academia Bíblica El Evangelio',
+          text: shareText,
+          url: shareUrl,
+        });
+        return;
+      } catch {
+        // Fallback to copy
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(shareText);
+    } catch {
+      const ta = document.createElement('textarea');
+      ta.value = shareText;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    setSharedWestminsterCopied(true);
+    setTimeout(() => setSharedWestminsterCopied(false), 2500);
   };
 
   const filteredConferences = CONFERENCES_DATA.filter((conf) => {
@@ -460,7 +493,7 @@ _Enviado desde academiabiblica.net_`;
             <div className="space-y-2 max-w-2xl">
               <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-amber-400 uppercase">
                 <Calendar className="w-4 h-4 text-amber-400" />
-                <span>Agenda Ministerial 2027</span>
+                <span>Agenda Ministerial 2026 – 2027</span>
               </div>
               <h2 className="font-serif text-2xl sm:text-4xl font-bold text-white">
                 Próximas Conferencias
@@ -479,6 +512,117 @@ _Enviado desde academiabiblica.net_`;
             </button>
           </div>
 
+          {/* Curso Permanente Destacado: Catecismo Menor de Westminster */}
+          <div id="catecismo-westminster" className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-amber-500/40 shadow-2xl">
+            <img
+              src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/paisaje.jpeg"
+              alt="Paisaje de campo - Catecismo Menor de Westminster"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/90 to-slate-950/80" />
+
+            <div className="relative z-10 p-5 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+              {/* Foto Pastor Isaías dando clases */}
+              <div className="lg:col-span-4 flex flex-col items-center text-center">
+                <div className="w-full max-w-[260px] sm:max-w-[280px] aspect-[4/4.2] rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-2xl bg-slate-950">
+                  <img
+                    src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/isaiasdandoclases.jpeg"
+                    alt="Pastor Isaías Martínez impartiendo el Catecismo Menor de Westminster"
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mt-3 space-y-0.5">
+                  <h4 className="font-serif text-lg font-bold text-white">
+                    Pastor Isaías Martínez
+                  </h4>
+                  <span className="text-xs font-semibold text-amber-300 block">
+                    Disponible Siempre · Curso Asincrónico
+                  </span>
+                </div>
+              </div>
+
+              {/* Contenido del curso */}
+              <div className="lg:col-span-8 space-y-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-2.5 py-1 rounded bg-amber-500/20 border border-amber-400/40 text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                    Disponible Siempre
+                  </span>
+                  <span className="px-2.5 py-1 rounded bg-blue-500/20 border border-blue-400/40 text-blue-200 text-[11px] font-bold uppercase tracking-wider">
+                    Virtual · Videos Grabados Asincrónico
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
+                  Catecismo Menor de Westminster
+                </h3>
+
+                <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
+                  Estudiar el Catecismo Menor de Westminster de 1647 de la Asamblea de Westminster, te ofrece un resumen claro, sistemático y bíblico de la doctrina cristiana. A través de sus 107 preguntas y respuestas, lo aprenderemos de forma dinámica y práctica.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                    <div className="flex items-center gap-2 text-slate-200">
+                      <User className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                      <span><strong className="text-white">Maestro:</strong> Pastor Isaías Martínez</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-slate-200">
+                      <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                      <span><strong className="text-white">Lugar:</strong> Virtual videos grabados Asincrónico</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-slate-200">
+                      <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                      <span><strong className="text-white">Fecha:</strong> Disponible Siempre</span>
+                    </div>
+                  </div>
+
+                  <div className="p-3.5 rounded-xl bg-slate-950/80 border border-amber-500/30 space-y-1.5">
+                    <div className="text-amber-300 font-bold text-sm">
+                      Costo del curso: <span className="text-white">$18.75</span>
+                    </div>
+                    <div className="text-slate-300 space-y-0.5">
+                      <span className="font-semibold text-amber-200 block">Costo de Material:</span>
+                      <span className="block">• Libro impreso: <strong className="text-white">$12</strong></span>
+                      <span className="block">• Libro PDF Gratis: <strong className="text-emerald-300">$0</strong> (resúmenes de lo aprendido)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-1 flex flex-wrap items-center gap-3">
+                  <a
+                    href={buildWhatsAppUrl("Hola, deseo inscribirme en el curso virtual asincrónico 'Catecismo Menor de Westminster' ($18.75) con el Pastor Isaías Martínez.")}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    <span>Inscribirme al Curso</span>
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={handleShareWestminster}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg transition-colors cursor-pointer"
+                  >
+                    {sharedWestminsterCopied ? (
+                      <>
+                        <Check className="w-4 h-4 text-emerald-950" />
+                        <span>Contenido Copiado</span>
+                      </>
+                    ) : (
+                      <>
+                        <Share2 className="w-4 h-4" />
+                        <span>Compartir</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Month Filter Buttons */}
           <div className="flex flex-wrap items-center gap-2">
             <button
@@ -490,6 +634,26 @@ _Enviado desde academiabiblica.net_`;
               }`}
             >
               Todas ({CONFERENCES_DATA.length})
+            </button>
+            <button
+              onClick={() => setConfFilter('Noviembre 2026')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                confFilter === 'Noviembre 2026'
+                  ? 'bg-amber-500 text-slate-950 shadow'
+                  : 'bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700'
+              }`}
+            >
+              Noviembre 2026
+            </button>
+            <button
+              onClick={() => setConfFilter('Diciembre 2026')}
+              className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                confFilter === 'Diciembre 2026'
+                  ? 'bg-amber-500 text-slate-950 shadow'
+                  : 'bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700'
+              }`}
+            >
+              Diciembre 2026
             </button>
             <button
               onClick={() => setConfFilter('Enero 2027')}
@@ -518,8 +682,12 @@ _Enviado desde academiabiblica.net_`;
             {(() => {
               const monthSections: { label: string; items: ConferenceEvent[] }[] = [];
               if (confFilter === 'all') {
+                const novItems = filteredConferences.filter((c) => c.date.toLowerCase().includes('noviembre'));
+                const dicItems = filteredConferences.filter((c) => c.date.toLowerCase().includes('diciembre'));
                 const eneroItems = filteredConferences.filter((c) => c.date.toLowerCase().includes('enero'));
-                const febreroItems = filteredConferences.filter((c) => !c.date.toLowerCase().includes('enero'));
+                const febreroItems = filteredConferences.filter((c) => c.date.toLowerCase().includes('febrero'));
+                if (novItems.length) monthSections.push({ label: 'Noviembre 2026', items: novItems });
+                if (dicItems.length) monthSections.push({ label: 'Diciembre 2026', items: dicItems });
                 if (eneroItems.length) monthSections.push({ label: 'Enero 2027', items: eneroItems });
                 if (febreroItems.length) monthSections.push({ label: 'Febrero 2027', items: febreroItems });
               } else {
@@ -632,7 +800,7 @@ _Enviado desde academiabiblica.net_`;
                                 )}
                               </button>
                             </div>
-                          ) : conf.id === 'conf-cartago-israel-feb-2027' || conf.id === 'conf-cartago-escrituras-feb-2027' ? (
+                          ) : conf.id === 'conf-gotera-escrituras-nov-2026' || conf.id === 'conf-tacana-liderazgo-nov-2026' || conf.id === 'conf-tipitapa-economia-dic-2026' || conf.id === 'conf-honduras-corazon-dic-2026' || conf.id === 'conf-cartago-israel-feb-2027' || conf.id === 'conf-cartago-escrituras-feb-2027' ? (
                             <button
                               onClick={() => setSpecialModalId(conf.id as SpecialConferenceModalId)}
                               className="w-full py-2.5 px-4 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
