@@ -169,7 +169,16 @@ export const ViewFacultad: React.FC<ViewFacultadProps> = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <span className="text-xs font-semibold text-amber-300 uppercase tracking-wider">
+                Ordenados por orden alfabético (A – Z)
+              </span>
+              <span className="text-[11px] text-slate-300">
+                {FIELD_MENTORS.length} Mentores de Campo
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-1">
               {FIELD_MENTORS.map((mentor) => (
                 <div
                   key={mentor.id}

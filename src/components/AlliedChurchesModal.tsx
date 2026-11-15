@@ -36,6 +36,9 @@ const INITIAL_CHURCHES: ChurchEntry[] = [
   { id: 'hn-1', name: 'Iglesia Bíblica Gracia sin Fin', location: 'Tegucigalpa, Honduras', country: 'Honduras' },
   { id: 'hn-2', name: 'Iglesia Cristiana Reformada de Corinto', location: 'San Lorenzo, Valle', country: 'Honduras' },
 
+  // Costa Rica
+  { id: 'cr-1', name: 'Iglesia Cristiana Pacto de Vida', location: 'Cervantes de Alvarado, Cartago, Costa Rica', country: 'Costa Rica', pastor: 'Pastor Mario Miranda Astorga' },
+
   // Internacional
   { id: 'int-1', name: 'Gospel Society Mission', location: 'El Salvador / Internacional', country: 'Internacional' },
   { id: 'int-2', name: 'Trinitarian Bible Society', location: 'Londres, Inglaterra', country: 'Internacional' },
@@ -50,7 +53,7 @@ const INITIAL_CHURCHES: ChurchEntry[] = [
 export const AlliedChurchesModal: React.FC<AlliedChurchesModalProps> = ({ isOpen, onClose }) => {
   const [churches, setChurches] = useState<ChurchEntry[]>(() => {
     try {
-      const saved = localStorage.getItem('abe_allied_churches_v2');
+      const saved = localStorage.getItem('abe_allied_churches_v3');
       if (saved) return JSON.parse(saved);
     } catch {}
     return INITIAL_CHURCHES;
@@ -71,7 +74,7 @@ export const AlliedChurchesModal: React.FC<AlliedChurchesModalProps> = ({ isOpen
 
   useEffect(() => {
     try {
-      localStorage.setItem('abe_allied_churches_v2', JSON.stringify(churches));
+      localStorage.setItem('abe_allied_churches_v3', JSON.stringify(churches));
     } catch {}
   }, [churches]);
 
@@ -205,6 +208,7 @@ _Deseamos vincularnos a la red de iglesias y ministerios aliados._`;
                   <option value="México">México</option>
                   <option value="Nicaragua">Nicaragua</option>
                   <option value="Honduras">Honduras</option>
+                  <option value="Costa Rica">Costa Rica</option>
                   <option value="Internacional">Internacional</option>
                 </select>
               </div>

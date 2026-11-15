@@ -126,7 +126,7 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
 
   const handleShareWestminster = async () => {
     const shareUrl = 'https://academiabiblica.net/#catecismo-westminster';
-    const shareText = `📖 *Catecismo Menor de Westminster* — Academia Bíblica El Evangelio\n👨‍🏫 Profesor: Pastor Isaías Martínez\n💻 Lugar: Virtual videos grabados Asincrónico\n🗓️ Fecha: Disponible Siempre\n\nEstudiar el Catecismo Menor de Westminster de 1647 de la Asamblea de Westminster, te ofrece un resumen claro, sistemático y bíblico de la doctrina cristiana. A través de sus 107 preguntas y respuestas, lo aprenderemos de forma dinámica y práctica.\n\n💵 Costo del curso: $18.75\n📚 Costo de Material:\n• Libro impreso: $12\n• Libro PDF Gratis: $0 (resúmenes de lo aprendido)\n\nMás información en: ${shareUrl}`;
+    const shareText = `📖 *Catecismo Menor de Westminster* — Academia Bíblica El Evangelio\n👨‍🏫 Profesor: Pastor Isaías Martínez\n💻 Lugar: Virtual videos grabados Asincrónico\n🗓️ Fecha: Disponible Siempre\n\nEstudiar el Catecismo Menor de Westminster de 1647 de la Asamblea de Westminster, te ofrece un resumen claro, sistemático y bíblico de la doctrina cristiana. A través de sus 107 preguntas y respuestas, lo aprenderemos de forma dinámica y práctica.\n\n💵 Costo del curso: Confirmar en la inscripción\n📚 Costo de Material:\n• Libro PDF Gratis: $0 (resúmenes de lo aprendido)\n\nMás información en: ${shareUrl}`;
 
     if (typeof navigator !== 'undefined' && navigator.share) {
       try {
@@ -159,15 +159,16 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
   const handleShareIaConference = async () => {
     const shareUrl = 'https://academiabiblica.net/#ia-sabiduria-eterna';
     const shareText = `📖 *GRAN CONFERENCIA:*
-*Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?*
+*La Inteligencia artificial*
+*¿Cómo usar la tecnología para la gloria de Dios?*
 
 👨‍🏫 *Maestro:* Pastor Isaías Martínez
 👥 *Cupo:* Máx. 30 personas para una experiencia académica garantizada (Abierto a todo público)
-🏨 *Lugar:* Hotel Holiday Inn Nicaragua y Holiday Inn El Salvador
+📍 *Lugar:* Nicaragua y El Salvador
 ⏰ *Tiempo de conferencia:* De 8:00 a 10:00 (2 horas)
 🗓️ *Fecha:* Pendiente
-🎓 *Incluye:* Entrega de Certificado de participación
-💵 *Costo de la conferencia Especial:* $35
+🎓 *Beneficios:* Entrega de Certificado de participación
+💵 *Costo:* Confirmar en la inscripción
 
 ✨ *Detalles de la conferencia:*
 Vivimos en un tiempo de asombro y, para muchos, de temor ante máquinas que escriben, traducen y analizan en segundos.
@@ -643,11 +644,10 @@ _Enviado desde academiabiblica.net_`;
 
                   <div className="p-3.5 rounded-xl bg-slate-950/80 border border-amber-500/30 space-y-1.5">
                     <div className="text-amber-300 font-bold text-sm">
-                      Costo del curso: <span className="text-white">$18.75</span>
+                      Costo del curso: <span className="text-white">Confirmar en la inscripción</span>
                     </div>
                     <div className="text-slate-300 space-y-0.5">
                       <span className="font-semibold text-amber-200 block">Costo de Material:</span>
-                      <span className="block">• Libro impreso: <strong className="text-white">$12</strong></span>
                       <span className="block">• Libro PDF Gratis: <strong className="text-emerald-300">$0</strong> (resúmenes de lo aprendido)</span>
                     </div>
                   </div>
@@ -655,7 +655,7 @@ _Enviado desde academiabiblica.net_`;
 
                 <div className="pt-1 flex flex-wrap items-center gap-3">
                   <a
-                    href={buildWhatsAppUrl("Hola, deseo inscribirme en el curso virtual asincrónico 'Catecismo Menor de Westminster' ($18.75) con el Pastor Isaías Martínez.")}
+                    href={buildWhatsAppUrl("Hola, deseo inscribirme en el curso virtual asincrónico 'Catecismo Menor de Westminster' y confirmar el costo de inscripción con el Pastor Isaías Martínez.")}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-colors"
@@ -728,8 +728,11 @@ _Enviado desde academiabiblica.net_`;
                     <span className="block text-2xl sm:text-4xl lg:text-[42px] font-extrabold tracking-wide text-amber-300 leading-none uppercase">
                       GRAN CONFERENCIA:
                     </span>
-                    <span className="block text-base sm:text-xl lg:text-[22px] font-medium text-white leading-snug mt-2 normal-case">
-                      Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?
+                    <span className="block text-lg sm:text-2xl lg:text-[26px] font-semibold text-white leading-snug mt-2 normal-case">
+                      La Inteligencia artificial
+                    </span>
+                    <span className="block text-sm sm:text-lg lg:text-xl font-medium text-amber-100 leading-snug mt-0.5 normal-case">
+                      ¿Cómo usar la tecnología para la gloria de Dios?
                     </span>
                   </h3>
                   <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
@@ -750,7 +753,7 @@ _Enviado desde academiabiblica.net_`;
                   <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
                   <div>
                     <span className="text-slate-400 block text-[10px] uppercase tracking-wider">Lugar</span>
-                    <span className="text-white font-bold">Hotel Holiday Inn Nicaragua y Holiday Inn El Salvador</span>
+                    <span className="text-white font-bold">Nicaragua y El Salvador</span>
                   </div>
                 </div>
                 <div className="p-3.5 rounded-xl bg-slate-950/85 border border-slate-800 flex items-center gap-2.5">
@@ -771,13 +774,13 @@ _Enviado desde academiabiblica.net_`;
                   <Award className="w-4 h-4 text-emerald-400 shrink-0" />
                   <div>
                     <span className="text-emerald-300 block text-[10px] uppercase tracking-wider font-semibold">Beneficios</span>
-                    <span className="text-white font-bold">Entrega de Certificado de participación · Abierto a todo público</span>
+                    <span className="text-white font-bold">Entrega de Certificado de participación</span>
                   </div>
                 </div>
                 <div className="p-3.5 rounded-xl bg-slate-950/85 border border-amber-500/40 flex items-center justify-between gap-2">
                   <div>
                     <span className="text-amber-300 block text-[10px] uppercase tracking-wider font-semibold">Conferencia Especial</span>
-                    <span className="text-white font-bold text-sm">Costo: $35</span>
+                    <span className="text-white font-bold text-sm">Costo: Confirmar en la inscripción</span>
                   </div>
                 </div>
               </div>
@@ -793,7 +796,7 @@ _Enviado desde academiabiblica.net_`;
                 </button>
 
                 <a
-                  href={buildWhatsAppUrl("Hola, deseo inscribirme en la GRAN CONFERENCIA 'Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?' ($35) en Nicaragua / El Salvador con el Pastor Isaías Martínez.")}
+                  href={buildWhatsAppUrl("Hola, deseo inscribirme en la GRAN CONFERENCIA 'La Inteligencia artificial: ¿Cómo usar la tecnología para la gloria de Dios?' en Nicaragua / El Salvador con el Pastor Isaías Martínez y confirmar el costo de inscripción.")}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-colors"

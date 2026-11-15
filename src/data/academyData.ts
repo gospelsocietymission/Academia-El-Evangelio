@@ -819,6 +819,13 @@ export const MINISTRY_ALLIES_REGIONS: MinistryAlliesRegion[] = [
     ]
   },
   {
+    region: "Costa Rica",
+    countryBadge: "🇨🇷 Costa Rica",
+    allies: [
+      { name: "Iglesia Cristiana Pacto de Vida", location: "Cervantes de Alvarado, Cartago, Costa Rica" }
+    ]
+  },
+  {
     region: "Nuestros amigos Internacionales",
     countryBadge: "🌐 Nuestros amigos Internacionales",
     allies: [
@@ -904,16 +911,11 @@ export const FACULTY_MEMBERS: FacultyMember[] = [
 
 export const FIELD_MENTORS: FieldMentor[] = [
   {
-    id: "m-1",
-    name: "Pastor Mario Miranda Astorga",
-    role: "Pastor de Iglesia Cristiana Pacto de Vida en Cervantes de Alvarado, Cartago, Costa Rica",
-    location: "Mentor en Academia de Cartago, Costa Rica"
-  },
-  {
-    id: "m-2",
-    name: "Pastor Reynaldo Acuña",
-    role: "Maestro Itinerante de Teología en todo Nicaragua",
-    location: "Mentor en Academia de Puerto Corinto y Puerto Morazán"
+    id: "m-15",
+    name: "Hno. Alexander Paz",
+    role: "Maestro de Biblia y Consejero Matrimonial",
+    details: "Contador Público (Organiza las finanzas de la Academia)",
+    location: "Colaborador de Centro Misionero \"Heme aquí, envíame a mí\""
   },
   {
     id: "m-3",
@@ -922,34 +924,10 @@ export const FIELD_MENTORS: FieldMentor[] = [
     location: "Mentor en Academia de Ahuachapán, El Salvador"
   },
   {
-    id: "m-4",
-    name: "Pastor Domingo Flores",
-    role: "Pastor de Iglesia Misión CentroAmericana en cantón las Nubes, Cheguate",
-    location: "Honorífico Donante de terreno para la Biblioteca y Centro de estudios en Cheguate, Tacaná, Guatemala"
-  },
-  {
-    id: "m-5",
-    name: "Pastor Mario Sorto",
-    role: "Pastor y Mentor Regional",
-    location: "Tegucigalpa, Honduras"
-  },
-  {
-    id: "m-8",
-    name: "Pastor Francisco Ávila",
-    role: "Pastor de la Iglesia Cristiana Reformada de Aldea Corinto, San Lorenzo, Valle, Honduras",
-    location: "Profesor en Centro Misionero \"Heme aquí, envíame a mí\""
-  },
-  {
-    id: "m-6",
-    name: "Ing. Jhony Cabrera",
-    role: "Músico Iglesia Bíblica Faro de Gracia, Honduras",
-    location: "Colaborador en Centro Misionero \"Heme aquí, Envíame a mí\""
-  },
-  {
-    id: "m-7",
-    name: "Dra. Nancy Ávila",
-    role: "Doctora en Medicina General, Honduras",
-    location: "Colaboradora en Salud en Centro Misionero \"Heme aquí, Envíame a mí\""
+    id: "m-18",
+    name: "Pastor Carlos Márquez",
+    role: "Pastor de Iglesia Cristo Vive Central Ahuachapán",
+    location: "Colaborador de Academia"
   },
   {
     id: "m-9",
@@ -958,21 +936,40 @@ export const FIELD_MENTORS: FieldMentor[] = [
     location: "Coordinadora de Brigadas Odontológicas en Mission of Harmony Honduras"
   },
   {
+    id: "m-14",
+    name: "Hno. Daniel Ávila",
+    role: "Maestro de Biblia en Honduras",
+    location: "Colaborador de Centro Misionero \"Heme aquí, envíame a mí\""
+  },
+  {
     id: "m-10",
     name: "Pastor Denis Fernando Ramírez",
     role: "Pastor de Iglesia Bautista Independiente de Somoto, Madriz, Nicaragua",
     location: "Embajador de Academia Bíblica en Norte de Nicaragua"
   },
   {
-    id: "m-11",
-    name: "Pastor Yesser Gutiérrez",
-    role: "Pastor Iglesia Bautista Independiente de Condega, Estelí, Nicaragua",
-    location: "Colaborador de Academia"
+    id: "m-4",
+    name: "Pastor Domingo Flores",
+    role: "Pastor de Iglesia Misión CentroAmericana en cantón las Nubes, Cheguate",
+    location: "Honorífico Donante de terreno para la Biblioteca y Centro de estudios en Cheguate, Tacaná, Guatemala"
   },
   {
     id: "m-12",
     name: "Pastor Edwin Guzmán",
     role: "Presidente de la Fraternidad de Pastores Ministerio Oasis, Chinandega, Nicaragua",
+    location: "Colaborador de Academia"
+  },
+  {
+    id: "m-24",
+    name: "Pastor Elías Carbajal",
+    role: "Pastor Iglesia Reformada Príncipe de Paz",
+    details: "Masaya, Nicaragua",
+    location: "Colaborador de Academia"
+  },
+  {
+    id: "m-16",
+    name: "Pastor Eliezer",
+    role: "Pastor de Iglesia Independiente en Niquivil, Chiapas, México",
     location: "Colaborador de Academia"
   },
   {
@@ -982,59 +979,22 @@ export const FIELD_MENTORS: FieldMentor[] = [
     location: "Colaborador de Academia"
   },
   {
-    id: "m-14",
-    name: "Hno. Daniel Ávila",
-    role: "Maestro de Biblia en Honduras",
-    location: "Colaborador de Centro Misionero \"Heme aquí, envíame a mí\""
+    id: "m-22",
+    name: "Pastor Félix Pavón",
+    role: "Pastor de la iglesia en Niquinomo, Nicaragua",
+    location: "Organizador de Conferencias / Colaborador de Academia"
   },
   {
-    id: "m-15",
-    name: "Hno. Alexander Paz",
-    role: "Maestro de Biblia y Consejero Matrimonial",
-    details: "Contador Público (Organiza las finanzas de la Academia)",
-    location: "Colaborador de Centro Misionero \"Heme aquí, envíame a mí\""
-  },
-  {
-    id: "m-16",
-    name: "Pastor Eliezer",
-    role: "Pastor de Iglesia Independiente en Niquivil, Chiapas, México",
-    location: "Colaborador de Academia"
-  },
-  {
-    id: "m-17",
-    name: "Pastor Mardo Flores",
-    role: "Pastor en Iglesia Centroamericana de Cheguate, Tacaná, Guatemala",
-    location: "Colaborador de Academia"
-  },
-  {
-    id: "m-18",
-    name: "Pastor Carlos Márquez",
-    role: "Pastor de Iglesia Cristo Vive Central Ahuachapán",
-    location: "Colaborador de Academia"
-  },
-  {
-    id: "m-19",
-    name: "Pastor Robert Zepeda",
-    role: "Iglesia Cristo Vive in Lake Elsinore",
-    location: "Colaborador de Academia"
+    id: "m-8",
+    name: "Pastor Francisco Ávila",
+    role: "Pastor de la Iglesia Cristiana Reformada de Aldea Corinto, San Lorenzo, Valle, Honduras",
+    location: "Profesor en Centro Misionero \"Heme aquí, envíame a mí\""
   },
   {
     id: "m-20",
     name: "Pastor Jarol",
     role: "Pastor en Iglesia Presbiteriana de Ahuachapán",
     location: "Colaborador de Academia"
-  },
-  {
-    id: "m-21",
-    name: "Pastor Joel Flores",
-    role: "Pastor en Iglesia Bíblica Nueva Vida, Lourdes, Colón, El Salvador",
-    location: "Colaborador de Academia"
-  },
-  {
-    id: "m-22",
-    name: "Pastor Félix Pavón",
-    role: "Pastor de la iglesia en Niquinomo, Nicaragua",
-    location: "Organizador de Conferencias / Colaborador de Academia"
   },
   {
     id: "m-23",
@@ -1044,10 +1004,57 @@ export const FIELD_MENTORS: FieldMentor[] = [
     location: "Colaborador de Academia"
   },
   {
-    id: "m-24",
-    name: "Pastor Elías Carbajal",
-    role: "Pastor Iglesia Reformada Príncipe de Paz",
-    details: "Masaya, Nicaragua",
+    id: "m-6",
+    name: "Ing. Jhony Cabrera",
+    role: "Músico Iglesia Bíblica Faro de Gracia, Honduras",
+    location: "Colaborador en Centro Misionero \"Heme aquí, Envíame a mí\""
+  },
+  {
+    id: "m-21",
+    name: "Pastor Joel Flores",
+    role: "Pastor en Iglesia Bíblica Nueva Vida, Lourdes, Colón, El Salvador",
+    location: "Colaborador de Academia"
+  },
+  {
+    id: "m-17",
+    name: "Pastor Mardo Flores",
+    role: "Pastor en Iglesia Centroamericana de Cheguate, Tacaná, Guatemala",
+    location: "Colaborador de Academia"
+  },
+  {
+    id: "m-1",
+    name: "Pastor Mario Miranda Astorga",
+    role: "Pastor de Iglesia Cristiana Pacto de Vida en Cervantes de Alvarado, Cartago, Costa Rica",
+    location: "Mentor en Academia de Cartago, Costa Rica"
+  },
+  {
+    id: "m-5",
+    name: "Pastor Mario Sorto",
+    role: "Pastor y Mentor Regional",
+    location: "Tegucigalpa, Honduras"
+  },
+  {
+    id: "m-7",
+    name: "Dra. Nancy Ávila",
+    role: "Doctora en Medicina General, Honduras",
+    location: "Colaboradora en Salud en Centro Misionero \"Heme aquí, Envíame a mí\""
+  },
+  {
+    id: "m-2",
+    name: "Pastor Reynaldo Acuña",
+    role: "Maestro Itinerante de Teología en todo Nicaragua",
+    location: "Mentor en Academia de Puerto Corinto y Puerto Morazán"
+  },
+  {
+    id: "m-19",
+    name: "Pastor Robert Zepeda",
+    role: "Iglesia Cristo Vive in Lake Elsinore",
+    location: "Colaborador de Academia"
+  },
+  {
+    id: "m-11",
+    name: "Pastor Yesser Gutiérrez",
+    role: "Pastor Iglesia Bautista Independiente de Condega, Estelí, Nicaragua",
     location: "Colaborador de Academia"
   }
 ];

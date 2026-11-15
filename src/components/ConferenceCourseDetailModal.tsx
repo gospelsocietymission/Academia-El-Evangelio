@@ -975,17 +975,18 @@ export const ConferenceCourseDetailModal: React.FC<ConferenceCourseDetailModalPr
   };
 
   const renderIaSabiduriaEterna = () => {
-    const waText = `Hola, deseo inscribirme en la GRAN CONFERENCIA: "Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?" ($35) con el Pastor Isaías Martínez.\n\n🏨 Sede de preferencia: Hotel Holiday Inn ${iaCountry}\n⏰ Tiempo: De 8:00 a 10:00 (2 horas)\n🗓️ Fecha: Pendiente (Máx. 30 personas).\n\nQuedo atento a la confirmación de fechas.`;
+    const waText = `Hola, deseo inscribirme en la GRAN CONFERENCIA: "La Inteligencia artificial: ¿Cómo usar la tecnología para la gloria de Dios?" con el Pastor Isaías Martínez.\n\n📍 País de preferencia: ${iaCountry}\n⏰ Tiempo: De 8:00 a 10:00 (2 horas)\n🗓️ Fecha: Pendiente (Máx. 30 personas).\n\nQuedo atento a la confirmación de fechas y costo de inscripción.`;
     const shareText = `📖 *GRAN CONFERENCIA:*
-*Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?*
+*La Inteligencia artificial*
+*¿Cómo usar la tecnología para la gloria de Dios?*
 
 👨‍🏫 *Maestro:* Pastor Isaías Martínez
 👥 *Cupo:* Máx. 30 personas para una experiencia académica garantizada (Abierto a todo público)
-🏨 *Lugar:* Hotel Holiday Inn Nicaragua y Holiday Inn El Salvador
+📍 *Lugar:* Nicaragua y El Salvador
 ⏰ *Tiempo de conferencia:* De 8:00 a 10:00 (2 horas)
 🗓️ *Fecha:* Pendiente
-🎓 *Incluye:* Entrega de Certificado de participación
-💵 *Costo de la conferencia Especial:* $35
+🎓 *Beneficios:* Entrega de Certificado de participación
+💵 *Costo:* Confirmar en la inscripción
 
 ✨ *Detalles de la conferencia:*
 Vivimos en un tiempo de asombro y, para muchos, de temor ante máquinas que escriben, traducen y analizan en segundos.
@@ -1014,7 +1015,7 @@ Ver detalles completos aquí: https://academiabiblica.net/#ia-sabiduria-eterna`;
               </span>
               <h2 className="font-serif truncate">
                 <span className="text-amber-300 font-extrabold text-base sm:text-lg mr-2">GRAN CONFERENCIA:</span>
-                <span className="text-white font-medium text-sm sm:text-base">Inteligencia artificial, sabiduría eterna</span>
+                <span className="text-white font-medium text-sm sm:text-base">La Inteligencia artificial · ¿Cómo usar la tecnología para la gloria de Dios?</span>
               </h2>
             </div>
           </div>
@@ -1043,7 +1044,7 @@ Ver detalles completos aquí: https://academiabiblica.net/#ia-sabiduria-eterna`;
             <div className="w-32 h-28 sm:w-36 sm:h-32 rounded-2xl overflow-hidden border-2 border-amber-400/60 shadow-xl shrink-0 bg-slate-900">
               <img
                 src="https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/iacristiano.jpeg"
-                alt="Inteligencia artificial, sabiduría eterna y fe cristiana"
+                alt="La Inteligencia artificial y fe cristiana"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -1051,7 +1052,7 @@ Ver detalles completos aquí: https://academiabiblica.net/#ia-sabiduria-eterna`;
             <div className="space-y-2 text-center sm:text-left">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-bold uppercase tracking-wider">
                 <Calendar className="w-3.5 h-3.5" />
-                <span>Hotel Holiday Inn Nicaragua y Holiday Inn El Salvador · Fecha: Pendiente</span>
+                <span>Nicaragua y El Salvador · Fecha: Pendiente</span>
               </div>
               <h3 className="font-serif text-xl font-bold text-white">
                 Maestro: Pastor Isaías Martínez
@@ -1060,7 +1061,7 @@ Ver detalles completos aquí: https://academiabiblica.net/#ia-sabiduria-eterna`;
                 Aprenderemos que toda capacidad humana proviene de la gracia común de Dios; el cristiano puede abrazar la inteligencia artificial con gratitud, sabiduría y propósito evangelístico para la gloria de Cristo.
               </p>
               <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-3 text-xs font-bold">
-                <span className="text-amber-300">Costo: <span className="text-white">$35</span></span>
+                <span className="text-amber-300">Costo: <span className="text-white">Confirmar en la inscripción</span></span>
                 <span className="text-slate-600">·</span>
                 <span className="text-slate-200">Tiempo: De 8:00 a 10:00 (2 horas)</span>
                 <span className="text-slate-600">·</span>
@@ -1145,7 +1146,7 @@ Ver detalles completos aquí: https://academiabiblica.net/#ia-sabiduria-eterna`;
               className="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl transition-all"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Inscribirme a esta Conferencia ($35)</span>
+              <span>Inscribirme a esta Conferencia</span>
             </a>
           </div>
         </div>
