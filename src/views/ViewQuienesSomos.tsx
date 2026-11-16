@@ -30,7 +30,7 @@ interface ViewQuienesSomosProps {
 type TabKey = 'historia' | 'credenciales' | 'avales' | 'legal';
 
 export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
-  const [activeSection, setActiveSection] = useState<TabKey>('historia');
+  const [activeSection, setActiveSection] = useState<TabKey>('avales');
   const [lightboxPhoto, setLightboxPhoto] = useState<{ url: string; alt: string } | null>(null);
 
   const handleOpenNuestraHistoria = () => {
@@ -104,7 +104,86 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
           </div>
         </div>
 
-        {/* 2. Misión Ministerial */}
+        {/* 2. Acreditación de la Academia Bíblica El Evangelio y Apostilla de La Haya */}
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+              <Award className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
+                Reconocimiento Oficial
+              </span>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                {QUIENES_SOMOS_DATA.acreditacion.titulo}
+              </h2>
+            </div>
+          </div>
+
+          <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
+            <p>
+              {QUIENES_SOMOS_DATA.acreditacion.texto}
+            </p>
+
+            {/* Apostilla de La Haya Highlight Box */}
+            <div className="p-5 rounded-xl bg-slate-950 border border-amber-500/20 space-y-2">
+              <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
+                <Globe className="w-4 h-4 shrink-0" />
+                <span>Legalización Internacional: Apostilla de La Haya</span>
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                {QUIENES_SOMOS_DATA.acreditacion.apostilla}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Confesión y Principios Bíblicos: Nuestra Base Doctrinal */}
+        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+              <Shield className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
+                Confesión y Principios Bíblicos
+              </span>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                Nuestra Base Doctrinal
+              </h2>
+            </div>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sostenemos la inerrancia bíblica y la herencia reformada del siglo XVI, promoviendo la comunión pastoral y el amor al Evangelio.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {DOCTRINAL_POINTS.map((p) => (
+              <div
+                key={p.id}
+                className="p-5 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-amber-500/30 transition-colors space-y-2"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="font-serif font-bold text-white text-sm sm:text-base">
+                    {p.number}. {p.title}
+                  </h3>
+                  <span className="text-[11px] text-amber-300 font-mono bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                    {p.scriptureRef}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                  {p.summary}
+                </p>
+                <p className="text-[11px] text-slate-400 leading-relaxed pt-1 border-t border-slate-800/60">
+                  {p.fullExplanation}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 4. Misión Ministerial */}
         <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
@@ -612,85 +691,6 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
                 </div>
               </div>
             )}
-          </div>
-        </div>
-
-        {/* 3. NUESTRA BASE DOCTRINAL (Movida dentro de Quiénes Somos) */}
-        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-              <Shield className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
-                Confesión y Principios Bíblicos
-              </span>
-              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                Nuestra Base Doctrinal
-              </h2>
-            </div>
-          </div>
-
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Sostenemos la inerrancia bíblica y la herencia reformada del siglo XVI, promoviendo la comunión pastoral y el amor al Evangelio.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {DOCTRINAL_POINTS.map((p) => (
-              <div
-                key={p.id}
-                className="p-5 rounded-xl bg-slate-950 border border-slate-800/80 hover:border-amber-500/30 transition-colors space-y-2"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <h3 className="font-serif font-bold text-white text-sm sm:text-base">
-                    {p.number}. {p.title}
-                  </h3>
-                  <span className="text-[11px] text-amber-300 font-mono bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
-                    {p.scriptureRef}
-                  </span>
-                </div>
-                <p className="text-xs text-slate-300 leading-relaxed font-medium">
-                  {p.summary}
-                </p>
-                <p className="text-[11px] text-slate-400 leading-relaxed pt-1 border-t border-slate-800/60">
-                  {p.fullExplanation}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 4. Acreditación de la Academia Bíblica El Evangelio y Apostilla de La Haya */}
-        <div className="bg-slate-900 rounded-2xl p-5 sm:p-10 border border-amber-500/30 shadow-xl space-y-6">
-          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-              <Award className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
-                Reconocimiento Oficial
-              </span>
-              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                {QUIENES_SOMOS_DATA.acreditacion.titulo}
-              </h2>
-            </div>
-          </div>
-
-          <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
-            <p>
-              {QUIENES_SOMOS_DATA.acreditacion.texto}
-            </p>
-
-            {/* Apostilla de La Haya Highlight Box */}
-            <div className="p-5 rounded-xl bg-slate-950 border border-amber-500/20 space-y-2">
-              <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
-                <Globe className="w-4 h-4 shrink-0" />
-                <span>Legalización Internacional: Apostilla de La Haya</span>
-              </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                {QUIENES_SOMOS_DATA.acreditacion.apostilla}
-              </p>
-            </div>
           </div>
         </div>
 

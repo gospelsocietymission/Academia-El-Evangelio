@@ -1,5 +1,5 @@
 import React from 'react';
-import { Church, PlusCircle, Globe, MessageCircle } from 'lucide-react';
+import { Church, PlusCircle, MessageCircle } from 'lucide-react';
 import { MINISTRY_ALLIES_REGIONS, buildWhatsAppUrl } from '../data/academyData';
 
 interface ViewAliadosProps {

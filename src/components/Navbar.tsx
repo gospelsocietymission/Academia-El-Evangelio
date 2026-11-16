@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, Menu, X, GraduationCap, ChevronRight, MessageCircle, Heart } from 'lucide-react';
 import { INSTITUTION_INFO, buildWhatsAppUrl } from '../data/academyData';
 
-export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'facultad' | 'aliados' | 'proyectos';
+export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'facultad' | 'aliados' | 'acuerdo' | 'proyectos';
 
 interface NavbarProps {
   currentPage: NavPage;
@@ -21,11 +21,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const navItems: { label: string; page: NavPage }[] = [
     { label: 'Inicio', page: 'inicio' },
-    { label: 'Programas', page: 'programas' },
     { label: 'Quiénes Somos', page: 'quienes-somos' },
+    { label: 'Proyectos', page: 'proyectos' },
+    { label: 'Programas', page: 'programas' },
     { label: 'Facultad Invitada', page: 'facultad' },
     { label: 'Aliados', page: 'aliados' },
-    { label: 'Proyectos', page: 'proyectos' },
   ];
 
   const handlePageClick = (page: NavPage) => {

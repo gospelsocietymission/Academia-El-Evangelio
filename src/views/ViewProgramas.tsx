@@ -8,11 +8,13 @@ import { SampleBookletModal } from '../components/SampleBookletModal';
 interface ViewProgramasProps {
   onOpenEnrollment: () => void;
   onEnrollmentSubmitted: (data: EnrollmentSubmission) => void;
+  onNavigateToAcuerdo?: () => void;
 }
 
 export const ViewProgramas: React.FC<ViewProgramasProps> = ({
   onOpenEnrollment,
   onEnrollmentSubmitted,
+  onNavigateToAcuerdo,
 }) => {
   const [selectedProgram, setSelectedProgram] = useState<AcademicProgram | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -272,6 +274,7 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmitInquiry={onEnrollmentSubmitted}
+        onNavigateToAcuerdo={onNavigateToAcuerdo}
       />
 
       {/* Sample Booklet Modal */}

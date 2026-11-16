@@ -5,6 +5,7 @@ import { ViewProgramas } from './views/ViewProgramas';
 import { ViewQuienesSomos } from './views/ViewQuienesSomos';
 import { ViewFacultad } from './views/ViewFacultad';
 import { ViewAliados } from './views/ViewAliados';
+import { ViewAcuerdoEntendimiento } from './views/ViewAcuerdoEntendimiento';
 import { ViewProyectos } from './views/ViewProyectos';
 import { EnrollmentModal } from './components/EnrollmentModal';
 import { ConferenceRegisterModal } from './components/ConferenceRegisterModal';
@@ -28,16 +29,23 @@ export default function App() {
 
   // Sync with URL hash if present
   useEffect(() => {
-    const hash = window.location.hash.replace('#', '');
-    if (
-      hash === 'programas' ||
-      hash === 'quienes-somos' ||
-      hash === 'facultad' ||
-      hash === 'aliados' ||
-      hash === 'proyectos'
-    ) {
-      setCurrentPage(hash as NavPage);
-    }
+    const syncFromHash = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (
+        hash === 'inicio' ||
+        hash === 'programas' ||
+        hash === 'quienes-somos' ||
+        hash === 'facultad' ||
+        hash === 'aliados' ||
+        hash === 'acuerdo' ||
+        hash === 'proyectos'
+      ) {
+        setCurrentPage(hash as NavPage);
+      }
+    };
+    syncFromHash();
+    window.addEventListener('hashchange', syncFromHash);
+    return () => window.removeEventListener('hashchange', syncFromHash);
   }, []);
 
   const handleSelectPage = (page: NavPage) => {
@@ -87,6 +95,7 @@ export default function App() {
           <ViewProgramas
             onOpenEnrollment={() => setIsEnrollmentOpen(true)}
             onEnrollmentSubmitted={handleEnrollmentSubmitted}
+            onNavigateToAcuerdo={() => handleSelectPage('acuerdo')}
           />
         )}
 
@@ -108,6 +117,12 @@ export default function App() {
         {currentPage === 'aliados' && (
           <ViewAliados
             onOpenAlliedChurchesModal={() => setIsAlliedChurchesOpen(true)}
+          />
+        )}
+
+        {currentPage === 'acuerdo' && (
+          <ViewAcuerdoEntendimiento
+            onShowToast={(msg) => setToastMessage(msg)}
           />
         )}
 
