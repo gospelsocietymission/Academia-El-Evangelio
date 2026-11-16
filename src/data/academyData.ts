@@ -10,6 +10,7 @@ import {
   FacultyMember,
   FieldMentor,
 } from '../types';
+import montanasCentroamericaImg from '../assets/images/montanas_centroamerica_1794846125038.jpg';
 
 export const INSTITUTION_INFO = {
   name: "Academia Bíblica El Evangelio",
@@ -424,6 +425,55 @@ export const QUIENES_SOMOS_DATA = {
     titulo: "¿Quiénes son Nuestros Colaboradores Educativos o Facultad Invitada?",
     texto: "Nuestros colaboradores educativos son pastores y líderes comprometidos con el llamado de enseñar la Palabra de Dios. A través de un permiso especial y firmado, nos permiten utilizar sus recursos educativos para integrarlos en nuestro programa. Son colaboradores honoríficos que participan sin remuneración económica, movidos únicamente por amor al Evangelio y pasión por equipar a otros."
   }
+};
+
+export const PASTOR_ISAIAS_PROFILE = {
+  name: "Pastor Misionero Isaías Martínez",
+  role: "Fundador & Misionero Itinerante",
+  region: "Centroamérica y Sur de México",
+  mountainPhoto: montanasCentroamericaImg,
+  mountainCaption: "Montañas de Centroamérica y Sur de México — Campo Misionero",
+  portraitPhoto: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/isaias.jpg",
+  missionJourney: "El caminar del Misionero Isaías Martínez es un profundo testimonio de entrega absoluta a la expansión del Evangelio en Centroamérica. Su llamado comenzó en octubre de 1998, llevando Biblias a las regiones más remotas y geográficamente inaccesibles. Ya sea a caballo o cargando pesadas cajas sobre su propia espalda a través de escarpadas montañas, ha recorrido incontables kilómetros para escuchar y orar con creyentes que viven en lugares donde pocos se atreven a ir.",
+  medicalAndProfessional: "Desde 2005, ha consolidado su labor misionera organizando brigadas médicas y odontológicas anuales junto a su esposa y su hijo. Estas misiones están enfocadas principalmente en educación teológica y en viajar a más de cinco países cada año para fortalecer la obra de Dios. Aunque posee experiencia profesional en Salud Pública, Mercadeo y Tecnología Web —y se desempeña como investigador científico en el sector salud—, no ve estos roles como un fin en sí mismos, sino como herramientas prácticas para servir mejor al prójimo y administrar con excelencia los recursos que Dios pone en sus manos.",
+  theologicalTraining: "Movido por la convicción de que un obrero debe trazar bien la Palabra de Verdad, ha dedicado años al estudio profundo de las Escrituras. Su pasión por la enseñanza lo ha llevado a servir como profesor de Biblia, Griego y Hebreo en diversos seminarios, incluyendo una etapa formativa de servicio junto al Dr. Noé Acosta en el Seminario Reformado Latinoamericano (SRL).",
+  degrees: [
+    "Maestría en Predicación Expositiva (M.A.)",
+    "Maestría en Divinidad (M.Div.)",
+    "Maestría en Ministerio Bíblico",
+    "Doctorado en Teología (Th.D.) — en curso"
+  ],
+  teachingRoles: [
+    "Experiencia Docente como profesor de Biblia, Griego y Hebreo en seminarios teológicos.",
+    "Colaborador para Seminario Reformado Latinoamericano (SRL).",
+    "Profesor asociado en Teaching Missions International (TMI).",
+    "Colaborador de Sociedad Bíblica Trinitaria."
+  ],
+  professionalSkills: [
+    "Salud Pública e Investigación Científica en el sector salud",
+    "Mercadeo y Tecnología Web aplicados a la misión",
+    "Coordinación anual de brigadas médicas y odontológicas familiares (desde 2005)"
+  ],
+  currentFocus: "Hoy, su enfoque principal es el desarrollo de la Academia Ministerial dedicada a capacitar a líderes y pastores en áreas rurales de Guatemala, México, El Salvador, Honduras, Nicaragua y Costa Rica. En estas regiones, donde la distancia representa una barrera importante, trabaja incansablemente para proveer formación teológica de alto nivel a quienes carecen de acceso a educación básica.",
+  quote: "Mi vida se trata de servir a Dios junto a hermanos y hermanas que, por su ubicación geográfica o formación educativa, han sido marginados de la capacitación bíblica. Mi oración es que la distancia nunca sea un obstáculo para que un pastor reciba las herramientas necesarias para predicar fielmente a Cristo.",
+  galleryPhotos: [
+    {
+      url: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/1.jpg",
+      alt: "Labor misionera y enseñanza bíblica del Pastor Isaías Martínez (1)"
+    },
+    {
+      url: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/3.jpg",
+      alt: "Labor misionera y enseñanza bíblica del Pastor Isaías Martínez (3)"
+    },
+    {
+      url: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/4.jpg",
+      alt: "Labor misionera y enseñanza bíblica del Pastor Isaías Martínez (4)"
+    },
+    {
+      url: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/5.jpg",
+      alt: "Labor misionera y enseñanza bíblica del Pastor Isaías Martínez (5)"
+    }
+  ]
 };
 
 export const DOCTRINAL_POINTS: DoctrinalPoint[] = [
