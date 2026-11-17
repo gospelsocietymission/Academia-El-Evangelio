@@ -49,7 +49,7 @@ Bienvenidos al estudio de la Tierra de la Biblia: cómo la geografía, el clima,
 • Curso I: La Tierra de la Biblia I (fundamentos, mapa y geografía)
 • Curso II: La Tierra de la Biblia II (Dios, pacto, tierra y pueblo)
 
-💵 Costo por curso: $18.75 (donación voluntaria no reembolsable)
+💵 Costo por cada uno de los Cursos: Pendiente por confirmar.
 📍 Lugar de Estudio: Presencial en Ahuachapán, El Salvador · o Virtual (ZOOM Sincrónico / Videos Asincrónico)
 
 Ver contenido completo e inscribirse aquí:
@@ -59,13 +59,13 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
   isOpen,
   onClose,
 }) => {
-  const [selectedCourse, setSelectedCourse] = useState<'Curso I ($18.75)' | 'Curso II ($18.75)' | 'Ambos Cursos (I y II)'>('Curso I ($18.75)');
+  const [selectedCourse, setSelectedCourse] = useState<'Curso I' | 'Curso II' | 'Ambos Cursos (I y II)'>('Curso I');
   const [selectedModality, setSelectedModality] = useState<'Sede Presencial Ahuachapán, El Salvador' | 'Virtual en ZOOM Sincrónico' | 'Videos grabados Asincrónico'>('Sede Presencial Ahuachapán, El Salvador');
   const [copied, setCopied] = useState(false);
 
   if (!isOpen) return null;
 
-  const waEnrollmentMessage = `Hola, deseo inscribirme en el curso "La Tierra de la Biblia" con el Dr. Joe Fitzpatrick.\n\n📚 Curso seleccionado: ${selectedCourse}\n📍 Modalidad / Lugar de estudio: ${selectedModality}\n💵 Costo por curso: $18.75 (donación voluntaria no reembolsable)\n\nQuedo atento a las indicaciones para completar mi inscripción.`;
+  const waEnrollmentMessage = `Hola, deseo inscribirme en el curso "La Tierra de la Biblia" con el Dr. Joe Fitzpatrick.\n\n📚 Curso seleccionado: ${selectedCourse}\n📍 Modalidad / Lugar de estudio: ${selectedModality}\n💵 Costo por cada uno de los Cursos: Pendiente por confirmar.\n\nQuedo atento a las indicaciones para completar mi inscripción.`;
 
   const whatsappShareHref = `https://wa.me/?text=${encodeURIComponent(SHARE_COURSE_TEXT)}`;
 
@@ -259,7 +259,7 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
             <div className="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-2.5">
               <div className="flex items-center gap-2 text-amber-300 font-serif font-bold text-base">
                 <DollarSign className="w-5 h-5 text-amber-400 shrink-0" />
-                <span>Costo por cada uno de los Cursos: $18.75</span>
+                <span>Costo por cada uno de los Cursos: Pendiente por confirmar.</span>
               </div>
               <div className="flex items-start gap-2 text-[11px] text-amber-100/90 leading-relaxed pt-1 border-t border-amber-500/20">
                 <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
@@ -308,9 +308,9 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
                   onChange={(e) => setSelectedCourse(e.target.value as typeof selectedCourse)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"
                 >
-                  <option value="Curso I ($18.75)">Curso I: La Tierra de la Biblia I ($18.75)</option>
-                  <option value="Curso II ($18.75)">Curso II: La Tierra de la Biblia II ($18.75)</option>
-                  <option value="Ambos Cursos (I y II)">Ambos Cursos: I y II ($18.75 c/u)</option>
+                  <option value="Curso I">Curso I: La Tierra de la Biblia I (Pendiente por confirmar)</option>
+                  <option value="Curso II">Curso II: La Tierra de la Biblia II (Pendiente por confirmar)</option>
+                  <option value="Ambos Cursos (I y II)">Ambos Cursos: I y II (Pendiente por confirmar)</option>
                 </select>
               </div>
 
