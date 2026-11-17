@@ -31,7 +31,7 @@ export const DonationModal: React.FC<DonationModalProps> = ({ isOpen, onClose })
       id: 'centro-misionero',
       title: 'Sostenimiento de Sedes y Centros Misioneros',
       amount: '$50 USD / mes o donación voluntaria',
-      detail: 'Apoyo a las sedes de entrenamiento rural en Tacaná, San Lorenzo, Chinandega y El Crucero.'
+      detail: 'Apoyo a las sedes de entrenamiento rural en Tacaná, San Lorenzo y Chinandega.'
     }
   ];
 

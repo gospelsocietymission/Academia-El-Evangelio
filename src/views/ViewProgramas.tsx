@@ -8,13 +8,11 @@ import { SampleBookletModal } from '../components/SampleBookletModal';
 interface ViewProgramasProps {
   onOpenEnrollment: () => void;
   onEnrollmentSubmitted: (data: EnrollmentSubmission) => void;
-  onNavigateToAcuerdo?: () => void;
 }
 
 export const ViewProgramas: React.FC<ViewProgramasProps> = ({
   onOpenEnrollment,
   onEnrollmentSubmitted,
-  onNavigateToAcuerdo,
 }) => {
   const [selectedProgram, setSelectedProgram] = useState<AcademicProgram | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -148,15 +146,22 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
                 </div>
 
                 <div className="p-6 pt-0 space-y-2">
-                  <a
-                    href={buildWhatsAppUrl(`Hola, deseo solicitar el pensum e inscribirme en el programa de ${prog.title} de la Academia Bíblica El Evangelio.`)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow transition-all"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-white" />
-                    <span>Inscribirme por WhatsApp</span>
-                  </a>
+                  {prog.id === 'consejeria-biblica' || prog.id === 'predicacion-expositiva' ? (
+                    <div className="w-full py-2.5 px-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+                      <Clock className="w-4 h-4 shrink-0" />
+                      <span>Matrícula pendiente 2027</span>
+                    </div>
+                  ) : (
+                    <a
+                      href={buildWhatsAppUrl(`Hola, deseo solicitar el pensum e inscribirme en el programa de ${prog.title} de la Academia Bíblica El Evangelio.`)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow transition-all"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white" />
+                      <span>Inscribirme por WhatsApp</span>
+                    </a>
+                  )}
 
                   <button
                     onClick={() => handleOpenProgram(prog)}
@@ -274,7 +279,6 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmitInquiry={onEnrollmentSubmitted}
-        onNavigateToAcuerdo={onNavigateToAcuerdo}
       />
 
       {/* Sample Booklet Modal */}

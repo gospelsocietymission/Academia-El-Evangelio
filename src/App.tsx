@@ -95,7 +95,6 @@ export default function App() {
           <ViewProgramas
             onOpenEnrollment={() => setIsEnrollmentOpen(true)}
             onEnrollmentSubmitted={handleEnrollmentSubmitted}
-            onNavigateToAcuerdo={() => handleSelectPage('acuerdo')}
           />
         )}
 

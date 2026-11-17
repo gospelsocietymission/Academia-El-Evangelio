@@ -107,21 +107,6 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
 
 export const MISSIONARY_PROJECTS: MissionaryProject[] = [
   {
-    id: "el-crucero-nicaragua",
-    title: "Eco-Well Health El Crucero",
-    location: "El Crucero",
-    country: "Nicaragua",
-    category: "Salud Integral y Adicciones Conductuales",
-    image: "https://images.trvl-media.com/place/553248635974587720/625f08fd-7bb9-47d9-87fa-1c2d6deca7b9.jpg",
-    description: "En Eco-Well Health somos un espacio dedicado al aprendizaje y acompañamiento especializado en adicciones conductuales. Brindamos herramientas prácticas para ayudar a las personas a retomar el control frente a las adicciones a los videojuegos, las redes sociales y las compras impulsivas en internet. Además, contamos con un programa premium enfocado en sanar y superar la codependencia maternal, paternal o conyugal.",
-    missionaryCall: "Buscamos misioneros y consejeros con vocación de acompañamiento espiritual y psicológico-pastoral para apoyar talleres de recuperación, prevención y mentoría a jóvenes y familias afectadas.",
-    needs: [
-      "Consejeros bíblicos y acompañantes espirituales.",
-      "Líderes de talleres para jóvenes y adolescentes.",
-      "Facilitadores en sanidad de relaciones y codependencia."
-    ]
-  },
-  {
     id: "cheguate-tacana-guatemala",
     title: "Centro de Estudios y Biblioteca \"El Evangelio\"",
     location: "Cheguate, Tacaná",
@@ -150,25 +135,80 @@ export const MISSIONARY_PROJECTS: MissionaryProject[] = [
       "Capacitadores en primeros auxilios y autosostenimiento rural.",
       "Padrinos de becas y provisiones para estudiantes internos."
     ]
-  },
-  {
-    id: "clinica-cisneros-el-salvador",
-    title: "Clínica de Salud Dr. Cisneros",
-    location: "El Salvador",
-    country: "El Salvador",
-    category: "Consejería en Salud, Segunda Opinión y Educación Médica",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
-    description: "Es un centro de consejería, educación en Salud donde le ayudamos a los usuarios a entender su diagnóstico, guiarles sobre a qué especialista acudir o cómo moverse dentro de la Red Integrada de Servicios de Salud (pública o privada). Les ayudamos a obtener una Segunda Opinión y Auditoría Médica/Educativa: Orientar a familias sobre la validez de tratamientos complejos o cómo sobrellevar enfermedades crónicas. Además de nuestro constante trabajo en Talleres educativos, evaluación de riesgos laborales o comunitarios, y conexión con redes de apoyo social.",
-    missionaryCall: "Invitamos a profesionales de la salud, médicos, enfermeros(as) y educadores comunitarios con vocación de servicio cristiano a sumarse a nuestras brigadas y talleres de orientación médica preventiva.",
-    needs: [
-      "Médicos y especialistas voluntarios para segundas opiniones y orientación.",
-      "Educadores en salud comunitaria y prevención de enfermedades crónicas.",
-      "Colaboradores para talleres comunitarios y canalización social."
-    ]
   }
 ];
 
 export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
+  {
+    id: "actualizacion-ministerial",
+    title: "Actualización Ministerial",
+    subtitle: "Capacitación continua para pastores y líderes en las zonas rurales de Centroamérica",
+    description: "Este programa busca profundizar en la teología práctica y en doctrinas básicas. Estudiamos el ABC del evangelio.",
+    image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/estudiandotonala.jpg",
+    badge: "Programa Pastoral",
+    duration: "Indefinido · 1 encuentro mensual.",
+    modality: "Por correspondencia + 1 Encuentro mensual de comunión y cátedra",
+    modulesCount: 8,
+    highlightObjective: "Profundizar en la teología práctica y doctrinas básicas del ABC del evangelio, contrarrestando falsas enseñanzas en comunidad pastoral. Tenemos estos cursos base pero enseñamos cualquier tema que la comunidad pastoral nos pida.",
+    curriculum: [
+      {
+        code: "AM-01",
+        name: "Estudio de los Catecismos y Confesiones Históricas",
+        description: "Repaso claro y sistemático del fundamento doctrinal de la fe reformada histórica.",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-02",
+        name: "Temas libres a petición de los pastores",
+        description: "Exposición y diálogo abierto sobre atributos y verdades esenciales como la fidelidad de Dios y el Amor de Dios.",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-03",
+        name: "Historia de la Biblia Reina Valera",
+        description: "Recorrido histórico por la preservación, traducción y legado de las Sagradas Escrituras en nuestro idioma español.",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-04",
+        name: "Estudio completo del Evangelio de Juan",
+        description: "Análisis expositivo verso a verso del Evangelio de Juan con la intención de contrarrestar las falsas enseñanzas.",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-05",
+        name: "Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?",
+        description: "La IA como fruto de la gracia común, herramienta de mayordomía redimiendo el tiempo y recurso al servicio de la misión evangelística (1 Corintios 10:31).",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-06",
+        name: "La economía y \"el presente siglo malo\"",
+        description: "Análisis bíblico y teológico (Dr. Richard L. Smith, Centro Kyper) que contrasta la administración divina original (oikonomia) con el consumismo contemporáneo.",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-07",
+        name: "Liderazgo de Jesús: modelo de servicio, relación y propósito.",
+        description: "El líder como siervo (Juan 13:1-17), relaciones profundas sobre las tareas (Juan 15:12-15) y el ejemplo vivo (Juan 13:15; Juan 6:1-15).",
+        hours: "Encuentro Mensual"
+      },
+      {
+        code: "AM-08",
+        name: "Tal corazón como este.",
+        description: "Estudio basado en Such a Mind as This (Dr. Richard L. Smith): amar a Dios implica necesariamente usar la mente, estudiar y cultivar el pensamiento crítico.",
+        hours: "Encuentro Mensual"
+      }
+    ],
+    profile: [
+      "Pastores y obreros",
+      "Cuerpo de líderes y ancianos de congregaciones locales."
+    ],
+    requirements: [
+      "Deseo de actualización teológica y disposición para el aprendizaje continuo.",
+      "Participación activa en las mesas redondas."
+    ]
+  },
   {
     id: "consejeria-biblica",
     title: "Consejería Bíblica",
@@ -287,76 +327,6 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
       "Disponibilidad para practicar sermones en su congregación o misión.",
       "Cumplimiento puntual de las tareas y cuestionarios de los folletos."
     ]
-  },
-  {
-    id: "actualizacion-ministerial",
-    title: "Actualización Ministerial",
-    subtitle: "Capacitación continua para pastores y líderes en las zonas rurales de Centroamérica",
-    description: "Este programa busca profundizar en la teología práctica y en doctrinas básicas. Estudiamos el ABC del evangelio.",
-    image: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/estudiandotonala.jpg",
-    badge: "Programa Pastoral",
-    duration: "Indefinido · 1 encuentro mensual.",
-    modality: "Por correspondencia + 1 Encuentro mensual de comunión y cátedra",
-    modulesCount: 8,
-    highlightObjective: "Profundizar en la teología práctica y doctrinas básicas del ABC del evangelio, contrarrestando falsas enseñanzas en comunidad pastoral. Tenemos estos cursos base pero enseñamos cualquier tema que la comunidad pastoral nos pida.",
-    curriculum: [
-      {
-        code: "AM-01",
-        name: "Estudio de los Catecismos y Confesiones Históricas",
-        description: "Repaso claro y sistemático del fundamento doctrinal de la fe reformada histórica.",
-        hours: "Encuentro Mensual"
-      },
-      {
-        code: "AM-02",
-        name: "Temas libres a petición de los pastores",
-        description: "Exposición y diálogo abierto sobre atributos y verdades esenciales como la fidelidad de Dios y el Amor de Dios.",
-        hours: "Encuentro Mensual"
-      },
-      {
-        code: "AM-03",
-        name: "Historia de la Biblia Reina Valera",
-        description: "Recorrido histórico por la preservación, traducción y legado de las Sagradas Escrituras en nuestro idioma español.",
-        hours: "Encuentro Mensual"
-      },
-      {
-        code: "AM-04",
-        name: "Estudio completo del Evangelio de Juan",
-        description: "Análisis expositivo verso a verso del Evangelio de Juan con la intención de contrarrestar las falsas enseñanzas.",
-        hours: "Encuentro Mensual"
-      },
-      {
-        code: "AM-05",
-        name: "Inteligencia artificial, sabiduría eterna: ¿Cómo usar la tecnología para la gloria de Dios?",
-        description: "La IA como fruto de la gracia común, herramienta de mayordomía redimiendo el tiempo y recurso al servicio de la misión evangelística (1 Corintios 10:31).",
-        hours: "Encuentro Mensual"
-      },
-      {
-        code: "AM-06",
-        name: "La economía y \"el presente siglo malo\"",
-        description: "Análisis bíblico y teológico (Dr. Richard L. Smith, Centro Kyper) que contrasta la administración divina original (oikonomia) con el consumismo contemporáneo.",
-        hours: "Encuentro Mensual"
-      },
-      {
-        code: "AM-07",
-        name: "Liderazgo de Jesús: modelo de servicio, relación y propósito.",
-        description: "El líder como siervo (Juan 13:1-17), relaciones profundas sobre las tareas (Juan 15:12-15) y el ejemplo vivo (Juan 13:15; Juan 6:1-15).",
-        hours: "Encuentro Mensual"
-      },
-      {
-        code: "AM-08",
-        name: "Tal corazón como este.",
-        description: "Estudio basado en Such a Mind as This (Dr. Richard L. Smith): amar a Dios implica necesariamente usar la mente, estudiar y cultivar el pensamiento crítico.",
-        hours: "Encuentro Mensual"
-      }
-    ],
-    profile: [
-      "Pastores y obreros",
-      "Cuerpo de líderes y ancianos de congregaciones locales."
-    ],
-    requirements: [
-      "Deseo de actualización teológica y disposición para el aprendizaje continuo.",
-      "Participación activa en las mesas redondas."
-    ]
   }
 ];
 
@@ -435,7 +405,6 @@ export const PASTOR_ISAIAS_PROFILE = {
   mountainCaption: "Montañas de Centroamérica y Sur de México — Campo Misionero",
   portraitPhoto: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/isaias.jpg",
   missionJourney: "El caminar del Misionero Isaías Martínez es un profundo testimonio de entrega absoluta a la expansión del Evangelio en Centroamérica. Su llamado comenzó en octubre de 1998, llevando Biblias a las regiones más remotas y geográficamente inaccesibles. Ya sea a caballo o cargando pesadas cajas sobre su propia espalda a través de escarpadas montañas, ha recorrido incontables kilómetros para escuchar y orar con creyentes que viven en lugares donde pocos se atreven a ir.",
-  medicalAndProfessional: "Desde 2005, ha consolidado su labor misionera organizando brigadas médicas y odontológicas anuales junto a su esposa y su hijo. Estas misiones están enfocadas principalmente en educación teológica y en viajar a más de cinco países cada año para fortalecer la obra de Dios. Aunque posee experiencia profesional en Salud Pública, Mercadeo y Tecnología Web —y se desempeña como investigador científico en el sector salud—, no ve estos roles como un fin en sí mismos, sino como herramientas prácticas para servir mejor al prójimo y administrar con excelencia los recursos que Dios pone en sus manos.",
   theologicalTraining: "Movido por la convicción de que un obrero debe trazar bien la Palabra de Verdad, ha dedicado años al estudio profundo de las Escrituras. Su pasión por la enseñanza lo ha llevado a servir como profesor de Biblia, Griego y Hebreo en diversos seminarios, incluyendo una etapa formativa de servicio junto al Dr. Noé Acosta en el Seminario Reformado Latinoamericano (SRL).",
   degrees: [
     "Maestría en Predicación Expositiva (M.A.)",
@@ -1137,34 +1106,6 @@ export const MISSIONARY_REPORTS: import('../types').MissionaryReport[] = [
       "Consolidacion de la red de pastores en comunidades montañosas de San Marcos y Chiapas."
     ],
     prayerNeeds: "Oramos por sabiduria para los maestros itinerantes y por las rutas de transporte en zonas montañosas durante la temporada de lluvias."
-  },
-  {
-    id: "reporte-el-crucero-nicaragua-2026",
-    title: "Reporte de Consejeria: Eco-Well Health El Crucero",
-    date: "Agosto 2026",
-    location: "El Crucero, Nicaragua",
-    author: "Equipo de Consejeria Biblica Pastoral",
-    summary: "Balance de los talleres de orientacion familiar, prevencion de adicciones conductuales y restauracion espiritual para jovenes y matrimonios.",
-    highlights: [
-      "Talleres practicos sobre dominio propio frente a adicciones a videojuegos, redes sociales y compras compulsivas.",
-      "Sesiones de acompañamiento pastoral para sanidad de codependencia familiar y conyugal.",
-      "Distribucion de guias de estudio biblico practico para padres y lideres juveniles."
-    ],
-    prayerNeeds: "Oramos por nuevos consejeros voluntarios dispuestos a dedicar fines de semana al cuidado espiritual de jovenes y familias."
-  },
-  {
-    id: "reporte-clinica-cisneros-2026",
-    title: "Reporte de Salud Comunitaria: Clinica de Salud Dr. Cisneros",
-    date: "Julio 2026",
-    location: "El Salvador",
-    author: "Equipo Medico y Educativo Cristiano",
-    summary: "Sintesis de las orientaciones medicas gratuitas, segundas opiniones educativas y talleres preventivos brindados a familias de escasos recursos.",
-    highlights: [
-      "Orientacion a pacientes para navegar de forma efectiva la Red Integrada de Servicios de Salud.",
-      "Auditoria educativa y segunda opinion sobre tratamientos cronicos para familias rurales.",
-      "Talleres de prevencion de riesgos laborales y cuidado integral de la salud."
-    ],
-    prayerNeeds: "Oramos por medicos, enfermeras y educadores cristianos que deseen donar horas de servicio en futuras brigadas comunitarias."
   }
 ];
 

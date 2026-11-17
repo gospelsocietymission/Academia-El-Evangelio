@@ -435,7 +435,6 @@ export const ViewQuienesSomos: React.FC<ViewQuienesSomosProps> = () => {
                         <span>Trayectoria Misionera desde 1998</span>
                       </h4>
                       <p>{PASTOR_ISAIAS_PROFILE.missionJourney}</p>
-                      <p>{PASTOR_ISAIAS_PROFILE.medicalAndProfessional}</p>
                     </div>
 
                     <div className="p-5 rounded-2xl bg-slate-950/90 border border-slate-800 space-y-3">

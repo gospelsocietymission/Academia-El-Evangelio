@@ -33,7 +33,7 @@ export const ViewProyectos: React.FC = () => {
           </div>
 
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            La fe cristiana se manifiesta en amor práctico y servicio abnegado. Te invitamos a conocer los cuatro proyectos donde requerimos el apoyo de misioneros, líderes de ministerio y profesionales con vocación de servicio en Centroamérica.
+            La fe cristiana se manifiesta en amor práctico y servicio abnegado. Te invitamos a conocer los dos proyectos donde requerimos el apoyo de misioneros y líderes de ministerio con vocación de servicio en Centroamérica.
           </p>
 
           {/* Prominent Reportes Misioneros Button */}
@@ -60,16 +60,6 @@ export const ViewProyectos: React.FC = () => {
               Todos los Proyectos ({MISSIONARY_PROJECTS.length})
             </button>
             <button
-              onClick={() => setSelectedCountry('Nicaragua')}
-              className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                selectedCountry === 'Nicaragua'
-                  ? 'bg-amber-500 text-slate-950 shadow-md'
-                  : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-              }`}
-            >
-              Nicaragua (El Crucero)
-            </button>
-            <button
               onClick={() => setSelectedCountry('Guatemala')}
               className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 selectedCountry === 'Guatemala'
@@ -89,20 +79,10 @@ export const ViewProyectos: React.FC = () => {
             >
               Honduras (San Lorenzo)
             </button>
-            <button
-              onClick={() => setSelectedCountry('El Salvador')}
-              className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                selectedCountry === 'El Salvador'
-                  ? 'bg-amber-500 text-slate-950 shadow-md'
-                  : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-              }`}
-            >
-              El Salvador
-            </button>
           </div>
         </div>
 
-        {/* 4 Projects Grid */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
             <div

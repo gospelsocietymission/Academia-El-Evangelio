@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, BookOpen, CheckCircle2, MessageCircle, Award, Layers, FileText } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, BookOpen, CheckCircle2, MessageCircle, Award, Layers, Clock } from 'lucide-react';
 import { AcademicProgram, EnrollmentSubmission } from '../types';
 import { INSTITUTION_INFO, buildWhatsAppUrl } from '../data/academyData';
 
@@ -8,7 +8,6 @@ interface ProgramModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmitInquiry: (data: EnrollmentSubmission) => void;
-  onNavigateToAcuerdo?: () => void;
 }
 
 export const ProgramModal: React.FC<ProgramModalProps> = ({
@@ -16,7 +15,6 @@ export const ProgramModal: React.FC<ProgramModalProps> = ({
   isOpen,
   onClose,
   onSubmitInquiry,
-  onNavigateToAcuerdo,
 }) => {
   const [activeTab, setActiveTab] = useState<'pensum' | 'perfil' | 'solicitar'>('pensum');
   
@@ -33,17 +31,14 @@ export const ProgramModal: React.FC<ProgramModalProps> = ({
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
+  useEffect(() => {
+    setActiveTab('pensum');
+  }, [program?.id, isOpen]);
+
   if (!isOpen || !program) return null;
 
-  const handleOpenAcuerdo = () => {
-    onClose();
-    if (onNavigateToAcuerdo) {
-      onNavigateToAcuerdo();
-    } else {
-      window.location.hash = 'acuerdo';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+  const isEnrollmentPending =
+    program.id === 'consejeria-biblica' || program.id === 'predicacion-expositiva';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -130,26 +125,18 @@ _Enviado desde academiabiblica.net_`;
             >
               Perfil y Requisitos
             </button>
-            {program.id === 'actualizacion-ministerial' && (
+            {!isEnrollmentPending && (
               <button
-                type="button"
-                onClick={handleOpenAcuerdo}
-                className="my-1.5 ml-1 px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold tracking-wide transition-colors whitespace-nowrap cursor-pointer inline-flex items-center gap-1.5 shadow"
+                onClick={() => setActiveTab('solicitar')}
+                className={`py-3 px-4 text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer border-b-2 ${
+                  activeTab === 'solicitar'
+                    ? 'border-emerald-400 text-emerald-300'
+                    : 'border-transparent text-slate-400 hover:text-slate-200'
+                }`}
               >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Acuerdo de entendimiento (PDF)</span>
+                Solicitar por WhatsApp
               </button>
             )}
-            <button
-              onClick={() => setActiveTab('solicitar')}
-              className={`py-3 px-4 text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer border-b-2 ${
-                activeTab === 'solicitar'
-                  ? 'border-emerald-400 text-emerald-300'
-                  : 'border-transparent text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              Solicitar por WhatsApp
-            </button>
           </div>
         </div>
 
@@ -193,16 +180,23 @@ _Enviado desde academiabiblica.net_`;
                 ))}
               </div>
 
-              <div className="bg-white p-4 rounded-xl border border-stone-200 text-xs text-stone-600 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <span>¿Deseas recibir el pensum completo en PDF a tu WhatsApp oficial?</span>
-                <button
-                  onClick={() => setActiveTab('solicitar')}
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs transition-colors shrink-0 flex items-center gap-1.5"
-                >
-                  <MessageCircle className="w-3.5 h-3.5" />
-                  <span>Solicitar por WhatsApp</span>
-                </button>
-              </div>
+              {isEnrollmentPending ? (
+                <div className="bg-amber-50 p-4 rounded-xl border border-amber-200 text-xs text-amber-900 flex items-center justify-center gap-2 font-semibold">
+                  <Clock className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>Matrícula pendiente 2027</span>
+                </div>
+              ) : (
+                <div className="bg-white p-4 rounded-xl border border-stone-200 text-xs text-stone-600 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <span>¿Deseas recibir el pensum completo en PDF a tu WhatsApp oficial?</span>
+                  <button
+                    onClick={() => setActiveTab('solicitar')}
+                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs transition-colors shrink-0 flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>Solicitar por WhatsApp</span>
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
@@ -230,22 +224,10 @@ _Enviado desde academiabiblica.net_`;
 
               {/* Requirements Card */}
               <div className="bg-white p-6 rounded-xl border border-stone-200 shadow-sm space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <h4 className="font-serif font-bold text-base text-slate-900 flex items-center gap-2">
-                    <Award className="w-5 h-5 text-amber-600" />
-                    Requisitos de Admisión
-                  </h4>
-                  {program.id === 'actualizacion-ministerial' && (
-                    <button
-                      type="button"
-                      onClick={handleOpenAcuerdo}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow transition-colors cursor-pointer"
-                    >
-                      <FileText className="w-3.5 h-3.5" />
-                      <span>Acuerdo de entendimiento (PDF)</span>
-                    </button>
-                  )}
-                </div>
+                <h4 className="font-serif font-bold text-base text-slate-900 flex items-center gap-2">
+                  <Award className="w-5 h-5 text-amber-600" />
+                  Requisitos de Admisión
+                </h4>
                 <ul className="space-y-2.5">
                   {program.requirements.map((item, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-xs text-stone-700">
@@ -257,29 +239,26 @@ _Enviado desde academiabiblica.net_`;
               </div>
 
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-                {program.id === 'actualizacion-ministerial' && (
+                {isEnrollmentPending ? (
+                  <div className="px-6 py-2.5 bg-amber-50 border border-amber-300 text-amber-900 font-bold text-xs uppercase tracking-wider rounded-lg flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-amber-600" />
+                    <span>Matrícula pendiente 2027</span>
+                  </div>
+                ) : (
                   <button
-                    type="button"
-                    onClick={handleOpenAcuerdo}
-                    className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-lg shadow transition-all flex items-center gap-2 cursor-pointer"
+                    onClick={() => setActiveTab('solicitar')}
+                    className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow transition-all flex items-center gap-2 cursor-pointer"
                   >
-                    <FileText className="w-4 h-4" />
-                    <span>Llenar acuerdo de entendimiento (PDF)</span>
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Continuar a Solicitud por WhatsApp</span>
                   </button>
                 )}
-                <button
-                  onClick={() => setActiveTab('solicitar')}
-                  className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow transition-all flex items-center gap-2 cursor-pointer"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Continuar a Solicitud por WhatsApp</span>
-                </button>
               </div>
             </div>
           )}
 
           {/* TAB 3: SOLICITAR / ENROLLMENT FORM */}
-          {activeTab === 'solicitar' && (
+          {activeTab === 'solicitar' && !isEnrollmentPending && (
             <div className="bg-white p-6 sm:p-8 rounded-xl border border-stone-200 shadow-sm">
               {formSubmitted ? (
                 <div className="py-12 text-center space-y-3">
