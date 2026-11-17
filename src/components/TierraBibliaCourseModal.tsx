@@ -50,7 +50,7 @@ Bienvenidos al estudio de la Tierra de la Biblia: cómo la geografía, el clima,
 • Curso II: La Tierra de la Biblia II (Dios, pacto, tierra y pueblo)
 
 💵 Costo por cada uno de los Cursos: Pendiente por confirmar.
-📍 Lugar de Estudio: Presencial en Ahuachapán, El Salvador · o Virtual (ZOOM Sincrónico / Videos Asincrónico)
+📍 Lugar de Estudio: Presencial en Ahuachapán, El Salvador (Sábado 2:00 p.m. - 4:00 p.m. | Jueves 6:30 p.m. - 7:30 p.m.) · o Virtual (ZOOM Sincrónico / Videos Asincrónico)
 
 Ver contenido completo e inscribirse aquí:
 ${SHARE_COURSE_URL}`;
@@ -278,9 +278,14 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
               <ul className="space-y-2 text-xs text-slate-300">
                 <li className="flex items-start gap-2">
                   <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>
-                    <strong className="text-white">Opción Sede Presencial:</strong> Ahuachapán, El Salvador
-                  </span>
+                  <div className="space-y-0.5">
+                    <span>
+                      <strong className="text-white">Opción Sede Presencial:</strong> Ahuachapán, El Salvador
+                    </span>
+                    <span className="block text-[11px] text-amber-300 font-medium">
+                      Horario: Sábado 2:00 p.m. - 4:00 p.m. · Jueves 6:30 p.m. - 7:30 p.m.
+                    </span>
+                  </div>
                 </li>
                 <li className="flex items-start gap-2">
                   <Monitor className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
