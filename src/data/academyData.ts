@@ -63,8 +63,8 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     country: "Nicaragua",
     city: "Chinandega",
     fullLocation: "Chinandega, Nicaragua",
-    type: "Sede Regional de Estudios",
-    description: "Centro de distribución de folletos didácticos y reuniones mensuales de formación teológica en las fértiles llanuras agrícolas y faldas del volcán San Cristóbal.",
+    type: "Puerto Corinto, Tonalá, Puerto Morazán, Somotillo",
+    description: "Centro de distribución de folletos didácticos y reuniones mensuales de formación teológica cubriendo Puerto Corinto, Tonalá, Puerto Morazán y Somotillo.",
     ruralImage: "https://www.mapanicaragua.com/wp-content/uploads/2020/05/volcan-san-cristobal-1.jpg"
   },
   {
@@ -99,7 +99,7 @@ export const PHYSICAL_BRANCHES: PhysicalBranch[] = [
     country: "Honduras",
     city: "San Lorenzo",
     fullLocation: "San Lorenzo, Valle, Honduras",
-    type: "Centro Misionero y Formativo",
+    type: "Centro Misionero \"Heme aquí, envíame a mí\"",
     description: "Base de entrenamiento misionero rural en el sur hondureño cerca del Golfo de Fonseca, combinando teología práctica con supervivencia diaria en el campo.",
     ruralImage: "https://raw.githubusercontent.com/gospelsocietymission/Academia-El-Evangelio/main/fotoscomun/san%20lorenzo.jpeg"
   }

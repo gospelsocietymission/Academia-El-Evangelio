@@ -146,7 +146,7 @@ _Enviado desde academiabiblica.net_`;
                 <div>
                   <span className="text-slate-400 text-[11px] block">Sedes Oficiales Físicas:</span>
                   <span className="text-white font-medium text-[11px] leading-relaxed">
-                    Ahuachapán (El Salvador) · Chinandega y Tipitapa (Nicaragua) · Cartago (Costa Rica) · Tacaná (Guatemala) · San Lorenzo (Honduras)
+                    Ahuachapán (El Salvador) · Chinandega: Puerto Corinto, Tonalá, Puerto Morazán, Somotillo y Tipitapa (Nicaragua) · Cartago (Costa Rica) · Tacaná (Guatemala) · San Lorenzo — Centro Misionero "Heme aquí, envíame a mí" (Honduras)
                   </span>
                 </div>
               </div>
