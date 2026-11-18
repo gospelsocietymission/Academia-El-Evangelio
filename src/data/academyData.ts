@@ -586,11 +586,11 @@ export const CONFERENCES_DATA: ConferenceEvent[] = [
     theme: "La Tierra de la Biblia (Curso I y Curso II)",
     date: "2 al 20 de Enero, 2027",
     time: "Presencial / Virtual ZOOM Sincrónico / Asincrónico",
-    location: "Ahuachapán, El Salvador y Virtual",
+    location: "Ahuachapán, El Salvador",
     country: "El Salvador",
     modality: "Presencial y Virtual",
     speakers: "Dr. Joe Fitzpatrick",
-    description: "Estudio de la Tierra de la Biblia dividido en dos cursos (6 lecciones c/u): fundamentos, geografía bíblica, pacto y pueblo.",
+    description: "Estudio de la Tierra de la Biblia dividido en dos cursos (5 lecciones c/u): fundamentos, geografía bíblica, pacto y pueblo.",
     availableSpots: "Abierto a pastores, estudiantes y líderes"
   },
   {

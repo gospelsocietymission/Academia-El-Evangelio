@@ -94,7 +94,7 @@ export const ViewHome: React.FC<ViewHomeProps> = ({
 
   const handleShareTierraBiblia = async () => {
     const shareUrl = 'https://academiabiblica.net/#tierra-de-la-biblia';
-    const shareText = `📖 Curso: La Tierra de la Biblia — Dr. Joe Fitzpatrick (Academia Bíblica El Evangelio)\nDividido en Curso I y Curso II (6 lecciones c/u). Presencial en Ahuachapán o Virtual por ZOOM.\nVer contenido completo aquí: ${shareUrl}`;
+    const shareText = `📖 Curso: La Tierra de la Biblia — Dr. Joe Fitzpatrick (Academia Bíblica El Evangelio)\nDividido en Curso I y Curso II (5 lecciones c/u). Presencial en Ahuachapán o Virtual por ZOOM.\nVer contenido completo aquí: ${shareUrl}`;
 
     if (typeof navigator !== 'undefined' && navigator.share) {
       try {

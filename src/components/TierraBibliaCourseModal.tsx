@@ -12,6 +12,7 @@ import {
   Share2,
   Copy,
   Check,
+  Calendar,
 } from 'lucide-react';
 import { buildWhatsAppUrl } from '../data/academyData';
 
@@ -20,22 +21,55 @@ interface TierraBibliaCourseModalProps {
   onClose: () => void;
 }
 
-const COURSE_I_LESSONS = [
-  '1. Bienvenida y fundamento: Lucas 24 como clave, objetivos y metodología, Juan 3:30 y el clavo romano (Is 53:5)',
-  '2. ¿Por qué estudiar la Tierra de la Biblia? Sal 42 y 125, Éx 17 y Núm 20, Jn 4, Lc 7, 1 Co 10',
-  '3. La Gran Idea: Israel y Jerusalén como “ombligo” (Ez 5 y 38:12) y el mundo circundante',
-  '4. Las rutas comerciales I: Camino del Mar y Ruta del Incienso',
-  '5. Las rutas comerciales II y dimensiones: Transjordana, Desierto y Patriarcas, más el tamaño y la diversidad de la Tierra',
-  '6. Las regiones: Baly y las 26 regiones según JUC, con repaso general',
+interface CourseSession {
+  schedule: string;
+  lessons: string[];
+}
+
+const COURSE_I_SESSIONS: CourseSession[] = [
+  {
+    schedule: 'Jueves 7 de Enero · 6:00 - 7:30 p.m.',
+    lessons: [
+      '1. Fundamento: Lucas 24 como clave, objetivos y metodología, Juan 3:30 y el clavo romano (Is 53:5). ¿Por qué estudiar la Tierra de la Biblia? Sal 42 y 125, Éx 17 y Núm 20, Jn 4, Lc 7, 1 Co 10.',
+      '2. La Gran Idea: Israel y Jerusalén como “ombligo” (Ez 5 y 38:12) y el mundo circundante',
+    ],
+  },
+  {
+    schedule: 'Sábado 9 de Enero · 4:00 - 6:00 p.m.',
+    lessons: [
+      '3. Las rutas comerciales I: Camino del Mar y Ruta del Incienso',
+      '4. Las rutas comerciales II y dimensiones: Transjordana, Desierto y Patriarcas, más el tamaño y la diversidad de la Tierra',
+    ],
+  },
+  {
+    schedule: 'Jueves 14 de Enero · 6:00 - 7:30 p.m.',
+    lessons: [
+      '5. Las regiones: Baly y las 26 regiones según JUC, con repaso general',
+    ],
+  },
 ];
 
-const COURSE_II_LESSONS = [
-  '1. Las tres fuentes de agua (Dt 8:7): manantiales, pozos y cisternas',
-  '2. Las siete especies de alimentos (Dt 8:8, Neh 9:25)',
-  '3. La lluvia y el año agrícola (Dt 11:13-16)',
-  '4. Las fiestas solemnes (Dt 16:16, Lv 23): Pascua, Semanas/Pentecostés y Tabernáculos',
-  '5. Dios, nuestra Roca: la geología y sus capas',
-  '6. Conectando los puntos y la historia: las regiones entre sí y el repaso por mapas (Salomón, exilio, Persia, Alejandro, Macabeos)',
+const COURSE_II_SESSIONS: CourseSession[] = [
+  {
+    schedule: 'Jueves 14 de Enero · 6:00 - 7:30 p.m.',
+    lessons: [
+      '6. Las tres fuentes de agua (Dt 8:7): manantiales, pozos y cisternas y Las siete especies de alimentos (Dt 8:8, Neh 9:25)',
+    ],
+  },
+  {
+    schedule: 'Sábado 16 de Enero · 4:00 - 6:00 p.m.',
+    lessons: [
+      '7. La lluvia y el año agrícola (Dt 11:13-16)',
+      '8. Las fiestas solemnes (Dt 16:16, Lv 23): Pascua, Pentecostés y Tabernáculos',
+    ],
+  },
+  {
+    schedule: 'Jueves 21 de Enero',
+    lessons: [
+      '9. Dios, nuestra Roca: la geología y sus capas.',
+      '10. Conectando los puntos y la historia: las regiones entre sí y el repaso por mapas (Salomón, El exilio, Imperio Persia, Alejandro el Magno, Los Macabeos)',
+    ],
+  },
 ];
 
 const SHARE_COURSE_URL = 'https://academiabiblica.net/#tierra-de-la-biblia';
@@ -45,12 +79,12 @@ Academia Bíblica El Evangelio
 
 Bienvenidos al estudio de la Tierra de la Biblia: cómo la geografía, el clima, las rutas, las aguas, los cultivos y las fiestas de Israel dieron forma a las Escrituras y revelan el pacto de Dios en Cristo.
 
-✅ *Dividido en 2 Cursos (6 lecciones c/u):*
+✅ *Dividido en 2 Cursos (5 lecciones c/u):*
 • Curso I: La Tierra de la Biblia I (fundamentos, mapa y geografía)
 • Curso II: La Tierra de la Biblia II (Dios, pacto, tierra y pueblo)
 
 💵 Costo por cada uno de los Cursos: Pendiente por confirmar.
-📍 Lugar de Estudio: Presencial en Ahuachapán, El Salvador (Sábado 2:00 p.m. - 4:00 p.m. | Jueves 6:30 p.m. - 7:30 p.m.) · o Virtual (ZOOM Sincrónico / Videos Asincrónico)
+📍 Lugar de Estudio: Presencial en Ahuachapán, El Salvador (Jueves 6:00 - 7:30 p.m. | Sábado 4:00 - 6:00 p.m.) · o Virtual (ZOOM Sincrónico / Videos Asincrónico)
 
 Ver contenido completo e inscribirse aquí:
 ${SHARE_COURSE_URL}`;
@@ -206,49 +240,69 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
           <div className="space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h4 className="font-serif text-base sm:text-lg font-bold text-white">
-                Estructura: Dividido en dos cursos (6 lecciones cada uno)
+                Estructura: Dividido en dos cursos (5 lecciones cada uno)
               </h4>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Curso I */}
-              <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+              <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
                 <div className="pb-2 border-b border-slate-800">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block">
-                    6 Lecciones
+                    5 Lecciones
                   </span>
                   <h5 className="font-serif font-bold text-white text-sm sm:text-base">
                     Curso I: La Tierra de la Biblia I (fundamentos, mapa y geografía)
                   </h5>
                 </div>
-                <ul className="space-y-2 text-xs text-slate-300 leading-relaxed">
-                  {COURSE_I_LESSONS.map((lesson, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                      <span>{lesson}</span>
-                    </li>
+                <div className="space-y-4">
+                  {COURSE_I_SESSIONS.map((session, sIdx) => (
+                    <div key={sIdx} className="space-y-2">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] font-bold">
+                        <Calendar className="w-3.5 h-3.5 shrink-0" />
+                        <span>{session.schedule}</span>
+                      </div>
+                      <ul className="space-y-2 text-xs text-slate-300 leading-relaxed pl-0.5">
+                        {session.lessons.map((lesson, lIdx) => (
+                          <li key={lIdx} className="flex items-start gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                            <span>{lesson}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
 
               {/* Curso II */}
-              <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+              <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
                 <div className="pb-2 border-b border-slate-800">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block">
-                    6 Lecciones
+                    5 Lecciones
                   </span>
                   <h5 className="font-serif font-bold text-white text-sm sm:text-base">
                     Curso II: La Tierra de la Biblia II (Dios, pacto, tierra y pueblo)
                   </h5>
                 </div>
-                <ul className="space-y-2 text-xs text-slate-300 leading-relaxed">
-                  {COURSE_II_LESSONS.map((lesson, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                      <span>{lesson}</span>
-                    </li>
+                <div className="space-y-4">
+                  {COURSE_II_SESSIONS.map((session, sIdx) => (
+                    <div key={sIdx} className="space-y-2">
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] font-bold">
+                        <Calendar className="w-3.5 h-3.5 shrink-0" />
+                        <span>{session.schedule}</span>
+                      </div>
+                      <ul className="space-y-2 text-xs text-slate-300 leading-relaxed pl-0.5">
+                        {session.lessons.map((lesson, lIdx) => (
+                          <li key={lIdx} className="flex items-start gap-2">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                            <span>{lesson}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -283,7 +337,7 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
                       <strong className="text-white">Opción Sede Presencial:</strong> Ahuachapán, El Salvador
                     </span>
                     <span className="block text-[11px] text-amber-300 font-medium">
-                      Horario: Sábado 2:00 p.m. - 4:00 p.m. · Jueves 6:30 p.m. - 7:30 p.m.
+                      Horario: Jueves 6:00 - 7:30 p.m. · Sábado 4:00 - 6:00 p.m.
                     </span>
                   </div>
                 </li>
