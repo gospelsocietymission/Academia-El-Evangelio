@@ -28,7 +28,7 @@ interface CourseSession {
 
 const COURSE_I_SESSIONS: CourseSession[] = [
   {
-    schedule: 'Jueves 7 de Enero · 6:00 - 7:30 p.m.',
+    schedule: 'Jueves 7 de Enero · 6:30 - 7:30 p.m.',
     lessons: [
       '1. Fundamento: Lucas 24 como clave, objetivos y metodología, Juan 3:30 y el clavo romano (Is 53:5). ¿Por qué estudiar la Tierra de la Biblia? Sal 42 y 125, Éx 17 y Núm 20, Jn 4, Lc 7, 1 Co 10.',
       '2. La Gran Idea: Israel y Jerusalén como “ombligo” (Ez 5 y 38:12) y el mundo circundante',
@@ -42,7 +42,7 @@ const COURSE_I_SESSIONS: CourseSession[] = [
     ],
   },
   {
-    schedule: 'Jueves 14 de Enero · 6:00 - 7:30 p.m.',
+    schedule: 'Jueves 14 de Enero · 6:30 - 7:30 p.m.',
     lessons: [
       '5. Las regiones: Baly y las 26 regiones según JUC, con repaso general',
     ],
@@ -51,7 +51,7 @@ const COURSE_I_SESSIONS: CourseSession[] = [
 
 const COURSE_II_SESSIONS: CourseSession[] = [
   {
-    schedule: 'Jueves 14 de Enero · 6:00 - 7:30 p.m.',
+    schedule: 'Jueves 14 de Enero · 6:30 - 7:30 p.m.',
     lessons: [
       '6. Las tres fuentes de agua (Dt 8:7): manantiales, pozos y cisternas y Las siete especies de alimentos (Dt 8:8, Neh 9:25)',
     ],
@@ -64,7 +64,7 @@ const COURSE_II_SESSIONS: CourseSession[] = [
     ],
   },
   {
-    schedule: 'Jueves 21 de Enero',
+    schedule: 'Jueves 21 de Enero · 6:30 - 7:30 p.m.',
     lessons: [
       '9. Dios, nuestra Roca: la geología y sus capas.',
       '10. Conectando los puntos y la historia: las regiones entre sí y el repaso por mapas (Salomón, El exilio, Imperio Persia, Alejandro el Magno, Los Macabeos)',
@@ -84,7 +84,7 @@ Bienvenidos al estudio de la Tierra de la Biblia: cómo la geografía, el clima,
 • Curso II: La Tierra de la Biblia II (Dios, pacto, tierra y pueblo)
 
 💵 Costo por cada uno de los Cursos: Pendiente por confirmar.
-📍 Lugar de Estudio: Presencial en Ahuachapán, El Salvador (Jueves 6:00 - 7:30 p.m. | Sábado 4:00 - 6:00 p.m.) · o Virtual (ZOOM Sincrónico / Videos Asincrónico)
+📍 Lugar de Estudio: Presencial en Ahuachapán, El Salvador (Jueves 6:30 - 7:30 p.m. | Sábado 4:00 - 6:00 p.m.) · o Virtual (Videos grabados Asincrónico)
 
 Ver contenido completo e inscribirse aquí:
 ${SHARE_COURSE_URL}`;
@@ -93,8 +93,8 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
   isOpen,
   onClose,
 }) => {
-  const [selectedCourse, setSelectedCourse] = useState<'Curso I' | 'Curso II' | 'Ambos Cursos (I y II)'>('Curso I');
-  const [selectedModality, setSelectedModality] = useState<'Sede Presencial Ahuachapán, El Salvador' | 'Virtual en ZOOM Sincrónico' | 'Videos grabados Asincrónico'>('Sede Presencial Ahuachapán, El Salvador');
+  const [selectedCourse, setSelectedCourse] = useState<'Curso I y II - La Tierra de la Biblia'>('Curso I y II - La Tierra de la Biblia');
+  const [selectedModality, setSelectedModality] = useState<'Opción Sede Presencial - Ahuachapán, El Salvador' | 'Opción Virtual - Videos grabados Asincrónico'>('Opción Sede Presencial - Ahuachapán, El Salvador');
   const [copied, setCopied] = useState(false);
 
   if (!isOpen) return null;
@@ -337,14 +337,14 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
                       <strong className="text-white">Opción Sede Presencial:</strong> Ahuachapán, El Salvador
                     </span>
                     <span className="block text-[11px] text-amber-300 font-medium">
-                      Horario: Jueves 6:00 - 7:30 p.m. · Sábado 4:00 - 6:00 p.m.
+                      Horario: Jueves 6:30 - 7:30 p.m. · Sábado 4:00 - 6:00 p.m.
                     </span>
                   </div>
                 </li>
                 <li className="flex items-start gap-2">
                   <Monitor className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
                   <span>
-                    <strong className="text-white">Opción Virtual:</strong> en ZOOM Sincrónico o Videos grabados Asincrónico
+                    <strong className="text-white">Opción Virtual:</strong> Videos grabados Asincrónico
                   </span>
                 </li>
               </ul>
@@ -367,9 +367,7 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
                   onChange={(e) => setSelectedCourse(e.target.value as typeof selectedCourse)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"
                 >
-                  <option value="Curso I">Curso I: La Tierra de la Biblia I (Pendiente por confirmar)</option>
-                  <option value="Curso II">Curso II: La Tierra de la Biblia II (Pendiente por confirmar)</option>
-                  <option value="Ambos Cursos (I y II)">Ambos Cursos: I y II (Pendiente por confirmar)</option>
+                  <option value="Curso I y II - La Tierra de la Biblia">Curso I y II - La Tierra de la Biblia</option>
                 </select>
               </div>
 
@@ -382,9 +380,8 @@ export const TierraBibliaCourseModal: React.FC<TierraBibliaCourseModalProps> = (
                   onChange={(e) => setSelectedModality(e.target.value as typeof selectedModality)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"
                 >
-                  <option value="Sede Presencial Ahuachapán, El Salvador">Opción Sede Presencial: Ahuachapán, El Salvador</option>
-                  <option value="Virtual en ZOOM Sincrónico">Opción Virtual en ZOOM Sincrónico</option>
-                  <option value="Videos grabados Asincrónico">Opción Virtual: Videos grabados Asincrónico</option>
+                  <option value="Opción Sede Presencial - Ahuachapán, El Salvador">Opción Sede Presencial - Ahuachapán, El Salvador</option>
+                  <option value="Opción Virtual - Videos grabados Asincrónico">Opción Virtual - Videos grabados Asincrónico</option>
                 </select>
               </div>
             </div>
