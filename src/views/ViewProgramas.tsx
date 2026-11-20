@@ -75,8 +75,11 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
                 Recomendación de Estudios · Posgrado
               </span>
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                La Academia Bíblica El Evangelio recomienda el programa de Maestría de SRL
+                La Academia Bíblica El Evangelio recomienda
               </h2>
+              <p className="text-xs sm:text-sm font-medium text-amber-300 mt-0.5">
+                La Maestría de SRL
+              </p>
             </div>
           </div>
 
@@ -137,6 +140,9 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
               <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
                 {PROGRAMAS_PAGE_DATA.metodoEstudio.title}
               </h2>
+              <p className="text-xs sm:text-sm font-medium text-amber-300 mt-0.5">
+                {PROGRAMAS_PAGE_DATA.metodoEstudio.slogan}
+              </p>
             </div>
           </div>
 
@@ -170,7 +176,7 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
         <div className="space-y-8">
           <div className="text-center">
             <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
-              Planes de Estudio
+              Planes de Estudio en la Academia
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">
               Nuestros 3 Programas Pastorales

@@ -332,7 +332,8 @@ export const ACADEMIC_PROGRAMS: AcademicProgram[] = [
 
 export const PROGRAMAS_PAGE_DATA = {
   metodoEstudio: {
-    title: "Nuestro Método de Estudio por Correspondencia",
+    title: "Metodología de los programas de Academia Bíblica El Evangelio",
+    slogan: "Nuestro Método de Estudio es por Correspondencia",
     descripcion: "Usamos el método de estudio por correspondencia diseñado para la autogestión del aprendizaje a su propio ritmo. El estudiante recibirá por cada materia 30 horas de video clases, y un folleto impreso con espacios en blanco donde podrá llevar control de su aprendizaje. El estudiante presentará un resumen de lo aprendido y pasando 4 semanas regresará para recibir otra materia. El estudiante deberá exponer lo que va aprendiendo al resto del grupo en nuestra Reunión mensual.",
     puntosClave: [
       "10% Teoría (30 horas de video previamente grabadas)",
@@ -355,8 +356,8 @@ export const PROGRAMAS_PAGE_DATA = {
     notaDonaciones: "Todos los pagos realizados no son reembolsables. Cualquier monto enviado a la Academia Bíblica se considera una donación voluntaria para apoyar nuestra misión como entidad sin fines de lucro."
   },
   admision: {
-    title: "Proceso de Admisión Simple",
-    descripcion: "Para ser admitido requerimos procesos simples; funcionamos a través de la iglesia local con representantes nacionales que acompañan todo el proceso:",
+    title: "Proceso de Admisión en la Academia",
+    descripcion: "Para ser admitido en la Academia Bíblica El Evangelio requerimos procesos simples; funcionamos a través de la iglesia local con representantes nacionales que acompañan todo el proceso:",
     pasos: [
       "Entrevista simple con el representante nacional de la Academia.",
       "Llenar el formulario en línea (si no sabe cómo hacerlo, el representante le ayudará).",
@@ -413,15 +414,21 @@ export const PASTOR_ISAIAS_PROFILE = {
     "Doctorado en Teología (Th.D.) — en curso"
   ],
   teachingRoles: [
-    "Experiencia Docente como profesor de Biblia, Griego y Hebreo en seminarios teológicos.",
-    "Colaborador para Seminario Reformado Latinoamericano (SRL).",
+    "Fundador de Gospel Society Mission, El Salvador.",
+    "Experiencia docente como profesor de Biblia, Griego y Hebreo en seminarios teológicos.",
     "Profesor asociado en Teaching Missions International (TMI).",
-    "Colaborador de Sociedad Bíblica Trinitaria."
+    "Profesor invitado de Hebreo en Seminario Semper Reformanda, El Salvador.",
+    "Colaborador para Seminario Reformado Latinoamericano (SRL).",
+    "Colaborador de Sociedad Bíblica Trinitaria.",
+    "Colaborador de Centro de Estudios Kuyper de Argentina.",
+    "Colaborador de Equipping the Church International (ECI) by Pastor José Amézquita."
   ],
   professionalSkills: [
     "Salud Pública e Investigación Científica en el sector salud",
     "Mercadeo y Tecnología Web aplicados a la misión",
-    "Coordinación anual de brigadas médicas y odontológicas familiares (desde 2005)"
+    "Coordinación anual de brigadas médicas y odontológicas familiares (desde 2005)",
+    "Colaborador de Mission of Harmony medical teams for Honduras.",
+    "Colaborador de Fishbait medical teams for El Salvador."
   ],
   currentFocus: "Hoy, su enfoque principal es el desarrollo de la Academia Ministerial dedicada a capacitar a líderes y pastores en áreas rurales de Guatemala, México, El Salvador, Honduras, Nicaragua y Costa Rica. En estas regiones, donde la distancia representa una barrera importante, trabaja incansablemente para proveer formación teológica de alto nivel a quienes carecen de acceso a educación básica.",
   quote: "Mi vida se trata de servir a Dios junto a hermanos y hermanas que, por su ubicación geográfica o formación educativa, han sido marginados de la capacitación bíblica. Mi oración es que la distancia nunca sea un obstáculo para que un pastor reciba las herramientas necesarias para predicar fielmente a Cristo.",
