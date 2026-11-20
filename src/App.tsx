@@ -41,6 +41,8 @@ export default function App() {
         hash === 'proyectos'
       ) {
         setCurrentPage(hash as NavPage);
+      } else if (hash === 'maestria-srl') {
+        setCurrentPage('programas');
       }
     };
     syncFromHash();

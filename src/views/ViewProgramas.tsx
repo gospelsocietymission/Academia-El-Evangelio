@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { Clock, Layers, BookOpen, CheckCircle2, MessageCircle, ChevronRight, Eye, HeartHandshake, UserCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Clock, Layers, BookOpen, CheckCircle2, MessageCircle, ChevronRight, Eye, HeartHandshake, UserCheck, GraduationCap, Info } from 'lucide-react';
 import { ACADEMIC_PROGRAMS, PROGRAMAS_PAGE_DATA, buildWhatsAppUrl } from '../data/academyData';
 import { AcademicProgram, EnrollmentSubmission } from '../types';
 import { ProgramModal } from '../components/ProgramModal';
 import { SampleBookletModal } from '../components/SampleBookletModal';
+import { SrlMaetModal } from '../components/SrlMaetModal';
+import srlLogoBlanco from '../assets/images/srl_logo_blanco.svg';
 
 interface ViewProgramasProps {
   onOpenEnrollment: () => void;
@@ -17,6 +19,24 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
   const [selectedProgram, setSelectedProgram] = useState<AcademicProgram | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
+  const [isSrlModalOpen, setIsSrlModalOpen] = useState(() => window.location.hash === '#maestria-srl');
+
+  useEffect(() => {
+    const onHashChange = () => {
+      if (window.location.hash === '#maestria-srl') {
+        setIsSrlModalOpen(true);
+      }
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  const handleCloseSrlModal = () => {
+    setIsSrlModalOpen(false);
+    if (window.location.hash === '#maestria-srl') {
+      window.history.replaceState(null, '', '#programas');
+    }
+  };
 
   const handleOpenProgram = (prog: AcademicProgram) => {
     setSelectedProgram(prog);
@@ -42,6 +62,66 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Los programas en teología que ofrece la Academia Bíblica El Evangelio entrenan a los estudiantes con un <strong>10% teoría y 90% práctica</strong>, distintivo que nos hace fuertes y diferentes a los seminarios e institutos convencionales.
           </p>
+        </div>
+
+        {/* Recomendación de Estudios: Maestría SRL */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 rounded-2xl p-6 sm:p-10 border border-amber-500/40 shadow-2xl space-y-6">
+          <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+              <GraduationCap className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest block">
+                Recomendación de Estudios · Posgrado
+              </span>
+              <h2 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                La Academia Bíblica El Evangelio recomienda el programa de Maestría de SRL
+              </h2>
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 bg-slate-950/80 border border-slate-800 rounded-2xl p-5 sm:p-7">
+            <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+              <div className="px-5 py-3.5 rounded-xl bg-slate-900 border border-slate-800 shrink-0">
+                <img
+                  src={srlLogoBlanco}
+                  alt="Seminario Reformado Latinoamericano (SRL)"
+                  className="h-14 sm:h-16 w-auto object-contain"
+                />
+              </div>
+              <div className="space-y-1">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-amber-400 block">
+                  Programa Recomendado
+                </span>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                  Maestría en Artes en Consejería Bíblica
+                </h3>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto shrink-0">
+              <button
+                type="button"
+                onClick={() => setIsSrlModalOpen(true)}
+                className="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer"
+              >
+                <Info className="w-4 h-4 shrink-0" />
+                <span>Detalles (Requisitos, Admisión, Costos y Plan)</span>
+              </button>
+
+              <a
+                href={buildWhatsAppUrl(
+                  'Hola, deseo contactar a la Academia Bíblica El Evangelio para orientación sobre la recomendación del programa de Maestría en Artes en Consejería Bíblica de SRL.'
+                )}
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all"
+              >
+                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                <span>Contáctenos</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* 1. Nuestro Método de Estudio por Correspondencia */}
@@ -286,6 +366,12 @@ export const ViewProgramas: React.FC<ViewProgramasProps> = ({
         isOpen={isSampleModalOpen}
         onClose={() => setIsSampleModalOpen(false)}
         onEnrollClick={onOpenEnrollment}
+      />
+
+      {/* SRL MAET Recommendation Details Modal */}
+      <SrlMaetModal
+        isOpen={isSrlModalOpen}
+        onClose={handleCloseSrlModal}
       />
     </div>
   );
