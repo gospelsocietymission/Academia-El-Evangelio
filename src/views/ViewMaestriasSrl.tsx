@@ -22,7 +22,6 @@ interface ViewMaestriasSrlProps {
 }
 
 type MasterKey = 'macb' | 'maet';
-type DetailTab = 'plan' | 'requisitos' | 'admision' | 'costos';
 
 interface StudyPlanCourse {
   area: 'Área Exegética' | 'Área Sistemática' | 'Área Histórica' | 'Área Práctica';
@@ -178,7 +177,6 @@ ${SHARE_URL}`;
 
 export const ViewMaestriasSrl: React.FC<ViewMaestriasSrlProps> = ({ onBackToProgramas }) => {
   const [selectedMasterKey, setSelectedMasterKey] = useState<MasterKey>('macb');
-  const [activeTab, setActiveTab] = useState<DetailTab>('plan');
   const [copied, setCopied] = useState(false);
 
   const selectedMaster = SRL_MASTERS[selectedMasterKey];
@@ -188,6 +186,13 @@ export const ViewMaestriasSrl: React.FC<ViewMaestriasSrlProps> = ({ onBackToProg
     const detailEl = document.getElementById('detalle-maestria-srl');
     if (detailEl) {
       detailEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -385,11 +390,11 @@ export const ViewMaestriasSrl: React.FC<ViewMaestriasSrlProps> = ({ onBackToProg
               </div>
 
               {/* Quick Program Switcher */}
-              <div className="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-800 self-start">
+              <div className="grid grid-cols-1 sm:inline-flex gap-1 p-1 rounded-xl bg-slate-900 border border-slate-800 w-full lg:w-auto self-start">
                 <button
                   type="button"
                   onClick={() => setSelectedMasterKey('macb')}
-                  className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-3.5 py-2.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer text-center ${
                     selectedMasterKey === 'macb'
                       ? 'bg-amber-500 text-slate-950 shadow'
                       : 'text-slate-300 hover:text-white'
@@ -400,7 +405,7 @@ export const ViewMaestriasSrl: React.FC<ViewMaestriasSrlProps> = ({ onBackToProg
                 <button
                   type="button"
                   onClick={() => setSelectedMasterKey('maet')}
-                  className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  className={`px-3.5 py-2.5 sm:py-2 rounded-lg text-xs font-bold transition-all cursor-pointer text-center ${
                     selectedMasterKey === 'maet'
                       ? 'bg-amber-500 text-slate-950 shadow'
                       : 'text-slate-300 hover:text-white'
@@ -411,265 +416,245 @@ export const ViewMaestriasSrl: React.FC<ViewMaestriasSrlProps> = ({ onBackToProg
               </div>
             </div>
 
-            {/* Section Tabs */}
-            <div className="flex items-center gap-1 border-t border-slate-800/80 pt-3 overflow-x-auto">
+            {/* Responsive Quick-Jump Links (No Horizontal Overflow on Mobile) */}
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 border-t border-slate-800/80 pt-4">
               <button
                 type="button"
-                onClick={() => setActiveTab('plan')}
-                className={`py-2.5 px-4 text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer border-b-2 inline-flex items-center gap-1.5 ${
-                  activeTab === 'plan'
-                    ? 'border-amber-400 text-amber-300'
-                    : 'border-transparent text-slate-400 hover:text-slate-200'
-                }`}
+                onClick={() => scrollToSection('srl-plan')}
+                className="py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-amber-300 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer inline-flex items-center justify-center gap-1.5"
               >
-                <BookOpen className="w-3.5 h-3.5" />
+                <BookOpen className="w-3.5 h-3.5 shrink-0" />
                 <span>Plan de Estudio</span>
               </button>
               <button
                 type="button"
-                onClick={() => setActiveTab('costos')}
-                className={`py-2.5 px-4 text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer border-b-2 inline-flex items-center gap-1.5 ${
-                  activeTab === 'costos'
-                    ? 'border-amber-400 text-amber-300'
-                    : 'border-transparent text-slate-400 hover:text-slate-200'
-                }`}
+                onClick={() => scrollToSection('srl-costos')}
+                className="py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-amber-300 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer inline-flex items-center justify-center gap-1.5"
               >
-                <DollarSign className="w-3.5 h-3.5" />
+                <DollarSign className="w-3.5 h-3.5 shrink-0" />
                 <span>Costos</span>
               </button>
               <button
                 type="button"
-                onClick={() => setActiveTab('requisitos')}
-                className={`py-2.5 px-4 text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer border-b-2 inline-flex items-center gap-1.5 ${
-                  activeTab === 'requisitos'
-                    ? 'border-amber-400 text-amber-300'
-                    : 'border-transparent text-slate-400 hover:text-slate-200'
-                }`}
+                onClick={() => scrollToSection('srl-requisitos')}
+                className="py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-amber-300 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer inline-flex items-center justify-center gap-1.5"
               >
-                <FileCheck2 className="w-3.5 h-3.5" />
+                <FileCheck2 className="w-3.5 h-3.5 shrink-0" />
                 <span>Requisitos</span>
               </button>
               <button
                 type="button"
-                onClick={() => setActiveTab('admision')}
-                className={`py-2.5 px-4 text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap cursor-pointer border-b-2 inline-flex items-center gap-1.5 ${
-                  activeTab === 'admision'
-                    ? 'border-amber-400 text-amber-300'
-                    : 'border-transparent text-slate-400 hover:text-slate-200'
-                }`}
+                onClick={() => scrollToSection('srl-admision')}
+                className="py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-amber-300 text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer inline-flex items-center justify-center gap-1.5"
               >
-                <ClipboardList className="w-3.5 h-3.5" />
+                <ClipboardList className="w-3.5 h-3.5 shrink-0" />
                 <span>Pasos de Admisión</span>
               </button>
             </div>
           </div>
 
-          {/* Tab Content Body */}
-          <div className="p-5 sm:p-8 space-y-6">
-            {activeTab === 'plan' && (
-              <div className="space-y-5">
-                <div className="space-y-2">
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-amber-400 shrink-0" />
-                    <span>Plan de Estudios ({selectedMaster.creditsLabel})</span>
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    {selectedMaster.planIntro}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {(['Área Exegética', 'Área Sistemática', 'Área Histórica', 'Área Práctica'] as const).map((area) => (
-                    <span
-                      key={area}
-                      className="px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] font-bold uppercase tracking-wider"
-                    >
-                      {area}
-                    </span>
-                  ))}
-                </div>
-
-                <div
-                  className={`grid grid-cols-1 md:grid-cols-2 ${
-                    selectedMaster.semesters.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
-                  } gap-4`}
-                >
-                  {selectedMaster.semesters.map((sem) => (
-                    <div
-                      key={sem.semester}
-                      className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3"
-                    >
-                      <div className="pb-2 border-b border-slate-800 flex items-center justify-between">
-                        <h4 className="font-serif font-bold text-amber-400 text-base">
-                          {sem.semester}
-                        </h4>
-                        <span className="text-[11px] text-slate-400 font-medium">
-                          {sem.courses.length} cursos
-                        </span>
-                      </div>
-                      <ul className="space-y-2.5">
-                        {sem.courses.map((item, idx) => (
-                          <li key={idx} className="space-y-0.5 text-xs">
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300/90 block">
-                              {item.area}
-                            </span>
-                            <div className="flex items-start gap-1.5 text-slate-200 font-medium">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                              <span>{item.course}</span>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'costos' && (
-              <div className="space-y-5">
+          {/* All Sections Always Visible */}
+          <div className="p-5 sm:p-8 space-y-10">
+            {/* 1. Plan de Estudios */}
+            <section id="srl-plan" className="space-y-5 scroll-mt-28">
+              <div className="space-y-2">
                 <h3 className="font-serif text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-amber-400 shrink-0" />
-                  <span>Costos, Aranceles y Becas — {selectedMaster.acronym}</span>
+                  <BookOpen className="w-5 h-5 text-amber-400 shrink-0" />
+                  <span>Plan de Estudios ({selectedMaster.creditsLabel})</span>
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  El <strong>Seminario Reformado Latinoamericano (SRL)</strong> maneja los aranceles de su programa en sede semipresencial mediante matrícula e inscripción, los cuales se actualizan en cada convocatoria oficial; consúltanos para este dato.
+                  {selectedMaster.planIntro}
                 </p>
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-5 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-2.5">
-                    <h4 className="font-serif font-bold text-amber-300 text-base">
-                      Costos Oficiales de 2027-2028 ({selectedMaster.shortTitle})
-                    </h4>
-                    <ul className="space-y-2 text-xs sm:text-sm text-slate-200 leading-relaxed">
-                      <li>
-                        <strong>Montos vigentes en dólares estadounidenses (USD).</strong>
-                      </li>
-                      <li>
-                        • <strong>Inscripción:</strong> {selectedMaster.inscriptionCost} <em>(*una vez anual)</em>.
-                      </li>
-                      <li>
-                        • <strong>Cada curso (materia):</strong> {selectedMaster.courseCost}, se recibe una materia cada 7 semanas.
-                      </li>
-                      <li>
-                        • Puedes recibirla <strong>presencial o semipresencial</strong>.
-                      </li>
+              <div className="flex flex-wrap gap-2">
+                {(['Área Exegética', 'Área Sistemática', 'Área Histórica', 'Área Práctica'] as const).map((area) => (
+                  <span
+                    key={area}
+                    className="px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] font-bold uppercase tracking-wider"
+                  >
+                    {area}
+                  </span>
+                ))}
+              </div>
+
+              <div
+                className={`grid grid-cols-1 md:grid-cols-2 ${
+                  selectedMaster.semesters.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
+                } gap-4`}
+              >
+                {selectedMaster.semesters.map((sem) => (
+                  <div
+                    key={sem.semester}
+                    className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3"
+                  >
+                    <div className="pb-2 border-b border-slate-800 flex items-center justify-between">
+                      <h4 className="font-serif font-bold text-amber-400 text-base">
+                        {sem.semester}
+                      </h4>
+                      <span className="text-[11px] text-slate-400 font-medium">
+                        {sem.courses.length} cursos
+                      </span>
+                    </div>
+                    <ul className="space-y-2.5">
+                      {sem.courses.map((item, idx) => (
+                        <li key={idx} className="space-y-0.5 text-xs">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300/90 block">
+                            {item.area}
+                          </span>
+                          <div className="flex items-start gap-1.5 text-slate-200 font-medium">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                            <span>{item.course}</span>
+                          </div>
+                        </li>
+                      ))}
                     </ul>
                   </div>
-
-                  <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-2.5">
-                    <h4 className="font-serif font-bold text-amber-300 text-base">
-                      Sistema de Becas y Subsidios
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      El SRL cuenta con políticas de becas y subsidios institucionales diseñadas para facilitar el acceso a la formación teológica reformada de posgrado en toda América Latina. Escríbenos para orientarte sobre la mejor opción según tus metas ministeriales.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
-            )}
+            </section>
 
-            {activeTab === 'requisitos' && (
-              <div className="space-y-5">
-                <div className="space-y-3">
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-                    <FileCheck2 className="w-5 h-5 text-amber-400 shrink-0" />
-                    <span>Requisitos de Admisión — {selectedMaster.shortTitle}</span>
-                  </h3>
+            {/* 2. Costos */}
+            <section id="srl-costos" className="space-y-5 pt-8 border-t border-slate-800 scroll-mt-28">
+              <h3 className="font-serif text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <DollarSign className="w-5 h-5 text-amber-400 shrink-0" />
+                <span>Costos, Aranceles y Becas — {selectedMaster.acronym}</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                El <strong>Seminario Reformado Latinoamericano (SRL)</strong> maneja los aranceles de su programa en sede semipresencial mediante matrícula e inscripción, los cuales se actualizan en cada convocatoria oficial; consúltanos para este dato.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-5 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-2.5">
+                  <h4 className="font-serif font-bold text-amber-300 text-base">
+                    Costos Oficiales de 2027-2028 ({selectedMaster.shortTitle})
+                  </h4>
+                  <ul className="space-y-2 text-xs sm:text-sm text-slate-200 leading-relaxed">
+                    <li>
+                      <strong>Montos vigentes en dólares estadounidenses (USD).</strong>
+                    </li>
+                    <li>
+                      • <strong>Inscripción:</strong> {selectedMaster.inscriptionCost} <em>(*una vez anual)</em>.
+                    </li>
+                    <li>
+                      • <strong>Cada curso (materia):</strong> {selectedMaster.courseCost}, se recibe una materia cada 7 semanas.
+                    </li>
+                    <li>
+                      • Puedes recibirla <strong>presencial o semipresencial</strong>.
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-2.5">
+                  <h4 className="font-serif font-bold text-amber-300 text-base">
+                    Sistema de Becas y Subsidios
+                  </h4>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    De acuerdo con los lineamientos del Seminario Reformado Latinoamericano (SRL) para la sede semipresencial de posgrado, el aspirante debe reunir los siguientes requisitos:
-                  </p>
-                  <ul className="space-y-2.5 text-xs sm:text-sm text-slate-200 pt-1">
-                    <li className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                      <span>
-                        <strong>Título universitario previo:</strong> Adjuntar el diploma o título de grado universitario (licenciatura o pregrado), además del diploma o certificado del último grado escolar previo (en PDF).
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                      <span>
-                        <strong>Documento de identidad:</strong> Copia vigente de cédula, DNI o pasaporte (en formato PDF).
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                      <span>
-                        <strong>Carta de recomendación pastoral:</strong> Aval formal emitido por el pastor o liderazgo de la iglesia local donde se congrega, dando testimonio de su vida cristiana y servicio eclesiástico.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                      <span>
-                        <strong>Resumen teológico:</strong> Escrito argumentativo redactado por el aspirante (entre 250 y 300 palabras) sobre un tema teológico.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                      <span>
-                        <strong>Convicción y perfil espiritual:</strong> Convicciones firmes en las verdades del Evangelio, interés genuino en las Escrituras y disposición de servicio a la iglesia local.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-400 block">
-                    Objetivos Destacados del Programa
-                  </span>
-                  <ul className="space-y-1.5 text-xs text-slate-300">
-                    {selectedMaster.objectives.map((obj, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{obj}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200 flex items-start gap-2.5">
-                  <Award className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                  <p className="leading-relaxed">
-                    <strong>Acreditación y naturaleza del título:</strong> El SRL está registrado como institución religiosa en Florida bajo el Estatuto 1005.06 (1) (f) y es miembro de la <em>Association of Reformed Theological Seminaries</em>; sus grados son de carácter eclesiástico/religioso.
+                    El SRL cuenta con políticas de becas y subsidios institucionales diseñadas para facilitar el acceso a la formación teológica reformada de posgrado en toda América Latina. Escríbenos para orientarte sobre la mejor opción según tus metas ministeriales.
                   </p>
                 </div>
               </div>
-            )}
+            </section>
 
-            {activeTab === 'admision' && (
-              <div className="space-y-5">
+            {/* 3. Requisitos de Admisión */}
+            <section id="srl-requisitos" className="space-y-5 pt-8 border-t border-slate-800 scroll-mt-28">
+              <div className="space-y-3">
                 <h3 className="font-serif text-lg sm:text-xl font-bold text-white flex items-center gap-2">
-                  <ClipboardList className="w-5 h-5 text-amber-400 shrink-0" />
-                  <span>Pasos de Admisión — {selectedMaster.shortTitle}</span>
+                  <FileCheck2 className="w-5 h-5 text-amber-400 shrink-0" />
+                  <span>Requisitos de Admisión — {selectedMaster.shortTitle}</span>
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                    <span className="font-serif font-bold text-amber-400 text-base block">01. Consulta e Información</span>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      Escríbenos a nosotros, te orientamos con mucho gusto.
-                    </p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                    <span className="font-serif font-bold text-amber-400 text-base block">02. Preparación de Documentos</span>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      Reúne en formato PDF tu documento de identidad, diploma escolar, título universitario de pregrado, carta de recomendación pastoral y el resumen teológico de 250–300 palabras.
-                    </p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                    <span className="font-serif font-bold text-amber-400 text-base block">03. Pago de Inscripción</span>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      Te diremos dónde realizar el pago correspondiente al proceso de inscripción a través de los canales autorizados por el SRL en Nicaragua y guarda el comprobante.
-                    </p>
-                  </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                    <span className="font-serif font-bold text-amber-400 text-base block">04. Registro en Línea</span>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                      Completa el formulario oficial de inscripción seleccionando por SRL en la sede semipresencial — {selectedMaster.title}, adjunta los documentos requeridos y acepta las normativas estudiantiles.
-                    </p>
-                  </div>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  De acuerdo con los lineamientos del Seminario Reformado Latinoamericano (SRL) para la sede semipresencial de posgrado, el aspirante debe reunir los siguientes requisitos:
+                </p>
+                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-200 pt-1">
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                    <span>
+                      <strong>Título universitario previo:</strong> Adjuntar el diploma o título de grado universitario (licenciatura o pregrado), además del diploma o certificado del último grado escolar previo (en PDF).
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                    <span>
+                      <strong>Documento de identidad:</strong> Copia vigente de cédula, DNI o pasaporte (en formato PDF).
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                    <span>
+                      <strong>Carta de recomendación pastoral:</strong> Aval formal emitido por el pastor o liderazgo de la iglesia local donde se congrega, dando testimonio de su vida cristiana y servicio eclesiástico.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                    <span>
+                      <strong>Resumen teológico:</strong> Escrito argumentativo redactado por el aspirante (entre 250 y 300 palabras) sobre un tema teológico.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                    <span>
+                      <strong>Convicción y perfil espiritual:</strong> Convicciones firmes en las verdades del Evangelio, interés genuino en las Escrituras y disposición de servicio a la iglesia local.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400 block">
+                  Objetivos Destacados del Programa
+                </span>
+                <ul className="space-y-1.5 text-xs text-slate-300">
+                  {selectedMaster.objectives.map((obj, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>{obj}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200 flex items-start gap-2.5">
+                <Award className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <p className="leading-relaxed">
+                  <strong>Acreditación y naturaleza del título:</strong> El SRL está registrado como institución religiosa en Florida bajo el Estatuto 1005.06 (1) (f) y es miembro de la <em>Association of Reformed Theological Seminaries</em>; sus grados son de carácter eclesiástico/religioso.
+                </p>
+              </div>
+            </section>
+
+            {/* 4. Pasos de Admisión */}
+            <section id="srl-admision" className="space-y-5 pt-8 border-t border-slate-800 scroll-mt-28">
+              <h3 className="font-serif text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                <ClipboardList className="w-5 h-5 text-amber-400 shrink-0" />
+                <span>Pasos de Admisión — {selectedMaster.shortTitle}</span>
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                  <span className="font-serif font-bold text-amber-400 text-base block">01. Consulta e Información</span>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Escríbenos a nosotros, te orientamos con mucho gusto.
+                  </p>
+                </div>
+                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                  <span className="font-serif font-bold text-amber-400 text-base block">02. Preparación de Documentos</span>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Reúne en formato PDF tu documento de identidad, diploma escolar, título universitario de pregrado, carta de recomendación pastoral y el resumen teológico de 250–300 palabras.
+                  </p>
+                </div>
+                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                  <span className="font-serif font-bold text-amber-400 text-base block">03. Pago de Inscripción</span>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Te diremos dónde realizar el pago correspondiente al proceso de inscripción a través de los canales autorizados por el SRL en Nicaragua y guarda el comprobante.
+                  </p>
+                </div>
+                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                  <span className="font-serif font-bold text-amber-400 text-base block">04. Registro en Línea</span>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    Completa el formulario oficial de inscripción seleccionando por SRL en la sede semipresencial — {selectedMaster.title}, adjunta los documentos requeridos y acepta las normativas estudiantiles.
+                  </p>
                 </div>
               </div>
-            )}
+            </section>
           </div>
 
           {/* Footer CTA inside Detail Card */}
