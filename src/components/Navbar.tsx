@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, Menu, X, GraduationCap, ChevronRight, MessageCircle, Heart } from 'lucide-react';
 import { INSTITUTION_INFO, buildWhatsAppUrl } from '../data/academyData';
 
-export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'facultad' | 'aliados' | 'acuerdo' | 'proyectos';
+export type NavPage = 'inicio' | 'programas' | 'quienes-somos' | 'facultad' | 'aliados' | 'acuerdo' | 'proyectos' | 'maestrias-srl';
 
 interface NavbarProps {
   currentPage: NavPage;

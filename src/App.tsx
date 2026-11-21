@@ -7,6 +7,7 @@ import { ViewFacultad } from './views/ViewFacultad';
 import { ViewAliados } from './views/ViewAliados';
 import { ViewAcuerdoEntendimiento } from './views/ViewAcuerdoEntendimiento';
 import { ViewProyectos } from './views/ViewProyectos';
+import { ViewMaestriasSrl } from './views/ViewMaestriasSrl';
 import { EnrollmentModal } from './components/EnrollmentModal';
 import { ConferenceRegisterModal } from './components/ConferenceRegisterModal';
 import { PastConferencesModal } from './components/PastConferencesModal';
@@ -38,11 +39,12 @@ export default function App() {
         hash === 'facultad' ||
         hash === 'aliados' ||
         hash === 'acuerdo' ||
-        hash === 'proyectos'
+        hash === 'proyectos' ||
+        hash === 'maestrias-srl'
       ) {
         setCurrentPage(hash as NavPage);
       } else if (hash === 'maestria-srl') {
-        setCurrentPage('programas');
+        setCurrentPage('maestrias-srl');
       }
     };
     syncFromHash();
@@ -97,6 +99,7 @@ export default function App() {
           <ViewProgramas
             onOpenEnrollment={() => setIsEnrollmentOpen(true)}
             onEnrollmentSubmitted={handleEnrollmentSubmitted}
+            onNavigateToMaestriasSrl={() => handleSelectPage('maestrias-srl')}
           />
         )}
 
@@ -129,6 +132,12 @@ export default function App() {
 
         {currentPage === 'proyectos' && (
           <ViewProyectos />
+        )}
+
+        {currentPage === 'maestrias-srl' && (
+          <ViewMaestriasSrl
+            onBackToProgramas={() => handleSelectPage('programas')}
+          />
         )}
       </main>
 
